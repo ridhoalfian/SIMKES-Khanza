@@ -15,3 +15,13 @@
   Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki
 
   Bagi yang ingin donasi untuk SIMRS Khanza bisa lewat BRI Syariah 1015369872 atas nama Windiarto
+
+  ========================================================
+  +                                                      +
+  +                       PERHATIAN                      + 
+  +      INI ADALAH VERSI RSUD H. DAMANHURI BARABAI      +
+  + ADA TAMBAHAN TABEL DATABASE & MODIFIKASI SOURCE CODE + 
+  +                                                      +
+  +                 USE AT YOUR OWN RISK                 +
+  +                                                      +
+  ========================================================
