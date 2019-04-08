@@ -7189,7 +7189,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(347, 23));
+        jLabel7.setPreferredSize(new java.awt.Dimension(540, 23));
         internalFrame4.add(jLabel7);
 
         getContentPane().add(internalFrame4, java.awt.BorderLayout.PAGE_END);
