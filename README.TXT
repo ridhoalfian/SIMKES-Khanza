@@ -16,17 +16,17 @@
   2. Sudah banyak rumah sakit yang lulus akreditasi, memakai SIMRS Khanza
   3. Fitur-fitur lengkap, mencakup semua proses bisnis rumah sakit / klinik
   4. Gratis dan open source, bahkan tim IT rumah sakit bisa mengembangkan sendiri jika ada fitur yang dirasa kurang sesuai
-  5. Aplikasi dibuat menggunakan teknologi hybrid Java, PHP, CSS dan HTML. 
-  6. Berbasiskan open source dengan tanpa biaya lisensi database dan tanpa batasan system operasi (bisa berjalan baik di Windows, Linux, Mac).
+  5. Aplikasi dibuat menggunakan teknologi hybrid Java, PHP, CSS dan HTML 
+  6. Berbasiskan open source dengan tanpa biaya lisensi database dan tanpa batasan system operasi
   7. Sudah bisa Bridging dengan sistem lain (BPJS, INACBGs)
   8. Branchwise Enabled, mendukung multi site / multicabang dan lokasi
   9. Tampilan program yang simpel dan mudah di gunakan
   10. ICD Support, tersedia ICD 9 dan 10
   11. Exportable, semua laporan dapat di ekspor ke Microsoft Excell
-  12. Memungkinkan penggunaan secara Multi User dan Multi Tasking, dapat dipakai secara bersamaan dan berbagai tugas tanpa 12. menimbulkan interupsi data
-  13. Aman, menggunakan metodologi role user untuk pemberian hak akses pada setiap user/pemakai guna menghindari penyalahgunaan aplikasi dan manipulasi data
-  14. Dukungan oleh owner (Bapak Windiarto Nugroho S.Kom), yang telah berpengalaman dalam implementasi di berbagai tipe rumah sakit dan klinik di seluruh Indonesia
-  15. Dukungan 24 jam oleh komunitas pengguna SIMRS Khanza seluruh Indonesia.
+  12. Memungkinkan penggunaan secara Multi User dan Multi Tasking, tanpa menimbulkan interupsi data
+  13. Aman, menggunakan metodologi role user untuk pemberian hak akses pada setiap user/pemakai
+  14. Dukungan oleh owner (Bapak Windiarto Nugroho S.Kom) dalam implementasi di berbagai tipe rumah sakit seluruh Indonesia
+  15. Dukungan 24 jam oleh komunitas pengguna SIMRS Khanza seluruh Indonesia 
 
   Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License
 
