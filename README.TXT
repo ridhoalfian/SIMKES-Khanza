@@ -10,7 +10,7 @@
   Ya Alloh maafkan kami karena telah berdoa buruk, semua ini kami lakukan
   karena kami tidak pernah rela karya kami dibajak tanpa ijin.
 
-  ## Fitur SIMRS Khanza:
+  Fitur-Fitur
 
   1. Telah dipakai oleh ratusan rumah sakit dan klinik di seluruh Indonesia
   2. Sudah banyak rumah sakit yang lulus akreditasi, memakai SIMRS Khanza
