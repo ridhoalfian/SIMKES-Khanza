@@ -28,7 +28,6 @@
   14. Dukungan oleh owner (Bapak Windiarto Nugroho S.Kom), yang telah berpengalaman dalam implementasi di berbagai tipe rumah sakit dan klinik di seluruh Indonesia
   15. Dukungan 24 jam oleh komunitas pengguna SIMRS Khanza seluruh Indonesia.
 
-
   Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License
 
   Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki
