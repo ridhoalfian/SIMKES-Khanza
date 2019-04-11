@@ -40,7 +40,7 @@ public final class koneksiDB {
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
                         "   PROUDLY POWERED BY Instalasi ICT RSUD H. Damanhuri - Barabai                  \n"+
-                        "   Version 07.04.19 [Activated]                                   \n\n"+
+                        "   Version 07.04.2019 [Activated]                                   \n\n"+
                         "                                                                           \n"+
                         "                                                                           ");
             }catch(Exception e){
