@@ -25,7 +25,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import javax.swing.JButton;
@@ -43,13 +42,8 @@ import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
 import jxl.write.WriteException;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JRDesignQuery;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import uz.ncipro.calendar.JDateTimePicker;
 /**
@@ -58,7 +52,7 @@ import uz.ncipro.calendar.JDateTimePicker;
  */
 public final class validasi {
     private int a,j,i,result=0;
-    private String s,s1,auto,PEMBULATANHARGAOBAT="";
+    private String s,s1,auto,PEMBULATANHARGAOBAT=koneksiDB.PEMBULATANHARGAOBAT();
     private final Connection connect=koneksiDB.condb();
     private final sekuel sek=new sekuel();
     private final java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
@@ -76,12 +70,6 @@ public final class validasi {
     
     public validasi(){
         super();
-        try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
-            PEMBULATANHARGAOBAT=prop.getProperty("PEMBULATANHARGAOBAT");
-        }catch(Exception e){
-            PEMBULATANHARGAOBAT="no"; 
-        }
     };
 
     public void autoNomer(DefaultTableModel tabMode,String strAwal,Integer pnj,javax.swing.JTextField teks){        
@@ -852,14 +840,14 @@ public final class validasi {
             Properties prop = new Properties();
             prop.loadFromXML(new FileInputStream("setting/database.xml"));
             if(os.contains("win")) {
-                rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+url);
+                rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://"+koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+url);
             }else if (os.contains("mac")) {
-                rt.exec( "open " + "http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+url);
+                rt.exec( "open " + "http://"+koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/"+url);
             }else if (os.contains("nix") || os.contains("nux")) {
                 String[] browsers = {"x-www-browser","epiphany", "firefox", "mozilla", "konqueror","chrome","chromium","netscape","opera","links","lynx","midori"};
                 // Build a command string which looks like "browser1 "url" || browser2 "url" ||..."
                 StringBuilder cmd = new StringBuilder();
-                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")).append("/").append(prop.getProperty("HYBRIDWEB")).append("/").append(url).append( "\" ");
+                for(i=0; i<browsers.length; i++) cmd.append(i==0  ? "" : " || ").append(browsers[i]).append(" \"").append("http://").append(koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")).append("/").append(prop.getProperty("HYBRIDWEB")).append("/").append(url).append( "\" ");
                 rt.exec(new String[] { "sh", "-c", cmd.toString() });
             } 
         }catch (Exception e){
@@ -893,7 +881,7 @@ public final class validasi {
         try{
            Properties prop = new Properties();
            prop.loadFromXML(new FileInputStream("setting/database.xml"));            
-           desktop.print(new File(new java.net.URI("http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+url)));  
+           desktop.print(new File(new java.net.URI("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+url)));  
         }catch (Exception e) {
            System.out.println(e);
         }
