@@ -13,7 +13,7 @@ import grafikanalisa.grafikproses;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -21,7 +21,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -47,8 +46,6 @@ public class DlgIKBBayi extends javax.swing.JDialog {
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
     private Date lahir;
-    private PreparedStatement ps;
-    private ResultSet rs;
     private LocalDate today=LocalDate.now();
     private LocalDate birthday;
     private Period p;
@@ -169,7 +166,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         BPJSBayi.setDocument(new batasInput((byte)40).getKata(BPJSBayi));
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -421,6 +418,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikjkbayi.setText("Grafik Jns.Kelamin Bayi");
         ppGrafikjkbayi.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikjkbayi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikjkbayi.setIconTextGap(5);
         ppGrafikjkbayi.setName("ppGrafikjkbayi"); // NOI18N
         ppGrafikjkbayi.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikjkbayi.addActionListener(new java.awt.event.ActionListener() {
@@ -435,6 +433,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         jMenu1.setText("Grafik Berat Bayi");
         jMenu1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu1.setIconTextGap(5);
         jMenu1.setName("jMenu1"); // NOI18N
         jMenu1.setPreferredSize(new java.awt.Dimension(180, 30));
 
@@ -445,6 +444,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikberat.setText("Keseluruhan");
         ppGrafikberat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikberat.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikberat.setIconTextGap(5);
         ppGrafikberat.setName("ppGrafikberat"); // NOI18N
         ppGrafikberat.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikberat.addActionListener(new java.awt.event.ActionListener() {
@@ -461,6 +461,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikberatlaki.setText("Laki-Laki");
         ppGrafikberatlaki.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikberatlaki.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikberatlaki.setIconTextGap(5);
         ppGrafikberatlaki.setName("ppGrafikberatlaki"); // NOI18N
         ppGrafikberatlaki.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikberatlaki.addActionListener(new java.awt.event.ActionListener() {
@@ -477,6 +478,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikberatwn.setText("Perempuan");
         ppGrafikberatwn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikberatwn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikberatwn.setIconTextGap(5);
         ppGrafikberatwn.setName("ppGrafikberatwn"); // NOI18N
         ppGrafikberatwn.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikberatwn.addActionListener(new java.awt.event.ActionListener() {
@@ -493,6 +495,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         jMenu2.setText("Grafik Panjang Bayi");
         jMenu2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu2.setIconTextGap(5);
         jMenu2.setName("jMenu2"); // NOI18N
         jMenu2.setPreferredSize(new java.awt.Dimension(180, 30));
 
@@ -503,6 +506,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikpanjang.setText("Keseluruhan");
         ppGrafikpanjang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikpanjang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikpanjang.setIconTextGap(5);
         ppGrafikpanjang.setName("ppGrafikpanjang"); // NOI18N
         ppGrafikpanjang.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikpanjang.addActionListener(new java.awt.event.ActionListener() {
@@ -519,6 +523,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikpanjanglaki.setText("Laki-Laki");
         ppGrafikpanjanglaki.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikpanjanglaki.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikpanjanglaki.setIconTextGap(5);
         ppGrafikpanjanglaki.setName("ppGrafikpanjanglaki"); // NOI18N
         ppGrafikpanjanglaki.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikpanjanglaki.addActionListener(new java.awt.event.ActionListener() {
@@ -535,6 +540,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikpanjangwn.setText("Perempuan");
         ppGrafikpanjangwn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikpanjangwn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikpanjangwn.setIconTextGap(5);
         ppGrafikpanjangwn.setName("ppGrafikpanjangwn"); // NOI18N
         ppGrafikpanjangwn.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikpanjangwn.addActionListener(new java.awt.event.ActionListener() {
@@ -552,6 +558,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         jMenu3.setText("Grafik Lahir/Tahun");
         jMenu3.setActionCommand("Grafik Kelahiran Tahunan");
         jMenu3.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu3.setIconTextGap(5);
         jMenu3.setName("jMenu3"); // NOI18N
         jMenu3.setPreferredSize(new java.awt.Dimension(180, 30));
 
@@ -562,6 +569,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafiklahirtahun.setText("Keseluruhan");
         ppGrafiklahirtahun.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafiklahirtahun.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafiklahirtahun.setIconTextGap(5);
         ppGrafiklahirtahun.setName("ppGrafiklahirtahun"); // NOI18N
         ppGrafiklahirtahun.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafiklahirtahun.addActionListener(new java.awt.event.ActionListener() {
@@ -578,6 +586,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafiklahirtahunlaki.setText("Laki-Laki");
         ppGrafiklahirtahunlaki.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafiklahirtahunlaki.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafiklahirtahunlaki.setIconTextGap(5);
         ppGrafiklahirtahunlaki.setName("ppGrafiklahirtahunlaki"); // NOI18N
         ppGrafiklahirtahunlaki.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafiklahirtahunlaki.addActionListener(new java.awt.event.ActionListener() {
@@ -594,6 +603,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafiklahirtahunwn.setText("Perempuan");
         ppGrafiklahirtahunwn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafiklahirtahunwn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafiklahirtahunwn.setIconTextGap(5);
         ppGrafiklahirtahunwn.setName("ppGrafiklahirtahunwn"); // NOI18N
         ppGrafiklahirtahunwn.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafiklahirtahunwn.addActionListener(new java.awt.event.ActionListener() {
@@ -611,6 +621,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         jMenu4.setText("Grafik Lahir/Bulan");
         jMenu4.setActionCommand("Grafik Kelahiran Tahunan");
         jMenu4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu4.setIconTextGap(5);
         jMenu4.setName("jMenu4"); // NOI18N
         jMenu4.setPreferredSize(new java.awt.Dimension(180, 30));
 
@@ -621,6 +632,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafiklahirbulan.setText("Keseluruhan");
         ppGrafiklahirbulan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafiklahirbulan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafiklahirbulan.setIconTextGap(5);
         ppGrafiklahirbulan.setName("ppGrafiklahirbulan"); // NOI18N
         ppGrafiklahirbulan.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafiklahirbulan.addActionListener(new java.awt.event.ActionListener() {
@@ -637,6 +649,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafiklahirbulanlaki.setText("Laki-Laki");
         ppGrafiklahirbulanlaki.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafiklahirbulanlaki.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafiklahirbulanlaki.setIconTextGap(5);
         ppGrafiklahirbulanlaki.setName("ppGrafiklahirbulanlaki"); // NOI18N
         ppGrafiklahirbulanlaki.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafiklahirbulanlaki.addActionListener(new java.awt.event.ActionListener() {
@@ -653,6 +666,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafiklahirbulanwn.setText("Perempuan");
         ppGrafiklahirbulanwn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafiklahirbulanwn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafiklahirbulanwn.setIconTextGap(5);
         ppGrafiklahirbulanwn.setName("ppGrafiklahirbulanwn"); // NOI18N
         ppGrafiklahirbulanwn.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafiklahirbulanwn.addActionListener(new java.awt.event.ActionListener() {
@@ -670,6 +684,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         jMenu5.setText("Grafik Proses Lahir");
         jMenu5.setActionCommand("Grafik Kelahiran Tahunan");
         jMenu5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu5.setIconTextGap(5);
         jMenu5.setName("jMenu5"); // NOI18N
         jMenu5.setPreferredSize(new java.awt.Dimension(180, 30));
 
@@ -680,6 +695,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikproseslahir.setText("Keseluruhan");
         ppGrafikproseslahir.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikproseslahir.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikproseslahir.setIconTextGap(5);
         ppGrafikproseslahir.setName("ppGrafikproseslahir"); // NOI18N
         ppGrafikproseslahir.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikproseslahir.addActionListener(new java.awt.event.ActionListener() {
@@ -696,6 +712,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikproseslahirlaki.setText("Laki-Laki");
         ppGrafikproseslahirlaki.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikproseslahirlaki.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikproseslahirlaki.setIconTextGap(5);
         ppGrafikproseslahirlaki.setName("ppGrafikproseslahirlaki"); // NOI18N
         ppGrafikproseslahirlaki.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikproseslahirlaki.addActionListener(new java.awt.event.ActionListener() {
@@ -712,6 +729,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         ppGrafikproseslahirwn.setText("Perempuan");
         ppGrafikproseslahirwn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikproseslahirwn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikproseslahirwn.setIconTextGap(5);
         ppGrafikproseslahirwn.setName("ppGrafikproseslahirwn"); // NOI18N
         ppGrafikproseslahirwn.setPreferredSize(new java.awt.Dimension(180, 30));
         ppGrafikproseslahirwn.addActionListener(new java.awt.event.ActionListener() {
@@ -728,6 +746,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnKartu.setForeground(new java.awt.Color(70, 70, 70));
         MnKartu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnKartu.setText("Kartu Berobat");
+        MnKartu.setIconTextGap(5);
         MnKartu.setName("MnKartu"); // NOI18N
         MnKartu.setPreferredSize(new java.awt.Dimension(250, 25));
         MnKartu.addActionListener(new java.awt.event.ActionListener() {
@@ -742,6 +761,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnInformasiBayi.setForeground(new java.awt.Color(70, 70, 70));
         MnInformasiBayi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnInformasiBayi.setText("Label Informasi Bayi");
+        MnInformasiBayi.setIconTextGap(5);
         MnInformasiBayi.setName("MnInformasiBayi"); // NOI18N
         MnInformasiBayi.setPreferredSize(new java.awt.Dimension(250, 28));
         MnInformasiBayi.addActionListener(new java.awt.event.ActionListener() {
@@ -756,6 +776,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnSKL.setForeground(new java.awt.Color(70, 70, 70));
         MnSKL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnSKL.setText("Surat Keterangan Lahir 1");
+        MnSKL.setIconTextGap(5);
         MnSKL.setName("MnSKL"); // NOI18N
         MnSKL.setPreferredSize(new java.awt.Dimension(250, 28));
         MnSKL.addActionListener(new java.awt.event.ActionListener() {
@@ -770,6 +791,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnSKL1.setForeground(new java.awt.Color(70, 70, 70));
         MnSKL1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnSKL1.setText("Surat Keterangan Lahir 2");
+        MnSKL1.setIconTextGap(5);
         MnSKL1.setName("MnSKL1"); // NOI18N
         MnSKL1.setPreferredSize(new java.awt.Dimension(250, 28));
         MnSKL1.addActionListener(new java.awt.event.ActionListener() {
@@ -784,6 +806,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
         MnSKL2.setForeground(new java.awt.Color(70, 70, 70));
         MnSKL2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnSKL2.setText("Surat Keterangan Lahir 3");
+        MnSKL2.setIconTextGap(5);
         MnSKL2.setName("MnSKL2"); // NOI18N
         MnSKL2.setPreferredSize(new java.awt.Dimension(250, 28));
         MnSKL2.addActionListener(new java.awt.event.ActionListener() {
@@ -2216,12 +2239,12 @@ public class DlgIKBBayi extends javax.swing.JDialog {
             
             
             Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
 
             String sql="select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
@@ -2248,7 +2271,7 @@ public class DlgIKBBayi extends javax.swing.JDialog {
                    "or "+jkelcari+tglcari+" pasien_bayi.proses_lahir like '%"+TCari.getText().trim()+"%' "+
                    "or "+jkelcari+tglcari+" pasien_bayi.penyulit_kehamilan like '%"+TCari.getText().trim()+"%' "+
                    "or "+jkelcari+tglcari+" pasien_bayi.ketuban like '%"+TCari.getText().trim()+"%'  order by pasien.no_rkm_medis desc";               
-                Valid.MyReportqry("rptPasienbayi.jasper","report","::[ Data Bayi ]::",sql,param);            
+                Valid.MyReport("rptPasienbayi.jrxml","report","::[ Data Bayi ]::",sql,param);            
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
@@ -2767,6 +2790,7 @@ private void BtnEditActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "',nm_pasien='"+NmBayi.getText()+
                     "',jk='"+JKel.getSelectedItem().toString().substring(0,1)+
                     "',tgl_lahir='"+Valid.SetTgl(Lahir.getSelectedItem()+"")+
+                    "',alamat='"+AlamatIbu.getText()+
                     "',tgl_daftar='"+Valid.SetTgl(Daftar.getSelectedItem()+"")+
                     "',umur='"+UmurBayi.getText()+
                     "',nm_ibu='"+Nmibu.getText()+
@@ -2848,17 +2872,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu data pasien yang mau pulang dengan menklik data pada table...!!!");
             tbDokter.requestFocus();
         }else{
-            Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());  
-            Valid.MyReportqry("rptKartuBerobat.jasper","report","::[ Kartu Periksa Pasien ]::","select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
+            Valid.MyReport("rptKartuBerobat.jrxml","report","::[ Kartu Periksa Pasien ]::","select pasien.no_rkm_medis, pasien.nm_pasien, pasien.no_ktp, pasien.jk, "+
                    "pasien.tmp_lahir, pasien.tgl_lahir, pasien.alamat, pasien.gol_darah, pasien.pekerjaan,"+
                    "pasien.stts_nikah,pasien.agama,pasien.tgl_daftar,pasien.no_tlp,pasien.umur,"+
-                   "pasien.pnd, pasien.keluarga, pasien.namakeluarga from pasien where pasien.no_rkm_medis='"+NoRm.getText()+"' ",param);
+                   "pasien.pnd, pasien.keluarga, pasien.namakeluarga from pasien where pasien.no_rkm_medis='"+NoRm.getText()+"' ");
         }
 }//GEN-LAST:event_MnKartuActionPerformed
 
@@ -2874,14 +2891,14 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
-                Valid.MyReportqry("rptInformasiBayi.jasper","report","::[ Data Informasi Bayi ]::",
+                Valid.MyReport("rptInformasiBayi.jrxml","report","::[ Data Informasi Bayi ]::",
                        "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                        "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
                        "pasien.tgl_daftar,pasien.nm_ibu as namakeluarga,pasien_bayi.umur_ibu, "+
@@ -2902,16 +2919,16 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
                 param.put("nomor",NoSKL.getText());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
                 param.put("logo2",Sequel.cariGambar("select logo from setting")); 
-                Valid.MyReportqry("rptSKL.jasper","report","::[ Surat Kelahiran Bayi ]::",
+                Valid.MyReport("rptSKL.jrxml","report","::[ Surat Kelahiran Bayi ]::",
                        "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                         "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
                         "pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu, "+
@@ -3469,16 +3486,16 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
             param.put("nomor",NoSKL.getText());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());
             param.put("logo",Sequel.cariGambar("select logo from setting"));
             param.put("logo2",Sequel.cariGambar("select logo from setting"));
-            Valid.MyReportqry("rptSKL2.jasper","report","::[ Surat Kelahiran Bayi ]::",
+            Valid.MyReport("rptSKL2.jrxml","report","::[ Surat Kelahiran Bayi ]::",
                 "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                 "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
                 "pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,pasien.pekerjaanpj, "+
@@ -3507,16 +3524,16 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             Locale locale = new Locale ("id", "ID"); 
             Locale.setDefault(locale); 
             Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
             param.put("nomor",NoSKL.getText());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());
             param.put("logo",Sequel.cariGambar("select logo from setting"));
             param.put("logo2",Sequel.cariGambar("select logo from setting"));
-            Valid.MyReportqry("rptSKL3.jasper","report","::[ Surat Kelahiran Bayi ]::",
+            Valid.MyReport("rptSKL3.jrxml","report","::[ Surat Kelahiran Bayi ]::",
                 "select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                 "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
                 "pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu,pasien.pekerjaanpj, "+
@@ -3737,9 +3754,7 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                 tglcari=" pasien.tgl_lahir between '"+Valid.SetTgl(DTPCari1.getSelectedItem()+"")+"' and '"+Valid.SetTgl(DTPCari2.getSelectedItem()+"")+"' and ";
         }        
         
-        Valid.tabelKosong(tabMode);
-        try{
-            ps=koneksi.prepareStatement("select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
+        String sql="select pasien.no_rkm_medis, pasien.nm_pasien, pasien.jk, "+
                    "pasien.tgl_lahir,pasien_bayi.jam_lahir, pasien.umur, "+
                    "pasien.tgl_daftar,pasien.nm_ibu,pasien_bayi.umur_ibu, "+
                    "pasien_bayi.nama_ayah,pasien_bayi.umur_ayah,"+
@@ -3762,31 +3777,43 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
                    "or "+jkelcari+tglcari+" pasien.nm_ibu like '%"+TCari.getText().trim()+"%' "+
                    "or "+jkelcari+tglcari+" pasien_bayi.proses_lahir like '%"+TCari.getText().trim()+"%' "+
                    "or "+jkelcari+tglcari+" pasien_bayi.penyulit_kehamilan like '%"+TCari.getText().trim()+"%' "+
-                   "or "+jkelcari+tglcari+" pasien_bayi.ketuban like '%"+TCari.getText().trim()+"%'  order by pasien.no_rkm_medis desc");
-            try {
-                rs=ps.executeQuery();
-                while(rs.next()){
-                    tabMode.addRow(new Object[]{
-                        rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),
-                        rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8),
-                        rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),
-                        rs.getString(13),rs.getString(14),rs.getString(15),rs.getString(16),
-                        rs.getString(17),rs.getString(18),rs.getString(19),rs.getString(20),
-                        rs.getString(21),rs.getString(22),rs.getString(23),rs.getString(24),
-                        rs.getString(25)
-                    });
-                }
-            } catch (Exception e) {
-                System.out.println("Notif : "+e);
-            } finally{
-                if(rs!=null){
-                    rs.close();
-                }
-                if(ps!=null){
-                    ps.close();
-                }
+                   "or "+jkelcari+tglcari+" pasien_bayi.ketuban like '%"+TCari.getText().trim()+"%'  order by pasien.no_rkm_medis desc";               
+        prosesCari(sql);
+    }
+
+    private void prosesCari(String sql) {
+        Valid.tabelKosong(tabMode);
+        try{
+            java.sql.Statement stat=koneksi.createStatement();
+            ResultSet rs=stat.executeQuery(sql);
+            while(rs.next()){
+                tabMode.addRow(new Object[]{rs.getString(1),
+                               rs.getString(2),
+                               rs.getString(3),
+                               rs.getString(4),
+                               rs.getString(5),
+                               rs.getString(6),
+                               rs.getString(7),
+                               rs.getString(8),
+                               rs.getString(9),
+                               rs.getString(10),
+                               rs.getString(11),
+                               rs.getString(12),
+                               rs.getString(13),
+                               rs.getString(14),
+                               rs.getString(15),
+                               rs.getString(16),
+                               rs.getString(17),
+                               rs.getString(18),
+                               rs.getString(19),
+                               rs.getString(20),
+                               rs.getString(21),
+                               rs.getString(22),
+                               rs.getString(23),
+                               rs.getString(24),
+                               rs.getString(25)});
             }
-        }catch(Exception e){
+        }catch(SQLException e){
             System.out.println("Notifikasi : "+e);
         }
         int b=tabMode.getRowCount();
@@ -3872,6 +3899,25 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         return BtnKeluar;
     }
 
+    private void isIbu(){
+        try {
+            Statement stat = koneksi.createStatement();
+            ResultSet rs=stat.executeQuery("select pasien_ibu.nm_pasien,"+
+                    " pasien_ibu.suami, "+
+                    " pasien_ibu.umur, "+
+                    " pasien_ibu.alamat "+
+                    " from pasien_ibu where pasien_ibu.no_rm_ib ");
+            while(rs.next()){
+                Nmibu.setText(rs.getString(1));
+                NmAyah.setText(rs.getString(2));
+                UmurIbu.setText(rs.getString(3));
+                AlamatIbu.setText(rs.getString(4));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Catatan ibu : "+ex);
+        }
+    } 
+    
     private void isForm(){
         if(ChkInput.isSelected()==true){
             ChkInput.setVisible(false);
@@ -3907,10 +3953,10 @@ private void MnKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getkelahiran_bayi());
-        BtnHapus.setEnabled(akses.getkelahiran_bayi());
-        BtnEdit.setEnabled(akses.getkelahiran_bayi());
-        BtnPrint.setEnabled(akses.getkelahiran_bayi());
+        BtnSimpan.setEnabled(var.getkelahiran_bayi());
+        BtnHapus.setEnabled(var.getkelahiran_bayi());
+        BtnEdit.setEnabled(var.getkelahiran_bayi());
+        BtnPrint.setEnabled(var.getkelahiran_bayi());
     }
     
     private void autoNomor() {  

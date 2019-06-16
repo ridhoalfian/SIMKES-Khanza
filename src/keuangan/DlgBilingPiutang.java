@@ -15,7 +15,7 @@ import fungsi.WarnaTable;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -185,6 +185,7 @@ public class DlgBilingPiutang extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbAdmin.setAutoCreateRowSorter(true);
+        tbAdmin.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbAdmin.setName("tbAdmin"); // NOI18N
         Scroll.setViewportView(tbAdmin);
 
@@ -298,7 +299,7 @@ private void BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                                         totalx+"','"+tabModeRwJlDr.getValueAt(r,8).toString().replaceAll("'","`")+"','','','','','','','','',''","Rekap Nota Pembayaran"); 
                     }              
                 }
-                Valid.panggilUrl("billing/LaporanBilling2.php?petugas="+akses.getkode().replaceAll(" ","_")+"&ttl="+totalx);
+                Valid.panggilUrl("billing/LaporanBilling2.php?petugas="+var.getkode().replaceAll(" ","_")+"&ttl="+totalx);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed

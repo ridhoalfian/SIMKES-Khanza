@@ -15,7 +15,7 @@ import fungsi.WarnaTable;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -148,6 +148,7 @@ public final class DlgCekEntryRalan extends javax.swing.JDialog {
         Scroll.setName("Scroll"); // NOI18N
         Scroll.setOpaque(true);
 
+        tbBangsal.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbBangsal.setName("tbBangsal"); // NOI18N
         tbBangsal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -260,12 +261,12 @@ public final class DlgCekEntryRalan extends javax.swing.JDialog {
         }else if(tabMode.getRowCount()!=0){
             
             Map<String, Object> param = new HashMap<>();         
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());   
             param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem());   
             Sequel.queryu("delete from temporary");
             for(int r=0;r<tabMode.getRowCount();r++){ 
@@ -288,7 +289,7 @@ public final class DlgCekEntryRalan extends javax.swing.JDialog {
                 }                    
             }
                
-            Valid.MyReport("rptCekEntryRalan.jasper",param,"::[ Laporan Pengecekan Entry Ralan ]::");
+            Valid.MyReport("rptCekEntryRalan.jrxml",param,"::[ Laporan Pengecekan Entry Ralan ]::");
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed

@@ -12,6 +12,7 @@
 package grafikanalisa;
 
 import fungsi.koneksiDB;
+import fungsi.sekuel;
 import fungsi.validasi;
 import java.sql.Connection;
 import java.sql.ResultSet;

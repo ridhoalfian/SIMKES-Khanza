@@ -4,7 +4,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -175,6 +175,7 @@ public class DlgFeePeriksaRalan extends javax.swing.JDialog {
 
             }
         ));
+        tbDokter.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbDokter.setName("tbDokter"); // NOI18N
         scrollPane1.setViewportView(tbDokter);
 
@@ -357,16 +358,17 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             }
             
             Map<String, Object> param = new HashMap<>();   
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs()); 
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs()); 
                 param.put("dokter",nmdokter.getText());
                 param.put("periode",Tgl1.getSelectedItem()+" s/d "+Tgl2.getSelectedItem());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptFeePeriksaRalan.jasper","report","[ Rekap Fee Pemeriksaan Rawat Jalan ]",param);
+            Valid.MyReport("rptFeePeriksaRalan.jrxml","report","[ Rekap Fee Pemeriksaan Rawat Jalan ]",
+                "select * from temporary order by no asc",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnPrintActionPerformed

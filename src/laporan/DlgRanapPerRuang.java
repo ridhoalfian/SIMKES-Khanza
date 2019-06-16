@@ -16,7 +16,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -101,7 +101,7 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
         tbBangsal2.setDefaultRenderer(Object.class, new WarnaTable());
 
         TKd.setDocument(new batasInput((byte)20).getKata(TKd));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -232,6 +232,7 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
         Scroll.setName("Scroll"); // NOI18N
         Scroll.setOpaque(true);
 
+        tbBangsal.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbBangsal.setName("tbBangsal"); // NOI18N
         tbBangsal.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -250,6 +251,7 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
         Scroll2.setName("Scroll2"); // NOI18N
         Scroll2.setOpaque(true);
 
+        tbBangsal2.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbBangsal2.setName("tbBangsal2"); // NOI18N
         tbBangsal2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -438,12 +440,12 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
             }else if(tabMode.getRowCount()!=0){
                 
                 Map<String, Object> param = new HashMap<>();         
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());
                 if(nmpenjab.getText().equals("")){
                     param.put("ruang","SEMUA CARA BAYAR"); 
                 }else{
@@ -463,7 +465,8 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
                     }                    
                 }
                    
-                Valid.MyReport("rptRanapPerRuang.jasper","report","::[ Laporan Rawat Inap Per Ruang ]::",param);
+                Valid.MyReport("rptRanapPerRuang.jrxml","report","::[ Laporan Rawat Inap Per Ruang ]::",
+                    "select * from temporary order by no asc",param);
             }
             this.setCursor(Cursor.getDefaultCursor());
         }else if(TabRawat.getSelectedIndex()==1){
@@ -474,12 +477,12 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
             }else if(tabMode2.getRowCount()!=0){
                 
                 Map<String, Object> param = new HashMap<>();         
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());
                 if(nmpenjab.getText().equals("")){
                     param.put("ruang","SEMUA CARA BAYAR"); 
                 }else{
@@ -499,7 +502,8 @@ public final class DlgRanapPerRuang extends javax.swing.JDialog {
                     }                    
                 }
                    
-                Valid.MyReport("rptRanapPerRuang.jasper","report","::[ Laporan Rawat Inap Per Ruang ]::",param);
+                Valid.MyReport("rptRanapPerRuang.jrxml","report","::[ Laporan Rawat Inap Per Ruang ]::",
+                    "select * from temporary order by no asc",param);
             }
             this.setCursor(Cursor.getDefaultCursor());
         }

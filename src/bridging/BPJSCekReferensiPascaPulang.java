@@ -23,9 +23,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import fungsi.sekuel;
 import fungsi.validasi;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -86,7 +89,7 @@ public final class BPJSCekReferensiPascaPulang extends javax.swing.JDialog {
         
         Poli.setDocument(new batasInput((byte)100).getKata(Poli));
         
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             Poli.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {

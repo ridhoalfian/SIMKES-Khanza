@@ -17,7 +17,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -171,7 +171,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
         KodePerujuk.setDocument(new batasInput((byte)20).getKata(KodePerujuk));
         Pemeriksaan.setDocument(new batasInput((byte)100).getKata(Pemeriksaan));    
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));      
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             Pemeriksaan.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -374,6 +374,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
         ppBersihkan.setText("Bersihkan Pilihan");
         ppBersihkan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppBersihkan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppBersihkan.setIconTextGap(8);
         ppBersihkan.setName("ppBersihkan"); // NOI18N
         ppBersihkan.setPreferredSize(new java.awt.Dimension(200, 25));
         ppBersihkan.addActionListener(new java.awt.event.ActionListener() {
@@ -390,6 +391,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
         ppSemua.setText("Pilih Semua");
         ppSemua.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppSemua.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppSemua.setIconTextGap(8);
         ppSemua.setName("ppSemua"); // NOI18N
         ppSemua.setPreferredSize(new java.awt.Dimension(200, 25));
         ppSemua.addActionListener(new java.awt.event.ActionListener() {
@@ -585,6 +587,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
         Scroll1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)));
         Scroll1.setName("Scroll1"); // NOI18N
 
+        tbTarif.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbTarif.setName("tbTarif"); // NOI18N
         tbTarif.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -683,6 +686,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
         Scroll.setName("Scroll"); // NOI18N
         Scroll.setOpaque(true);
 
+        tbPemeriksaan.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbPemeriksaan.setName("tbPemeriksaan"); // NOI18N
         Scroll.setViewportView(tbPemeriksaan);
 
@@ -817,7 +821,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
                                     Sequel.menyimpan("tampjurnal","'"+Beban_Kso_Laborat_Ranap+"','Beban KSO Laborat Ranap','0','"+ttlkso+"'","Rekening");    
                                     Sequel.menyimpan("tampjurnal","'"+Utang_Kso_Laborat_Ranap+"','Utang KSO Laborat Ranap','"+ttlkso+"','0'","Rekening");                              
                                 }
-                                jur.simpanJurnal(TNoRw.getText().toString(),Sequel.cariIsi("select current_date()"),"U","PEMBATALAN PEMERIKSAAN LABORAT RAWAT INAP PASIEN OLEH "+akses.getkode());  
+                                jur.simpanJurnal(TNoRw.getText().toString(),Sequel.cariIsi("select current_date()"),"U","PEMBATALAN PEMERIKSAAN LABORAT RAWAT INAP PASIEN OLEH "+var.getkode());  
                             }                     
                         }
                     }
@@ -945,7 +949,7 @@ public final class DlgUbahPeriksaLab extends javax.swing.JDialog {
                             Sequel.menyimpan("tampjurnal","'"+Beban_Kso_Laborat_Ranap+"','Beban KSO Laborat Ranap','"+ttlkso+"','0'","Rekening");    
                             Sequel.menyimpan("tampjurnal","'"+Utang_Kso_Laborat_Ranap+"','Utang KSO Laborat Ranap','0','"+ttlkso+"'","Rekening");                              
                         }
-                        jur.simpanJurnal(TNoRw.getText(),Sequel.cariIsi("select current_date()"),"U","PEMERIKSAAN LABORAT RAWAT INAP PASIEN "+TPasien.getText()+" DIPOSTING OLEH "+akses.getkode());  
+                        jur.simpanJurnal(TNoRw.getText(),Sequel.cariIsi("select current_date()"),"U","PEMERIKSAAN LABORAT RAWAT INAP PASIEN "+TPasien.getText()+" DIPOSTING OLEH "+var.getkode());  
                     }
                     koneksi.setAutoCommit(true);
                     JOptionPane.showMessageDialog(null,"Proses simpan selesai...!");
@@ -978,7 +982,7 @@ private void PemeriksaanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:eve
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             tampiltarif();
         }else if(evt.getKeyCode()==KeyEvent.VK_UP){
-            if(akses.getperiksa_lab()==true){
+            if(var.getperiksa_lab()==true){
                 btnTarifActionPerformed(null);
             }            
         }else if(evt.getKeyCode()==KeyEvent.VK_PAGE_DOWN){
@@ -1434,9 +1438,9 @@ private void BtnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getperiksa_lab());
-        BtnHapus.setEnabled(akses.getperiksa_lab());
-        btnTarif.setEnabled(akses.gettarif_lab());
+        BtnSimpan.setEnabled(var.getperiksa_lab());
+        BtnHapus.setEnabled(var.getperiksa_lab());
+        btnTarif.setEnabled(var.gettarif_lab());
     }
     
     private void isForm(){

@@ -16,7 +16,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -113,7 +113,7 @@ public final class DlgKunjunganRadRalan extends javax.swing.JDialog {
         tbBangsal.setDefaultRenderer(Object.class, new WarnaTable());
 
         TCari.setDocument(new batasInput((int)90).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -794,12 +794,12 @@ public final class DlgKunjunganRadRalan extends javax.swing.JDialog {
         }else if(tabMode.getRowCount()!=0){
             
             Map<String, Object> param = new HashMap<>();         
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());   
             param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem());  
             if(nmdokter.getText().equals("")){
                 param.put("perujuk","Semua Perujuk/Pengirim"); 
@@ -852,7 +852,8 @@ public final class DlgKunjunganRadRalan extends javax.swing.JDialog {
                 );
             }
                
-            Valid.MyReport("rptKunjunganRadRalan.jasper","report","::[ Laporan Kunjungan Radiologi Rawat Jalan ]::",param);
+            Valid.MyReport("rptKunjunganRadRalan.jrxml","report","::[ Laporan Kunjungan Radiologi Rawat Jalan ]::",
+                "select * from temporary order by no asc",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed

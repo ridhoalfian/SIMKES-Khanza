@@ -6,7 +6,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -83,7 +83,7 @@ public class DlgPengambilanPenunjangUTD extends javax.swing.JDialog {
 
         Nip.setDocument(new batasInput((byte)10).getKata(Nip));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -112,7 +112,7 @@ public class DlgPengambilanPenunjangUTD extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgPengambilanUTD")){
+                if(var.getform().equals("DlgPengambilanUTD")){
                     if(petugas.getTable().getSelectedRow()!= -1){   
                         Nip.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),0).toString());
                         Nama.setText(petugas.getTable().getValueAt(petugas.getTable().getSelectedRow(),1).toString());
@@ -182,6 +182,7 @@ public class DlgPengambilanPenunjangUTD extends javax.swing.JDialog {
         ppBersihkan.setText("Bersihkan Jumlah");
         ppBersihkan.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppBersihkan.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppBersihkan.setIconTextGap(8);
         ppBersihkan.setName("ppBersihkan"); // NOI18N
         ppBersihkan.setPreferredSize(new java.awt.Dimension(200, 25));
         ppBersihkan.addActionListener(new java.awt.event.ActionListener() {
@@ -198,6 +199,7 @@ public class DlgPengambilanPenunjangUTD extends javax.swing.JDialog {
         ppStok.setText("Tampilkan Semua Stok");
         ppStok.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppStok.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppStok.setIconTextGap(8);
         ppStok.setName("ppStok"); // NOI18N
         ppStok.setPreferredSize(new java.awt.Dimension(200, 25));
         ppStok.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +237,7 @@ public class DlgPengambilanPenunjangUTD extends javax.swing.JDialog {
 
             }
         ));
+        tbDokter.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbDokter.setComponentPopupMenu(Popup);
         tbDokter.setName("tbDokter"); // NOI18N
         tbDokter.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -584,7 +587,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     }//GEN-LAST:event_NipKeyPressed
 
     private void btnPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPetugasActionPerformed
-        akses.setform("DlgPengambilanUTD");
+        var.setform("DlgPengambilanUTD");
         petugas.emptTeks();
         petugas.isCek();
         petugas.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -891,12 +894,12 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     }
 
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getpengambilan_penunjang_utd());
-        BtnTambah.setEnabled(akses.getipsrs_barang());
-        if(akses.getjml2()>=1){
+        BtnSimpan.setEnabled(var.getpengambilan_penunjang_utd());
+        BtnTambah.setEnabled(var.getipsrs_barang());
+        if(var.getjml2()>=1){
             Nip.setEditable(false);
             btnPetugas.setEnabled(false);
-            Nip.setText(akses.getkode());
+            Nip.setText(var.getkode());
             Sequel.cariIsi("select nama from petugas where nip=?",Nama,Nip.getText());
         } 
     }

@@ -5,7 +5,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -90,7 +90,7 @@ public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
         tbDokter.setDefaultRenderer(Object.class, new WarnaTable());   
         
         TCari.setDocument(new batasInput((int)90).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -386,8 +386,9 @@ public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
         ppGrafikTerbanyakBatang.setText("Grafik Batang 10 Penyakit Terbanyak");
         ppGrafikTerbanyakBatang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikTerbanyakBatang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikTerbanyakBatang.setIconTextGap(8);
         ppGrafikTerbanyakBatang.setName("ppGrafikTerbanyakBatang"); // NOI18N
-        ppGrafikTerbanyakBatang.setPreferredSize(new java.awt.Dimension(300, 26));
+        ppGrafikTerbanyakBatang.setPreferredSize(new java.awt.Dimension(300, 25));
         ppGrafikTerbanyakBatang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ppGrafikTerbanyakBatangActionPerformed(evt);
@@ -402,8 +403,9 @@ public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
         ppGrafikTerbanyakPie.setText("Grafik Pie 10 Penyakit Terbanyak");
         ppGrafikTerbanyakPie.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikTerbanyakPie.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikTerbanyakPie.setIconTextGap(8);
         ppGrafikTerbanyakPie.setName("ppGrafikTerbanyakPie"); // NOI18N
-        ppGrafikTerbanyakPie.setPreferredSize(new java.awt.Dimension(300, 26));
+        ppGrafikTerbanyakPie.setPreferredSize(new java.awt.Dimension(300, 25));
         ppGrafikTerbanyakPie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ppGrafikTerbanyakPieActionPerformed(evt);
@@ -418,8 +420,9 @@ public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
         ppGrafikTerkecilBatang.setText("Grafik Batang 10 Penyakit Tersedikit");
         ppGrafikTerkecilBatang.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikTerkecilBatang.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikTerkecilBatang.setIconTextGap(8);
         ppGrafikTerkecilBatang.setName("ppGrafikTerkecilBatang"); // NOI18N
-        ppGrafikTerkecilBatang.setPreferredSize(new java.awt.Dimension(300, 26));
+        ppGrafikTerkecilBatang.setPreferredSize(new java.awt.Dimension(300, 25));
         ppGrafikTerkecilBatang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ppGrafikTerkecilBatangActionPerformed(evt);
@@ -434,8 +437,9 @@ public class DlgFrekuensiPenyakitRalan extends javax.swing.JDialog {
         ppGrafikTerkecilPie.setText("Grafik Pie 10 Penyakit Tersedikit");
         ppGrafikTerkecilPie.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ppGrafikTerkecilPie.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppGrafikTerkecilPie.setIconTextGap(8);
         ppGrafikTerkecilPie.setName("ppGrafikTerkecilPie"); // NOI18N
-        ppGrafikTerkecilPie.setPreferredSize(new java.awt.Dimension(300, 26));
+        ppGrafikTerkecilPie.setPreferredSize(new java.awt.Dimension(300, 25));
         ppGrafikTerkecilPie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ppGrafikTerkecilPieActionPerformed(evt);
@@ -2125,7 +2129,7 @@ private void ppGrafikTerkecilPieActionPerformed(java.awt.event.ActionEvent evt) 
     }
     
     public void isCek(){
-        BtnPrint.setEnabled(akses.getpenyakit_ralan());
+        BtnPrint.setEnabled(var.getpenyakit_ralan());
     }
     
     private void isForm(){

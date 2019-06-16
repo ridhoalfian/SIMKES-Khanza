@@ -85,7 +85,7 @@ public final class BPJSCekReferensiPropinsi extends javax.swing.JDialog {
         
         Propinsi.setDocument(new batasInput((byte)100).getKata(Propinsi));
         
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             Propinsi.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {

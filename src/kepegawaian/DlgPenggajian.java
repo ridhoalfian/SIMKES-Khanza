@@ -109,26 +109,19 @@ public class DlgPenggajian extends javax.swing.JDialog {
                         if(engine.getLocation().contains("/webapps/penggajian/index.php?act=HomeAdmin")){
                             try{            
                                 if(prop.getProperty("MENUTRANSPARAN").equals("yes")){
-<<<<<<< HEAD
 //                                    com.sun.awt.AWTUtilities.setWindowOpacity(DlgPenggajian.this,0.6f);
-=======
-                                    DlgPenggajian.this.setOpacity(0.77f);
->>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
                                 }               
                             }catch(Exception e){
                             }
                         }else{
                             try{     
                                 if(prop.getProperty("MENUTRANSPARAN").equals("yes")){
-<<<<<<< HEAD
 //                                    com.sun.awt.AWTUtilities.setWindowOpacity(DlgPenggajian.this,1f);
-=======
-                                    DlgPenggajian.this.setOpacity(1f);
->>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
                                 }                                                                      
                             }catch(Exception e){
                             }
                         }
+                        
                         DlgPenggajian.this.setTitle(newValue);
                     });
                 });
@@ -173,12 +166,12 @@ public class DlgPenggajian extends javax.swing.JDialog {
                     public void changed(ObservableValue ov, State oldState, State newState) {
                         if (newState == State.SUCCEEDED) {
                             try {
-                                if(engine.getLocation().replaceAll("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/","").contains("penggajian/pages")){
+                                if(engine.getLocation().replaceAll("http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/","").contains("penggajian/pages")){
                                     setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-                                    Valid.panggilUrl(engine.getLocation().replaceAll("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/","").replaceAll("http://"+koneksiDB.HOSTHYBRIDWEB()+"/"+prop.getProperty("HYBRIDWEB")+"/",""));
+                                    Valid.panggilUrl(engine.getLocation().replaceAll("http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/","").replaceAll("http://"+koneksiDB.HOST()+"/"+prop.getProperty("HYBRIDWEB")+"/",""));
                                     engine.executeScript("history.back()");
                                     setCursor(Cursor.getDefaultCursor());
-                                }else if(engine.getLocation().replaceAll("http://"+koneksiDB.HOSTHYBRIDWEB()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/","").contains("Keluar")){
+                                }else if(engine.getLocation().replaceAll("http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/","").contains("Keluar")){
                                     dispose();    
                                 }
                             } catch (Exception ex) {

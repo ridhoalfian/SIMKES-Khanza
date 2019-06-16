@@ -16,7 +16,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -274,6 +274,7 @@ public final class DlgHitungALOS extends javax.swing.JDialog {
         Scroll.setName("Scroll"); // NOI18N
         Scroll.setOpaque(true);
 
+        Tabel1.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         Tabel1.setName("Tabel1"); // NOI18N
         Tabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -299,6 +300,7 @@ public final class DlgHitungALOS extends javax.swing.JDialog {
         Scroll1.setName("Scroll1"); // NOI18N
         Scroll1.setOpaque(true);
 
+        Tabel2.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         Tabel2.setName("Tabel2"); // NOI18N
         Tabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -332,12 +334,12 @@ public final class DlgHitungALOS extends javax.swing.JDialog {
             }else if(tabMode.getRowCount()!=0){
                 
                 Map<String, Object> param = new HashMap<>();         
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()); 
                 param.put("tanggal",Tgl2.getDate());   
                 Sequel.queryu("delete from temporary");
@@ -356,7 +358,8 @@ public final class DlgHitungALOS extends javax.swing.JDialog {
                     }                    
                 }
                    
-                Valid.MyReport("rptHitungAlos.jasper","report","::[ Data Hitung BOR ]::",param);
+                Valid.MyReport("rptHitungAlos.jrxml","report","::[ Data Hitung BOR ]::",
+                    "select * from temporary order by no asc",param);
             }
         }else if(TabRawat.getSelectedIndex()==1){
             if(tabMode2.getRowCount()==0){
@@ -365,12 +368,12 @@ public final class DlgHitungALOS extends javax.swing.JDialog {
             }else if(tabMode2.getRowCount()!=0){
                 
                 Map<String, Object> param = new HashMap<>();         
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("periode",Tgl1.getSelectedItem()+" s.d. "+Tgl2.getSelectedItem()); 
                 param.put("tanggal",Tgl2.getDate());   
                 Sequel.queryu("delete from temporary");
@@ -389,7 +392,8 @@ public final class DlgHitungALOS extends javax.swing.JDialog {
                     }                    
                 }
                    
-                Valid.MyReport("rptHitungAlos.jasper","report","::[ Data Hitung BOR ]::",param);
+                Valid.MyReport("rptHitungAlos.jrxml","report","::[ Data Hitung BOR ]::",
+                    "select * from temporary order by no asc",param);
             }
         }
             

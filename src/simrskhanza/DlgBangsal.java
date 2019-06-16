@@ -15,7 +15,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -55,7 +55,9 @@ public final class DlgBangsal extends javax.swing.JDialog {
         this.setLocation(10,10);
         setSize(545,599);
 
-        tabMode=new DefaultTableModel(null,new Object[]{"P","Kode Kamar","Nama Kamar"}){
+        Object[] row={"P","Kode Kamar","Nama Kamar"};
+        
+        tabMode=new DefaultTableModel(null,row){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
                 if (colIndex==0) {
@@ -95,7 +97,7 @@ public final class DlgBangsal extends javax.swing.JDialog {
         TKd.setDocument(new batasInput((byte)5).getKata(TKd));
         TNm.setDocument(new batasInput((byte)30).getKata(TNm));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -546,14 +548,14 @@ public final class DlgBangsal extends javax.swing.JDialog {
         }else if(tabMode.getRowCount()!=0){
                 Map<String, Object> param = new HashMap<>();
                 param.put("parameter","%"+TCari.getText().trim()+"%");     
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
-                Valid.MyReport("rptBangsal.jasper",param,"::[ Laporan Data Kamar ]::");
+                Valid.MyReport("rptBangsal.jrxml",param,"::[ Laporan Data Kamar ]::");
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
@@ -745,7 +747,7 @@ public final class DlgBangsal extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        if(akses.getkode().equals("Admin Utama")){
+        if(var.getkode().equals("Admin Utama")){
             MnRestore.setEnabled(true);
         }else{
             MnRestore.setEnabled(false);

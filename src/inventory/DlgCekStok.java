@@ -94,7 +94,7 @@ public class DlgCekStok extends javax.swing.JDialog {
 
         kdgudang.setDocument(new batasInput((byte)5).getKata(kdgudang)); 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari)); 
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -196,6 +196,7 @@ public class DlgCekStok extends javax.swing.JDialog {
 
             }
         ));
+        tbDokter.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbDokter.setName("tbDokter"); // NOI18N
         scrollPane1.setViewportView(tbDokter);
 

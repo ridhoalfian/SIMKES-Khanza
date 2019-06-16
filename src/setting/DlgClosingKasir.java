@@ -15,7 +15,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -86,7 +86,7 @@ public class DlgClosingKasir extends javax.swing.JDialog {
         tbJadwal.setDefaultRenderer(Object.class, new WarnaTable());
 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));    
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -587,14 +587,14 @@ public class DlgClosingKasir extends javax.swing.JDialog {
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Map<String, Object> param = new HashMap<>();   
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
-                Valid.MyReportqry("rptJamKasir.jasper","report","::[ Jam Closing Shift ]::",
+                Valid.MyReport("rptJamKasir.jrxml","report","::[ Jam Closing Shift ]::",
                         "select * from closing_kasir where shift like '%"+TCari.getText().trim()+"%'  order by shift",param);            
         }
         this.setCursor(Cursor.getDefaultCursor());
@@ -763,9 +763,9 @@ public class DlgClosingKasir extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getclosing_kasir());
-        BtnHapus.setEnabled(akses.getclosing_kasir());
-        BtnEdit.setEnabled(akses.getclosing_kasir());
+        BtnSimpan.setEnabled(var.getclosing_kasir());
+        BtnHapus.setEnabled(var.getclosing_kasir());
+        BtnEdit.setEnabled(var.getclosing_kasir());
     }
     
     public JTable getTable(){

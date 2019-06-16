@@ -16,7 +16,7 @@
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="::[ Transaki Peminjaman &amp; Pengembalian Inventaris ]::">
+                <TitledBorder title="::[ Transaki Peminjaman &amp; Pengembalian ]::">
                   <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder>
                       <Color PropertyName="color" blue="e1" green="eb" red="e6" type="rgb"/>
@@ -349,7 +349,7 @@
                 </Property>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="1">
-                    <StringItem index="0" value="18-05-2019"/>
+                    <StringItem index="0" value="27-02-2019"/>
                   </StringArray>
                 </Property>
                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -578,6 +578,24 @@
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnPrintKeyPressed"/>
                   </Events>
                 </Component>
+                <Component class="widget.Button" name="BtnAll">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/picture/Search-16x16.png"/>
+                    </Property>
+                    <Property name="mnemonic" type="int" value="77"/>
+                    <Property name="text" type="java.lang.String" value="Semua"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Alt+M"/>
+                    <Property name="name" type="java.lang.String" value="BtnAll" noResource="true"/>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[100, 30]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAllActionPerformed"/>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnAllKeyPressed"/>
+                  </Events>
+                </Component>
                 <Component class="widget.Label" name="label10">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Record :"/>
@@ -632,7 +650,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
                 <Property name="alignment" type="int" value="0"/>
-                <Property name="horizontalGap" type="int" value="3"/>
+                <Property name="horizontalGap" type="int" value="2"/>
                 <Property name="verticalGap" type="int" value="9"/>
               </Layout>
               <SubComponents>
@@ -641,7 +659,7 @@
                     <Property name="text" type="java.lang.String" value="Inventaris :"/>
                     <Property name="name" type="java.lang.String" value="jLabel21" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[70, 23]"/>
+                      <Dimension value="[80, 23]"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -649,7 +667,7 @@
                   <Properties>
                     <Property name="name" type="java.lang.String" value="InventarisCari" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[180, 23]"/>
+                      <Dimension value="[195, 23]"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -681,7 +699,7 @@
                     <Property name="text" type="java.lang.String" value="Key Word :"/>
                     <Property name="name" type="java.lang.String" value="jLabel6" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[80, 23]"/>
+                      <Dimension value="[110, 23]"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -689,7 +707,7 @@
                   <Properties>
                     <Property name="name" type="java.lang.String" value="TCari" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[205, 23]"/>
+                      <Dimension value="[282, 23]"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -716,23 +734,6 @@
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnCariKeyPressed"/>
                   </Events>
                 </Component>
-                <Component class="widget.Button" name="BtnAll">
-                  <Properties>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/picture/Search-16x16.png"/>
-                    </Property>
-                    <Property name="mnemonic" type="int" value="77"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Alt+M"/>
-                    <Property name="name" type="java.lang.String" value="BtnAll" noResource="true"/>
-                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[28, 23]"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnAllActionPerformed"/>
-                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="BtnAllKeyPressed"/>
-                  </Events>
-                </Component>
               </SubComponents>
             </Container>
             <Container class="widget.panelisi" name="panelCari">
@@ -750,7 +751,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
                 <Property name="alignment" type="int" value="0"/>
-                <Property name="horizontalGap" type="int" value="3"/>
+                <Property name="horizontalGap" type="int" value="2"/>
                 <Property name="verticalGap" type="int" value="9"/>
               </Layout>
               <SubComponents>
@@ -759,34 +760,33 @@
                     <Property name="text" type="java.lang.String" value="Stts.Pinjam :"/>
                     <Property name="name" type="java.lang.String" value="jLabel17" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[77, 23]"/>
+                      <Dimension value="[80, 23]"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="widget.ComboBox" name="StatusCari">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Semua"/>
-                        <StringItem index="1" value="Masih Dipinjam"/>
-                        <StringItem index="2" value="Sudah Kembali"/>
+                      <StringArray count="2">
+                        <StringItem index="0" value="Masih Dipinjam"/>
+                        <StringItem index="1" value="Sudah Kembali"/>
                       </StringArray>
                     </Property>
                     <Property name="name" type="java.lang.String" value="StatusCari" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[175, 23]"/>
+                      <Dimension value="[225, 23]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="StatusCariItemStateChanged"/>
+                  </Events>
                 </Component>
-                <Component class="widget.CekBox" name="ChkTanggal">
+                <Component class="widget.Label" name="jLabel27">
                   <Properties>
-                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Tgl.Pinjam :"/>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="horizontalTextPosition" type="int" value="4"/>
-                    <Property name="name" type="java.lang.String" value="ChkTanggal" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="jLabel27" noResource="true"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[135, 23]"/>
+                      <Dimension value="[110, 23]"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -794,17 +794,18 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="18-05-2019"/>
+                        <StringItem index="0" value="27-02-2019"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
                     <Property name="name" type="java.lang.String" value="TglPinjam1" noResource="true"/>
                     <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[100, 23]"/>
+                      <Dimension value="[134, 23]"/>
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="TglPinjam1ItemStateChanged"/>
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TglPinjam1KeyPressed"/>
                   </Events>
                 </Component>
@@ -822,17 +823,18 @@
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="1">
-                        <StringItem index="0" value="18-05-2019"/>
+                        <StringItem index="0" value="27-02-2019"/>
                       </StringArray>
                     </Property>
                     <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
                     <Property name="name" type="java.lang.String" value="TglPinjam2" noResource="true"/>
                     <Property name="opaque" type="boolean" value="false"/>
                     <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                      <Dimension value="[100, 23]"/>
+                      <Dimension value="[134, 23]"/>
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="TglPinjam1ItemStateChanged"/>
                     <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="TglPinjam2KeyPressed"/>
                   </Events>
                 </Component>
@@ -856,6 +858,7 @@
             <Component class="widget.Table" name="tbKamIn">
               <Properties>
                 <Property name="autoCreateRowSorter" type="boolean" value="true"/>
+                <Property name="toolTipText" type="java.lang.String" value="Silahkan klik untuk memilih data yang mau diedit ataupun dihapus"/>
                 <Property name="name" type="java.lang.String" value="tbKamIn" noResource="true"/>
               </Properties>
               <Events>

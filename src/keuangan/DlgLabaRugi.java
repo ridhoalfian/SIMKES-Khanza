@@ -3,7 +3,7 @@ import fungsi.WarnaTable;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -261,6 +261,7 @@ public class DlgLabaRugi extends javax.swing.JDialog {
 
             }
         ));
+        Table1.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         Table1.setName("Table1"); // NOI18N
         scrollPane1.setViewportView(Table1);
 
@@ -287,6 +288,7 @@ public class DlgLabaRugi extends javax.swing.JDialog {
 
             }
         ));
+        Table2.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         Table2.setName("Table2"); // NOI18N
         scrollPane2.setViewportView(Table2);
 
@@ -313,6 +315,7 @@ public class DlgLabaRugi extends javax.swing.JDialog {
 
             }
         ));
+        Table3.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         Table3.setName("Table3"); // NOI18N
         scrollPane3.setViewportView(Table3);
 
@@ -364,14 +367,15 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
             }
             
             Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting"));
-            Valid.MyReport("rptLabaRugi.jasper","report","::[ Laporan Keuangan ]::",param);
+            Valid.MyReport("rptLabaRugi.jrxml","report","::[ Laporan Keuangan ]::",
+                "select no, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14 from temporary order by no asc",param);
         }
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnPrintActionPerformed
@@ -2182,7 +2186,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     
     
     public void isCek(){
-        BtnPrint.setEnabled(akses.getkeuangan());
+        BtnPrint.setEnabled(var.getkeuangan());
     }
      
      
