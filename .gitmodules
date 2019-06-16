@@ -4,3 +4,9 @@
 [submodule "webapps/pasien"]
 	path = webapps/pasien
 	url = https://github.com/basoro/Aplikasi-Damanhuri
+[submodule "webapps/APAM"]
+	path = webapps/APAM
+	url = https://github.com/basoro/APAM-Barabai
+[submodule "webapps/dashboard"]
+	path = webapps/dashboard
+	url = https://github.com/basoro/Khanza-Lite
