@@ -16,7 +16,11 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
+<<<<<<< HEAD
 import fungsi.var;
+=======
+import fungsi.akses;
+>>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -96,7 +100,11 @@ public final class KeslingLimbahB3Medis extends javax.swing.JDialog {
         Sisa.setDocument(new batasInput((byte)10).getKata(Sisa));
         NoDokumen.setDocument(new batasInput((byte)20).getKata(Sisa));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
+<<<<<<< HEAD
         if(koneksiDB.cariCepat().equals("aktif")){
+=======
+        if(koneksiDB.CARICEPAT().equals("aktif")){
+>>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -718,6 +726,7 @@ public final class KeslingLimbahB3Medis extends javax.swing.JDialog {
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Map<String, Object> param = new HashMap<>(); 
+<<<<<<< HEAD
             param.put("namars",var.getnamars());
             param.put("alamatrs",var.getalamatrs());
             param.put("kotars",var.getkabupatenrs());
@@ -726,6 +735,16 @@ public final class KeslingLimbahB3Medis extends javax.swing.JDialog {
             param.put("emailrs",var.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
             Valid.MyReport("rptLimbahB3Medis.jrxml","report","::[ Data Limbah Padat B3 Medis Keluar TPS ]::",
+=======
+            param.put("namars",akses.getnamars());
+            param.put("alamatrs",akses.getalamatrs());
+            param.put("kotars",akses.getkabupatenrs());
+            param.put("propinsirs",akses.getpropinsirs());
+            param.put("kontakrs",akses.getkontakrs());
+            param.put("emailrs",akses.getemailrs());   
+            param.put("logo",Sequel.cariGambar("select logo from setting")); 
+            Valid.MyReportqry("rptLimbahB3Medis.jasper","report","::[ Data Limbah Padat B3 Medis Keluar TPS ]::",
+>>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
                    "select kesling_limbah_b3medis.nip,petugas.nama,kesling_limbah_b3medis.tanggal,"+
                    "kesling_limbah_b3medis.jmllimbah,kesling_limbah_b3medis.tujuan_penyerahan,kesling_limbah_b3medis.bukti_dokumen, "+
                    "kesling_limbah_b3medis.sisa_di_tps from kesling_limbah_b3medis inner join petugas on kesling_limbah_b3medis.nip=petugas.nip where "+
@@ -955,8 +974,11 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     public void emptTeks() {
         Jumlah.setText("0");
         Sisa.setText("0");
+<<<<<<< HEAD
         KdPetugas.setText("");
         NmPetugas.setText("");
+=======
+>>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
         Tanggal.setDate(new Date());
         NoDokumen.setText("");
         Tujuan.setText("");
@@ -991,6 +1013,7 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
     }
     
     public void isCek(){
+<<<<<<< HEAD
         BtnSimpan.setEnabled(var.getlimbah_b3_medis());
         BtnHapus.setEnabled(var.getlimbah_b3_medis());
         BtnEdit.setEnabled(var.getlimbah_b3_medis());
@@ -998,6 +1021,15 @@ private void NmPetugasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
             KdPetugas.setEditable(false);
             btnPetugas.setEnabled(false);
             KdPetugas.setText(var.getkode());
+=======
+        BtnSimpan.setEnabled(akses.getlimbah_b3_medis());
+        BtnHapus.setEnabled(akses.getlimbah_b3_medis());
+        BtnEdit.setEnabled(akses.getlimbah_b3_medis());
+        if(akses.getjml2()>=1){
+            KdPetugas.setEditable(false);
+            btnPetugas.setEnabled(false);
+            KdPetugas.setText(akses.getkode());
+>>>>>>> 7c2a1eba5b5f1071bd281af5edfb85237cd58b14
             Sequel.cariIsi("select nama from petugas where nip=?", NmPetugas,KdPetugas.getText());
         }  
     }
