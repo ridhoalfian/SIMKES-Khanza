@@ -534,6 +534,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 if("[A]Asesmen Awal Rawat Inap".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","pengkajian_askep='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
+                
+                if("[A]Skrining Rawat Jalan".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","sekrining_rawat_jalan='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
 
                 if("[B]Barcode Ralan".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","barcoderalan='"+tbUser.getValueAt(i,2).toString()+"'");
@@ -653,6 +657,34 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 
                 if("[C]Peristiwa K3".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","peristiwa_k3rs='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Jenis Cidera K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","jenis_cidera_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Penyebab Kecelakaan K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","penyebab_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Jenis Luka K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","jenis_luka_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Lokasi Kejadian K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","lokasi_kejadian_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Dampak Cidera K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","dampak_cidera_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Jenis Pekerjaan K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","jenis_pekerjaan_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[C]Bagian Tubuh K3 Per Tahun".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","bagian_tubuh_k3rstahun='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
                 
                 if("[D]Suplier Obat/Alkes/BHP".equals(tbUser.getValueAt(i,1).toString())){
@@ -1690,6 +1722,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 if("[K]Tanggal Rujukan di VClaim".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","bpjs_cek_tanggal_rujukan='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
+                
+                if("[K]Histori Pelayanan BPJS".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","bpjs_histori_pelayanan='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
 
                 if("[K]Referensi Dokter PCare".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","pcare_cek_dokter='"+tbUser.getValueAt(i,2).toString()+"'");
@@ -2202,6 +2238,18 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 if("[N]K3 Per Lokasi Kejadian".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","grafik_k3_lokasikejadian='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
+                
+                if("[N]K3 Per Dampak Cidera".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","grafik_k3_dampakcidera='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[N]K3 Per Jenis Pekerjaan".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","grafik_k3_perjenispekerjaan='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[N]K3 Per Bagian Tubuh".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","grafik_k3_perbagiantubuh='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
 
                 if("[O]Indeks Surat".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","surat_indeks='"+tbUser.getValueAt(i,2).toString()+"'");
@@ -2592,7 +2640,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                         "inventaris_perpustakaan,set_peminjaman_perpustakaan,denda_perpustakaan,anggota_perpustakaan,peminjaman_perpustakaan,"+
                         "bayar_denda_perpustakaan,ebook_perpustakaan,jenis_cidera_k3rs,penyebab_k3rs,jenis_luka_k3rs,lokasi_kejadian_k3rs,"+
                         "dampak_cidera_k3rs,jenis_pekerjaan_k3rs,bagian_tubuh_k3rs,peristiwa_k3rs,grafik_k3_pertahun,grafik_k3_perbulan,"+
-                        "grafik_k3_pertanggal,grafik_k3_perjeniscidera,grafik_k3_perpenyebab,grafik_k3_perjenisluka,grafik_k3_lokasikejadian from user where id_user=AES_ENCRYPT(?,'nur')");
+                        "grafik_k3_pertanggal,grafik_k3_perjeniscidera,grafik_k3_perpenyebab,grafik_k3_perjenisluka,grafik_k3_lokasikejadian,"+
+                        "grafik_k3_dampakcidera,grafik_k3_perjenispekerjaan,grafik_k3_perbagiantubuh,jenis_cidera_k3rstahun,penyebab_k3rstahun,"+
+                        "jenis_luka_k3rstahun,lokasi_kejadian_k3rstahun,dampak_cidera_k3rstahun,jenis_pekerjaan_k3rstahun,bagian_tubuh_k3rstahun,"+
+                        "sekrining_rawat_jalan,bpjs_histori_pelayanan from user where id_user=AES_ENCRYPT(?,'nur')");
             try {
                 ps.setString(1,user);
                 rs=ps.executeQuery();
@@ -2717,6 +2768,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                         tabMode.addRow(new Object[]{false,"[A]Asesmen Awal Rawat Inap",rs.getBoolean("pengkajian_askep")});
                     }
                     
+                    if("[A]Skrining Rawat Jalan".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[A]Skrining Rawat Jalan",rs.getBoolean("sekrining_rawat_jalan")});
+                    }
+                    
                     if("[B]Barcode Ralan".toLowerCase().contains(TCari.getText().toLowerCase())){
                         tabMode.addRow(new Object[]{false,"[B]Barcode Ralan",rs.getBoolean("barcoderalan")});
                     }
@@ -2835,6 +2890,34 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     
                     if("[C]Peristiwa K3".toLowerCase().contains(TCari.getText().toLowerCase())){
                         tabMode.addRow(new Object[]{false,"[C]Peristiwa K3",rs.getBoolean("peristiwa_k3rs")});
+                    }
+                    
+                    if("[C]Jenis Cidera K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Jenis Cidera K3 Per Tahun",rs.getBoolean("jenis_cidera_k3rstahun")});
+                    }
+                    
+                    if("[C]Penyebab Kecelakaan K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Penyebab Kecelakaan K3 Per Tahun",rs.getBoolean("penyebab_k3rstahun")});
+                    }
+                    
+                    if("[C]Jenis Luka K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Jenis Luka K3 Per Tahun",rs.getBoolean("jenis_luka_k3rstahun")});
+                    }
+                    
+                    if("[C]Lokasi Kejadian K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Lokasi Kejadian K3 Per Tahun",rs.getBoolean("lokasi_kejadian_k3rstahun")});
+                    }
+                    
+                    if("[C]Dampak Cidera K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Dampak Cidera K3 Per Tahun",rs.getBoolean("dampak_cidera_k3rstahun")});
+                    }
+                    
+                    if("[C]Jenis Pekerjaan K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Jenis Pekerjaan K3 Per Tahun",rs.getBoolean("jenis_pekerjaan_k3rstahun")});
+                    }
+                    
+                    if("[C]Bagian Tubuh K3 Per Tahun".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[C]Bagian Tubuh K3 Per Tahun",rs.getBoolean("bagian_tubuh_k3rstahun")});
                     }
                     
                     if("[D]Suplier Obat/Alkes/BHP".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -3873,6 +3956,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                         tabMode.addRow(new Object[]{false,"[K]Tanggal Rujukan di VClaim",rs.getBoolean("bpjs_cek_tanggal_rujukan")});
                     }
                     
+                    if("[K]Histori Pelayanan BPJS".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[K]Histori Pelayanan BPJS",rs.getBoolean("bpjs_histori_pelayanan")});
+                    }
+                    
                     if("[K]Referensi Dokter PCare".toLowerCase().contains(TCari.getText().toLowerCase())){
                         tabMode.addRow(new Object[]{false,"[K]Referensi Dokter PCare",rs.getBoolean("pcare_cek_dokter")});
                     }
@@ -4383,6 +4470,18 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     
                     if("[N]K3 Per Lokasi Kejadian".toLowerCase().contains(TCari.getText().toLowerCase())){
                         tabMode.addRow(new Object[]{false,"[N]K3 Per Lokasi Kejadian",rs.getBoolean("grafik_k3_lokasikejadian")});
+                    }
+                    
+                    if("[N]K3 Per Dampak Cidera".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[N]K3 Per Dampak Cidera",rs.getBoolean("grafik_k3_dampakcidera")});
+                    }
+                    
+                    if("[N]K3 Per Jenis Pekerjaan".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[N]K3 Per Jenis Pekerjaan",rs.getBoolean("grafik_k3_perjenispekerjaan")});
+                    }
+                    
+                    if("[N]K3 Per Bagian Tubuh".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[N]K3 Per Bagian Tubuh",rs.getBoolean("grafik_k3_perbagiantubuh")});
                     }
                     
                     if("[O]Indeks Surat".toLowerCase().contains(TCari.getText().toLowerCase())){

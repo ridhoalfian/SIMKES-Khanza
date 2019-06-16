@@ -54,6 +54,7 @@ import bridging.BPJSCekRujukanKartuRS;
 import bridging.BPJSCekSKDP;
 import bridging.BPJSCekTanggalRujukan;
 import bridging.BPJSDataSEP;
+import bridging.BPJSHistoriPelayanan;
 import bridging.BPJSMapingPoli;
 import bridging.BPJSMonitoringKlaim;
 import bridging.BPJSRujukanKeluar;
@@ -421,9 +422,12 @@ import grafikanalisa.GrafikKeslingLimbahDomestikBulan;
 import grafikanalisa.GrafikKeslingLimbahDomestikPertanggal;
 import grafikanalisa.GrafikKeslingPDAMPerBulan;
 import grafikanalisa.GrafikKeslingPDAMPertanggal;
+import grafikanalisa.GrafikPeristiwaK3PerBagianTubuh;
 import grafikanalisa.GrafikPeristiwaK3PerBulan;
+import grafikanalisa.GrafikPeristiwaK3PerDampakCidera;
 import grafikanalisa.GrafikPeristiwaK3PerJenisCidera;
 import grafikanalisa.GrafikPeristiwaK3PerJenisLuka;
+import grafikanalisa.GrafikPeristiwaK3PerJenisPekerjaan;
 import grafikanalisa.GrafikPeristiwaK3PerLokasiKejadian;
 import grafikanalisa.GrafikPeristiwaK3PerPenyebab;
 import grafikanalisa.GrafikPeristiwaK3PerTahun;
@@ -448,12 +452,19 @@ import inventory.DlgKadaluarsaBatch;
 import inventory.DlgObatPeresep;
 import inventory.DlgSisaStok;
 import kepegawaian.K3RSBagianTubuh;
+import kepegawaian.K3RSBagianTubuhPerTahun;
 import kepegawaian.K3RSDampakCidera;
+import kepegawaian.K3RSDampakCideraPerTahun;
 import kepegawaian.K3RSJenisCidera;
+import kepegawaian.K3RSJenisCideraPerTahun;
 import kepegawaian.K3RSJenisLuka;
+import kepegawaian.K3RSJenisLukaPerTahun;
 import kepegawaian.K3RSJenisPekerjaan;
+import kepegawaian.K3RSJenisPekerjaanPerTahun;
 import kepegawaian.K3RSLokasiKejadian;
+import kepegawaian.K3RSLokasiKejadianPerTahun;
 import kepegawaian.K3RSPenyebab;
+import kepegawaian.K3RSPenyebabPerTahun;
 import kepegawaian.K3RSPeristiwa;
 import perpustakaan.PerpustakaanAnggota;
 import perpustakaan.PerpustakaanBayarDenda;
@@ -472,6 +483,7 @@ import perpustakaan.PerpustakaanPengaturanPeminjaman;
 import setting.WindowInputPassword;
 import perpustakaan.PerpustakaanRuang;
 import perpustakaan.PerpustakaanSirkulasi;
+import rekammedis.RMSKriningRawatJalan;
 import setting.DlgPasswordAsuransi;
 import smsui.frmSmsView;
 import surat.SuratAlmari;
@@ -531,7 +543,7 @@ public class frmUtama extends javax.swing.JFrame {
         //desktop.setAutoscrolls(true);
         edAdmin.setDocument(new batasInput((byte)100).getKata(edAdmin));
         edPwd.setDocument(new batasInput((byte)100).getKata(edPwd));
-        DlgLogin.setSize(344,191);
+        DlgLogin.setSize(319,191);
         DlgLogin.setVisible(false);
         DlgLogin.setLocationRelativeTo(null);
         
@@ -1216,7 +1228,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel4.setText("ID Admin :");
         jLabel4.setName("jLabel4"); // NOI18N
         panelGlass1.add(jLabel4);
-        jLabel4.setBounds(2, 12, 80, 23);
+        jLabel4.setBounds(2, 12, 75, 23);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(50, 50, 50));
@@ -1224,7 +1236,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel5.setText("Password :");
         jLabel5.setName("jLabel5"); // NOI18N
         panelGlass1.add(jLabel5);
-        jLabel5.setBounds(2, 40, 80, 23);
+        jLabel5.setBounds(2, 40, 75, 23);
 
         edAdmin.setForeground(new java.awt.Color(50, 50, 50));
         edAdmin.setToolTipText("Silahkan masukkan ID Admin");
@@ -1236,7 +1248,7 @@ public class frmUtama extends javax.swing.JFrame {
             }
         });
         panelGlass1.add(edAdmin);
-        edAdmin.setBounds(85, 12, 220, 23);
+        edAdmin.setBounds(80, 12, 213, 23);
 
         edPwd.setForeground(new java.awt.Color(50, 50, 50));
         edPwd.setToolTipText("Silahkan masukkan password");
@@ -1248,7 +1260,7 @@ public class frmUtama extends javax.swing.JFrame {
             }
         });
         panelGlass1.add(edPwd);
-        edPwd.setBounds(85, 40, 220, 23);
+        edPwd.setBounds(80, 40, 213, 23);
 
         internalFrame3.add(panelGlass1);
         panelGlass1.setBounds(-1, 30, 342, 76);
@@ -1256,7 +1268,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/LaST (Cobalt) Lock n Gear.png"))); // NOI18N
         jLabel6.setName("jLabel6"); // NOI18N
         internalFrame3.add(jLabel6);
-        jLabel6.setBounds(120, 5, 135, 145);
+        jLabel6.setBounds(105, 5, 135, 145);
 
         BtnLogin.setForeground(new java.awt.Color(60, 60, 60));
         BtnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/lock.png"))); // NOI18N
@@ -1286,10 +1298,10 @@ public class frmUtama extends javax.swing.JFrame {
             }
         });
         internalFrame3.add(BtnCancel);
-        BtnCancel.setBounds(222, 115, 105, 32);
+        BtnCancel.setBounds(197, 115, 105, 32);
 
         internalFrame2.add(internalFrame3);
-        internalFrame3.setBounds(2, 15, 340, 160);
+        internalFrame3.setBounds(2, 15, 315, 160);
 
         DlgLogin.getContentPane().add(internalFrame2, java.awt.BorderLayout.CENTER);
 
@@ -6854,7 +6866,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23/05/2019" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "11/06/2019" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -14604,6 +14616,140 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnGrafikK3PerDampakCideraActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        GrafikPeristiwaK3PerDampakCidera aplikasi=new GrafikPeristiwaK3PerDampakCidera(this,true);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnGrafikK3PerJenisPekerjaanActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        GrafikPeristiwaK3PerJenisPekerjaan aplikasi=new GrafikPeristiwaK3PerJenisPekerjaan(this,true);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnGrafikK3PerBagianTubuhActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        GrafikPeristiwaK3PerBagianTubuh aplikasi=new GrafikPeristiwaK3PerBagianTubuh(this,true);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnJenisCideraK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSJenisCideraPerTahun form=new K3RSJenisCideraPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnPenyebabKecelakaanK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSPenyebabPerTahun form=new K3RSPenyebabPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnJenisLukaK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSJenisLukaPerTahun form=new K3RSJenisLukaPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnLokasiKejadianK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSLokasiKejadianPerTahun form=new K3RSLokasiKejadianPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDampakCideraK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSDampakCideraPerTahun form=new K3RSDampakCideraPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnJenisPekerjaanK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSJenisPekerjaanPerTahun form=new K3RSJenisPekerjaanPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnBagianTubuhK3PerTahunActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        K3RSBagianTubuhPerTahun form=new K3RSBagianTubuhPerTahun(this,false);
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnSkriningRawatJalanActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        RMSKriningRawatJalan form=new RMSKriningRawatJalan(this,false);
+        form.isCek();
+        form.emptTeks();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnBPJSHistoriPelayananActionPerformed(java.awt.event.ActionEvent evt) { 
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSHistoriPelayanan form=new BPJSHistoriPelayanan(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }
     /**
     * @param args the command line arguments
     */
@@ -15178,7 +15324,10 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnPeminjamanPerpustakaan,btnBayarDendaPerpustakaan,btnPenelitianPerpustakaan,btnEbookPerpustakaan,btnCariEbook,btnPestControl,
             btnMutuAirLimbah,btnCariInventarisPerpustakaan,btnJenisCideraK3,btnPenyebabKecelakaanK3,btnJenisLukaK3,btnLokasiKejadianK3,btnDampakCideraK3,
             btnGrafikLimbahDomestikPerBulan,btnJenisPekerjaanK3,btnBagianTubuhK3,btnPeristiwaK3,btnGrafikK3PerTahun,btnGrafikK3PerBulan,btnGrafikK3PerTanggal,
-            btnGrafikK3PerJenisCidera,btnGrafikK3PerPenyebab,btnGrafikK3PerJenisLuka,btnGrafikK3PerLokasiKejadian;
+            btnGrafikK3PerJenisCidera,btnGrafikK3PerPenyebab,btnGrafikK3PerJenisLuka,btnGrafikK3PerLokasiKejadian,btnGrafikK3PerDampakCidera,
+            btnGrafikK3PerJenisPekerjaan,btnGrafikK3PerBagianTubuh,btnJenisCideraK3PerTahun,btnPenyebabKecelakaanK3PerTahun,btnJenisLukaK3PerTahun,
+            btnLokasiKejadianK3PerTahun,btnDampakCideraK3PerTahun,btnJenisPekerjaanK3PerTahun,btnBagianTubuhK3PerTahun,btnSkriningRawatJalan,
+            btnBPJSHistoriPelayanan;
     
     public void isWall(){
         try{            
@@ -15545,6 +15694,15 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }else if(jmlmenu<=485){
             Panelmenu.setLayout(new GridLayout(0,5));
             Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*93)));
+        }else if(jmlmenu<=490){
+            Panelmenu.setLayout(new GridLayout(0,5));
+            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*94)));
+        }else if(jmlmenu<=495){
+            Panelmenu.setLayout(new GridLayout(0,5));
+            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*95)));
+        }else if(jmlmenu<=500){
+            Panelmenu.setLayout(new GridLayout(0,5));
+            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*96)));
         }                                              
         Panelmenu.revalidate();
         Panelmenu.repaint();               
@@ -15649,6 +15807,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnDiet);
                 jmlmenu++;
             }
+            
+            if(akses.getsekrining_rawat_jalan()==true){                          
+                Panelmenu.add(btnSkriningRawatJalan);
+                jmlmenu++;
+            } 
 
             if(akses.getperiksa_lab()==true){
                 Panelmenu.add(btnLaboratorium);
@@ -15668,7 +15831,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             if(akses.getdeposit_pasien()==true){                          
                 Panelmenu.add(btnDeposit);
                 jmlmenu++;
-            }                        
+            }
         }else if(cmbMenu.getSelectedIndex()==1){ 
             jmlmenu=0;
             if(akses.getbarcoderalan()==true){
@@ -15821,6 +15984,41 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             
             if(akses.getperistiwa_k3rs()==true){                
                 Panelmenu.add(btnPeristiwaK3);
+                jmlmenu++;
+            }
+            
+            if(akses.getjenis_cidera_k3rstahun()==true){                
+                Panelmenu.add(btnJenisCideraK3PerTahun);
+                jmlmenu++;
+            }
+            
+            if(akses.getpenyebab_k3rstahun()==true){                
+                Panelmenu.add(btnPenyebabKecelakaanK3PerTahun);
+                jmlmenu++;
+            }
+            
+            if(akses.getjenis_luka_k3rstahun()==true){                
+                Panelmenu.add(btnJenisLukaK3PerTahun);
+                jmlmenu++;
+            }
+            
+            if(akses.getlokasi_kejadian_k3rstahun()==true){                
+                Panelmenu.add(btnLokasiKejadianK3PerTahun);
+                jmlmenu++;
+            }
+            
+            if(akses.getdampak_cidera_k3rstahun()==true){                
+                Panelmenu.add(btnDampakCideraK3PerTahun);
+                jmlmenu++;
+            }
+            
+            if(akses.getjenis_pekerjaan_k3rstahun()==true){                
+                Panelmenu.add(btnJenisPekerjaanK3PerTahun);
+                jmlmenu++;
+            }
+            
+            if(akses.getbagian_tubuh_k3rstahun()==true){                
+                Panelmenu.add(btnBagianTubuhK3PerTahun);
                 jmlmenu++;
             }
         }else if(cmbMenu.getSelectedIndex()==3){ 
@@ -16955,6 +17153,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnCekBPJSRujukanKartuRS);
                 jmlmenu++;
             }
+            
+            if(akses.getbpjs_histori_pelayanan()==true){
+                Panelmenu.add(btnBPJSHistoriPelayanan);
+                jmlmenu++;
+            }
 
             if(akses.getbpjs_referensi_diagnosa()==true){
                 Panelmenu.add(btnCekBPJSDiagnosa);
@@ -17770,6 +17973,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnGrafikK3PerLokasiKejadian);
                 jmlmenu++;
             }
+            
+            if(akses.getgrafik_k3_dampakcidera()==true){
+                Panelmenu.add(btnGrafikK3PerDampakCidera);
+                jmlmenu++;
+            }
+            
+            if(akses.getgrafik_k3_perjenispekerjaan()==true){
+                Panelmenu.add(btnGrafikK3PerJenisPekerjaan);
+                jmlmenu++;
+            }
+            
+            if(akses.getgrafik_k3_perbagiantubuh()==true){
+                Panelmenu.add(btnGrafikK3PerBagianTubuh);
+                jmlmenu++;
+            }
         }else if(cmbMenu.getSelectedIndex()==14){
             jmlmenu=0;
             if(akses.getsurat_indeks()==true){
@@ -18126,6 +18344,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnDiet);
             jmlmenu++;
         }
+        
+        if(akses.getsekrining_rawat_jalan()==true){                          
+            Panelmenu.add(btnSkriningRawatJalan);
+            jmlmenu++;
+        }
 
         if(akses.getperiksa_lab()==true){
             Panelmenu.add(btnLaboratorium);
@@ -18302,6 +18525,41 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
 
         if(akses.getperistiwa_k3rs()==true){                
             Panelmenu.add(btnPeristiwaK3);
+            jmlmenu++;
+        }
+        
+        if(akses.getjenis_cidera_k3rstahun()==true){                
+            Panelmenu.add(btnJenisCideraK3PerTahun);
+            jmlmenu++;
+        }
+        
+        if(akses.getpenyebab_k3rstahun()==true){                
+            Panelmenu.add(btnPenyebabKecelakaanK3PerTahun);
+            jmlmenu++;
+        }
+        
+        if(akses.getjenis_luka_k3rstahun()==true){                
+            Panelmenu.add(btnJenisLukaK3PerTahun);
+            jmlmenu++;
+        }
+        
+        if(akses.getlokasi_kejadian_k3rstahun()==true){                
+            Panelmenu.add(btnLokasiKejadianK3PerTahun);
+            jmlmenu++;
+        }
+        
+        if(akses.getdampak_cidera_k3rstahun()==true){                
+            Panelmenu.add(btnDampakCideraK3PerTahun);
+            jmlmenu++;
+        }
+
+        if(akses.getjenis_pekerjaan_k3rstahun()==true){                
+            Panelmenu.add(btnJenisPekerjaanK3PerTahun);
+            jmlmenu++;
+        }
+        
+        if(akses.getbagian_tubuh_k3rstahun()==true){                
+            Panelmenu.add(btnBagianTubuhK3PerTahun);
             jmlmenu++;
         }
 
@@ -19422,6 +19680,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnCekBPJSRujukanKartuRS);
             jmlmenu++;
         }
+        
+        if(akses.getbpjs_histori_pelayanan()==true){
+            Panelmenu.add(btnBPJSHistoriPelayanan);
+            jmlmenu++;
+        }
 
         if(akses.getbpjs_referensi_diagnosa()==true){
             Panelmenu.add(btnCekBPJSDiagnosa);
@@ -20234,6 +20497,21 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnGrafikK3PerLokasiKejadian);
             jmlmenu++;
         }
+        
+        if(akses.getgrafik_k3_dampakcidera()==true){
+            Panelmenu.add(btnGrafikK3PerDampakCidera);
+            jmlmenu++;
+        }
+        
+        if(akses.getgrafik_k3_perjenispekerjaan()==true){
+            Panelmenu.add(btnGrafikK3PerJenisPekerjaan);
+            jmlmenu++;
+        }
+
+        if(akses.getgrafik_k3_perbagiantubuh()==true){
+            Panelmenu.add(btnGrafikK3PerBagianTubuh);
+            jmlmenu++;
+        }
 
         if(akses.getsurat_indeks()==true){
             Panelmenu.add(btnSuratIndeks);
@@ -20625,6 +20903,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
 
+        if(akses.getsekrining_rawat_jalan()==true){    
+            if(btnSkriningRawatJalan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnSkriningRawatJalan);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getperiksa_lab()==true){
             if(btnLaboratorium.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnLaboratorium);
@@ -20652,7 +20937,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }                
         }
-
+        
         if(akses.getpiutang_pasien()==true){
             if(btnLihatPiutang.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnLihatPiutang); 
@@ -20874,6 +21159,55 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getperistiwa_k3rs()==true){    
             if(btnPeristiwaK3.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPeristiwaK3);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getjenis_cidera_k3rstahun()==true){    
+            if(btnJenisCideraK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnJenisCideraK3PerTahun);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getpenyebab_k3rstahun()==true){    
+            if(btnPenyebabKecelakaanK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPenyebabKecelakaanK3PerTahun);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getjenis_luka_k3rstahun()==true){    
+            if(btnJenisLukaK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnJenisLukaK3PerTahun);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getlokasi_kejadian_k3rstahun()==true){    
+            if(btnLokasiKejadianK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnLokasiKejadianK3PerTahun);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getdampak_cidera_k3rstahun()==true){    
+            if(btnDampakCideraK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDampakCideraK3PerTahun);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getjenis_pekerjaan_k3rstahun()==true){    
+            if(btnJenisPekerjaanK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnJenisPekerjaanK3PerTahun);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getbagian_tubuh_k3rstahun()==true){    
+            if(btnBagianTubuhK3PerTahun.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnBagianTubuhK3PerTahun);
                 jmlmenu++;
             }                
         }
@@ -22441,6 +22775,13 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }                
         }
+        
+        if(akses.getbpjs_histori_pelayanan()==true){
+            if(btnBPJSHistoriPelayanan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnBPJSHistoriPelayanan);
+                jmlmenu++;
+            }                
+        }
 
         if(akses.getbpjs_referensi_diagnosa()==true){
             if(btnCekBPJSDiagnosa.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
@@ -23578,6 +23919,27 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getgrafik_k3_dampakcidera()==true){
+            if(btnGrafikK3PerDampakCidera.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnGrafikK3PerDampakCidera);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getgrafik_k3_perjenispekerjaan()==true){
+            if(btnGrafikK3PerJenisPekerjaan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnGrafikK3PerJenisPekerjaan);
+                jmlmenu++;
+            }                
+        }
+        
+        if(akses.getgrafik_k3_perbagiantubuh()==true){
+            if(btnGrafikK3PerBagianTubuh.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnGrafikK3PerBagianTubuh);
+                jmlmenu++;
+            }                
+        }
+        
         if(akses.getsurat_indeks()==true){
             if(btnSuratIndeks.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnSuratIndeks);
@@ -24343,6 +24705,150 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnGrafikK3PerLokasiKejadian.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrafikK3PerLokasiKejadianActionPerformed(evt);
+            }
+        });
+        
+        btnGrafikK3PerDampakCidera= new widget.ButtonBig();
+        btnGrafikK3PerDampakCidera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582015_11.png"))); 
+        btnGrafikK3PerDampakCidera.setText("K3 Per Dampak Cidera");
+        btnGrafikK3PerDampakCidera.setIconTextGap(0);
+        btnGrafikK3PerDampakCidera.setName("btnGrafikK3PerDampakCidera"); 
+        btnGrafikK3PerDampakCidera.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnGrafikK3PerDampakCidera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrafikK3PerDampakCideraActionPerformed(evt);
+            }
+        });
+        
+        btnGrafikK3PerJenisPekerjaan= new widget.ButtonBig();
+        btnGrafikK3PerJenisPekerjaan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582080_6.png"))); 
+        btnGrafikK3PerJenisPekerjaan.setText("K3 Per Jenis Pekerjaan");
+        btnGrafikK3PerJenisPekerjaan.setIconTextGap(0);
+        btnGrafikK3PerJenisPekerjaan.setName("btnGrafikK3PerJenisPekerjaan"); 
+        btnGrafikK3PerJenisPekerjaan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnGrafikK3PerJenisPekerjaan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrafikK3PerJenisPekerjaanActionPerformed(evt);
+            }
+        });
+        
+        btnGrafikK3PerBagianTubuh= new widget.ButtonBig();
+        btnGrafikK3PerBagianTubuh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582015_11.png"))); 
+        btnGrafikK3PerBagianTubuh.setText("K3 Per Bagian Tubuh");
+        btnGrafikK3PerBagianTubuh.setIconTextGap(0);
+        btnGrafikK3PerBagianTubuh.setName("btnGrafikK3PerBagianTubuh"); 
+        btnGrafikK3PerBagianTubuh.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnGrafikK3PerBagianTubuh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGrafikK3PerBagianTubuhActionPerformed(evt);
+            }
+        });
+        
+        btnJenisCideraK3PerTahun = new widget.ButtonBig();
+        btnJenisCideraK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/ruber.png")));
+        btnJenisCideraK3PerTahun.setText("Jenis Cidera K3 Per Tahun");
+        btnJenisCideraK3PerTahun.setIconTextGap(0);
+        btnJenisCideraK3PerTahun.setName("btnJenisCideraK3PerTahun"); 
+        btnJenisCideraK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnJenisCideraK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJenisCideraK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnPenyebabKecelakaanK3PerTahun = new widget.ButtonBig();
+        btnPenyebabKecelakaanK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_sponge_2___331505.png")));
+        btnPenyebabKecelakaanK3PerTahun.setText("Penyebab Kecelakaan K3 Per Tahun");
+        btnPenyebabKecelakaanK3PerTahun.setIconTextGap(0);
+        btnPenyebabKecelakaanK3PerTahun.setName("btnPenyebabKecelakaanK3PerTahun"); 
+        btnPenyebabKecelakaanK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPenyebabKecelakaanK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPenyebabKecelakaanK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnJenisLukaK3PerTahun = new widget.ButtonBig();
+        btnJenisLukaK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_h3_19725.png")));
+        btnJenisLukaK3PerTahun.setText("Jenis Luka K3 Per Tahun");
+        btnJenisLukaK3PerTahun.setIconTextGap(0);
+        btnJenisLukaK3PerTahun.setName("btnJenisLukaK3PerTahun"); 
+        btnJenisLukaK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnJenisLukaK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJenisLukaK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnLokasiKejadianK3PerTahun = new widget.ButtonBig();
+        btnLokasiKejadianK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_arrows_blue_61552.png")));
+        btnLokasiKejadianK3PerTahun.setText("Lokasi Kejadian K3 Per Tahun");
+        btnLokasiKejadianK3PerTahun.setIconTextGap(0);
+        btnLokasiKejadianK3PerTahun.setName("btnLokasiKejadianK3PerTahun"); 
+        btnLokasiKejadianK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnLokasiKejadianK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLokasiKejadianK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnDampakCideraK3PerTahun = new widget.ButtonBig();
+        btnDampakCideraK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_ambulance_45490.png")));
+        btnDampakCideraK3PerTahun.setText("Dampak Cidera K3 Per Tahun");
+        btnDampakCideraK3PerTahun.setIconTextGap(0);
+        btnDampakCideraK3PerTahun.setName("btnDampakCideraK3PerTahun"); 
+        btnDampakCideraK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDampakCideraK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDampakCideraK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnJenisPekerjaanK3PerTahun = new widget.ButtonBig();
+        btnJenisPekerjaanK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_applications-engineering_8830.png"))); 
+        btnJenisPekerjaanK3PerTahun.setText("Jenis Pekerjaan K3 Per Tahun");
+        btnJenisPekerjaanK3PerTahun.setIconTextGap(0);
+        btnJenisPekerjaanK3PerTahun.setName("btnJenisPekerjaanK3PerTahun"); 
+        btnJenisPekerjaanK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnJenisPekerjaanK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJenisPekerjaanK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnBagianTubuhK3PerTahun = new widget.ButtonBig();
+        btnBagianTubuhK3PerTahun.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/plaster.png")));
+        btnBagianTubuhK3PerTahun.setText("Bagian Tubuh K3 Per Tahun");
+        btnBagianTubuhK3PerTahun.setIconTextGap(0);
+        btnBagianTubuhK3PerTahun.setName("btnBagianTubuhK3PerTahun"); 
+        btnBagianTubuhK3PerTahun.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnBagianTubuhK3PerTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBagianTubuhK3PerTahunActionPerformed(evt);
+            }
+        });
+        
+        btnSkriningRawatJalan = new widget.ButtonBig();
+        btnSkriningRawatJalan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/skrining.png")));
+        btnSkriningRawatJalan.setText("Skrining Rawat Jalan");
+        btnSkriningRawatJalan.setIconTextGap(0);
+        btnSkriningRawatJalan.setName("btnSkriningRawatJalan"); 
+        btnSkriningRawatJalan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnSkriningRawatJalan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSkriningRawatJalanActionPerformed(evt);
+            }
+        });
+        
+        btnBPJSHistoriPelayanan = new widget.ButtonBig();
+        btnBPJSHistoriPelayanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_Hourglass_34227.png")));
+        btnBPJSHistoriPelayanan.setText("Histori Pelayanan BPJS");
+        btnBPJSHistoriPelayanan.setIconTextGap(0);
+        btnBPJSHistoriPelayanan.setName("btnBPJSHistoriPelayanan"); 
+        btnBPJSHistoriPelayanan.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnBPJSHistoriPelayanan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBPJSHistoriPelayananActionPerformed(evt);
             }
         });
     }
