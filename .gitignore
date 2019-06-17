@@ -14,7 +14,7 @@ KhanzaPengenkripsiTeks
 KhanzaSecurity16bit
 KhanzaUpdater
 alarm
-build
+#ibuild
 #dist
 driverFlexCode
 k-base
@@ -25,7 +25,8 @@ pendaftaran2
 presensi
 resumepasien
 sim
-suara
+#suara
+#suaraapotek
 #webapps
 .DS_Store
 BulananHAIs.html
