@@ -5291,12 +5291,9 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
                             poli.setLocationRelativeTo(internalFrame1);
                             poli.setVisible(true);
                         }
-<<<<<<< HEAD
-=======
                     }else{
                         kdpoli.setText("IGDK");
                         isPoli();
->>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
                     }
                 }
                 NmPoli.setText(response.path("poliRujukan").path("nama").asText());
