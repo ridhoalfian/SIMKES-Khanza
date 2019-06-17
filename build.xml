@@ -76,7 +76,6 @@
         <mkdir dir="${build.dir}/suara" />      
         <mkdir dir="${build.dir}/suaraapotek" />      
         <mkdir dir="${build.dir}/lib" />   
-        <mkdir dir="${build.dir}/aplikasi" />      
         <copy todir="${build.dir}/report">
             <fileset dir="report/" includes="**/*.jrxml, **/*.jasper" />
         </copy>                
@@ -92,7 +91,7 @@
         <copy todir="${build.dir}/lib">
             <fileset dir="lib/" includes="**/*.*" />
         </copy>
-        <copy todir="${build.dir}/aplikasi">
+        <copy todir="${build.dir}">
             <fileset dir="aplikasi/" includes="**/*.*" />
         </copy>
     </target>
@@ -103,7 +102,6 @@
         <mkdir dir="${dist.dir}/suara" />
         <mkdir dir="${dist.dir}/suaraapotek" />      
         <mkdir dir="${dist.dir}/lib" />   
-        <mkdir dir="${dist.dir}/aplikasi" />      
         <copy todir="${dist.dir}/report">
             <fileset dir="report/" includes="**/*.jrxml, **/*.jasper" />
         </copy>               
@@ -119,7 +117,7 @@
         <copy todir="${dist.dir}/lib">
             <fileset dir="lib/" includes="**/*.*" />
         </copy>
-        <copy todir="${dist.dir}/aplikasi">
+        <copy todir="${dist.dir}">
             <fileset dir="aplikasi/" includes="**/*.*" />
         </copy>
     </target>
