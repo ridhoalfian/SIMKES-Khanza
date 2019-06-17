@@ -15,10 +15,10 @@ KhanzaSecurity16bit
 KhanzaUpdater
 alarm
 build
-dist
+#dist
 driverFlexCode
 k-base
-lib
+#lib
 nbproject
 pendaftaran-android-ios/pendaftaran-android-ios
 pendaftaran2
@@ -26,7 +26,7 @@ presensi
 resumepasien
 sim
 suara
-webapps
+#webapps
 .DS_Store
 BulananHAIs.html
 DetailJMDokter2.doc
