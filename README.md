@@ -34,16 +34,6 @@
 
   Bagi yang ingin donasi untuk SIMRS Khanza bisa lewat BRI Syariah 1015369872 atas nama Windiarto
 
-  ========================================================
-  +                                                      +
-  +                       PERHATIAN                      + 
-  +      INI ADALAH VERSI RSUD H. DAMANHURI BARABAI      +
-  + ADA TAMBAHAN TABEL DATABASE & MODIFIKASI SOURCE CODE + 
-  +                                                      +
-  +                 USE AT YOUR OWN RISK                 +
-  +                                                      +
-  ========================================================
-
 ## Langkah-langkah clean-build di NetBeans 11
 1. Install Java 12. Jika bingun, silahkan mengacu ke file di folder Google Drive Mas Win.
    https://drive.google.com/drive/folders/0ByL--Jg6bdF7RG1NSlVTT2ZPODg
