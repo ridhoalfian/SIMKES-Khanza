@@ -15,6 +15,7 @@ KhanzaSecurity16bit
 KhanzaUpdater
 alarm
 build
+dist
 driverFlexCode
 k-base
 lib
@@ -25,6 +26,7 @@ presensi
 resumepasien
 sim
 suara
+webapps
 .DS_Store
 BulananHAIs.html
 DetailJMDokter2.doc
