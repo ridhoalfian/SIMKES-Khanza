@@ -169,7 +169,6 @@ if(isset($_GET['no_rawat'])) {
                       		<?php
                       		if (isset($_POST['ok_obat'])) {
                               if (($_POST['kode_obat'] <> "") and ($no_rawat <> "")) {
-
                                   $onhand = query("SELECT no_resep FROM resep_obat WHERE no_rawat = '{$no_rawat}' AND tgl_peresepan = '{$date}'");
                                   $dtonhand = fetch_array($onhand);
                                   $get_number = fetch_array(query("select ifnull(MAX(CONVERT(RIGHT(no_resep,10),signed)),0) from resep_obat where tgl_perawatan like '%{$date}%'"));
@@ -250,7 +249,7 @@ if(isset($_GET['no_rawat'])) {
                           	<div class="row">
                             <ul class="nav nav-tabs tab-nav-right" role="tablist">
                                 <li role="presentation" class="active"><a href="#riwayat" data-toggle="tab">RIWAYAT</a></li>
-                                <li role="presentation" class="active"><a href="#diagnosa" data-toggle="tab">DIAGNOSA</a></li>
+                                <li role="presentation"><a href="#diagnosa" data-toggle="tab">DIAGNOSA</a></li>
                                 <li role="presentation"><a href="#resep" data-toggle="tab">RESEP</a></li>
                                 <li role="presentation"><a href="#permintaanlab" data-toggle="tab">PERMINTAAN LAB</a></li>
                                 <li role="presentation"><a href="#permintaanrad" data-toggle="tab">PERMINTAAN RAD</a></li>
@@ -410,7 +409,7 @@ if(isset($_GET['no_rawat'])) {
                                       <dt>Nama Obat</dt>
                                       <dd><select name="kode_obat" class="kd_obat" style="width:100%"></select></dd><br>
                                       <dt>Jumlah Obat</dt>
-                                      <dd><input name="jumlah" value="10" style="width:100%"></dd><br>
+                                      <dd><input class="form-control" name="jumlah" value="10" style="width:100%"></dd><br>
                                       <dt>Aturan Pakai</dt>
                                       <dd>
                                           <select name="aturan_pakai" class="aturan_pakai" id="lainnya" style="width:100%">
@@ -425,7 +424,7 @@ if(isset($_GET['no_rawat'])) {
                                       </dd><br>
                                       <div id="row_dim">
                                       <dt></dt>
-                                      <dd><input name="aturan_pakai_lainnya" style="width:100%"></dd><br>
+                                      <dd><input class="form-control" name="aturan_pakai_lainnya" style="width:100%"></dd><br>
                                       </div>
                                       <dt></dt>
                                       <dd><button type="submit" name="ok_obat" value="ok_obat" class="btn bg-indigo waves-effect" onclick="this.value=\'ok_obat\'">OK</button></dd><br>

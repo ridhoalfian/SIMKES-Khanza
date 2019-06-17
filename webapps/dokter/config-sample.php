@@ -15,14 +15,25 @@ if (preg_match ('/config.php/', basename($_SERVER['PHP_SELF']))) die ('Unable to
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
-define('DB_PASS', 'akusayangsamakamu');
-define('DB_NAME', 'sik2');
+define('DB_PASS', '');
+define('DB_NAME', 'sik');
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME); 
 
 define('VERSION', '0.1 Beta');
 define('URL', '');
 define('DIR', '');
+define('PRODUCTION', 'NO'); // YES to hide error page. NO to display error page.
+define('SIMRSURL', 'http://localhost/webapps');
+
+// INACBG's and VClaim Configurations
+define('INACBG_KEYRS', '');
+define('INACBG_URLWS', '');
+define('NO_RM', ' ');
+define('NO_PESERTA', '');
+define('SEP', '');
+define('NIK_KODER', '');
+define('TIPE_RS', '');
 
 function escape($string) {
     global $connection;
@@ -68,9 +79,10 @@ $getSettings = query("SELECT * FROM setting");
 $dataSettings = fetch_assoc($getSettings);
 
 // Get jenis poli
-$query_poli = query("SELECT * from poliklinik WHERE kd_poli = '{$_SESSION['jenis_poli']}'");
+$jenispoli=isset($_SESSION['jenis_poli'])?$_SESSION['jenis_poli']:NULL;
+$query_poli = query("SELECT * from poliklinik WHERE kd_poli = '".$jenispoli."'");
 $data_poli = fetch_array($query_poli);
-if ($_SESSION['jenis_poli'] == $data_poli['0']) {
+if ($jenispoli == $data_poli['0']) {
     $nmpoli = $data_poli['1'];
 }
 
@@ -81,7 +93,7 @@ function clean($string) {
 
 // redirect to another page
 function redirect($location) {
-    return header("Location: {$location}");
+    return header("Location:".$location);
 }
 
 // add message to session

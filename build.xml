@@ -74,6 +74,8 @@
         <mkdir dir="${build.dir}/report" />        
         <mkdir dir="${build.dir}/setting" />       
         <mkdir dir="${build.dir}/suara" />      
+        <mkdir dir="${build.dir}/suaraapotek" />      
+        <mkdir dir="${build.dir}/lib" />   
         <copy todir="${build.dir}/report">
             <fileset dir="report/" includes="**/*.jrxml, **/*.jasper" />
         </copy>                
@@ -83,12 +85,23 @@
         <copy todir="${build.dir}/suara">
             <fileset dir="suara/" includes="**/*.mp3" />
         </copy>
+        <copy todir="${build.dir}/suaraapotek">
+            <fileset dir="suaraapotek/" includes="**/*.mp3" />
+        </copy>
+        <copy todir="${build.dir}/lib">
+            <fileset dir="lib/" includes="**/*.*" />
+        </copy>
+        <copy todir="${build.dir}">
+            <fileset dir="aplikasi/" includes="**/*.*" />
+        </copy>
     </target>
 
     <target name="-post-jar">
         <mkdir dir="${dist.dir}/report" />        
         <mkdir dir="${dist.dir}/setting" />       
-        <mkdir dir="${dist.dir}/suara" />       
+        <mkdir dir="${dist.dir}/suara" />
+        <mkdir dir="${dist.dir}/suaraapotek" />      
+        <mkdir dir="${dist.dir}/lib" />   
         <copy todir="${dist.dir}/report">
             <fileset dir="report/" includes="**/*.jrxml, **/*.jasper" />
         </copy>               
@@ -98,5 +111,14 @@
         <copy todir="${dist.dir}/suara">
             <fileset dir="suara/" includes="**/*.mp3" />
         </copy> 
+        <copy todir="${dist.dir}/suaraapotek">
+            <fileset dir="suaraapotek/" includes="**/*.mp3" />
+        </copy>
+        <copy todir="${dist.dir}/lib">
+            <fileset dir="lib/" includes="**/*.*" />
+        </copy>
+        <copy todir="${dist.dir}">
+            <fileset dir="aplikasi/" includes="**/*.*" />
+        </copy>
     </target>
 </project>
