@@ -1,0 +1,12 @@
+[submodule "webapps/APAM"]
+	path = webapps/APAM
+	url = https://github.com/basoro/APAM-Barabai
+[submodule "webapps/dokter"]
+	path = webapps/dokter
+	url = https://github.com/basoro/Dokter-Ulun
+[submodule "webapps/pasien"]
+	path = webapps/pasien
+	url = https://github.com/basoro/Aplikasi-Damanhuri
+[submodule "webapps/dashboard"]
+	path = webapps/dashboard
+	url = https://github.com/basoro/Khanza-Lite
