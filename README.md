@@ -2,7 +2,7 @@
     <b>RSHD Barabai Version</b><br>
     Use at Your Own Risk
 </p>
-<br><br>
+<br>
 <p align="center">
     <h1 align="center">SIMKES Khanza</h1>
     <p align="center">Sistem Informasi Manajemen Kesehatan Khanza buatan indonesia untuk Rumah Sakit, Puskesmas, Klinik dan Praktek Mandiri 100% Gratis. Dilarang memperjualbelikan/mengambil keuntungan dari Software ini dalam bentuk apapun tanpa seijin pembuat software  (Khanza.Soft Media)</p>
