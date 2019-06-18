@@ -1,7 +1,5 @@
 ---
 title: Home
-has_children: true
-nav_order: 2
 ---
 
 # Focus on writing good documentation
