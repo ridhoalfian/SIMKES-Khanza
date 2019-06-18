@@ -1,6 +1,7 @@
 <p align="right">RSHD Barabai Version<br>
 ``Use at Your Own Risk``
 </p>
+`Use at Your Own Risk`
 <br><br>
 <p align="center">
     <h1 align="center">SIMKES Khanza</h1>
