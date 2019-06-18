@@ -1,5 +1,6 @@
-<p align="right">RSHD Barabai Version<br>
-    <span style="color:red;">Use at Your Own Risk</span>
+<p align="right">
+    <b>RSHD Barabai Version</b><br>
+    Use at Your Own Risk
 </p>
 <br><br>
 <p align="center">
