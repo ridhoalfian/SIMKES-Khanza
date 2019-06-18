@@ -1,7 +1,7 @@
 ---
 title: Instalasi Klien
 parent: Instalasi
-permalink: /Instalasi/Instalasi_Klien/
+permalink: /Instalasi/Klien/
 ---
 
 # Instalasi klien page
