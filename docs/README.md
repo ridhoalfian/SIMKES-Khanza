@@ -60,7 +60,7 @@ If you're hosting your site on GitHub Pages, [set up GitHub Pages and Jekyll loc
 
 ## About the project
 
-Just the Docs is &copy; 2017-2019 by [Patrick Marsceill](http://patrickmarsceill.com).
+SIMRS Khanza (SIMKES Khanza) &copy; 2013-2019 by [Patrick Marsceill](http://patrickmarsceill.com).
 
 ### License
 
