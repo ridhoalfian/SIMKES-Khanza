@@ -29,7 +29,7 @@ Just the Docs is built for [Jekyll](https://jekyllrb.com), a static site generat
 
 ## About the project
 
-Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](http://patrickmarsceill.com).
+Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/haki-simrs-khanza.jpg).
 
 ### License
 
