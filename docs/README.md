@@ -19,6 +19,12 @@ Just the Docs is built for [Jekyll](https://jekyllrb.com), a static site generat
 
 1. Add Just the Docs to your Jekyll site's `_config.yml` as a [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/)
 
+### Local installation
+1. Install the Ruby Gem
+
+### Configure
+- [See configuration options](https:/basoro.id)
+
 ---
 
 ## About the project
