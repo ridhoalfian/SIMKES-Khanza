@@ -1,5 +1,6 @@
 <h3 align="right">RSHD Barabai Version</h3>
 <p align="right">Use at Your Own Risk</p>
+[Click me](http://www.google.com){: .btn}
 <br><br>
 <p align="center">
     <h1 align="center">SIMKES Khanza</h1>
