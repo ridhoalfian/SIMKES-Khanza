@@ -1,7 +1,6 @@
 <p align="right">RSHD Barabai Version<br>
-``Use at Your Own Risk``
+    <span style="background-color:red;">Use at Your Own Risk</span>
 </p>
-`_config.yml`
 <br><br>
 <p align="center">
     <h1 align="center">SIMKES Khanza</h1>
