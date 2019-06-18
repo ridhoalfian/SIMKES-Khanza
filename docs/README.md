@@ -33,7 +33,7 @@ Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](https://raw.githubuserco
 
 ### License
 
-Just the Docs is distributed by an [MIT license](https://github.com/pmarsceill/just-the-docs/tree/master/LICENSE.txt).
+SIMKES Khanza didistribusikan dengan lisensi [Aladdin_Free_Public_License](https://en.wikipedia.org/wiki/Aladdin_Free_Public_License)
 
 ### Contributing
 
