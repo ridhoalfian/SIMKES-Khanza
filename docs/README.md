@@ -29,7 +29,7 @@ Just the Docs is built for [Jekyll](https://jekyllrb.com), a static site generat
 
 ## About the project
 
-Just the Docs is &copy; 2017-2019 by [Patrick Marsceill](http://patrickmarsceill.com).
+Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](http://patrickmarsceill.com).
 
 ### License
 
