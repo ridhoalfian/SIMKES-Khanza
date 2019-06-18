@@ -1,5 +1,5 @@
 <h3 align="right">RSHD Barabai Version</h3>
-<p align="right">Use at Your Own Risk</p>
+<span align="right">`Use at Your Own Risk`</span>
 [Click me](http://www.google.com){: .btn}
 <br><br>
 <p align="center">
