@@ -1,7 +1,5 @@
-<p align="right">
-    <h3>RSHD Barabai Version</h3>
-    <p>Use at Your Own Risk</p>
-</p>
+<h3 align="right">RSHD Barabai Version</h3>
+<p align="right">Use at Your Own Risk</p>
 <br><br>
 <p align="center">
     <h1 align="center">SIMKES Khanza</h1>
