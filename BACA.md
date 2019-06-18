@@ -1,7 +1,8 @@
 <br><br>
 <p align="center">
-    <h1 align="center">SIMKES Khanza</h1>
+    <h1 align="center">SIMKES Khanza
     <p align="center">Sistem Informasi Manajemen Kesehatan Khanza Buatan Indonesia 100% Gratis</p>
+    </h1>
     <p align="center">Bisa digunakan untuk Rumah Sakit, Puskesmas, Klinik dan Praktek Mandiri. memperjualbelikan/mengambil keuntungan dari Software ini dalam bentuk apapun tanpa seijin pembuat software  (Khanza.Soft Media)</p>
     <p align="center"><strong><a href="https://pmarsceill.github.io/just-the-docs/">See it in action!</a></strong></p>
     <br><br><br>
