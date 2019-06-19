@@ -10,7 +10,9 @@
     <br><br><br>
 </p>
 
-![jtd](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/simkes.gif)
+![SIMKES Khanza](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/simkes.gif)
+
+<br><br>
 
 ## Installation
 
