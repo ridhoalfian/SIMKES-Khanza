@@ -8,26 +8,27 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 
 ---
 
-## Getting started
+## Mari Mulai!
 
-### Dependencies
+### Prasyarat dan Dependensi
 
-Just the Docs is built for [Jekyll](https://jekyllrb.com), a static site generator. View the [quick start guide](https://jekyllrb.com/docs/) for more information. Just the Docs requires no special Jekyll plugins and can run on GitHub Pages' standard Jekyll compiler.
+Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem operasi didalamnya (bisa Windows, Linux atau MacOS). Setelah itu, pastikan sudah terinstall Java 8/12, webserver dan font tahoma jika menggunakan Linux/MacOS. Java digunakan untuk menjalankan aplikasi desktop, webserver untuk aplikasi di sisi server (billing, berkas digital, plugins tambahan dan lain-lain). Font tahoma untuk cetak laporan-laporan dan bentuk PDF.
 
 
-### Quick start: Use as a GitHub Pages remote theme
+### Install cara cepat
 
 1. Add Just the Docs to your Jekyll site's `_config.yml` as a [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/)
 
 ### Local installation
 1. Install the Ruby Gem
 
-### Configure
-- [See configuration options](https:/basoro.id)
+### Konfigurasi
+- [Lihat konfigurasi pemasangan](https:/basoro.id)
+- [Lihat konfigurasi aplikasi](https:/basoro.id)
 
 ---
 
-## About the project
+## Tentang SIMKES Khanza
 
 Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/haki-simrs-khanza.jpg).
 
@@ -35,13 +36,6 @@ Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](https://raw.githubuserco
 
 SIMKES Khanza didistribusikan dengan lisensi [Aladdin_Free_Public_License](https://en.wikipedia.org/wiki/Aladdin_Free_Public_License)
 
-### Contributing
+### Konstribusi
 
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change. Read more about becoming a contributor in [our GitHub repo](https://github.com/pmarsceill/just-the-docs#contributing).
-
-### Code of Conduct
-
-Just the Docs is committed to fostering a welcoming community.
-
-[View our Code of Conduct](https://github.com/pmarsceill/just-the-docs/tree/master/CODE_OF_CONDUCT.md) on our GitHub repository.
+Jika ingin berkontribusi pada proyek ini, silakan bahas terlebih dahulu perubahan yang ingin Anda buat melalui grup telegram, email, atau metode lain apa pun dengan pemilik repositori utama ([Windiarto](https://github.com/mas-elkhanza/)) ini sebelum melakukan perubahan. Karena secara periodik repositori ini akan sinkronisasi dengan repo utama.
