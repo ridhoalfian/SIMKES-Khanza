@@ -3571,6 +3571,11 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
 
     private void BtnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        if(ChkCari.isSelected()==true){
+            ChkCari.setSelected(false);
+            isForm();
+        }  
+        ChkRM.setSelected(true);
         tampil(NoRujukan.getText());
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnCariActionPerformed
@@ -4778,8 +4783,6 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
             Valid.textKosong(TNo,"No.Rekam Medis");
         }else if(TNm.getText().trim().equals("")){
             Valid.textKosong(TNm,"nama pasien");
-        }else if(kdpoli.getText().trim().equals("")){
-            Valid.textKosong(TNm,"Mapping Poli");
         }else if(nmpnj.getText().trim().equals("")||Kdpnj.getText().trim().equals("")){
             Valid.textKosong(Kdpnj,"Asuransi/Askes/Png.Jawab");
         }else if(tmp_lahir.equals("Yes")&&(TTmp.getText().trim().length()<p_tmp_lahir)){
@@ -5293,6 +5296,9 @@ public final class BPJSCekNoRujukanRS extends javax.swing.JDialog {
                             poli.setLocationRelativeTo(internalFrame1);
                             poli.setVisible(true);
                         }
+                    }else{
+                        kdpoli.setText("IGDK");
+                        isPoli();
                     }
                 }
                 NmPoli.setText(response.path("poliRujukan").path("nama").asText());

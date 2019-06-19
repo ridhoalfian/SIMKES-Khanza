@@ -35,7 +35,15 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
+<<<<<<< HEAD
+<<<<<<< HEAD
             <StringItem index="0" value="16-06-2019"/>
+=======
+            <StringItem index="0" value="17-06-2019"/>
+>>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
+=======
+            <StringItem index="0" value="18-06-2019"/>
+>>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
           </StringArray>
         </Property>
         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -912,7 +920,15 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019"/>
+=======
+                                    <StringItem index="0" value="17-06-2019"/>
+>>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
+=======
+                                    <StringItem index="0" value="18-06-2019"/>
+>>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2196,7 +2212,15 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019 20:40:22"/>
+=======
+                                    <StringItem index="0" value="17-06-2019 15:44:34"/>
+>>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
+=======
+                                    <StringItem index="0" value="18-06-2019 17:33:07"/>
+>>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -2233,7 +2257,15 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019"/>
+=======
+                                    <StringItem index="0" value="17-06-2019"/>
+>>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
+=======
+                                    <StringItem index="0" value="18-06-2019"/>
+>>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2976,7 +3008,15 @@
                                 </Property>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019"/>
+=======
+                                    <StringItem index="0" value="17-06-2019"/>
+>>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
+=======
+                                    <StringItem index="0" value="18-06-2019"/>
+>>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
