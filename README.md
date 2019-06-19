@@ -14,58 +14,63 @@
 
 <br><br>
 
-## Installation
+## Instalasi, Konfigurasi dan Fitur
 
-Add this line to your Jekyll site's Gemfile:
+### Install cara cepat
 
-```ruby
-gem "just-the-docs"
-```
+1. Download Java 12 dan Install ([Windows](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_windows-x64_bin.exe), [Linux](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_linux-x64_bin.tar.gz), [MacOS](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_osx-x64_bin.dmg))
+2. Download Webserver dan Install ([Windows](https://bitnami.com/redirect/to/576576/bitnami-nginxstack-1.16.0-1-windows-x64-installer.exe), [Linux](https://bitnami.com/redirect/to/576566/bitnami-nginxstack-1.16.0-1-linux-x64-installer.run), [MacOS](https://bitnami.com/redirect/to/576570/bitnami-nginxstack-1.16.0-1-osx-x86_64-installer.dmg))
+3. Import databse sik_kosong.sql (atau sik.sql dengan dummy data)
+4. Jalankan file Aplikasi (Aplikasi.bat untuk Windows dan Aplikasi.sh untuk Linux dan MacOS)
+5. Tunggu sesaat, lalu klik login. Gunakan user: <b>spv</b> dan pass: <b>server</b>
 
-And add this line to your Jekyll site's `_config.yml`:
+### Konfigurasi
+- [Lihat konfigurasi pemasangan](https:/basoro.id/SIMKES-Khanza/)
+- [Lihat konfigurasi aplikasi](https:/basoro.id/SIMKES-Khanza/)
 
-```yaml
-theme: just-the-docs
-```
+### Fitur-Fitur
 
-And then execute:
+1. Telah dipakai oleh ratusan rumah sakit dan klinik di seluruh Indonesia
+2. Sudah banyak rumah sakit yang lulus akreditasi, memakai SIMRS Khanza
+3. Fitur-fitur lengkap, mencakup semua proses bisnis rumah sakit / klinik
+4. Gratis dan open source, bahkan tim IT rumah sakit bisa mengembangkan sendiri jika ada fitur yang dirasa kurang sesuai
+5. Aplikasi dibuat menggunakan teknologi hybrid Java, PHP, CSS dan HTML 
+6. Berbasiskan open source dengan tanpa biaya lisensi database dan tanpa batasan system operasi
+7. Sudah bisa Bridging dengan sistem lain (BPJS, INACBGs, Inhealth, Dukcapil, SITT, Sisrute Dll)
+8. Branchwise Enabled, mendukung multi site / multicabang dan lokasi
+9. Tampilan program yang simpel dan mudah di gunakan
+10. ICD Support, tersedia ICD 9 dan 10
+11. Exportable, semua laporan dapat di ekspor ke Microsoft Excell
+12. Memungkinkan penggunaan secara Multi User dan Multi Tasking, tanpa menimbulkan interupsi data
+13. Aman, menggunakan metodologi role user untuk pemberian hak akses pada setiap user/pemakai
+14. Dukungan oleh owner (Bapak Windiarto Nugroho S.Kom) dalam implementasi di berbagai tipe rumah sakit seluruh Indonesia
+15. Dukungan 24 jam oleh komunitas pengguna SIMRS Khanza seluruh Indonesia 
 
-    $ bundle
+## Pengembangan
 
-Or install it yourself as:
+Untuk lingkungan pengembangan, silahkan ikuti langkah-langkah berikut.
 
-    $ gem install just-the-docs
+1. Install Java 12. Jika bingun, silahkan mengacu ke file di folder Google Drive Mas Win.
+   https://drive.google.com/drive/folders/0ByL--Jg6bdF7RG1NSlVTT2ZPODg
+2. Install Netbeans 11. Silahkan mengacu ke situs netbeans (incubating-netbeans-11.0-bin.zip)
+   https://netbeans.org
+3. Download atau clone https://github.com/basoro/SIMRS-Khanza-Java-12
+4. Sesuaikan absolute path library-library pada file nbproject/project.properties dengan keadaan pada komputer anda.
+5. Buka Netbeans anda.
+6. Open project SIMRS Khanza pada point 3.
+7. Silahkan clean, build atau clean build.
 
-## Usage
+Note:
+Hasil build ada di folder dist. Support semua OS. Tidak perlu nambah library lagi.
 
-[View the documentation](https://pmarsceill.github.io/just-the-docs/) for usage information.
+---
 
-## Contributing
+## Tentang SIMKES Khanza
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/pmarsceill/just-the-docs. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+## Hak Cipta
 
-### Submitting code changes:
+Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/haki-simrs-khanza.jpg).
 
-- Open a [Pull Request](https://github.com/pmarsceill/just-the-docs/pulls)
-- Ensure all CI tests pass
-- Await code review
-- Bump the version number in `just-the-docs.gemspec` and `package.json` according to [semantic versioning](https://semver.org/).
+### License
 
-### Design and development principles of this theme:
-
-1. As few dependencies as possible
-2. No build script needed
-3. First class mobile experience
-4. Make the content shine
-
-## Development
-
-To set up your environment to develop this theme, run `bundle install`.
-
-Your theme is set up just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
-
-When the theme is released, only the files in `_layouts`, `_includes`, and `_sass` tracked with Git will be released.
-
-## License
-
-The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+SIMKES Khanza didistribusikan dengan lisensi [Aladdin Free Public License](https://en.wikipedia.org/wiki/Aladdin_Free_Public_License)
