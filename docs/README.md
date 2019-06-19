@@ -12,12 +12,12 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 
 ### Prasyarat dan Dependensi
 
-Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem operasi didalamnya (bisa Windows, Linux atau MacOS). Setelah itu, pastikan sudah terinstall Java 8/12, webserver dan font tahoma jika menggunakan Linux/MacOS. Java digunakan untuk menjalankan aplikasi desktop, webserver untuk aplikasi di sisi server (billing, berkas digital, plugins tambahan dan lain-lain). Font tahoma untuk cetak laporan-laporan dan bentuk PDF.
+Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem operasi didalamnya (bisa Windows, Linux atau MacOS). Setelah itu, pastikan sudah terinstall Java 12, webserver dan font tahoma jika menggunakan Linux/MacOS. Java digunakan untuk menjalankan aplikasi desktop, webserver untuk aplikasi di sisi server (billing, berkas digital, plugins tambahan dan lain-lain). Font tahoma untuk cetak laporan-laporan dan bentuk PDF.
 
 ### Install cara cepat
 
-1. Download Java 8/12 dan Install (pilih sesuai Sistem Operasi)
-2. Download XAMPP dan Install (pilih sesuai Sistem Operasi)
+1. Download Java 12 dan Install ([Windows](https://basoro.id), [Linux](https://basoro.id), [MacOS](https://basoro.id))
+2. Download XAMPP dan Install ([Windows](https://basoro.id), [Linux](https://basoro.id), [MacOS](https://basoro.id))
 3. Import databse sik_kosong.sql (atau sik.sql dengan dummy data)
 4. Jalankan file Aplikasi (Aplikasi.bat untuk Windows dan Aplikasi.sh untuk Linux dan MacOS)
 5. Tunggu sesaat, lalu klik login. Gunakan user: <b>spv</b> dan pass: <b>server</b>
