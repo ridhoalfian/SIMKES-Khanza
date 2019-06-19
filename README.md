@@ -14,6 +14,10 @@
 
 <br><br>
 
+![Plugins](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/plugins.jpg)
+
+<br><br>
+
 ## Instalasi, Konfigurasi dan Fitur
 
 ### Install cara cepat
