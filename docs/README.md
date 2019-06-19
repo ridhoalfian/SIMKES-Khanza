@@ -14,13 +14,13 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 
 Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem operasi didalamnya (bisa Windows, Linux atau MacOS). Setelah itu, pastikan sudah terinstall Java 8/12, webserver dan font tahoma jika menggunakan Linux/MacOS. Java digunakan untuk menjalankan aplikasi desktop, webserver untuk aplikasi di sisi server (billing, berkas digital, plugins tambahan dan lain-lain). Font tahoma untuk cetak laporan-laporan dan bentuk PDF.
 
-
 ### Install cara cepat
 
-1. Add Just the Docs to your Jekyll site's `_config.yml` as a [remote theme](https://blog.github.com/2017-11-29-use-any-theme-with-github-pages/)
-
-### Local installation
-1. Install the Ruby Gem
+1. Download Java 8/12 dan Install
+2. Download XAMPP dan Install (pilih sesuai Sistem Operasi)
+3. Import databse sik_kosong.sql (atau sik.sql dengan dummy data)
+4. Jalankan file Aplikasi (Aplikasi.bat untuk Windows dan Aplikasi.sh untuk Linuz dan MacOS)
+5. Tunggu sesaat, lalu klik login. Gunakan user: <b>spv</b> dan pass: <b>server</b>
 
 ### Konfigurasi
 - [Lihat konfigurasi pemasangan](https:/basoro.id)
@@ -34,8 +34,8 @@ Hak cipta SIMRS Khanza (SIMKES Khanza) oleh [Windiarto](https://raw.githubuserco
 
 ### License
 
-SIMKES Khanza didistribusikan dengan lisensi [Aladdin_Free_Public_License](https://en.wikipedia.org/wiki/Aladdin_Free_Public_License)
+SIMKES Khanza didistribusikan dengan lisensi [Aladdin Free Public License](https://en.wikipedia.org/wiki/Aladdin_Free_Public_License)
 
 ### Konstribusi
 
-Jika ingin berkontribusi pada proyek ini, silakan bahas terlebih dahulu perubahan yang ingin Anda buat melalui grup telegram, email, atau metode lain apa pun dengan pemilik repositori utama ([Windiarto](https://github.com/mas-elkhanza/)) ini sebelum melakukan perubahan. Karena secara periodik repositori ini akan sinkronisasi dengan repo utama.
+Jika ingin berkontribusi pada proyek ini, silakan bahas terlebih dahulu perubahan yang ingin Anda buat melalui grup telegram, email, atau metode lain apa pun dengan pemilik repositori utama ([Windiarto a.k.a Mas El-Khanza](https://github.com/mas-elkhanza/)) sebelum melakukan perubahan. Karena secara periodik repositori ini akan sinkronisasi dengan repo utama (Upstream Master).
