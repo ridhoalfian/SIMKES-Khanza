@@ -16,10 +16,10 @@ Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem ope
 
 ### Install cara cepat
 
-1. Download Java 8/12 dan Install
+1. Download Java 8/12 dan Install (pilih sesuai Sistem Operasi)
 2. Download XAMPP dan Install (pilih sesuai Sistem Operasi)
 3. Import databse sik_kosong.sql (atau sik.sql dengan dummy data)
-4. Jalankan file Aplikasi (Aplikasi.bat untuk Windows dan Aplikasi.sh untuk Linuz dan MacOS)
+4. Jalankan file Aplikasi (Aplikasi.bat untuk Windows dan Aplikasi.sh untuk Linux dan MacOS)
 5. Tunggu sesaat, lalu klik login. Gunakan user: <b>spv</b> dan pass: <b>server</b>
 
 ### Konfigurasi
