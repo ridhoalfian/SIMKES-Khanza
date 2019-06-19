@@ -16,7 +16,7 @@ Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem ope
 
 ### Install cara cepat
 
-1. Download Java 12 dan Install ([Windows](https://basoro.id), [Linux](https://basoro.id), [MacOS](https://basoro.id))
+1. Download Java 12 dan Install ([Windows](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_windows-x64_bin.exe), [Linux](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_linux-x64_bin.tar.gz), [MacOS](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_osx-x64_bin.dmg))
 2. Download Webserver dan Install ([Windows](https://bitnami.com/redirect/to/576576/bitnami-nginxstack-1.16.0-1-windows-x64-installer.exe), [Linux](https://bitnami.com/redirect/to/576566/bitnami-nginxstack-1.16.0-1-linux-x64-installer.run), [MacOS](https://bitnami.com/redirect/to/576570/bitnami-nginxstack-1.16.0-1-osx-x86_64-installer.dmg))
 3. Import databse sik_kosong.sql (atau sik.sql dengan dummy data)
 4. Jalankan file Aplikasi (Aplikasi.bat untuk Windows dan Aplikasi.sh untuk Linux dan MacOS)
