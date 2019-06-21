@@ -3,6 +3,7 @@ title: Download
 parent: Instalasi
 permalink: /Instalasi/Download/
 ---
+<style>.final-release { background-color: white; color: green; border:1px solid green; border-radius: 2px; padding: 3px; font-size: 12px; } .pre-release { background-color: white; color: red; border-radius: 2px; border:1px solid red; padding: 3px; font-size:12px;</style>
 
 # Download Latest Build
 
