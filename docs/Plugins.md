@@ -1,5 +1,5 @@
 ---
-title: Plugins
+title: Plugin Tambahan
 has_children: true
 nav_order: 3
 ---
