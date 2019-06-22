@@ -10,3 +10,6 @@
 [submodule "webapps/dashboard"]
 	path = webapps/dashboard
 	url = https://github.com/basoro/Khanza-Lite
+[submodule "webapps/anjungan"]
+	path = webapps/anjungan
+	url = https://github.com/basoro/APM
