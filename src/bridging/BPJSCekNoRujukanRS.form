@@ -38,6 +38,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <StringItem index="0" value="16-06-2019"/>
 =======
             <StringItem index="0" value="17-06-2019"/>
@@ -48,6 +49,9 @@
 =======
             <StringItem index="0" value="20-06-2019"/>
 >>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
+=======
+            <StringItem index="0" value="08-07-2019"/>
+>>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
           </StringArray>
         </Property>
         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -927,6 +931,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019"/>
 =======
                                     <StringItem index="0" value="17-06-2019"/>
@@ -937,6 +942,9 @@
 =======
                                     <StringItem index="0" value="20-06-2019"/>
 >>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
+=======
+                                    <StringItem index="0" value="08-07-2019"/>
+>>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2223,6 +2231,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019 20:40:22"/>
 =======
                                     <StringItem index="0" value="17-06-2019 15:44:34"/>
@@ -2233,6 +2242,9 @@
 =======
                                     <StringItem index="0" value="20-06-2019 13:16:44"/>
 >>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
+=======
+                                    <StringItem index="0" value="08-07-2019 10:51:51"/>
+>>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -2272,6 +2284,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019"/>
 =======
                                     <StringItem index="0" value="17-06-2019"/>
@@ -2282,6 +2295,9 @@
 =======
                                     <StringItem index="0" value="20-06-2019"/>
 >>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
+=======
+                                    <StringItem index="0" value="08-07-2019"/>
+>>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -3027,6 +3043,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <StringItem index="0" value="16-06-2019"/>
 =======
                                     <StringItem index="0" value="17-06-2019"/>
@@ -3037,6 +3054,9 @@
 =======
                                     <StringItem index="0" value="20-06-2019"/>
 >>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
+=======
+                                    <StringItem index="0" value="08-07-2019"/>
+>>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
