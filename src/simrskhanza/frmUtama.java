@@ -479,9 +479,12 @@ import kepegawaian.K3RSLokasiKejadianPerTahun;
 import kepegawaian.K3RSPenyebab;
 import kepegawaian.K3RSPenyebabPerTahun;
 import kepegawaian.K3RSPeristiwa;
+import laporan.DlgDaftarPasienRanap;
+import laporan.DlgDaftarPasienRanapTNI;
 import laporan.DlgKIPPasienRalan;
 import laporan.DlgKIPPasienRanap;
 import laporan.DlgRekapMutasiBerkas;
+import laporan.DlgRekapPermintaanDiet;
 import laporan.RekapKunjunganRuangPerTahun;
 import laporan.RekapSkriningPernapasanRalanPerTahun;
 import perpustakaan.PerpustakaanAnggota;
@@ -554,7 +557,7 @@ public class frmUtama extends javax.swing.JFrame {
     private PreparedStatement ps;
     private ResultSet rs;
     private final Properties prop = new Properties();     
-    private int jmlmenu=0;
+    private int jmlmenu=0,grid=0,tinggi=0,i=0;
     private String coder_nik="",pilihpage="",judulform="",tampilkantni=Sequel.cariIsi("select tampilkan_tni_polri from set_tni_polri"),
             AKTIFKANTRACKSQL=koneksiDB.AKTIFKANTRACKSQL();
     /** Creates new form frmUtama */
@@ -705,7 +708,6 @@ public class frmUtama extends javax.swing.JFrame {
         btnBeriObat = new widget.ButtonBig();
         btnPasienMati = new widget.ButtonBig();
         btnAdmin = new widget.ButtonBig();
-        btnUser = new widget.ButtonBig();
         btnVakum = new widget.ButtonBig();
         btnDisplay = new widget.ButtonBig();
         btnSetupHarga = new widget.ButtonBig();
@@ -830,7 +832,6 @@ public class frmUtama extends javax.swing.JFrame {
         btnMutasiBarang = new widget.ButtonBig();
         btnRl34 = new widget.ButtonBig();
         btnRl36 = new widget.ButtonBig();
-        btnfee_visit_dokter = new widget.ButtonBig();
         btnfee_bacaan_ekg = new widget.ButtonBig();
         btnfee_rujukan_rontgen = new widget.ButtonBig();
         btnfee_rujukan_ranap = new widget.ButtonBig();
@@ -1639,18 +1640,6 @@ public class frmUtama extends javax.swing.JFrame {
             }
         });
         Panelmenu.add(btnAdmin);
-
-        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360484978_application-pgp-signature.png"))); // NOI18N
-        btnUser.setText("Set User");
-        btnUser.setIconTextGap(0);
-        btnUser.setName("btnUser"); // NOI18N
-        btnUser.setPreferredSize(new java.awt.Dimension(200, 90));
-        btnUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUserActionPerformed(evt);
-            }
-        });
-        Panelmenu.add(btnUser);
 
         btnVakum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360486615_remove-from-database.png"))); // NOI18N
         btnVakum.setText("Vakum Table");
@@ -3139,18 +3128,6 @@ public class frmUtama extends javax.swing.JFrame {
             }
         });
         Panelmenu.add(btnRl36);
-
-        btnfee_visit_dokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360485865_schedule.png"))); // NOI18N
-        btnfee_visit_dokter.setText("Fee Visit Dokter");
-        btnfee_visit_dokter.setIconTextGap(0);
-        btnfee_visit_dokter.setName("btnfee_visit_dokter"); // NOI18N
-        btnfee_visit_dokter.setPreferredSize(new java.awt.Dimension(200, 90));
-        btnfee_visit_dokter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnfee_visit_dokterActionPerformed(evt);
-            }
-        });
-        Panelmenu.add(btnfee_visit_dokter);
 
         btnfee_bacaan_ekg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360485865_schedule.png"))); // NOI18N
         btnfee_bacaan_ekg.setText("Fee Bacaan EKG");
@@ -6165,7 +6142,7 @@ public class frmUtama extends javax.swing.JFrame {
         Panelmenu.add(btnPenyakitRanapCaraBayar);
 
         btnAnggotaMiliterDirawat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_Soldier-3_379419.png"))); // NOI18N
-        btnAnggotaMiliterDirawat.setText("Anggota Militer Dirawat");
+        btnAnggotaMiliterDirawat.setText("Anggota TNI Dirawat");
         btnAnggotaMiliterDirawat.setIconTextGap(0);
         btnAnggotaMiliterDirawat.setName("btnAnggotaMiliterDirawat"); // NOI18N
         btnAnggotaMiliterDirawat.setPreferredSize(new java.awt.Dimension(200, 90));
@@ -6892,7 +6869,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "28/06/2019" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "29/07/2019" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -8486,19 +8463,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnAdminActionPerformed
-
-    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserActionPerformed
-        
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgUser user=new DlgUser(this,false);
-        user.emptTeks();
-        user.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        user.setLocationRelativeTo(PanelUtama);
-        user.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_btnUserActionPerformed
 
     private void btnVakumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVakumActionPerformed
         
@@ -10280,17 +10244,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRl36ActionPerformed
-
-    private void btnfee_visit_dokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfee_visit_dokterActionPerformed
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgFeeVisitDokter feevisitdokter=new DlgFeeVisitDokter(this,false);
-        feevisitdokter.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        feevisitdokter.setLocationRelativeTo(PanelUtama);
-        feevisitdokter.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_btnfee_visit_dokterActionPerformed
 
     private void btnfee_bacaan_ekgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfee_bacaan_ekgActionPerformed
         isTutup();
@@ -15067,6 +15020,69 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         this.setCursor(Cursor.getDefaultCursor());
     }
     
+    private void btnRekapPermintaanDietActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRekapPermintaanDiet form=new DlgRekapPermintaanDiet(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnDaftarPasienRanapActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDaftarPasienRanap form=new DlgDaftarPasienRanap(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+
+    private void btnDaftarPasienRanapTNIActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDaftarPasienRanapTNI form=new DlgDaftarPasienRanapTNI(this,false);
+        form.isCek();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnfee_visit_dokterActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgFeeVisitDokter feevisitdokter=new DlgFeeVisitDokter(this,false);
+        feevisitdokter.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        feevisitdokter.setLocationRelativeTo(PanelUtama);
+        feevisitdokter.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnUserActionPerformed(java.awt.event.ActionEvent evt) {
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgUser user=new DlgUser(this,false);
+        user.emptTeks();
+        user.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        user.setLocationRelativeTo(PanelUtama);
+        user.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
+    }
+    
+    private void btnPengajuanAsetInventarisActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+    
     /**
     * @param args the command line arguments
     */
@@ -15582,7 +15598,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ButtonBig btnUTDPenunjangRusak;
     private widget.ButtonBig btnUTDPenyerahanDarah;
     private widget.ButtonBig btnUTDStokDarah;
-    private widget.ButtonBig btnUser;
     private widget.ButtonBig btnVakum;
     private widget.ButtonBig btnakun_bayar;
     private widget.ButtonBig btnbayar_pemesanan;
@@ -15590,7 +15605,6 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
     private widget.ButtonBig btnfee_ralan;
     private widget.ButtonBig btnfee_rujukan_ranap;
     private widget.ButtonBig btnfee_rujukan_rontgen;
-    private widget.ButtonBig btnfee_visit_dokter;
     private widget.Button button1;
     private widget.ComboBox cmbMenu;
     private widget.PasswordBox edAdmin;
@@ -15648,7 +15662,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnGrafikKunjunganRanapBulan,btnGrafikKunjunganRanapTanggal,btnGrafikKunjunganRanapRuang,btnKunjunganBangsalTahun,btnGrafikJenjangJabatanPegawai,
             btnGrafikBidangPegawai,btnGrafikDepartemenPegawai,btnGrafikPendidikanPegawai,btnGrafikStatusWPPegawai,btnGrafikStatusKerjaPegawai,
             btnGrafikStatusPulangRanap,btnKIPPasienRanap,btnKIPPasienRalan,btnMappingDokterDPJPVClaim,btnMasterTriaseSkala1,btnMasterTriaseSkala2,
-            btnMasterTriaseSkala3,btnMasterTriaseSkala4,btnMasterTriaseSkala5,btnMasterTriasePemeriksaan,btnMasterTriaseMacamKasus,btnDataTriaseIGD;
+            btnMasterTriaseSkala3,btnMasterTriaseSkala4,btnMasterTriaseSkala5,btnMasterTriasePemeriksaan,btnMasterTriaseMacamKasus,btnDataTriaseIGD,
+            btnRekapPermintaanDiet,btnDaftarPasienRanap,btnDaftarPasienRanapTNI,btnfee_visit_dokter,btnUser,btnPengajuanAsetInventaris;
     
     public void isWall(){
         try{            
@@ -15722,333 +15737,33 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         }
             
         if(jmlmenu<=1){
-            Panelmenu.setLayout(new GridLayout(0,1));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()-5));
+            grid=1;
         }else if(jmlmenu<=4){
-            Panelmenu.setLayout(new GridLayout(0,2));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()-5));
+            grid=2;
         }else if(jmlmenu<=9){
-            Panelmenu.setLayout(new GridLayout(0,3));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()-5));
+            grid=3;
         }else if(jmlmenu<=16){
-            Panelmenu.setLayout(new GridLayout(0,4));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()-5));
-        }else if(jmlmenu<=20){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()-5));
+            grid=4;
+        }else if(jmlmenu>16){
+            grid=5;
+        }
+        
+        if(jmlmenu<=20){
+            tinggi=scrollPane2.getHeight()-5;
         }else if(jmlmenu<=25){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+(scrollPane2.getHeight()/4)));
-        }else if(jmlmenu<=30){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*2)));
-        }else if(jmlmenu<=35){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*3)));
-        }else if(jmlmenu<=40){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*4)));
-        }else if(jmlmenu<=45){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*5)));
-        }else if(jmlmenu<=50){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*6)));
-        }else if(jmlmenu<=55){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*7)));
-        }else if(jmlmenu<=60){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*8)));
-        }else if(jmlmenu<=65){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*9)));
-        }else if(jmlmenu<=70){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*10)));
-        }else if(jmlmenu<=75){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*11)));
-        }else if(jmlmenu<=80){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*12)));
-        }else if(jmlmenu<=85){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*13)));
-        }else if(jmlmenu<=90){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*14)));
-        }else if(jmlmenu<=95){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*15)));
-        }else if(jmlmenu<=100){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*16)));
-        }else if(jmlmenu<=105){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*17)));
-        }else if(jmlmenu<=110){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*18)));
-        }else if(jmlmenu<=115){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*19)));
-        }else if(jmlmenu<=120){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*20)));
-        }else if(jmlmenu<=125){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*21)));
-        }else if(jmlmenu<=130){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*22)));
-        }else if(jmlmenu<=135){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*23)));
-        }else if(jmlmenu<=140){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*24)));
-        }else if(jmlmenu<=145){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*25)));
-        }else if(jmlmenu<=150){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*26)));
-        }else if(jmlmenu<=155){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*27)));
-        }else if(jmlmenu<=160){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*28)));
-        }else if(jmlmenu<=165){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*29)));
-        }else if(jmlmenu<=170){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*30)));
-        }else if(jmlmenu<=175){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*31)));
-        }else if(jmlmenu<=180){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*32)));
-        }else if(jmlmenu<=185){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*33)));
-        }else if(jmlmenu<=190){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*34)));
-        }else if(jmlmenu<=195){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*35)));
-        }else if(jmlmenu<=200){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*36)));
-        }else if(jmlmenu<=205){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*37)));
-        }else if(jmlmenu<=210){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*38)));
-        }else if(jmlmenu<=215){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*39)));
-        }else if(jmlmenu<=220){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*40)));
-        }else if(jmlmenu<=225){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*41)));
-        }else if(jmlmenu<=230){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*42)));
-        }else if(jmlmenu<=235){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*43)));
-        }else if(jmlmenu<=240){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*44)));
-        }else if(jmlmenu<=245){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*45)));
-        }else if(jmlmenu<=250){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*46)));
-        }else if(jmlmenu<=255){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*47)));
-        }else if(jmlmenu<=260){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*48)));
-        }else if(jmlmenu<=265){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*49)));
-        }else if(jmlmenu<=270){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*50)));
-        }else if(jmlmenu<=275){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*51)));
-        }else if(jmlmenu<=280){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*52)));
-        }else if(jmlmenu<=285){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*53)));
-        }else if(jmlmenu<=290){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*54)));
-        }else if(jmlmenu<=295){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*55)));
-        }else if(jmlmenu<=300){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*56)));
-        }else if(jmlmenu<=305){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*57)));
-        }else if(jmlmenu<=310){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*58)));
-        }else if(jmlmenu<=315){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*59)));
-        }else if(jmlmenu<=320){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*60)));
-        }else if(jmlmenu<=325){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*61)));
-        }else if(jmlmenu<=330){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*62)));
-        }else if(jmlmenu<=335){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*63)));
-        }else if(jmlmenu<=340){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*64)));
-        }else if(jmlmenu<=345){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*65)));
-        }else if(jmlmenu<=350){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*66)));
-        }else if(jmlmenu<=355){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*67)));
-        }else if(jmlmenu<=360){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*68)));
-        }else if(jmlmenu<=365){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*69)));
-        }else if(jmlmenu<=370){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*70)));
-        }else if(jmlmenu<=375){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*71)));
-        }else if(jmlmenu<=380){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*72)));
-        }else if(jmlmenu<=385){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*73)));
-        }else if(jmlmenu<=390){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*74)));
-        }else if(jmlmenu<=395){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*75)));
-        }else if(jmlmenu<=400){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*76)));
-        }else if(jmlmenu<=405){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*77)));
-        }else if(jmlmenu<=410){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*78)));
-        }else if(jmlmenu<=415){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*79)));
-        }else if(jmlmenu<=420){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*80)));
-        }else if(jmlmenu<=425){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*81)));
-        }else if(jmlmenu<=430){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*82)));
-        }else if(jmlmenu<=435){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*83)));
-        }else if(jmlmenu<=440){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*84)));
-        }else if(jmlmenu<=445){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*85)));
-        }else if(jmlmenu<=450){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*86)));
-        }else if(jmlmenu<=455){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*87)));
-        }else if(jmlmenu<=460){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*88)));
-        }else if(jmlmenu<=465){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*89)));
-        }else if(jmlmenu<=470){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*90)));
-        }else if(jmlmenu<=475){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*91)));
-        }else if(jmlmenu<=480){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*92)));
-        }else if(jmlmenu<=485){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*93)));
-        }else if(jmlmenu<=490){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*94)));
-        }else if(jmlmenu<=495){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*95)));
-        }else if(jmlmenu<=500){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*96)));
-        }else if(jmlmenu<=505){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*97)));
-        }else if(jmlmenu<=510){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*98)));
-        }else if(jmlmenu<=515){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*99)));
-        }else if(jmlmenu<=520){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*100)));
-        }else if(jmlmenu<=525){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*101)));
-        }else if(jmlmenu<=530){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*102)));
-        }else if(jmlmenu<=535){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*103)));
-        }else if(jmlmenu<=540){
-            Panelmenu.setLayout(new GridLayout(0,5));
-            Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*104)));
-        }                                              
+            tinggi=scrollPane2.getHeight()+(scrollPane2.getHeight()/4);
+        }else if(jmlmenu>25){
+            tinggi=1;
+            for(i=25;i<jmlmenu;i++){
+                if(i%5==0){
+                    tinggi++;
+                }
+            }
+            tinggi=scrollPane2.getHeight()+((scrollPane2.getHeight()/4)*tinggi);
+        }
+        
+        Panelmenu.setLayout(new GridLayout(0,grid));
+        Panelmenu.setPreferredSize(new Dimension(scrollPane2.getWidth()-10,tinggi));
         Panelmenu.revalidate();
         Panelmenu.repaint();               
     }
@@ -16739,6 +16454,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             if(akses.getinventaris_sirkulasi()==true){
                 Panelmenu.add(btnSirkulasiInventaris);
                 jmlmenu++;
+            }
+            
+            if(akses.getpengajuan_asetinventaris()==true){
+                Panelmenu.add(btnPengajuanAsetInventaris);
+                jmlmenu++;
             }  
             
             if(akses.getbarang_cssd()==true){
@@ -17294,6 +17014,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
+            if(akses.getrekap_permintaan_diet()==true){  
+                Panelmenu.add(btnRekapPermintaanDiet);                 
+                jmlmenu++;
+            }
+            
             if(akses.getkemenkes_sitt()==true){  
                 Panelmenu.add(btnDataSITT);                 
                 jmlmenu++;
@@ -17324,9 +17049,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
             
+            if(akses.getdaftar_pasien_ranap()==true){  
+                Panelmenu.add(btnDaftarPasienRanap);                 
+                jmlmenu++;
+            }
+            
             if(tampilkantni.equals("Yes")){
                 if(akses.getanggota_militer_dirawat()==true){
                     Panelmenu.add(btnAnggotaMiliterDirawat);
+                    jmlmenu++;
+                }
+                
+                if(akses.getdaftar_pasien_ranaptni()==true){  
+                    Panelmenu.add(btnDaftarPasienRanapTNI);                 
                     jmlmenu++;
                 }
             }
@@ -19407,6 +19142,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnSirkulasiInventaris);
             jmlmenu++;
         }     
+        
+        if(akses.getpengajuan_asetinventaris()==true){
+            Panelmenu.add(btnPengajuanAsetInventaris);
+            jmlmenu++;
+        }  
 
         if(akses.getbarang_cssd()==true){
             Panelmenu.add(btnBarangCSSD);
@@ -19953,6 +19693,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
         
+        if(akses.getrekap_permintaan_diet()==true){  
+            Panelmenu.add(btnRekapPermintaanDiet);                 
+            jmlmenu++;
+        }
+        
         if(akses.getkemenkes_sitt()==true){  
             Panelmenu.add(btnDataSITT);                 
             jmlmenu++;
@@ -19983,9 +19728,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             jmlmenu++;
         }
 
+        if(akses.getdaftar_pasien_ranap()==true){  
+            Panelmenu.add(btnDaftarPasienRanap);                 
+            jmlmenu++;
+        }
+
         if(tampilkantni.equals("Yes")){
             if(akses.getanggota_militer_dirawat()==true){
                 Panelmenu.add(btnAnggotaMiliterDirawat);
+                jmlmenu++;
+            }
+            
+            if(akses.getdaftar_pasien_ranaptni()==true){  
+                Panelmenu.add(btnDaftarPasienRanapTNI);                 
                 jmlmenu++;
             }
         }
@@ -22333,7 +22088,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnSirkulasiInventaris);
                 jmlmenu++;
             }                
-        }     
+        }   
+        
+        if(akses.getpengajuan_asetinventaris()==true){
+            if(btnPengajuanAsetInventaris.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnPengajuanAsetInventaris);
+                jmlmenu++;
+            }                
+        } 
         
         if(akses.getbarang_cssd()==true){
             if(btnBarangCSSD.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
@@ -23098,6 +22860,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getrekap_permintaan_diet()==true){  
+            if(btnRekapPermintaanDiet.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnRekapPermintaanDiet);                 
+                jmlmenu++;
+            }                
+        }
         
         if(akses.getkemenkes_sitt()==true){  
             if(btnDataSITT.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
@@ -23141,10 +22909,24 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             }                
         }
         
+        if(akses.getdaftar_pasien_ranap()==true){  
+            if(btnDaftarPasienRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnDaftarPasienRanap);                 
+                jmlmenu++;
+            }                
+        }
+        
         if(tampilkantni.equals("Yes")){
             if(akses.getanggota_militer_dirawat()==true){
                 if(btnAnggotaMiliterDirawat.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                     Panelmenu.add(btnAnggotaMiliterDirawat);
+                    jmlmenu++;
+                }                
+            }
+            
+            if(akses.getdaftar_pasien_ranaptni()==true){  
+                if(btnDaftarPasienRanapTNI.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                    Panelmenu.add(btnDaftarPasienRanapTNI);                 
                     jmlmenu++;
                 }                
             }
@@ -25940,7 +25722,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         });
         
         btnDataTriaseIGD = new widget.ButtonBig();
-        btnDataTriaseIGD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1485358059_first_aid_kit.png")));
+        btnDataTriaseIGD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_h2_19724.png")));
         btnDataTriaseIGD.setText("Data Triase IGD");
         btnDataTriaseIGD.setIconTextGap(0);
         btnDataTriaseIGD.setName("btnDataTriaseIGD"); 
@@ -25948,6 +25730,78 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         btnDataTriaseIGD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDataTriaseIGDActionPerformed(evt);
+            }
+        });
+        
+        btnRekapPermintaanDiet = new widget.ButtonBig();
+        btnRekapPermintaanDiet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_fried_rice_3377056.png")));
+        btnRekapPermintaanDiet.setText("Rekap Permintaan Diet");
+        btnRekapPermintaanDiet.setIconTextGap(0);
+        btnRekapPermintaanDiet.setName("btnRekapPermintaanDiet"); 
+        btnRekapPermintaanDiet.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnRekapPermintaanDiet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRekapPermintaanDietActionPerformed(evt);
+            }
+        });
+        
+        btnDaftarPasienRanap = new widget.ButtonBig();
+        btnDaftarPasienRanap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_009_95869.png")));
+        btnDaftarPasienRanap.setText("Daftar Pasien Ranap");
+        btnDaftarPasienRanap.setIconTextGap(0);
+        btnDaftarPasienRanap.setName("btnDaftarPasienRanap"); 
+        btnDaftarPasienRanap.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDaftarPasienRanap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDaftarPasienRanapActionPerformed(evt);
+            }
+        });
+        
+        btnDaftarPasienRanapTNI = new widget.ButtonBig();
+        btnDaftarPasienRanapTNI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_009_95869.png")));
+        btnDaftarPasienRanapTNI.setText("Daftar Pasien Ranap TNI");
+        btnDaftarPasienRanapTNI.setIconTextGap(0);
+        btnDaftarPasienRanapTNI.setName("btnDaftarPasienRanapTNI"); 
+        btnDaftarPasienRanapTNI.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnDaftarPasienRanapTNI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDaftarPasienRanapTNIActionPerformed(evt);
+            }
+        });
+        
+        btnfee_visit_dokter = new widget.ButtonBig();
+        btnfee_visit_dokter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360485865_schedule.png"))); 
+        btnfee_visit_dokter.setText("Fee Visit Dokter");
+        btnfee_visit_dokter.setIconTextGap(0);
+        btnfee_visit_dokter.setName("btnfee_visit_dokter"); 
+        btnfee_visit_dokter.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnfee_visit_dokter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnfee_visit_dokterActionPerformed(evt);
+            }
+        });
+        
+        btnUser = new widget.ButtonBig();
+        btnUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360484978_application-pgp-signature.png"))); // NOI18N
+        btnUser.setText("Set User");
+        btnUser.setIconTextGap(0);
+        btnUser.setName("btnUser"); // NOI18N
+        btnUser.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserActionPerformed(evt);
+            }
+        });
+        
+        btnPengajuanAsetInventaris = new widget.ButtonBig();
+        btnPengajuanAsetInventaris.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_reports_49615.png"))); // NOI18N
+        btnPengajuanAsetInventaris.setText("Pengajuan Aset/Inventaris");
+        btnPengajuanAsetInventaris.setIconTextGap(0);
+        btnPengajuanAsetInventaris.setName("btnPengajuanAsetInventaris"); // NOI18N
+        btnPengajuanAsetInventaris.setPreferredSize(new java.awt.Dimension(200, 90));
+        btnPengajuanAsetInventaris.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPengajuanAsetInventarisActionPerformed(evt);
             }
         });
     }

@@ -1002,6 +1002,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 if("[F]Pest Control".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","pest_control='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
+                
+                if("[F]Pengajuan Aset/Inventaris".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","pengajuan_asetinventaris='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
 
                 if("[G]Jenis Parkir".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","parkir_jenis='"+tbUser.getValueAt(i,2).toString()+"'");
@@ -1379,7 +1383,7 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","penyakit_ranap_cara_bayar='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
 
-                if("[I]Anggota Militer Dirawat".equals(tbUser.getValueAt(i,1).toString())){
+                if("[I]Anggota TNI Dirawat".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","anggota_militer_dirawat='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
 
@@ -1453,6 +1457,18 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                 
                 if("[I]KIP Pasien Ralan".equals(tbUser.getValueAt(i,1).toString())){
                     Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","kip_pasien_ralan='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[I]Rekap Permintaan Diet".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","rekap_permintaan_diet='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[I]Daftar Pasien Ranap".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","daftar_pasien_ranap='"+tbUser.getValueAt(i,2).toString()+"'");
+                }
+                
+                if("[I]Daftar Pasien Ranap TNI".equals(tbUser.getValueAt(i,1).toString())){
+                    Sequel.mengedit("user","id_user=AES_ENCRYPT('"+TKd.getText()+"','nur')","daftar_pasien_ranaptni='"+tbUser.getValueAt(i,2).toString()+"'");
                 }
 
                 if("[J]Deposit Pasien".equals(tbUser.getValueAt(i,1).toString())){
@@ -2752,7 +2768,8 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                         "kunjungan_bangsal_pertahun,grafik_jenjang_jabatanpegawai,grafik_bidangpegawai,grafik_departemenpegawai,"+
                         "grafik_pendidikanpegawai,grafik_sttswppegawai,grafik_sttskerjapegawai,grafik_sttspulangranap,kip_pasien_ranap,"+
                         "kip_pasien_ralan,bpjs_mapping_dokterdpjp,data_triase_igd,master_triase_skala1,master_triase_skala2,master_triase_skala3,"+
-                        "master_triase_skala4,master_triase_skala5,master_triase_pemeriksaan,master_triase_macamkasus from user where id_user=AES_ENCRYPT(?,'nur')");
+                        "master_triase_skala4,master_triase_skala5,master_triase_pemeriksaan,master_triase_macamkasus,rekap_permintaan_diet,"+
+                        "daftar_pasien_ranap,daftar_pasien_ranaptni,pengajuan_asetinventaris from user where id_user=AES_ENCRYPT(?,'nur')");
             try {
                 ps.setString(1,user);
                 rs=ps.executeQuery();
@@ -3345,6 +3362,10 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                         tabMode.addRow(new Object[]{false,"[F]Pest Control",rs.getBoolean("pest_control")});
                     }
                     
+                    if("[F]Pengajuan Aset/Inventaris".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[F]Pengajuan Aset/Inventaris",rs.getBoolean("pengajuan_asetinventaris")});
+                    }
+                    
                     if("[G]Jenis Parkir".toLowerCase().contains(TCari.getText().toLowerCase())){
                         tabMode.addRow(new Object[]{false,"[G]Jenis Parkir",rs.getBoolean("parkir_jenis")});
                     }
@@ -3721,8 +3742,8 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                         tabMode.addRow(new Object[]{false,"[I]Penyakit Ranap Per Cara Bayar",rs.getBoolean("penyakit_ranap_cara_bayar")});
                     }
                     
-                    if("[I]Anggota Militer Dirawat".toLowerCase().contains(TCari.getText().toLowerCase())){
-                        tabMode.addRow(new Object[]{false,"[I]Anggota Militer Dirawat",rs.getBoolean("anggota_militer_dirawat")});
+                    if("[I]Anggota TNI Dirawat".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[I]Anggota TNI Dirawat",rs.getBoolean("anggota_militer_dirawat")});
                     }
                     
                     if("[I]Lama Pelayanan Radiologi".toLowerCase().contains(TCari.getText().toLowerCase())){
@@ -3795,6 +3816,18 @@ public class DlgUpdateUser extends javax.swing.JDialog {
                     
                     if("[I]KIP Pasien Ralan".toLowerCase().contains(TCari.getText().toLowerCase())){
                         tabMode.addRow(new Object[]{false,"[I]KIP Pasien Ralan",rs.getBoolean("kip_pasien_ralan")});
+                    }
+                    
+                    if("[I]Rekap Permintaan Diet".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[I]Rekap Permintaan Diet",rs.getBoolean("rekap_permintaan_diet")});
+                    }
+                    
+                    if("[I]Daftar Pasien Ranap".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[I]Daftar Pasien Ranap",rs.getBoolean("daftar_pasien_ranap")});
+                    }
+                    
+                    if("[I]Daftar Pasien Ranap TNI".toLowerCase().contains(TCari.getText().toLowerCase())){
+                        tabMode.addRow(new Object[]{false,"[I]Daftar Pasien Ranap TNI",rs.getBoolean("daftar_pasien_ranaptni")});
                     }
                     
                     if("[J]Deposit Pasien".toLowerCase().contains(TCari.getText().toLowerCase())){
