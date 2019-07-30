@@ -35,23 +35,7 @@
         </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <StringItem index="0" value="16-06-2019"/>
-=======
-            <StringItem index="0" value="17-06-2019"/>
->>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
-=======
-            <StringItem index="0" value="18-06-2019"/>
->>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
-=======
-            <StringItem index="0" value="20-06-2019"/>
->>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
-=======
             <StringItem index="0" value="08-07-2019"/>
->>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
           </StringArray>
         </Property>
         <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -928,23 +912,7 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <StringItem index="0" value="16-06-2019"/>
-=======
-                                    <StringItem index="0" value="17-06-2019"/>
->>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
-=======
-                                    <StringItem index="0" value="18-06-2019"/>
->>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
-=======
-                                    <StringItem index="0" value="20-06-2019"/>
->>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
-=======
                                     <StringItem index="0" value="08-07-2019"/>
->>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -2228,23 +2196,7 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <StringItem index="0" value="16-06-2019 20:40:22"/>
-=======
-                                    <StringItem index="0" value="17-06-2019 15:44:34"/>
->>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
-=======
-                                    <StringItem index="0" value="18-06-2019 17:33:07"/>
->>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
-=======
-                                    <StringItem index="0" value="20-06-2019 13:16:44"/>
->>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
-=======
                                     <StringItem index="0" value="08-07-2019 10:51:51"/>
->>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy HH:mm:ss"/>
@@ -2281,23 +2233,7 @@
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <StringItem index="0" value="16-06-2019"/>
-=======
-                                    <StringItem index="0" value="17-06-2019"/>
->>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
-=======
-                                    <StringItem index="0" value="18-06-2019"/>
->>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
-=======
-                                    <StringItem index="0" value="20-06-2019"/>
->>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
-=======
                                     <StringItem index="0" value="08-07-2019"/>
->>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
@@ -3040,23 +2976,7 @@
                                 </Property>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="1">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                                    <StringItem index="0" value="16-06-2019"/>
-=======
-                                    <StringItem index="0" value="17-06-2019"/>
->>>>>>> 0154ecaea65c0578d3dbe59d836fe599d027f049
-=======
-                                    <StringItem index="0" value="18-06-2019"/>
->>>>>>> 340a0988f2db9057eb72f372bb2366b430df045f
-=======
-                                    <StringItem index="0" value="20-06-2019"/>
->>>>>>> 1d3350e401c5096a6af91011d3f3727420af949e
-=======
                                     <StringItem index="0" value="08-07-2019"/>
->>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
                                   </StringArray>
                                 </Property>
                                 <Property name="displayFormat" type="java.lang.String" value="dd-MM-yyyy"/>
