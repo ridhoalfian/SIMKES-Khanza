@@ -1,33 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-=======
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
-        <file>
-            <url>src/simrskhanza/DlgCariPeriksaRadiologi.java</url>
-            <bookmark id="2">
-                <name/>
-                <line>1859</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
->>>>>>> 2a1f9a3896e9f7da2814a72f85fecc506efad8e6
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/fungsi/sekuel.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/rekammedis/MasterTriaseSkala3.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/simrskhanza/frmUtama.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/rekammedis/MasterTriaseSkala4.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/rekammedis/MasterTriaseSkala5.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/widget/Table.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/rekammedis/DataTriaseIGD.java</file>
-            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/simrskhanza/DlgKamarInap.java</file>
+            <file>file:/Users/basoro/Desktop/Basoro.ID/SIMRS-Khanza/src/simrskhanza/DlgIGD.java</file>
         </group>
->>>>>>> 73c70c39e565a6a23961ea45597ba543a178f986
     </open-files>
 </project-private>
