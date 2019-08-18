@@ -2,8 +2,8 @@ remote_theme: pmarsceill/just-the-docs
 
 title: SIMKES Khanza
 description: A Jekyll theme for documentation
-baseurl: "/SIMKES-Khanza/"
-url: "https://basoro.id"
+baseurl: "/"
+url: "https://simkes.basoro.id"
 
 permalink: pretty
 exclude: ["package.json"]
