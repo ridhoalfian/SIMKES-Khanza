@@ -22,7 +22,7 @@
 
 ### Install cara cepat
 
-1. Download Java 12 dan Install ([Windows](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_windows-x64_bin.exe), [Linux](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_linux-x64_bin.tar.gz), [MacOS](https://repo.huaweicloud.com/java/jdk/12.0.1+12/jdk-12.0.1_osx-x64_bin.dmg))
+1. Download Java 12 dan Install ([Windows 32bit](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-windows-i586.msi), [Windows 64bit](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-windows-amd64.msi), [Linux 64bit DEB](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-linux-amd64.deb), [Linux 64bit RPM](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-linux-amd64.rpm), [Linux 32bit DEB](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-linux-i586.deb), [Linux 32bit RPM](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-linux-i586.rpm), [MacOS](https://download.bell-sw.com/java/12.0.2/bellsoft-jdk12.0.2-macos-amd64.dmg))
 2. Download Webserver dan Install ([Windows](https://bitnami.com/redirect/to/576576/bitnami-nginxstack-1.16.0-1-windows-x64-installer.exe), [Linux](https://bitnami.com/redirect/to/576566/bitnami-nginxstack-1.16.0-1-linux-x64-installer.run), [MacOS](https://bitnami.com/redirect/to/576570/bitnami-nginxstack-1.16.0-1-osx-x86_64-installer.dmg))
 3. Download aplikasi [SIMKES Khanza](https://github.com/basoro/SIMKES-Khanza/releases)
 4. Import databse sik_kosong.sql (atau sik.sql dengan dummy data)
@@ -39,7 +39,7 @@
 2. Sudah banyak rumah sakit yang lulus akreditasi, memakai SIMRS Khanza
 3. Fitur-fitur lengkap, mencakup semua proses bisnis rumah sakit / klinik
 4. Gratis dan open source, bahkan tim IT rumah sakit bisa mengembangkan sendiri jika ada fitur yang dirasa kurang sesuai
-5. Aplikasi dibuat menggunakan teknologi hybrid Java, PHP, CSS dan HTML 
+5. Aplikasi dibuat menggunakan teknologi hybrid Java, PHP, CSS dan HTML
 6. Berbasiskan open source dengan tanpa biaya lisensi database dan tanpa batasan system operasi
 7. Sudah bisa Bridging dengan sistem lain (BPJS, INACBGs, Inhealth, Dukcapil, SITT, Sisrute Dll)
 8. Branchwise Enabled, mendukung multi site / multicabang dan lokasi
@@ -49,7 +49,7 @@
 12. Memungkinkan penggunaan secara Multi User dan Multi Tasking, tanpa menimbulkan interupsi data
 13. Aman, menggunakan metodologi role user untuk pemberian hak akses pada setiap user/pemakai
 14. Dukungan oleh owner (Bapak Windiarto Nugroho S.Kom) dalam implementasi di berbagai tipe rumah sakit seluruh Indonesia
-15. Dukungan 24 jam oleh komunitas pengguna SIMRS Khanza seluruh Indonesia 
+15. Dukungan 24 jam oleh komunitas pengguna SIMRS Khanza seluruh Indonesia
 
 ## Pengembangan
 
