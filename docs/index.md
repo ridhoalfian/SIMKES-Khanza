@@ -9,6 +9,12 @@ permalink: /
 
 Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipta SIMRS Khanza. Dokumentasi ini berisi tentang cara Instalasi, Update, Panduan Administrasi, Panduan Pengguna, Panduan Pengembangan dan Pemasangan Plugin tambahan. Disajikan dengan bahasa yang mudah dipahami, disertai gambar-gambar dan vidio.
 {: .fs-6 .fw-300 }
+<br>
+
+[Mulai Penggunaan](https://basoro.id/SIMKES-Khanza/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Unduh di Guthub](https://github.com/basoro/SIMKES-Khanza/releases){: .btn .fs-5 .mb-4 .mb-md-0 }
+
+---
+<br><br>
 
 <p align="right">
     <b>RSHD Barabai Version</b><br>
@@ -23,11 +29,6 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 
 <br><br>
 
-[Mulai Penggunaan](https://basoro.id/SIMKES-Khanza/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Unduh di Guthub](https://github.com/basoro/SIMKES-Khanza/releases){: .btn .fs-5 .mb-4 .mb-md-0 }
-
-<br><br>
-
----
 
 ## Mari Mulai!
 
