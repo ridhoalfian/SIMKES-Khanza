@@ -14,7 +14,7 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 [Mulai Penggunaan](https://basoro.id/SIMKES-Khanza/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Unduh di Guthub](https://github.com/basoro/SIMKES-Khanza/releases){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
-<br><br>
+<br>
 
 <p align="right">
     <b>RSHD Barabai Version</b><br>
