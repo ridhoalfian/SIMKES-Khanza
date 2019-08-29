@@ -11,7 +11,7 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 {: .fs-6 .fw-300 }
 <br>
 
-[Mulai Penggunaan](#mari-mulai){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Unduh di Github](https://simkes.basoro.id/Instalasi/Download/){: .btn .fs-5 .mb-4 .mb-md-0 }
+[Mulai Penggunaan](#mari-mulai){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Unduh Disini](https://simkes.basoro.id/Instalasi/Download/){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
 
