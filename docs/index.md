@@ -47,8 +47,8 @@ Untuk menggunakan SIMKES Khanza, minimal ada 1 komputer/laptop dengan sistem ope
 6. Tunggu sesaat, lalu klik login. Gunakan user: <b>spv</b> dan pass: <b>server</b>
 
 ### Konfigurasi
-- [Lihat konfigurasi pemasangan](https:/basoro.id)
-- [Lihat konfigurasi aplikasi](https:/basoro.id)
+- [Lihat konfigurasi pemasangan](https://basoro.id)
+- [Lihat konfigurasi aplikasi](https://basoro.id)
 
 ---
 
