@@ -1,5 +1,5 @@
 ---
-title: Aplikasi Dokter (Mobile & Web Based)
+title: Aplikasi Dokter (Mobile & Web)
 parent: Plugins
 permalink: /Plugins/Dokter_Ulun/
 ---

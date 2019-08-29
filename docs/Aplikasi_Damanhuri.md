@@ -1,5 +1,5 @@
 ---
-title: Aplikasi Pasien (Web Based)
+title: Aplikasi Pasien (Web)
 parent: Plugins
 permalink: /Plugins/Aplikasi_Damanhuri/
 ---
