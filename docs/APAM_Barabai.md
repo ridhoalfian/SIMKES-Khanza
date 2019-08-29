@@ -1,5 +1,5 @@
 ---
-title: APAM Barabai
+title: Aplikasi Pasien (Mobile)
 parent: Plugins
 permalink: /Plugins/APAM_Barabai/
 ---
