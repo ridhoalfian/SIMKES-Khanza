@@ -1,5 +1,5 @@
 ---
-title: Khanza Lite
+title: Khanza Lite (Web Based)
 parent: Plugins
 permalink: /Plugins/Khanza_Lite/
 ---
