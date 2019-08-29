@@ -14,13 +14,14 @@ Ini adalah dokumentasi pribadi. Tidak ada afiliasi resmi dengan pemilik hak cipt
 [Mulai Penggunaan](https://basoro.id/SIMKES-Khanza/){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 } [Unduh di Github](https://github.com/basoro/SIMKES-Khanza/releases){: .btn .fs-5 .mb-4 .mb-md-0 }
 
 ---
-<br>
 
 <p align="right">
     <b>RSHD Barabai Version</b><br>
     Use at Your Own Risk
 </p>
+
 <br>
+
 ![SIMKES Khanza](https://raw.githubusercontent.com/basoro/SIMKES-Khanza/master/docs/images/simkes.gif)
 
 <br><br>
