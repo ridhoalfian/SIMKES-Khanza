@@ -983,22 +983,25 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
                     }else{
                         autonomer();
                         sukses=false;
-                        JOptionPane.showMessageDialog(rootPane, "Gagal Menyimpan, kemungkinan No.Nota sudah ada sebelumnya...!!");
                     }
                 }
                 if(sukses==true){
-                    Sequel.menyimpan("tampjurnal","'"+Sequel.cariIsi("select Retur_Ke_Suplayer from set_akun")+"','RETUR PEMBELIAN','0','"+ttlretur+"'","Rekening");    
-                    Sequel.menyimpan("tampjurnal","'"+Sequel.cariIsi("select Kontra_Retur_Ke_Suplayer from set_akun")+"','KAS DI TANGAN','"+ttlretur+"','0'","Rekening"); 
+                    Sequel.queryu("delete from tampjurnal");
+                    Sequel.menyimpan2("tampjurnal","'"+Sequel.cariIsi("select Retur_Ke_Suplayer from set_akun")+"','RETUR PEMBELIAN','0','"+ttlretur+"'","Rekening");    
+                    Sequel.menyimpan2("tampjurnal","'"+Sequel.cariIsi("select Kontra_Retur_Ke_Suplayer from set_akun")+"','KAS DI TANGAN','"+ttlretur+"','0'","Rekening"); 
                     sukses=jur.simpanJurnal(NoRetur.getText(),Valid.SetTgl(TglRetur.getSelectedItem()+""),"U","RETUR PEMBELIAN DI "+nmgudang.getText().toUpperCase()+", OLEH "+akses.getkode());
                 }
                 if(sukses==true){
                     Sequel.Commit();
-                    BtnBatalActionPerformed(evt); 
                 }else{
+                    sukses=false;
                     JOptionPane.showMessageDialog(null,"Terjadi kesalahan saat pemrosesan data, transaksi dibatalkan.\nPeriksa kembali data sebelum melanjutkan menyimpan..!!");
                     Sequel.RollBack();
                 }
                 Sequel.AutoComitTrue();
+                if(sukses==true){
+                    BtnBatalActionPerformed(evt); 
+                }
             }
         }
     }//GEN-LAST:event_BtnSimpanActionPerformed
@@ -1429,7 +1432,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 ps.setString(1,akses.getkode());
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    if(Sequel.menyimpantf("detreturbeli","'"+NoRetur.getText()+"','"+rs.getString(1) +"','"+rs.getString(2) +"','"+rs.getString(3) +
+                    if(Sequel.menyimpantf2("detreturbeli","'"+NoRetur.getText()+"','"+rs.getString(1) +"','"+rs.getString(2) +"','"+rs.getString(3) +
                         "','"+rs.getString(4)+"','"+rs.getString(5)+"','"+rs.getString(6)+"','"+rs.getString(7)+"','"+rs.getString(8)+"','"+rs.getString(9)+"','"+rs.getString(10)+"'","data")==true){
                         Trackobat.catatRiwayat(rs.getString(2),0,rs.getDouble(10),"Retur Beli",akses.getkode(),kdgudang.getText(),"Simpan");
                         Sequel.menyimpan("gudangbarang","'"+rs.getString(2)+"','"+kdgudang.getText()+"','-"+rs.getString(10)+"'", 
