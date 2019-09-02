@@ -3920,16 +3920,6 @@ private void MnKamarInapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
             JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
             tbPetugas.requestFocus();
         }else{
-<<<<<<< HEAD
-            akses.setstatus(true);
-            DlgKamarInap dlgki=new DlgKamarInap(null,false);
-            dlgki.setSize(internalFrame1.getWidth(),internalFrame1.getHeight());
-            dlgki.setLocationRelativeTo(internalFrame1);
-            dlgki.emptTeks();
-            dlgki.isCek();
-            dlgki.setNoRm(TNoRw.getText());
-            dlgki.setVisible(true);
-=======
             if(tbPetugas.getSelectedRow()!= -1){
                 if(tbPetugas.getValueAt(tbPetugas.getSelectedRow(),18).toString().equals("Batal")){
                     JOptionPane.showMessageDialog(null,"Pasien berstatus batal periksa...!");
@@ -3944,7 +3934,6 @@ private void MnKamarInapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     dlgki.setVisible(true);
                 }
             }
->>>>>>> a95c9be10fb2c8a5dcf9d26830fa9b47c3379be9
         }
 }//GEN-LAST:event_MnKamarInapActionPerformed
 
