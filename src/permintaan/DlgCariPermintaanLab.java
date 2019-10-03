@@ -901,8 +901,8 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     pengirim=tbDokter.getValueAt(tbDokter.getSelectedRow(),10).toString();
                     //diagnosa=Sequel.cariIsi("select nm_penyakit from penyakit inner join diagnosa_pasien on penyakit.kd_penyakit=diagnosa_pasien.kd_penyakit inner join reg_periksa on diagnosa_pasien.no_rawat = reg_periksa.no_rawat "+
                           //"where reg_periksa.no_rawat=?",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
-                    diagnosa=Sequel.cariIsi("select klinis from diagnosa_pasien_klinis inner join reg_periksa on diagnosa_pasien_klinis.no_rawat = reg_periksa.no_rawat "+
-                          "where reg_periksa.no_rawat=?",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
+                    diagnosa=Sequel.cariIsi("select klinis from diagnosa_pasien_klinis inner join permintaan_lab on diagnosa_pasien_klinis.noorder = permintaan_lab.noorder "+
+                          "where permintaan_lab.no_rawat=?",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
                     kamar="Poli";
                     namakamar=Sequel.cariIsi("select nm_poli from poliklinik inner join reg_periksa on poliklinik.kd_poli=reg_periksa.kd_poli "+
                             "where reg_periksa.no_rawat=?",tbDokter.getValueAt(tbDokter.getSelectedRow(),1).toString());
