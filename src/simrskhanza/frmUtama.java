@@ -15277,10 +15277,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
-<<<<<<< HEAD
 
-=======
-    
     private void btnGrafikInventarisRuangActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -15291,8 +15288,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
-    private void btnHarianHAIs2ActionPerformed(java.awt.event.ActionEvent evt) {                                              
+
+    private void btnHarianHAIs2ActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15301,8 +15298,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setLocationRelativeTo(PanelUtama);
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
-    } 
-    
+    }
+
     private void btnGrafikInventarisJenisActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -15311,9 +15308,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
         aplikasi.setLocationRelativeTo(PanelUtama);
         aplikasi.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor()); 
+        this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     private void btnResumePasienActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15326,7 +15323,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     private void btnPerkiraanBiayaRanapActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15339,7 +15336,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     private void btnRekapObatPoliActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15350,7 +15347,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     private void btnRekapObatPasienActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15361,7 +15358,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     private void btnGrafikHAIsPasienRuangActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -15372,7 +15369,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     private void btnGrafikHAIsPasienBulanActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         DlgHome.dispose();
@@ -15383,8 +15380,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+
     /**
     * @param args the command line arguments
     */
@@ -15970,14 +15966,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnRekapPermintaanDiet,btnDaftarPasienRanap,btnDaftarPasienRanapTNI,btnfee_visit_dokter,btnUser,btnPengajuanAsetInventaris,btnGrafikItemApotekPerJenis,
             btnGrafikItemApotekPerKategori,btnGrafikItemApotekPerGolongan,btnGrafikItemApotekPerIndustriFarmasi,btn10BesarObatPoli,btnGrafikPengajuanAsetUrgensi,
             btnGrafikPengajuanAsetStatus,btnGrafikPengajuanAsetDepartemen,btnRekapPengajuanAsetDepartemen,btnGrafikKelompokJabatanPegawai,
-<<<<<<< HEAD
-            btnGrafikResikoKerjaPegawai,btnGrafikEmergencyIndexPegawai;
-
-=======
             btnGrafikResikoKerjaPegawai,btnGrafikEmergencyIndexPegawai,btnGrafikInventarisRuang,btnHarianHAIs2,btnGrafikInventarisJenis,btnResumePasien,
             btnPerkiraanBiayaRanap,btnRekapObatPoli,btnRekapObatPasien,btnGrafikHAIsPasienRuang,btnGrafikHAIsPasienBulan;
-    
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+
     public void isWall(){
         try{
             ps=koneksi.prepareStatement("select nama_instansi, alamat_instansi, kabupaten, propinsi, aktifkan, wallpaper,kontak,email,logo from setting");
@@ -16205,16 +16196,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnDeposit);
                 jmlmenu++;
             }
-<<<<<<< HEAD
-        }else if(cmbMenu.getSelectedIndex()==1){
-=======
-            
-            if(akses.getperkiraan_biaya_ranap()==true){                          
+
+            if(akses.getperkiraan_biaya_ranap()==true){
                 Panelmenu.add(btnPerkiraanBiayaRanap);
                 jmlmenu++;
             }
-        }else if(cmbMenu.getSelectedIndex()==1){ 
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+        }else if(cmbMenu.getSelectedIndex()==1){
             jmlmenu=0;
             if(akses.getbarcoderalan()==true){
                 Panelmenu.add(btnBarcodeRalan);
@@ -16639,21 +16626,17 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btn10BesarObatPoli);
                 jmlmenu++;
             }
-<<<<<<< HEAD
-        }else if(cmbMenu.getSelectedIndex()==4){
-=======
-            
+
             if(akses.getrekap_obat_poli()==true){
                 Panelmenu.add(btnRekapObatPoli);
                 jmlmenu++;
             }
-            
+
             if(akses.getrekap_obat_pasien()==true){
                 Panelmenu.add(btnRekapObatPasien);
                 jmlmenu++;
             }
-        }else if(cmbMenu.getSelectedIndex()==4){  
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+        }else if(cmbMenu.getSelectedIndex()==4){
             jmlmenu=0;
             if(akses.getsatuan_barang()==true){
                 Panelmenu.add(btnSatuan);
@@ -17289,20 +17272,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnHarianHAIs);
                 jmlmenu++;
             }
-<<<<<<< HEAD
+
+            if(akses.getharian_HAIs2()==true){
+                Panelmenu.add(btnHarianHAIs2);
+                jmlmenu++;
+            }
 
             if(akses.getbulanan_HAIs()==true){
                 Panelmenu.add(btnBulananHAIs);
-=======
-            
-            if(akses.getharian_HAIs2()==true){  
-                Panelmenu.add(btnHarianHAIs2);                 
-                jmlmenu++;
-            }
-            
-            if(akses.getbulanan_HAIs()==true){  
-                Panelmenu.add(btnBulananHAIs);                 
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
                 jmlmenu++;
             }
 
@@ -18138,16 +18115,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnDataTriaseIGD);
                 jmlmenu++;
             }
-<<<<<<< HEAD
-        }else if(cmbMenu.getSelectedIndex()==12){
-=======
-            
+
             if(akses.getdata_resume_pasien()==true){
                 Panelmenu.add(btnResumePasien);
                 jmlmenu++;
-            } 
-        }else if(cmbMenu.getSelectedIndex()==12){  
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+            }
+        }else if(cmbMenu.getSelectedIndex()==12){
             jmlmenu=0;
             if(akses.getpengambilan_utd2()==true){
                 Panelmenu.add(btnPengambilanUTD2);
@@ -18614,22 +18587,22 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnGrafikEmergencyIndexPegawai);
                 jmlmenu++;
             }
-            
+
             if(akses.getgrafik_inventaris_ruang()==true){
                 Panelmenu.add(btnGrafikInventarisRuang);
                 jmlmenu++;
             }
-            
+
             if(akses.getgrafik_inventaris_jenis()==true){
                 Panelmenu.add(btnGrafikInventarisJenis);
                 jmlmenu++;
             }
-            
+
             if(akses.getgrafik_HAIs_pasienbangsal()==true){
                 Panelmenu.add(btnGrafikHAIsPasienRuang);
                 jmlmenu++;
             }
-            
+
             if(akses.getgrafik_HAIs_pasienbulan()==true){
                 Panelmenu.add(btnGrafikHAIsPasienBulan);
                 jmlmenu++;
@@ -19015,8 +18988,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnDeposit);
             jmlmenu++;
         }
-        
-        if(akses.getperkiraan_biaya_ranap()==true){                          
+
+        if(akses.getperkiraan_biaya_ranap()==true){
             Panelmenu.add(btnPerkiraanBiayaRanap);
             jmlmenu++;
         }
@@ -19448,12 +19421,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btn10BesarObatPoli);
             jmlmenu++;
         }
-        
+
         if(akses.getrekap_obat_poli()==true){
             Panelmenu.add(btnRekapObatPoli);
             jmlmenu++;
         }
-        
+
         if(akses.getrekap_obat_pasien()==true){
             Panelmenu.add(btnRekapObatPasien);
             jmlmenu++;
@@ -20083,20 +20056,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnHarianHAIs);
             jmlmenu++;
         }
-<<<<<<< HEAD
+
+        if(akses.getharian_HAIs2()==true){
+            Panelmenu.add(btnHarianHAIs2);
+            jmlmenu++;
+        }
 
         if(akses.getbulanan_HAIs()==true){
             Panelmenu.add(btnBulananHAIs);
-=======
-        
-        if(akses.getharian_HAIs2()==true){  
-            Panelmenu.add(btnHarianHAIs2);                 
-            jmlmenu++;
-        }
-        
-        if(akses.getbulanan_HAIs()==true){  
-            Panelmenu.add(btnBulananHAIs);                 
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
             jmlmenu++;
         }
 
@@ -20928,14 +20895,11 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         if(akses.getdata_triase_igd()==true){
             Panelmenu.add(btnDataTriaseIGD);
             jmlmenu++;
-<<<<<<< HEAD
-=======
-        } 
-        
+        }
+
         if(akses.getdata_resume_pasien()==true){
             Panelmenu.add(btnResumePasien);
             jmlmenu++;
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
         }
 
         if(akses.getpengambilan_utd2()==true){
@@ -21402,12 +21366,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnGrafikEmergencyIndexPegawai);
             jmlmenu++;
         }
-        
+
         if(akses.getgrafik_inventaris_ruang()==true){
             Panelmenu.add(btnGrafikInventarisRuang);
             jmlmenu++;
         }
-        
+
         if(akses.getgrafik_inventaris_jenis()==true){
             Panelmenu.add(btnGrafikInventarisJenis);
             jmlmenu++;
@@ -21417,7 +21381,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnGrafikHAIsPasienRuang);
             jmlmenu++;
         }
-        
+
         if(akses.getgrafik_HAIs_pasienbulan()==true){
             Panelmenu.add(btnGrafikHAIsPasienBulan);
             jmlmenu++;
@@ -21847,18 +21811,14 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
         }
-<<<<<<< HEAD
 
-=======
-        
-        if(akses.getperkiraan_biaya_ranap()==true){    
+        if(akses.getperkiraan_biaya_ranap()==true){
             if(btnPerkiraanBiayaRanap.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnPerkiraanBiayaRanap);
                 jmlmenu++;
-            }                
+            }
         }
-        
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+
         if(akses.getpiutang_pasien()==true){
             if(btnLihatPiutang.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnLihatPiutang);
@@ -22461,19 +22421,19 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
         }
-        
+
         if(akses.getrekap_obat_poli()==true){
             if(btnRekapObatPoli.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnRekapObatPoli);
                 jmlmenu++;
-            }                
+            }
         }
-        
+
         if(akses.getrekap_obat_pasien()==true){
             if(btnRekapObatPasien.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnRekapObatPasien);
                 jmlmenu++;
-            }                
+            }
         }
 
         if(akses.getsatuan_barang()==true){
@@ -23350,20 +23310,15 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
         }
-<<<<<<< HEAD
+
+        if(akses.getharian_HAIs2()==true){
+            if(btnHarianHAIs2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
+                Panelmenu.add(btnHarianHAIs2);
+                jmlmenu++;
+            }
+        }
 
         if(akses.getbulanan_HAIs()==true){
-=======
-        
-        if(akses.getharian_HAIs2()==true){  
-            if(btnHarianHAIs2.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
-                Panelmenu.add(btnHarianHAIs2);                 
-                jmlmenu++;
-            }                
-        }
-        
-        if(akses.getbulanan_HAIs()==true){  
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
             if(btnBulananHAIs.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnBulananHAIs);
                 jmlmenu++;
@@ -24528,12 +24483,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
         }
-        
+
         if(akses.getdata_resume_pasien()==true){
             if(btnResumePasien.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnResumePasien);
                 jmlmenu++;
-            }                
+            }
         }
 
         if(akses.getpengambilan_utd2()==true){
@@ -25186,39 +25141,35 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
         }
-<<<<<<< HEAD
 
-=======
-        
         if(akses.getgrafik_inventaris_ruang()==true){
             if(btnGrafikInventarisRuang.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnGrafikInventarisRuang);
                 jmlmenu++;
-            }                
+            }
         }
-        
+
         if(akses.getgrafik_inventaris_jenis()==true){
             if(btnGrafikInventarisJenis.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnGrafikInventarisJenis);
                 jmlmenu++;
-            }                
+            }
         }
-        
+
         if(akses.getgrafik_HAIs_pasienbangsal()==true){
             if(btnGrafikHAIsPasienRuang.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnGrafikHAIsPasienRuang);
                 jmlmenu++;
-            }                
+            }
         }
-        
+
         if(akses.getgrafik_HAIs_pasienbulan()==true){
             if(btnGrafikHAIsPasienBulan.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnGrafikHAIsPasienBulan);
                 jmlmenu++;
-            }                
+            }
         }
-        
->>>>>>> c0699e8fe600e65bcfe0c243bc218cd8bc856a93
+
         if(akses.getsurat_indeks()==true){
             if(btnSuratIndeks.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
                 Panelmenu.add(btnSuratIndeks);
@@ -26658,108 +26609,108 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 btnGrafikEmergencyIndexPegawaiActionPerformed(evt);
             }
         });
-        
+
         btnGrafikInventarisRuang = new widget.ButtonBig();
-        btnGrafikInventarisRuang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582080_6.png"))); 
+        btnGrafikInventarisRuang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582080_6.png")));
         btnGrafikInventarisRuang.setText("Jumlah Inventaris Ruang");
         btnGrafikInventarisRuang.setIconTextGap(0);
-        btnGrafikInventarisRuang.setName("btnGrafikInventarisRuang"); 
+        btnGrafikInventarisRuang.setName("btnGrafikInventarisRuang");
         btnGrafikInventarisRuang.setPreferredSize(new java.awt.Dimension(200, 90));
         btnGrafikInventarisRuang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrafikInventarisRuangActionPerformed(evt);
             }
         });
-        
+
         btnHarianHAIs2 = new widget.ButtonBig();
-        btnHarianHAIs2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_house_shelf_1378832.png"))); 
+        btnHarianHAIs2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_house_shelf_1378832.png")));
         btnHarianHAIs2.setText("Harian HAIs 2");
         btnHarianHAIs2.setIconTextGap(0);
-        btnHarianHAIs2.setName("btnHarianHAIs2"); 
+        btnHarianHAIs2.setName("btnHarianHAIs2");
         btnHarianHAIs2.setPreferredSize(new java.awt.Dimension(200, 90));
         btnHarianHAIs2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHarianHAIs2ActionPerformed(evt);
             }
         });
-        
+
         btnGrafikInventarisJenis = new widget.ButtonBig();
-        btnGrafikInventarisJenis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582015_11.png"))); 
+        btnGrafikInventarisJenis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582015_11.png")));
         btnGrafikInventarisJenis.setText("Jumlah Inventaris Jenis");
         btnGrafikInventarisJenis.setIconTextGap(0);
-        btnGrafikInventarisJenis.setName("btnGrafikInventarisJenis"); 
+        btnGrafikInventarisJenis.setName("btnGrafikInventarisJenis");
         btnGrafikInventarisJenis.setPreferredSize(new java.awt.Dimension(200, 90));
         btnGrafikInventarisJenis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrafikInventarisJenisActionPerformed(evt);
             }
         });
-        
+
         btnResumePasien = new widget.ButtonBig();
-        btnResumePasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_icon-56-document-text_314896.png"))); 
+        btnResumePasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_icon-56-document-text_314896.png")));
         btnResumePasien.setText("Data Resume Pasien");
         btnResumePasien.setIconTextGap(0);
-        btnResumePasien.setName("btnResumePasien"); 
+        btnResumePasien.setName("btnResumePasien");
         btnResumePasien.setPreferredSize(new java.awt.Dimension(200, 90));
         btnResumePasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResumePasienActionPerformed(evt);
             }
         });
-        
+
         btnPerkiraanBiayaRanap = new widget.ButtonBig();
-        btnPerkiraanBiayaRanap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_Rank-History_49609.png"))); 
+        btnPerkiraanBiayaRanap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/if_Rank-History_49609.png")));
         btnPerkiraanBiayaRanap.setText("Perkiraan Biaya Ranap");
         btnPerkiraanBiayaRanap.setIconTextGap(0);
-        btnPerkiraanBiayaRanap.setName("btnPerkiraanBiayaRanap"); 
+        btnPerkiraanBiayaRanap.setName("btnPerkiraanBiayaRanap");
         btnPerkiraanBiayaRanap.setPreferredSize(new java.awt.Dimension(200, 90));
         btnPerkiraanBiayaRanap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPerkiraanBiayaRanapActionPerformed(evt);
             }
         });
-        
+
         btnRekapObatPoli = new widget.ButtonBig();
-        btnRekapObatPoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360815855_laboratory.png"))); 
+        btnRekapObatPoli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360815855_laboratory.png")));
         btnRekapObatPoli.setText("Rekap Obat Per Poli");
         btnRekapObatPoli.setIconTextGap(0);
-        btnRekapObatPoli.setName("btnRekapObatPoli"); 
+        btnRekapObatPoli.setName("btnRekapObatPoli");
         btnRekapObatPoli.setPreferredSize(new java.awt.Dimension(200, 90));
         btnRekapObatPoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRekapObatPoliActionPerformed(evt);
             }
         });
-        
+
         btnRekapObatPasien = new widget.ButtonBig();
-        btnRekapObatPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360815855_laboratory.png"))); 
+        btnRekapObatPasien.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1360815855_laboratory.png")));
         btnRekapObatPasien.setText("Rekap Obat Per Pasien");
         btnRekapObatPasien.setIconTextGap(0);
-        btnRekapObatPasien.setName("btnRekapObatPasien"); 
+        btnRekapObatPasien.setName("btnRekapObatPasien");
         btnRekapObatPasien.setPreferredSize(new java.awt.Dimension(200, 90));
         btnRekapObatPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRekapObatPasienActionPerformed(evt);
             }
         });
-        
+
         btnGrafikHAIsPasienRuang = new widget.ButtonBig();
-        btnGrafikHAIsPasienRuang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582080_6.png"))); 
+        btnGrafikHAIsPasienRuang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582080_6.png")));
         btnGrafikHAIsPasienRuang.setText("Pasien HAIs Per Ruang");
         btnGrafikHAIsPasienRuang.setIconTextGap(0);
-        btnGrafikHAIsPasienRuang.setName("btnGrafikHAIsPasienRuang"); 
+        btnGrafikHAIsPasienRuang.setName("btnGrafikHAIsPasienRuang");
         btnGrafikHAIsPasienRuang.setPreferredSize(new java.awt.Dimension(200, 90));
         btnGrafikHAIsPasienRuang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrafikHAIsPasienRuangActionPerformed(evt);
             }
         });
-        
+
         btnGrafikHAIsPasienBulan = new widget.ButtonBig();
-        btnGrafikHAIsPasienBulan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582015_11.png"))); 
+        btnGrafikHAIsPasienBulan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/1491582015_11.png")));
         btnGrafikHAIsPasienBulan.setText("Pasien HAIs Per Bulan");
         btnGrafikHAIsPasienBulan.setIconTextGap(0);
-        btnGrafikHAIsPasienBulan.setName("btnGrafikHAIsPasienBulan"); 
+        btnGrafikHAIsPasienBulan.setName("btnGrafikHAIsPasienBulan");
         btnGrafikHAIsPasienBulan.setPreferredSize(new java.awt.Dimension(200, 90));
         btnGrafikHAIsPasienBulan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
