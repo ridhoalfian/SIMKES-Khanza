@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="311" pageHeight="595" orientation="Landscape" columnWidth="277" leftMargin="17" rightMargin="17" topMargin="17" bottomMargin="17">
-	<property name="ireport.zoom" value="3.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="561" leftMargin="17" rightMargin="17" topMargin="17" bottomMargin="17">
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="143"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="penanggung" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -20,6 +20,8 @@
 	<parameter name="norm" class="java.lang.String"/>
 	<parameter name="peresep" class="java.lang.String"/>
 	<parameter name="noresep" class="java.lang.String"/>
+	<parameter name="kamar" class="java.lang.String"/>
+	<parameter name="namakamar" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select databarang.kode_brng,databarang.nama_brng,detail_pemberian_obat.jml,
 detail_pemberian_obat.biaya_obat,detail_pemberian_obat.embalase,databarang.kode_sat,
@@ -62,6 +64,27 @@ where detail_pemberian_obat.tgl_perawatan=$P{tanggal} and detail_pemberian_obat.
 	</background>
 	<title>
 		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="256" y="55" width="5" height="9"/>
+				<textElement lineSpacing="Single" markup="none">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="176" y="64" width="101" height="15"/>
+				<textElement verticalAlignment="Top" lineSpacing="Single">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{namakamar}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="176" y="55" width="80" height="10"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{kamar}]]></textFieldExpression>
+			</textField>
 			<textField>
 				<reportElement x="48" y="14" width="229" height="14"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
@@ -185,21 +208,21 @@ where detail_pemberian_obat.tgl_perawatan=$P{tanggal} and detail_pemberian_obat.
 				<text><![CDATA[No. Rawat]]></text>
 			</staticText>
 			<textField>
-				<reportElement mode="Transparent" x="64" y="54" width="213" height="9"/>
+				<reportElement mode="Transparent" x="64" y="54" width="110" height="9"/>
 				<textElement lineSpacing="Single" markup="none">
 					<font fontName="Tahoma" size="7"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{pasien}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="64" y="63" width="213" height="9"/>
+				<reportElement mode="Transparent" x="64" y="63" width="96" height="9"/>
 				<textElement lineSpacing="Single" markup="none">
 					<font fontName="Tahoma" size="7"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{norm}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Transparent" x="64" y="72" width="213" height="9"/>
+				<reportElement mode="Transparent" x="64" y="72" width="110" height="9"/>
 				<textElement lineSpacing="Single" markup="none">
 					<font fontName="Tahoma" size="7"/>
 				</textElement>

@@ -40,6 +40,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import kepegawaian.DlgCariDokter;
 
+    
 
 /**
  *
@@ -60,7 +61,8 @@ public final class DlgResepObat extends javax.swing.JDialog {
     private Properties prop = new Properties();
     private DlgAturanPakai aturanpakai=new DlgAturanPakai(null,false);
     private int i=0,pilihan=0;
-
+    private String kamar="",namakamar="";
+    
     /** Creates new form DlgResepObat 
      *@param parent
      *@param modal*/
@@ -1257,13 +1259,13 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }else if(!(TPasien.getText().trim().equals(""))){
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             Map<String, Object> param = new HashMap<>();  
-            param.put("namars",var.getnamars());
-            param.put("alamatrs",var.getalamatrs());
-            param.put("kotars",var.getkabupatenrs());
-            param.put("propinsirs",var.getpropinsirs());
-            param.put("kontakrs",var.getkontakrs());
-            param.put("emailrs",var.getemailrs());   
-            param.put("logo",Sequel.cariGambar("select logo from setting")); 
+           // param.put("namars",var.getnamars());
+           // param.put("alamatrs",var.getalamatrs());
+           // param.put("kotars",var.getkabupatenrs());
+           // param.put("propinsirs",var.getpropinsirs());
+           // param.put("kontakrs",var.getkontakrs());
+           // param.put("emailrs",var.getemailrs());   
+           // param.put("logo",Sequel.cariGambar("select logo from setting")); 
             if(Sequel.cariInteger(
                     "select count(*) from resep_obat inner join "+
                     "aturan_pakai on resep_obat.no_rawat=aturan_pakai.no_rawat and "+
@@ -1271,7 +1273,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                     "resep_obat.jam=aturan_pakai.jam where resep_obat.no_resep=? and aturan_pakai.aturan<>''",NoResep.getText())>0){
                 Valid.MyReport2("rptItemResep.jrxml","report","::[ Aturan Pakai Obat ]::",
                     "select resep_obat.no_resep,resep_obat.tgl_perawatan,resep_obat.jam, "+
-                    "resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,"+
+                    "resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng, databarang.expire, "+
                     "aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan "+
                     "from resep_obat inner join reg_periksa inner join pasien inner join "+
                     "aturan_pakai inner join databarang inner join detail_pemberian_obat "+
@@ -1334,7 +1336,31 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             param.put("noresep",NoResep.getText());
             param.put("jam",cmbJam.getSelectedItem()+":"+cmbMnt.getSelectedItem()+":"+cmbDtk.getSelectedItem());
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            
+            try {
+                String a = Sequel.cariIsi("select no_rawat from kamar_inap where kamar_inap.no_rawat=?",TNoRw.getText());
+                
+                if (a=="") {
+                    kamar="Poli";
+                    namakamar=Sequel.cariIsi("select nm_poli from poliklinik inner join reg_periksa on poliklinik.kd_poli=reg_periksa.kd_poli "+
+                            "where reg_periksa.no_rawat=?",TNoRw.getText());        
+                    param.put("kamar",kamar);
+                    param.put("namakamar",namakamar);
+                }else{
+                    kamar=Sequel.cariIsi("select ifnull(kd_kamar,'') from kamar_inap where no_rawat=? order by tgl_masuk desc limit 1",TNoRw.getText());
+                    namakamar=kamar+", "+Sequel.cariIsi("select nm_bangsal from bangsal inner join kamar on bangsal.kd_bangsal=kamar.kd_bangsal "+
+                                " where kamar.kd_kamar=? ",kamar);            
+                    kamar="Kamar";
+                    param.put("kamar",kamar);
+                    param.put("namakamar",namakamar);
+                }
+                                
+            } catch (Exception e) {
+            }
+            //kamar="Poli";
+            //namakamar=Sequel.cariIsi("select nm_poli from poliklinik inner join reg_periksa on poliklinik.kd_poli=reg_periksa.kd_poli "+
+            //                "where reg_periksa.no_rawat=?",TNoRw.getText());        
+            //param.put("kamar",kamar);
+            //param.put("namakamar",namakamar);
             Valid.MyReport("rptLembarObat.jrxml",param,"::[ Lembar Pemberian Obat ]::");
             this.setCursor(Cursor.getDefaultCursor());
         }

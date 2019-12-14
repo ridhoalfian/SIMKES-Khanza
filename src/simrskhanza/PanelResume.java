@@ -5502,7 +5502,7 @@ public class PanelResume extends widget.panelisi {
                                         htmlContent.append(
                                              "<tr>"+
                                                 "<td valign='top' align='center'>"+w+"</td>"+
-                                                "<td valign='top'><a href='http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/radiologi/"+rs3.getString("lokasi_file")+"'>"+rs3.getString("nama").replaceAll("pages/upload/","")+"</a></td>"+
+                                                "<td valign='top'><a href='http://"+koneksiDB.HOST()+":"+prop.getProperty("PORTWEB")+"/"+prop.getProperty("HYBRIDWEB")+"/berkasrawat/"+rs3.getString("lokasi_file")+"'>"+rs3.getString("nama").replaceAll("pages/upload/","")+"</a></td>"+
                                              "</tr>"); 
                                         w++;
                                     }
