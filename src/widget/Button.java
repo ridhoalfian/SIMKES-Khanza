@@ -23,4 +23,8 @@ public class Button extends usu.widget.ButtonGlass {
         setIconTextGap(4);
         setRoundRect(true);
     }
+
+    public void setAction(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

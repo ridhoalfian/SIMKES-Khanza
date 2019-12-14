@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="522" leftMargin="56" rightMargin="17" topMargin="20" bottomMargin="20">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="noperiksa" class="java.lang.String"/>
@@ -8,15 +8,17 @@
 	<parameter name="namapasien" class="java.lang.String"/>
 	<parameter name="jkel" class="java.lang.String"/>
 	<parameter name="umur" class="java.lang.String"/>
+	<parameter name="lahir" class="java.lang.String"/>
 	<parameter name="pengirim" class="java.lang.String"/>
 	<parameter name="petugas" class="java.lang.String"/>
 	<parameter name="tanggal" class="java.lang.String"/>
 	<parameter name="jam" class="java.lang.String"/>
 	<parameter name="penjab" class="java.lang.String"/>
 	<parameter name="alamat" class="java.lang.String"/>
+	<parameter name="klinis" class="java.lang.String"/>
+	<parameter name="jns_bayar" class="java.lang.String"/>
 	<parameter name="kamar" class="java.lang.String"/>
 	<parameter name="namakamar" class="java.lang.String"/>
-	<parameter name="diagnosa" class="java.lang.String"/>
 	<parameter name="namars" class="java.lang.String"/>
 	<parameter name="alamatrs" class="java.lang.String"/>
 	<parameter name="kotars" class="java.lang.String"/>
@@ -24,7 +26,6 @@
 	<parameter name="kontakrs" class="java.lang.String"/>
 	<parameter name="emailrs" class="java.lang.String"/>
 	<parameter name="logo" class="java.io.InputStream"/>
-	<parameter name="carabayar" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select no, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14, temp15, temp16 from temporary_permintaan_lab order by no asc]]>
 	</queryString>
@@ -85,47 +86,40 @@
 	<title>
 		<band height="221" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="2" y="14" width="520" height="25" forecolor="#000000" backcolor="#00FF00"/>
+				<reportElement mode="Transparent" x="2" y="14" width="520" height="25" forecolor="#000000" backcolor="#00FF00"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="20" isBold="false" isItalic="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{namars}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="2" y="68" width="520" height="14"/>
+				<reportElement mode="Transparent" x="2" y="68" width="520" height="14"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="9"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA["E-mail : "+$P{emailrs}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="2" y="55" width="520" height="14"/>
+				<reportElement mode="Transparent" x="2" y="55" width="520" height="14"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="9"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{kontakrs}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="2" y="42" width="520" height="14"/>
+				<reportElement mode="Transparent" x="2" y="42" width="520" height="14"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="9"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-1" y="90" width="523" height="24"/>
+				<reportElement mode="Transparent" x="-1" y="90" width="523" height="24"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="11" isBold="false"/>
 				</textElement>
 				<text><![CDATA[PERMINTAAN PEMERIKSAAN LABORATORIUM]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="500" y="80" width="100" height="24"/>
-				<textElement verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Tahoma" size="10"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{carabayar}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement mode="Transparent" x="0" y="159" width="89" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
@@ -141,18 +135,25 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="99" y="159" width="175" height="15"/>
+				<reportElement mode="Transparent" x="99" y="159" width="175" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{alamat}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="99" y="114" width="175" height="15"/>
+				<reportElement mode="Transparent" x="99" y="114" width="175" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{norm}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="150" y="114" width="175" height="15"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{jns_bayar}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Transparent" x="89" y="114" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
@@ -162,14 +163,21 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="114" width="89" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
+				<reportElement mode="Transparent" x="140" y="114" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
+				<textElement verticalAlignment="Middle" lineSpacing="Single">
+					<font fontName="Tahoma" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="-1" y="114" width="89" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[No.RM]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="99" y="129" width="175" height="15"/>
+				<reportElement mode="Transparent" x="99" y="129" width="175" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
@@ -204,14 +212,14 @@
 				<text><![CDATA[JK/Umur]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="99" y="144" width="35" height="15"/>
+				<reportElement mode="Transparent" x="99" y="144" width="50" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{jkel}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="385" y="114" width="136" height="15"/>
+				<reportElement mode="Transparent" x="385" y="114" width="136" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
@@ -246,25 +254,25 @@
 				<text><![CDATA[Tgl.Permintaan]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="385" y="129" width="136" height="15"/>
+				<reportElement mode="Transparent" x="385" y="129" width="136" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{tanggal}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Transparent" x="134" y="144" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
+				<reportElement mode="Transparent" x="150" y="144" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10" isBold="false"/>
 				</textElement>
 				<text><![CDATA[/]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="144" y="144" width="83" height="15"/>
+				<reportElement mode="Transparent" x="157" y="144" width="83" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{umur}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{lahir}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement mode="Transparent" x="375" y="144" width="10" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
@@ -274,7 +282,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="385" y="144" width="136" height="15"/>
+				<reportElement mode="Transparent" x="385" y="144" width="136" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
@@ -295,7 +303,7 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="99" y="174" width="175" height="15"/>
+				<reportElement mode="Transparent" x="99" y="174" width="175" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
@@ -316,14 +324,14 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="385" y="159" width="136" height="15"/>
+				<reportElement mode="Transparent" x="385" y="159" width="136" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{namakamar}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="286" y="159" width="89" height="15"/>
+				<reportElement mode="Transparent" x="286" y="159" width="89" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
@@ -337,25 +345,25 @@
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement x="385" y="174" width="136" height="15"/>
+				<reportElement mode="Transparent" x="385" y="174" width="136" height="15"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{diagnosa}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{klinis}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="286" y="174" width="89" height="15"/>
+				<reportElement mode="Transparent" x="286" y="174" width="89" height="15" forecolor="#000000" backcolor="#F0F0DC"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
-					<font fontName="Tahoma" size="10"/>
+					<font fontName="Tahoma" size="10" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Klinis/Diagnosa]]></text>
+				<text><![CDATA[Klinis]]></text>
 			</staticText>
 			<image scaleImage="FillFrame" onErrorType="Blank">
-				<reportElement x="0" y="15" width="67" height="67"/>
+				<reportElement mode="Transparent" x="0" y="15" width="67" height="67"/>
 				<imageExpression class="java.io.InputStream"><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 			<line>
-				<reportElement x="0" y="82" width="522" height="1"/>
+				<reportElement mode="Opaque" x="0" y="82" width="522" height="1"/>
 				<graphicElement>
 					<pen lineWidth="2.25" lineStyle="Double"/>
 				</graphicElement>
@@ -382,37 +390,37 @@
 				<text><![CDATA[Satuan]]></text>
 			</staticText>
 			<line>
-				<reportElement x="1" y="203" width="520" height="1"/>
+				<reportElement mode="Opaque" x="1" y="203" width="520" height="1"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="1" y="220" width="520" height="1"/>
+				<reportElement mode="Opaque" x="1" y="220" width="520" height="1"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="0" y="204" width="1" height="16"/>
+				<reportElement mode="Opaque" x="0" y="204" width="1" height="16"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="220" y="204" width="1" height="16"/>
+				<reportElement mode="Opaque" x="220" y="204" width="1" height="16"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="297" y="204" width="1" height="16"/>
+				<reportElement mode="Opaque" x="297" y="204" width="1" height="16"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="521" y="204" width="1" height="16"/>
+				<reportElement mode="Opaque" x="521" y="204" width="1" height="16"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
@@ -422,46 +430,46 @@
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="3" y="1" width="217" height="13"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="3" y="1" width="217" height="13"/>
 				<textElement verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{temp1}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="222" y="1" width="75" height="13"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="222" y="1" width="75" height="13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="10"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{temp2}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
-				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="299" y="1" width="221" height="13"/>
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" mode="Transparent" x="299" y="1" width="221" height="13"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
 					<font fontName="Tahoma" size="7"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{temp3}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="14"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="0" y="0" width="1" height="14"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="220" y="0" width="1" height="14"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="220" y="0" width="1" height="14"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="297" y="0" width="1" height="14"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="297" y="0" width="1" height="14"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement stretchType="RelativeToBandHeight" x="521" y="0" width="1" height="14"/>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="521" y="0" width="1" height="14"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>
@@ -474,7 +482,7 @@
 	<summary>
 		<band height="2">
 			<line>
-				<reportElement x="1" y="0" width="520" height="1"/>
+				<reportElement mode="Opaque" x="1" y="0" width="520" height="1"/>
 				<graphicElement>
 					<pen lineWidth="0.5"/>
 				</graphicElement>

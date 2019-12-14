@@ -1616,7 +1616,7 @@ private void ppBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
         Sequel.cariIsi("select concat(pasien.no_rkm_medis,' ',pasien.nm_pasien) from reg_periksa inner join pasien "+
                     " on reg_periksa.no_rkm_medis=pasien.no_rkm_medis where no_rawat=? ",TPasien,TNoRw.getText());
         
-        DTPBeri.setDate(tanggal);
+        //DTPBeri.setDate(tanggal);
         cmbJam.setSelectedItem(jam);
         cmbMnt.setSelectedItem(menit);
         cmbDtk.setSelectedItem(detik); 

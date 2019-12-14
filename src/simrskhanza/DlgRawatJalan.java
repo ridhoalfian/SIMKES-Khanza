@@ -1302,6 +1302,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         KdDok3 = new widget.TextBox();
         TDokter3 = new widget.TextBox();
         BtnSeekDokter3 = new widget.Button();
+        BtnCttnAkhir = new widget.Button();
         Scroll11 = new widget.ScrollPane();
         tbCatatan = new widget.Table();
         FormInput = new widget.PanelBiasa();
@@ -1497,7 +1498,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-02-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2019" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -1511,7 +1512,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-02-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2019" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -2918,7 +2919,6 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         TabRawat.addTab("Pemeriksaan Ginekologi", internalFrame7);
 
         panelResume1.setBorder(null);
-        panelResume1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         panelResume1.setName("panelResume1"); // NOI18N
         TabRawat.addTab("Riwayat Pasien", panelResume1);
 
@@ -3017,6 +3017,26 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         panelGlass15.add(BtnSeekDokter3);
         BtnSeekDokter3.setBounds(749, 10, 28, 23);
 
+        BtnCttnAkhir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
+        BtnCttnAkhir.setMnemonic('M');
+        BtnCttnAkhir.setText("Cari Catatan Terakhir");
+        BtnCttnAkhir.setToolTipText("Alt+M");
+        BtnCttnAkhir.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        BtnCttnAkhir.setName("BtnCttnAkhir"); // NOI18N
+        BtnCttnAkhir.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnCttnAkhir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCttnAkhirActionPerformed(evt);
+            }
+        });
+        BtnCttnAkhir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnCttnAkhirKeyPressed(evt);
+            }
+        });
+        panelGlass15.add(BtnCttnAkhir);
+        BtnCttnAkhir.setBounds(790, 80, 160, 30);
+
         PanelInput3.add(panelGlass15, java.awt.BorderLayout.CENTER);
 
         internalFrame8.add(PanelInput3, java.awt.BorderLayout.PAGE_START);
@@ -3083,7 +3103,7 @@ public final class DlgRawatJalan extends javax.swing.JDialog {
         jLabel23.setBounds(554, 10, 60, 23);
 
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "26-02-2019" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-11-2019" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -5303,6 +5323,14 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         dokter.setVisible(true);
     }//GEN-LAST:event_BtnSeekDokter3ActionPerformed
 
+    private void BtnCttnAkhirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCttnAkhirActionPerformed
+    tampilCatatan2();
+    }//GEN-LAST:event_BtnCttnAkhirActionPerformed
+
+    private void BtnCttnAkhirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCttnAkhirKeyPressed
+     
+    }//GEN-LAST:event_BtnCttnAkhirKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -5326,6 +5354,7 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
     private widget.Button BtnCari;
     private widget.Button BtnCatatan;
     private widget.Button BtnCopyResep;
+    private widget.Button BtnCttnAkhir;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnInputObat;
@@ -6015,9 +6044,9 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
                     "catatan_perawatan.tanggal between ? and ? and reg_periksa.no_rkm_medis like ? and reg_periksa.no_rkm_medis like ? or "+
                     "catatan_perawatan.tanggal between ? and ? and reg_periksa.no_rkm_medis like ? and pasien.nm_pasien like ? or  "+
                     "catatan_perawatan.tanggal between ? and ? and reg_periksa.no_rkm_medis like ? and catatan_perawatan.catatan like ? or "+
-                    "catatan_perawatan.tanggal between ? and ? and reg_periksa.no_rkm_medis like ? and catatan_perawatan.kd_dokter like ? or "+
+                    "catatan_perawatan.tanggal between ? and ? and reg_periksa.no_rkm_medis like ? and catatan_perawatan.kd_dokter like ? or "+ 
                     "catatan_perawatan.tanggal between ? and ? and reg_periksa.no_rkm_medis like ? and dokter.nm_dokter like ? "+
-                   "order by catatan_perawatan.no_rawat desc");
+                    "order by catatan_perawatan.no_rawat desc");
             try{
                 ps4.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
                 ps4.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
@@ -6070,6 +6099,68 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
         }
         LCount.setText(""+TabModeCatatan.getRowCount());
     }
+     private void tampilCatatan2() {
+        Valid.tabelKosong(TabModeCatatan);
+        try{
+            ps5=koneksi.prepareStatement("select catatan_perawatan.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
+                    "catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
+                    "catatan_perawatan.catatan from pasien inner join reg_periksa inner join catatan_perawatan inner join dokter "+
+                    "on catatan_perawatan.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
+                    "and catatan_perawatan.kd_dokter=dokter.kd_dokter where reg_periksa.no_rkm_medis = ? "+
+                    "order by catatan_perawatan.no_rawat desc limit 2");
+            try{
+                ps5.setString(1,TCariPasien.getText());
+              /*  ps5.setString(1,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
+                ps5.setString(2,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
+                ps5.setString(3,"%"+TCariPasien.getText()+"%");
+                ps5.setString(4,"%"+TCari.getText().trim()+"%");
+                ps5.setString(5,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
+                ps5.setString(6,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
+                ps5.setString(7,"%"+TCariPasien.getText()+"%");
+                ps5.setString(8,"%"+TCari.getText().trim()+"%");
+                ps5.setString(9,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
+                ps5.setString(10,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
+                ps5.setString(11,"%"+TCariPasien.getText()+"%");
+                ps5.setString(12,"%"+TCari.getText().trim()+"%");
+                ps5.setString(13,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
+                ps5.setString(14,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
+                ps5.setString(15,"%"+TCariPasien.getText()+"%");
+                ps5.setString(16,"%"+TCari.getText().trim()+"%");
+                ps5.setString(17,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
+                ps5.setString(18,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
+                ps5.setString(19,"%"+TCariPasien.getText()+"%");
+                ps5.setString(20,"%"+TCari.getText().trim()+"%");
+                ps5.setString(21,Valid.SetTgl(DTPCari1.getSelectedItem()+""));
+                ps5.setString(22,Valid.SetTgl(DTPCari2.getSelectedItem()+""));
+                ps5.setString(23,"%"+TCariPasien.getText()+"%");
+                ps5.setString(24,"%"+TCari.getText().trim()+"%"); */
+                rs=ps5.executeQuery();
+                while(rs.next()){
+                    TabModeCatatan.addRow(new Object[]{false,rs.getString(1),
+                                   rs.getString(2),
+                                   rs.getString(3),
+                                   rs.getString(4),
+                                   rs.getString(5),
+                                   rs.getString(6),
+                                   rs.getString(7),
+                                   rs.getString(8)
+                    });
+                }
+            } catch (Exception e) {
+                System.out.println("Notifikasi Catatan : "+e);
+            } finally{
+                if(rs!=null){
+                    rs.close();
+                }
+                if(ps5!=null){
+                    ps5.close();
+                }
+            }
+        }catch(Exception e){
+            System.out.println("Notifikasi : "+e);
+        }
+        LCount.setText(""+TabModeCatatan.getRowCount());
+    }
 
     private void getDataPemeriksaan() {
         if(tbPemeriksaan.getSelectedRow()!= -1){
@@ -6097,16 +6188,16 @@ private void BtnEditKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_B
 
     private void getDataCatatan() {
         if(tbCatatan.getSelectedRow()!= -1){
-            TNoRw.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),1).toString());
+            //TNoRw.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),1).toString());
             TNoRM.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),2).toString());
             TPasien.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),3).toString());
             KdDok3.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),6).toString());
             TDokter3.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),7).toString());
             Catatan.setText(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),8).toString());
-            cmbJam.setSelectedItem(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),5).toString().substring(0,2));
-            cmbMnt.setSelectedItem(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),5).toString().substring(3,5));
-            cmbDtk.setSelectedItem(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),5).toString().substring(6,8));
-            Valid.SetTgl(DTPTgl,tbCatatan.getValueAt(tbCatatan.getSelectedRow(),4).toString());
+            //cmbJam.setSelectedItem(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),5).toString().substring(0,2));
+            //cmbMnt.setSelectedItem(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),5).toString().substring(3,5));
+            //cmbDtk.setSelectedItem(tbCatatan.getValueAt(tbCatatan.getSelectedRow(),5).toString().substring(6,8));
+            //Valid.SetTgl(DTPTgl,tbCatatan.getValueAt(tbCatatan.getSelectedRow(),4).toString());
         }
     }
 
