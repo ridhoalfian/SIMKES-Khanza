@@ -809,6 +809,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         ppSEP1 = new javax.swing.JMenuItem();
         ppSEP2 = new javax.swing.JMenuItem();
         ppSEP3 = new javax.swing.JMenuItem();
+        ppSEP4 = new javax.swing.JMenuItem();
         ppPulang = new javax.swing.JMenuItem();
         ppDetailSEPPeserta = new javax.swing.JMenuItem();
         ppRujukan = new javax.swing.JMenuItem();
@@ -1052,6 +1053,22 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         });
         Popup.add(ppSEP3);
 
+        ppSEP4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        ppSEP4.setForeground(new java.awt.Color(70, 70, 70));
+        ppSEP4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
+        ppSEP4.setText("Print SEP Model 5");
+        ppSEP4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ppSEP4.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        ppSEP4.setIconTextGap(8);
+        ppSEP4.setName("ppSEP4"); // NOI18N
+        ppSEP4.setPreferredSize(new java.awt.Dimension(200, 25));
+        ppSEP4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ppSEP4BtnPrintActionPerformed(evt);
+            }
+        });
+        Popup.add(ppSEP4);
+
         ppPulang.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         ppPulang.setForeground(new java.awt.Color(70, 70, 70));
         ppPulang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
@@ -1156,7 +1173,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         internalFrame5.add(jLabel26);
         jLabel26.setBounds(6, 32, 100, 23);
 
-        TanggalPulang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019 11:25:39" }));
+        TanggalPulang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019 15:40:12" }));
         TanggalPulang.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TanggalPulang.setName("TanggalPulang"); // NOI18N
         TanggalPulang.setOpaque(false);
@@ -1210,7 +1227,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         jLabel30.setBounds(0, 25, 102, 23);
 
         TanggalRujukKeluar.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalRujukKeluar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019" }));
+        TanggalRujukKeluar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019" }));
         TanggalRujukKeluar.setDisplayFormat("dd-MM-yyyy");
         TanggalRujukKeluar.setName("TanggalRujukKeluar"); // NOI18N
         TanggalRujukKeluar.setOpaque(false);
@@ -1742,7 +1759,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         jLabel20.setBounds(187, 102, 65, 23);
 
         TanggalSEP.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalSEP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019" }));
+        TanggalSEP.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019" }));
         TanggalSEP.setDisplayFormat("dd-MM-yyyy");
         TanggalSEP.setName("TanggalSEP"); // NOI18N
         TanggalSEP.setOpaque(false);
@@ -1762,7 +1779,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         jLabel22.setBounds(0, 102, 90, 23);
 
         TanggalRujuk.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019" }));
+        TanggalRujuk.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019" }));
         TanggalRujuk.setDisplayFormat("dd-MM-yyyy");
         TanggalRujuk.setName("TanggalRujuk"); // NOI18N
         TanggalRujuk.setOpaque(false);
@@ -2171,7 +2188,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         jLabel38.setBounds(571, 132, 58, 23);
 
         TanggalKKL.setForeground(new java.awt.Color(50, 70, 50));
-        TanggalKKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019" }));
+        TanggalKKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019" }));
         TanggalKKL.setDisplayFormat("dd-MM-yyyy");
         TanggalKKL.setName("TanggalKKL"); // NOI18N
         TanggalKKL.setOpaque(false);
@@ -2469,7 +2486,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2483,7 +2500,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-11-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "14-12-2019" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -4185,6 +4202,78 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         }else{Valid.pindah(evt,BtnPrint,BtnKeluar);}
     }//GEN-LAST:event_BtnKeluar1KeyPressed
 
+    private void ppSEP4BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ppSEP4BtnPrintActionPerformed
+        if(tbObat.getSelectedRow()!= -1){
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            kddokter=Sequel.cariIsi("select kd_dokter from reg_periksa where no_rawat=?",TNoRw.getText());
+            Map<String, Object> param = new HashMap<>();
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("norawat",TNoRw.getText());
+            param.put("prb",Sequel.cariIsi("select prb from bpjs_prb where no_sep=?",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()));
+            param.put("dokter",Sequel.cariIsi("select nm_dokter from dokter where kd_dokter=?",kddokter));
+            param.put("noreg",Sequel.cariIsi("select no_reg from reg_periksa where no_rawat=?",TNoRw.getText()));
+            param.put("logo",Sequel.cariGambar("select bpjs from gambar"));
+            /* Tambahan source ulun (Ridho Alfian [ICT RSHD])*/
+            param.put("diagnosa1",Sequel.cariIsi("select b.nm_penyakit FROM diagnosa_pasien as a, penyakit as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kd_penyakit = b.kd_penyakit AND a.prioritas = '1' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("diagnosa2",Sequel.cariIsi("select b.nm_penyakit FROM diagnosa_pasien as a, penyakit as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kd_penyakit = b.kd_penyakit AND a.prioritas = '2' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("kd_diagnosa1",Sequel.cariIsi("select b.kd_penyakit FROM diagnosa_pasien as a, penyakit as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kd_penyakit = b.kd_penyakit AND a.prioritas = '1' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("kd_diagnosa2",Sequel.cariIsi("select b.kd_penyakit FROM diagnosa_pasien as a, penyakit as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kd_penyakit = b.kd_penyakit AND a.prioritas = '2' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("kd_icd9_1",Sequel.cariIsi("select b.kode FROM prosedur_pasien as a, icd9 as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kode = b.kode AND a.prioritas = '1' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("kd_icd9_2",Sequel.cariIsi("select b.kode FROM prosedur_pasien as a, icd9 as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kode = b.kode AND a.prioritas = '2' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("icd9_1",Sequel.cariIsi("select b.deskripsi_pendek FROM prosedur_pasien as a, icd9 as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kode = b.kode AND a.prioritas = '1' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("icd9_2",Sequel.cariIsi("select b.deskripsi_pendek FROM prosedur_pasien as a, icd9 as b, "
+                     + "reg_periksa as c,pasien as d WHERE a.no_rawat = c.no_rawat AND "
+                     + "c.no_rkm_medis = d.no_rkm_medis AND a.kode = b.kode AND a.prioritas = '2' "
+                     + "AND a.no_rawat =?",TNoRw.getText()));
+            param.put("pemeriksaan",Sequel.cariIsi("select pemeriksaan from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+            param.put("keluhan",Sequel.cariIsi("select keluhan from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+            param.put("tensi",Sequel.cariIsi("select tensi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+            param.put("nadi",Sequel.cariIsi("select nadi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+            param.put("respirasi",Sequel.cariIsi("select respirasi from pemeriksaan_ralan where no_rawat=?",TNoRw.getText()));
+            
+            
+            
+            Valid.MyReport("rptBridgingSEP9.jrxml","report","::[ Cetak SEP ]::","select bridging_sep.no_sep, adddate(bridging_sep.tglrujukan, 85) as tgl_akhir,bridging_sep.no_rawat,bridging_sep.nomr,bridging_sep.nama_pasien,bridging_sep.tglsep,"+
+                        "bridging_sep.tglrujukan,bridging_sep.no_rujukan,bridging_sep.kdppkrujukan,"+
+                        "bridging_sep.nmppkrujukan,bridging_sep.kdppkpelayanan,bridging_sep.nmppkpelayanan,"+
+                        "if(bridging_sep.jnspelayanan='1','Rawat Inap','Rawat Jalan'),bridging_sep.catatan,bridging_sep.diagawal,"+
+                        "bridging_sep.nmdiagnosaawal,bridging_sep.kdpolitujuan,bridging_sep.nmpolitujuan,"+
+                        "if(bridging_sep.klsrawat='1','Kelas 1',if(bridging_sep.klsrawat='2','Kelas 2','Kelas 3')),"+
+                        "if(bridging_sep.lakalantas='0','Kasus Kecelakaan','Bukan Kasus Kecelakaan'),concat(bridging_sep.nmkec,', ',bridging_sep.nmkab,', ',bridging_sep.nmprop) as lokasilaka,bridging_sep.user, "+
+                        "bridging_sep.tanggal_lahir,bridging_sep.peserta,bridging_sep.jkel,bridging_sep.no_kartu,bridging_sep.asal_rujukan,bridging_sep.eksekutif,bridging_sep.cob,bridging_sep.penjamin,bridging_sep.notelep from bridging_sep where no_sep='"+tbObat.getValueAt(tbObat.getSelectedRow(),0).toString()+"'",param);
+            
+            this.setCursor(Cursor.getDefaultCursor());
+        }else{
+            JOptionPane.showMessageDialog(null,"Maaf, silahkan pilih data SEP yang mau dicetak...!!!!");
+            BtnBatal.requestFocus();
+        }
+    }//GEN-LAST:event_ppSEP4BtnPrintActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -4373,6 +4462,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
     private javax.swing.JMenuItem ppSEP1;
     private javax.swing.JMenuItem ppSEP2;
     private javax.swing.JMenuItem ppSEP3;
+    private javax.swing.JMenuItem ppSEP4;
     private widget.ScrollPane scrollPane1;
     private widget.ScrollPane scrollPane2;
     private widget.ScrollPane scrollPane3;

@@ -9125,15 +9125,81 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
     }//GEN-LAST:event_tbPetugas1KeyReleased
 
     private void MnPaketMCUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPaketMCUActionPerformed
-        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+        try {
+           String lab,rad,polidalam,ekg;
+           lab = "insert into periksa_lab (no_rawat,nip,kd_jenis_prw,tgl_periksa,jam,dokter_perujuk,biaya,kd_dokter,bagian_rs,bhp,tarif_perujuk,tarif_tindakan_dokter,tarif_tindakan_petugas,status) values ('"+TNoRw.getText()+"','lab1','J001000','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','DR00017','330500','DR00017','0','0','0','0','0','Ralan')";
+           rad = "insert into periksa_radiologi (no_rawat,nip,kd_jenis_prw,tgl_periksa,jam,dokter_perujuk,biaya,kd_dokter,bagian_rs,bhp,tarif_perujuk,tarif_tindakan_dokter,tarif_tindakan_petugas) values ('"+TNoRw.getText()+"','rad1','J000010','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','DR00019','77000','DR00019','0','0','0','0','0')";
+           polidalam ="insert into rawat_jl_pr (no_rawat,kd_jenis_prw,nip,tgl_perawatan,jam_rawat,material,bhp,tarif_tindakanpr,biaya_rawat) VALUES ('"+TNoRw.getText()+"','RJ100000','Surat Keterangan','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','0','0','30000','30000')";
+           ekg ="insert into rawat_jl_pr (no_rawat,kd_jenis_prw,nip,tgl_perawatan,jam_rawat,material,bhp,tarif_tindakanpr,biaya_rawat) VALUES ('"+TNoRw.getText()+"','J000301','Surat Keterangan','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','0','0','40000','40000')";
+           
+           PreparedStatement pst_lab = koneksiDB.condb().prepareStatement(lab);          
+           pst_lab.execute();
+           PreparedStatement pst_rad = koneksiDB.condb().prepareStatement(rad);          
+           pst_rad.execute();
+           PreparedStatement pst_dalam = koneksiDB.condb().prepareStatement(polidalam);          
+           pst_dalam.execute();
+           PreparedStatement pst_ekg = koneksiDB.condb().prepareStatement(ekg);          
+           pst_ekg.execute();
+           JOptionPane.showMessageDialog(rootPane,"Pian telah berhasil menyimpan paket MCU..");
+           
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
     }//GEN-LAST:event_MnPaketMCUActionPerformed
 
     private void MnPaketNapzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPaketNapzaActionPerformed
-        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+        try {
+        
+        String lab, mop, amp, thc,suratnapza;
+        mop = " insert into periksa_lab (no_rawat,nip,kd_jenis_prw,tgl_periksa,jam,dokter_perujuk,biaya,kd_dokter,bagian_rs,bhp,tarif_perujuk,tarif_tindakan_dokter,tarif_tindakan_petugas,status) values ('"+TNoRw.getText()+"','lab1','J000086','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','DR00017','35000','DR00017','0','0','0','0','0','Ralan')";
+        amp = " insert into periksa_lab (no_rawat,nip,kd_jenis_prw,tgl_periksa,jam,dokter_perujuk,biaya,kd_dokter,bagian_rs,bhp,tarif_perujuk,tarif_tindakan_dokter,tarif_tindakan_petugas,status) values ('"+TNoRw.getText()+"','lab1','J000087','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','DR00017','35000','DR00017','0','0','0','0','0','Ralan')";
+        thc = " insert into periksa_lab (no_rawat,nip,kd_jenis_prw,tgl_periksa,jam,dokter_perujuk,biaya,kd_dokter,bagian_rs,bhp,tarif_perujuk,tarif_tindakan_dokter,tarif_tindakan_petugas,status) values ('"+TNoRw.getText()+"','lab1','J000088','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','DR00017','35000','DR00017','0','0','0','0','0','Ralan')";
+        suratnapza = "insert into rawat_jl_pr (no_rawat,kd_jenis_prw,nip,tgl_perawatan,jam_rawat,material,bhp,tarif_tindakanpr,biaya_rawat) VALUES ('"+TNoRw.getText()+"','J000469','Surat Keterangan','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','0','0','50000','50000')";
+        PreparedStatement pst_mop = koneksiDB.condb().prepareStatement(mop);          
+        pst_mop.execute();
+        PreparedStatement pst_amp = koneksiDB.condb().prepareStatement(amp);          
+        pst_amp.execute();
+        PreparedStatement pst_thc = koneksiDB.condb().prepareStatement(thc);          
+        pst_thc.execute();
+        
+        PreparedStatement pst_surat = koneksiDB.condb().prepareStatement(suratnapza);          
+        pst_surat.execute();
+        JOptionPane.showMessageDialog(rootPane,"Pian telah berhasil menyimpan paket NAPZA..");
+        } catch (Exception e) {
+          System.out.println(e);
+        }
+        }
     }//GEN-LAST:event_MnPaketNapzaActionPerformed
 
     private void MnPaketMMPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPaketMMPIActionPerformed
-        // TODO add your handling code here:
+        if(TPasien.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu dengan menklik data pada table...!!!");
+            tbPetugas.requestFocus();
+        }else{
+            try {
+
+                String suratmmpi,tesmmpi;
+                suratmmpi = "insert into rawat_jl_pr (no_rawat,kd_jenis_prw,nip,tgl_perawatan,jam_rawat,material,bhp,tarif_tindakanpr,biaya_rawat) VALUES ('"+TNoRw.getText()+"','J000999998','Surat Keterangan','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','0','0','50000','50000')";
+                tesmmpi = "insert into rawat_jl_dr (no_rawat,kd_jenis_prw,kd_dokter,tgl_perawatan,jam_rawat,material,bhp,tarif_tindakandr,biaya_rawat) VALUES ('"+TNoRw.getText()+"','J000597','D0000046','"+Valid.SetTgl((String) DTPReg.getSelectedItem())+"','"+CmbJam.getSelectedItem()+":"+CmbMenit.getSelectedItem()+":"+CmbDetik.getSelectedItem()+"','0','0','210000','210000')";
+
+                PreparedStatement pst_surat = koneksiDB.condb().prepareStatement(suratmmpi);          
+                pst_surat.execute();
+                PreparedStatement pst_tes = koneksiDB.condb().prepareStatement(tesmmpi);          
+                pst_tes.execute();
+                JOptionPane.showMessageDialog(rootPane,"Pian telah berhasil menyimpan paket MMPI..");
+            } catch (Exception e) {
+              System.out.println(e);
+            }
+        }
     }//GEN-LAST:event_MnPaketMMPIActionPerformed
 
     private void MnDataSuratSehatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDataSuratSehatActionPerformed

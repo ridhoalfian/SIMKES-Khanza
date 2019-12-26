@@ -175,6 +175,13 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DlgBantuHais = new javax.swing.JDialog();
+        internalFrame2 = new widget.InternalFrame();
+        panelGlass10 = new widget.panelisi();
+        BtnKeluar1 = new widget.Button();
+        Scroll1 = new widget.ScrollPane();
+        TIndikator = new javax.swing.JTextArea();
+        Label_judul = new widget.Label();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
         tbObat = new widget.Table();
@@ -197,6 +204,9 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         BtnCari = new widget.Button();
         jLabel7 = new widget.Label();
         LCount = new widget.Label();
+        jLabel28 = new widget.Label();
+        cmbBantuHais = new widget.ComboBox();
+        BtnCariIndikator = new widget.Button();
         PanelInput = new javax.swing.JPanel();
         FormInput = new widget.PanelBiasa();
         jLabel3 = new widget.Label();
@@ -243,6 +253,63 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         Scabies = new widget.TextBox();
         Kamar = new widget.TextBox();
         ChkInput = new widget.CekBox();
+
+        DlgBantuHais.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        DlgBantuHais.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        DlgBantuHais.setName("DlgBantuHais"); // NOI18N
+        DlgBantuHais.setUndecorated(true);
+        DlgBantuHais.setResizable(false);
+        DlgBantuHais.setSize(new java.awt.Dimension(1000, 500));
+
+        internalFrame2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Indikator - indikator HAIs ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
+        internalFrame2.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        internalFrame2.setName("internalFrame2"); // NOI18N
+        internalFrame2.setLayout(new java.awt.BorderLayout(1, 1));
+
+        panelGlass10.setName("panelGlass10"); // NOI18N
+        panelGlass10.setPreferredSize(new java.awt.Dimension(44, 44));
+        panelGlass10.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
+
+        BtnKeluar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/exit.png"))); // NOI18N
+        BtnKeluar1.setMnemonic('K');
+        BtnKeluar1.setText("Keluar");
+        BtnKeluar1.setToolTipText("Alt+K");
+        BtnKeluar1.setName("BtnKeluar1"); // NOI18N
+        BtnKeluar1.setPreferredSize(new java.awt.Dimension(100, 30));
+        BtnKeluar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnKeluar1ActionPerformed(evt);
+            }
+        });
+        BtnKeluar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnKeluar1KeyPressed(evt);
+            }
+        });
+        panelGlass10.add(BtnKeluar1);
+
+        internalFrame2.add(panelGlass10, java.awt.BorderLayout.PAGE_END);
+
+        Scroll1.setName("Scroll1"); // NOI18N
+        Scroll1.setOpaque(true);
+        Scroll1.setPreferredSize(new java.awt.Dimension(452, 200));
+
+        TIndikator.setEditable(false);
+        TIndikator.setColumns(20);
+        TIndikator.setRows(5);
+        TIndikator.setName("TIndikator"); // NOI18N
+        Scroll1.setViewportView(TIndikator);
+
+        internalFrame2.add(Scroll1, java.awt.BorderLayout.CENTER);
+
+        Label_judul.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Label_judul.setText("Judul");
+        Label_judul.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Label_judul.setIconTextGap(9);
+        Label_judul.setName("Label_judul"); // NOI18N
+        internalFrame2.add(Label_judul, java.awt.BorderLayout.PAGE_START);
+
+        DlgBantuHais.getContentPane().add(internalFrame2, java.awt.BorderLayout.CENTER);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -421,7 +488,7 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-01-2019" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-12-2019" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -435,7 +502,7 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-01-2019" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-12-2019" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -483,6 +550,43 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         LCount.setName("LCount"); // NOI18N
         LCount.setPreferredSize(new java.awt.Dimension(50, 23));
         panelGlass9.add(LCount);
+
+        jLabel28.setText("Indikator");
+        jLabel28.setName("jLabel28"); // NOI18N
+        jLabel28.setPreferredSize(new java.awt.Dimension(65, 23));
+        panelGlass9.add(jLabel28);
+
+        cmbBantuHais.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HAIS", "IDO", "Plebitis", "IAD", "HAP", "VAP", "ISK" }));
+        cmbBantuHais.setLightWeightPopupEnabled(false);
+        cmbBantuHais.setName("cmbBantuHais"); // NOI18N
+        cmbBantuHais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBantuHaisActionPerformed(evt);
+            }
+        });
+        cmbBantuHais.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbBantuHaisKeyPressed(evt);
+            }
+        });
+        panelGlass9.add(cmbBantuHais);
+
+        BtnCariIndikator.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
+        BtnCariIndikator.setMnemonic('2');
+        BtnCariIndikator.setToolTipText("Alt+2");
+        BtnCariIndikator.setName("BtnCariIndikator"); // NOI18N
+        BtnCariIndikator.setPreferredSize(new java.awt.Dimension(28, 23));
+        BtnCariIndikator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCariIndikatorActionPerformed(evt);
+            }
+        });
+        BtnCariIndikator.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                BtnCariIndikatorKeyPressed(evt);
+            }
+        });
+        panelGlass9.add(BtnCariIndikator);
 
         jPanel3.add(panelGlass9, java.awt.BorderLayout.PAGE_START);
 
@@ -555,7 +659,7 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         TPasien.setBounds(309, 10, 309, 23);
 
         Tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-01-2019" }));
+        Tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "17-12-2019" }));
         Tanggal.setDisplayFormat("dd-MM-yyyy");
         Tanggal.setName("Tanggal"); // NOI18N
         Tanggal.setOpaque(false);
@@ -1187,6 +1291,44 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_KamarKeyPressed
 
+    private void cmbBantuHaisKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbBantuHaisKeyPressed
+       
+    }//GEN-LAST:event_cmbBantuHaisKeyPressed
+
+    private void cmbBantuHaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBantuHaisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbBantuHaisActionPerformed
+
+    private void BtnCariIndikatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCariIndikatorActionPerformed
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        //var.setstatus(true);
+        // DlgNomorTelp dlgki=new DlgNomorTelp(null,false);
+        // dlgki.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        //DlgBantuHais(null, false);
+        DlgBantuHais.setLocationRelativeTo(internalFrame1);
+                //dlgki.emptTeks();
+                //dlgki.isCek();
+        //dlgki.setPasien(TNoRM.getText(),TPasien.getText());   
+        DlgBantuHais.setVisible(true);
+        TIndikator.setText(Sequel.cariIsi("select keterangan from indikator_hais where kode= '"+cmbBantuHais.getSelectedItem().toString()+"'"));
+        Label_judul.setText(Sequel.cariIsi("select judul from indikator_hais where kode= '"+cmbBantuHais.getSelectedItem().toString()+"'"));
+
+        
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_BtnCariIndikatorActionPerformed
+
+    private void BtnCariIndikatorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariIndikatorKeyPressed
+      
+    }//GEN-LAST:event_BtnCariIndikatorKeyPressed
+
+    private void BtnKeluar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKeluar1ActionPerformed
+        DlgBantuHais.dispose();
+    }//GEN-LAST:event_BtnKeluar1ActionPerformed
+
+    private void BtnKeluar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnKeluar1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnKeluar1KeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -1208,9 +1350,11 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     private widget.Button BtnAll;
     private widget.Button BtnBatal;
     private widget.Button BtnCari;
+    private widget.Button BtnCariIndikator;
     private widget.Button BtnEdit;
     private widget.Button BtnHapus;
     private widget.Button BtnKeluar;
+    private widget.Button BtnKeluar1;
     private widget.Button BtnPrint;
     private widget.Button BtnSimpan;
     private widget.TextBox CVL;
@@ -1219,6 +1363,7 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     private widget.Tanggal DTPCari2;
     private widget.TextBox Darah;
     private widget.ComboBox Deku;
+    private javax.swing.JDialog DlgBantuHais;
     private widget.TextBox ETT;
     private widget.PanelBiasa FormInput;
     private widget.TextBox HAP;
@@ -1228,12 +1373,15 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     private widget.TextBox IVL;
     private widget.TextBox Kamar;
     private widget.Label LCount;
+    private widget.Label Label_judul;
     private widget.TextBox PLEB;
     private javax.swing.JPanel PanelInput;
     private widget.TextBox Scabies;
     private widget.ScrollPane Scroll;
+    private widget.ScrollPane Scroll1;
     private widget.TextBox Sputum;
     private widget.TextBox TCari;
+    private javax.swing.JTextArea TIndikator;
     private widget.TextBox TNoRM;
     private widget.TextBox TNoRw;
     private widget.TextBox TPasien;
@@ -1242,7 +1390,9 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     private widget.TextBox UC;
     private widget.TextBox Urine;
     private widget.TextBox VAP;
+    private widget.ComboBox cmbBantuHais;
     private widget.InternalFrame internalFrame1;
+    private widget.InternalFrame internalFrame2;
     private widget.Label jLabel10;
     private widget.Label jLabel11;
     private widget.Label jLabel12;
@@ -1261,6 +1411,7 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     private widget.Label jLabel25;
     private widget.Label jLabel26;
     private widget.Label jLabel27;
+    private widget.Label jLabel28;
     private widget.Label jLabel3;
     private widget.Label jLabel4;
     private widget.Label jLabel5;
@@ -1269,6 +1420,7 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
     private widget.Label jLabel8;
     private widget.Label jLabel9;
     private javax.swing.JPanel jPanel3;
+    private widget.panelisi panelGlass10;
     private widget.panelisi panelGlass8;
     private widget.panelisi panelGlass9;
     private widget.Table tbObat;
@@ -1420,6 +1572,10 @@ public final class DlgDataHAIs extends javax.swing.JDialog {
         BtnSimpan.setEnabled(var.getdata_HAIs());
         BtnHapus.setEnabled(var.getdata_HAIs());
         BtnPrint.setEnabled(var.getdata_HAIs());
+    }
+
+    private void DlgBantuHais(Object object, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

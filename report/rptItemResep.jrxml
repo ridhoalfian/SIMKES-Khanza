@@ -15,7 +15,11 @@
 	<queryString>
 		<![CDATA[select resep_obat.no_resep,resep_obat.tgl_perawatan,resep_obat.jam, 
 resep_obat.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,databarang.nama_brng,databarang.expire,
-aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan 
+aturan_pakai.aturan,detail_pemberian_obat.jml,kodesatuan.satuan,
+if(LEFT(aturan_pakai.aturan,1)='1','06:00  14:00  18:00  21:00',
+if(LEFT(aturan_pakai.aturan,1)='2','06:00  18:00',
+if(LEFT(aturan_pakai.aturan,1)='3','06:00  14:00  21:00',
+if(LEFT(aturan_pakai.aturan,1)='4','06:00  14:00  18:00  21:00',' ')))) as waktu_pakai 
 from resep_obat inner join reg_periksa inner join pasien inner join 
 aturan_pakai inner join databarang inner join detail_pemberian_obat 
 inner join kodesatuan on resep_obat.no_rawat=reg_periksa.no_rawat 
@@ -62,6 +66,7 @@ where resep_obat.no_resep='208914859' and aturan_pakai.aturan<>'']]>
 	<field name="satuan" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="waktu_pakai" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -74,13 +79,13 @@ where resep_obat.no_resep='208914859' and aturan_pakai.aturan<>'']]>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="1" y="10" width="172" height="1" forecolor="#006666"/>
+				<reportElement x="1" y="12" width="172" height="1" forecolor="#006666"/>
 				<graphicElement>
 					<pen lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="3" y="11" width="169" height="11"/>
+				<reportElement mode="Transparent" x="3" y="13" width="169" height="9"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="6"/>
 				</textElement>
@@ -93,9 +98,9 @@ where resep_obat.no_resep='208914859' and aturan_pakai.aturan<>'']]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="3" y="21" width="25" height="9"/>
+				<reportElement x="2" y="22" width="25" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<text><![CDATA[No. RM]]></text>
 			</staticText>
@@ -112,104 +117,90 @@ where resep_obat.no_resep='208914859' and aturan_pakai.aturan<>'']]>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement x="3" y="29" width="25" height="9"/>
+				<reportElement x="2" y="33" width="25" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<text><![CDATA[Nama]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="1" width="169" height="10"/>
+				<reportElement x="2" y="1" width="169" height="11"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
-					<font fontName="Tahoma" size="8"/>
+					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[INSTALASI FARMASI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="28" y="21" width="4" height="9"/>
+				<reportElement x="27" y="22" width="4" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="28" y="29" width="4" height="9"/>
+				<reportElement x="27" y="33" width="4" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="31" y="21" width="127" height="9"/>
+				<reportElement x="30" y="22" width="127" height="11"/>
 				<textElement lineSpacing="Single">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="31" y="29" width="141" height="9"/>
+				<reportElement x="30" y="33" width="141" height="11"/>
 				<textElement lineSpacing="Single">
-					<font fontName="Tahoma" size="6"/>
+					<font fontName="Tahoma" size="8"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{nm_pasien}]]></textFieldExpression>
 			</textField>
 			<line>
-				<reportElement x="2" y="51" width="171" height="1" forecolor="#006666"/>
+				<reportElement x="1" y="58" width="171" height="1" forecolor="#006666"/>
 				<graphicElement>
 					<pen lineWidth="0.25" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<textField>
-				<reportElement x="0" y="52" width="172" height="15"/>
+				<reportElement x="1" y="58" width="172" height="15"/>
 				<textElement textAlignment="Center" lineSpacing="Single">
 					<font fontName="Tahoma" size="12" isBold="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{aturan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="37" width="132" height="14"/>
+				<reportElement x="3" y="45" width="132" height="14"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Tahoma" size="11" isBold="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{nama_brng}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="134" y="37" width="38" height="14"/>
+				<reportElement x="134" y="45" width="38" height="14"/>
 				<textElement textAlignment="Right" lineSpacing="Single">
 					<font fontName="Tahoma" size="11" isBold="false"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{jml}+" "+$F{satuan}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="1" y="67" width="172" height="11"/>
+				<reportElement x="3" y="73" width="88" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="8" isBold="false"/>
+					<font fontName="Tahoma" size="9" isBold="false"/>
 				</textElement>
-				<text><![CDATA[Waktu pakai : 06-07   18-19]]></text>
+				<text><![CDATA[Waktu pakai pukul :]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="53" y="77" width="88" height="11"/>
+				<reportElement x="2" y="96" width="171" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[06-07   14-15    21-22]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="53" y="87" width="113" height="11"/>
-				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="8" isBold="false"/>
-				</textElement>
-				<text><![CDATA[06-07   12-13    18-19    00-01]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="1" y="97" width="173" height="11"/>
-				<textElement textAlignment="Left" lineSpacing="Single">
-					<font fontName="Tahoma" size="8"/>
+					<font fontName="Tahoma" size="7"/>
 				</textElement>
 				<text><![CDATA[Penyimpanan : Suhu ruangan / lemari pendingin]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="1" y="107" width="64" height="11"/>
+				<reportElement x="2" y="107" width="64" height="11"/>
 				<textElement textAlignment="Left" lineSpacing="Single">
 					<font fontName="Tahoma" size="8"/>
 				</textElement>
@@ -221,6 +212,13 @@ where resep_obat.no_resep='208914859' and aturan_pakai.aturan<>'']]>
 					<font fontName="Tahoma" size="8" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.util.Date"><![CDATA[$F{expire}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="84" width="168" height="11"/>
+				<textElement textAlignment="Center" lineSpacing="Single">
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{waktu_pakai}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
