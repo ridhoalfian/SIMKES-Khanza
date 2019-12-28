@@ -2577,7 +2577,7 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
                 nol_detik = "";
                 now = Calendar.getInstance().getTime();
                 nilai_detik = now.getSeconds();
-                if (nilai_detik <= 9) {
+                if (nilai_detik <= 5) {
                     nol_detik = "0";
                 }
 
@@ -2614,6 +2614,6 @@ private void tbLabRalanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:even
             }                
         };
         // Timer
-        new Timer(1000, taskPerformer).start();
+        new Timer(1200, taskPerformer).start();
     }
 }
