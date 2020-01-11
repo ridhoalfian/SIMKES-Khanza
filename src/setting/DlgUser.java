@@ -148,9 +148,13 @@ public class DlgUser extends javax.swing.JDialog {
                     "[I]Daftar Pasien Ranap TNI","[F]Pengajuan Aset/Inventaris","[N]Item Apotek Per Jenis","[N]Item Apotek Per Kategori","[N]Item Apotek Per Golongan",
                     "[N]Item Apotek Per Industri Farmasi","[D]10 Obat Terbanyak Poli","[N]Pengajuan Aset Per Urgensi","[N]Pengajuan Aset Per Status",
                     "[N]Pengajuan Aset Per Departemen","[F]Rekap Pengajuan Aset Departemen","[N]Pegawai Per Kelompok Jabatan","[N]Pegawai Per Resiko Kerja",
-                    "[N]Pegawai Per Emergency Index","[N]Jumlah Inventaris Per Ruang","[I]Harian HAIs 2","[N]Jumlah Inventaris Per Jenis","[L]Data Resume Pasien",
+                    "[N]Pegawai Per Emergency Index","[N]Jumlah Inventaris Per Ruang","[I]Harian HAIs 2","[N]Jumlah Inventaris Per Jenis","[L]Resume Pasien",
                     "[A]Perkiraan Biaya Ranap","[D]Rekap Obat Per Poli","[D]Rekap Obat Per Pasien","[F]Permintaan Perbaikan Inventaris","[N]Pasien HAIs Per Ruang",
-                    "[N]Pasien HAIs Per Bulan"
+                    "[N]Pasien HAIs Per Bulan","[N]Laju HAIs VAP Per Ruang","[N]Laju HAIs IAD Per Ruang","[N]Laju HAIs Plebitis Per Ruang","[N]Laju HAIs ISK Per Ruang",
+                    "[N]Laju HAIs ILO Per Ruang","[N]Laju HAIs HAP Per Ruang","[K]Mapping Poli Inhealth","[K]Mapping Dokter Inhealth","[K]Tarif Ralan Inhealth",
+                    "[K]Tarif Ranap Inhealth","[K]Tarif Radiologi Inhealth","[K]Tarif Laborat Inhealth","[K]Tarif Operasi Inhealth","[D]Hibah Obat & BHP","[F]Asal Hibah",
+                    "[L]Asuhan Gizi","[K]Tagihan Inhealth","[D]Sirkulasi Obat, Alkes & BHP 4","[D]Sirkulasi Obat, Alkes & BHP 5","[E]Sirkulasi Non Medis 2",
+                    "[L]Monitoring Asuhan Gizi"
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -307,6 +311,11 @@ public class DlgUser extends javax.swing.JDialog {
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class
              };
              @Override
@@ -320,7 +329,7 @@ public class DlgUser extends javax.swing.JDialog {
         tbUser.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbUser.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 560;i++) {
+        for (i = 0; i < 581;i++) {
             TableColumn column = tbUser.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(130);
@@ -1063,7 +1072,7 @@ public class DlgUser extends javax.swing.JDialog {
             }else if(i==552){
                 column.setPreferredWidth(156);
             }else if(i==553){
-                column.setPreferredWidth(120);
+                column.setPreferredWidth(95);
             }else if(i==554){
                 column.setPreferredWidth(132);
             }else if(i==555){
@@ -1076,6 +1085,48 @@ public class DlgUser extends javax.swing.JDialog {
                 column.setPreferredWidth(133);
             }else if(i==559){
                 column.setPreferredWidth(129);
+            }else if(i==560){
+                column.setPreferredWidth(144);
+            }else if(i==561){
+                column.setPreferredWidth(142);
+            }else if(i==562){
+                column.setPreferredWidth(160);
+            }else if(i==563){
+                column.setPreferredWidth(140);
+            }else if(i==564){
+                column.setPreferredWidth(141);
+            }else if(i==565){
+                column.setPreferredWidth(144);
+            }else if(i==566){
+                column.setPreferredWidth(127);
+            }else if(i==567){
+                column.setPreferredWidth(141);
+            }else if(i==568){
+                column.setPreferredWidth(119);
+            }else if(i==569){
+                column.setPreferredWidth(122);
+            }else if(i==570){
+                column.setPreferredWidth(137);
+            }else if(i==571){
+                column.setPreferredWidth(128);
+            }else if(i==572){
+                column.setPreferredWidth(129);
+            }else if(i==573){
+                column.setPreferredWidth(110);
+            }else if(i==574){
+                column.setPreferredWidth(73);
+            }else if(i==575){
+                column.setPreferredWidth(77);
+            }else if(i==576){
+                column.setPreferredWidth(104);
+            }else if(i==577){
+                column.setPreferredWidth(162);
+            }else if(i==578){
+                column.setPreferredWidth(163);
+            }else if(i==579){
+                column.setPreferredWidth(124);
+            }else if(i==580){
+                column.setPreferredWidth(132);
             }else{
                 column.setPreferredWidth(130);
             }
@@ -1568,7 +1619,8 @@ public class DlgUser extends javax.swing.JDialog {
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
-                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
+                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
+                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
                 tampil();
                 emptTeks();
             }            
@@ -2170,7 +2222,28 @@ public class DlgUser extends javax.swing.JDialog {
                     "rekap_obat_pasien='"+tbUser.getValueAt(i,556).toString()+"',"+
                     "permintaan_perbaikan_inventaris='"+tbUser.getValueAt(i,557).toString()+"',"+
                     "grafik_HAIs_pasienbangsal='"+tbUser.getValueAt(i,558).toString()+"',"+
-                    "grafik_HAIs_pasienbulan='"+tbUser.getValueAt(i,559).toString()+"'");
+                    "grafik_HAIs_pasienbulan='"+tbUser.getValueAt(i,559).toString()+"',"+
+                    "grafik_HAIs_laju_vap='"+tbUser.getValueAt(i,560).toString()+"',"+
+                    "grafik_HAIs_laju_iad='"+tbUser.getValueAt(i,561).toString()+"',"+
+                    "grafik_HAIs_laju_pleb='"+tbUser.getValueAt(i,562).toString()+"',"+
+                    "grafik_HAIs_laju_isk='"+tbUser.getValueAt(i,563).toString()+"',"+
+                    "grafik_HAIs_laju_ilo='"+tbUser.getValueAt(i,564).toString()+"',"+
+                    "grafik_HAIs_laju_hap='"+tbUser.getValueAt(i,565).toString()+"',"+
+                    "inhealth_mapping_poli='"+tbUser.getValueAt(i,566).toString()+"',"+
+                    "inhealth_mapping_dokter='"+tbUser.getValueAt(i,567).toString()+"',"+
+                    "inhealth_mapping_tindakan_ralan='"+tbUser.getValueAt(i,568).toString()+"',"+
+                    "inhealth_mapping_tindakan_ranap='"+tbUser.getValueAt(i,569).toString()+"',"+
+                    "inhealth_mapping_tindakan_radiologi='"+tbUser.getValueAt(i,570).toString()+"',"+
+                    "inhealth_mapping_tindakan_laborat='"+tbUser.getValueAt(i,571).toString()+"',"+
+                    "inhealth_mapping_tindakan_operasi='"+tbUser.getValueAt(i,572).toString()+"',"+
+                    "hibah_obat_bhp='"+tbUser.getValueAt(i,573).toString()+"',"+
+                    "asal_hibah='"+tbUser.getValueAt(i,574).toString()+"',"+
+                    "asuhan_gizi='"+tbUser.getValueAt(i,575).toString()+"',"+
+                    "inhealth_kirim_tagihan='"+tbUser.getValueAt(i,576).toString()+"',"+
+                    "sirkulasi_obat4='"+tbUser.getValueAt(i,577).toString()+"',"+
+                    "sirkulasi_obat5='"+tbUser.getValueAt(i,578).toString()+"',"+
+                    "sirkulasi_non_medis2='"+tbUser.getValueAt(i,579).toString()+"',"+
+                    "monitoring_asuhan_gizi='"+tbUser.getValueAt(i,580).toString()+"'");
             }            
             tampil();
             emptTeks();
@@ -2811,7 +2884,28 @@ public class DlgUser extends javax.swing.JDialog {
                                     "rekap_obat_pasien='"+tbUser.getValueAt(barisdicopy,556).toString()+"',"+
                                     "permintaan_perbaikan_inventaris='"+tbUser.getValueAt(barisdicopy,557).toString()+"',"+
                                     "grafik_HAIs_pasienbangsal='"+tbUser.getValueAt(barisdicopy,558).toString()+"',"+
-                                    "grafik_HAIs_pasienbulan='"+tbUser.getValueAt(barisdicopy,559).toString()+"'");
+                                    "grafik_HAIs_pasienbulan='"+tbUser.getValueAt(barisdicopy,559).toString()+"',"+
+                                    "grafik_HAIs_laju_vap='"+tbUser.getValueAt(barisdicopy,560).toString()+"',"+
+                                    "grafik_HAIs_laju_iad='"+tbUser.getValueAt(barisdicopy,561).toString()+"',"+
+                                    "grafik_HAIs_laju_pleb='"+tbUser.getValueAt(barisdicopy,562).toString()+"',"+
+                                    "grafik_HAIs_laju_isk='"+tbUser.getValueAt(barisdicopy,563).toString()+"',"+
+                                    "grafik_HAIs_laju_ilo='"+tbUser.getValueAt(barisdicopy,564).toString()+"',"+
+                                    "grafik_HAIs_laju_hap='"+tbUser.getValueAt(barisdicopy,565).toString()+"',"+
+                                    "inhealth_mapping_poli='"+tbUser.getValueAt(barisdicopy,566).toString()+"',"+
+                                    "inhealth_mapping_dokter='"+tbUser.getValueAt(barisdicopy,567).toString()+"',"+
+                                    "inhealth_mapping_tindakan_ralan='"+tbUser.getValueAt(barisdicopy,568).toString()+"',"+
+                                    "inhealth_mapping_tindakan_ranap='"+tbUser.getValueAt(barisdicopy,569).toString()+"',"+
+                                    "inhealth_mapping_tindakan_radiologi='"+tbUser.getValueAt(barisdicopy,570).toString()+"',"+
+                                    "inhealth_mapping_tindakan_laborat='"+tbUser.getValueAt(barisdicopy,571).toString()+"',"+
+                                    "inhealth_mapping_tindakan_operasi='"+tbUser.getValueAt(barisdicopy,572).toString()+"',"+
+                                    "hibah_obat_bhp='"+tbUser.getValueAt(barisdicopy,573).toString()+"',"+
+                                    "asal_hibah='"+tbUser.getValueAt(barisdicopy,574).toString()+"',"+
+                                    "asuhan_gizi='"+tbUser.getValueAt(barisdicopy,575).toString()+"',"+
+                                    "inhealth_kirim_tagihan='"+tbUser.getValueAt(barisdicopy,576).toString()+"',"+
+                                    "sirkulasi_obat4='"+tbUser.getValueAt(barisdicopy,577).toString()+"',"+
+                                    "sirkulasi_obat5='"+tbUser.getValueAt(barisdicopy,578).toString()+"',"+
+                                    "sirkulasi_non_medis2='"+tbUser.getValueAt(barisdicopy,579).toString()+"',"+
+                                    "monitoring_asuhan_gizi='"+tbUser.getValueAt(barisdicopy,580).toString()+"'");
                             }    
                             userdicopy="";
                             copyhakakses="";
@@ -3114,7 +3208,10 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         "grafik_pengajuan_aset_status,grafik_pengajuan_aset_departemen,rekap_pengajuan_aset_departemen,grafik_kelompok_jabatanpegawai,"+
                         "grafik_resiko_kerjapegawai,grafik_emergency_indexpegawai,grafik_inventaris_ruang,harian_HAIs2,grafik_inventaris_jenis,"+
                         "data_resume_pasien,perkiraan_biaya_ranap,rekap_obat_poli,rekap_obat_pasien,permintaan_perbaikan_inventaris,grafik_HAIs_pasienbangsal,"+
-                        "grafik_HAIs_pasienbulan from user order by AES_DECRYPT(id_user,'nur')");
+                        "grafik_HAIs_pasienbulan,grafik_HAIs_laju_vap,grafik_HAIs_laju_iad,grafik_HAIs_laju_pleb,grafik_HAIs_laju_isk,grafik_HAIs_laju_ilo,"+
+                        "grafik_HAIs_laju_hap,inhealth_mapping_poli,inhealth_mapping_dokter,inhealth_mapping_tindakan_ralan,inhealth_mapping_tindakan_ranap,"+
+                        "inhealth_mapping_tindakan_radiologi,inhealth_mapping_tindakan_laborat,inhealth_mapping_tindakan_operasi,hibah_obat_bhp,"+
+                        "asal_hibah,asuhan_gizi,inhealth_kirim_tagihan,sirkulasi_obat4,sirkulasi_obat5,sirkulasi_non_medis2,monitoring_asuhan_gizi from user order by AES_DECRYPT(id_user,'nur')");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -3686,7 +3783,28 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("rekap_obat_pasien"),
                                rs.getBoolean("permintaan_perbaikan_inventaris"),
                                rs.getBoolean("grafik_HAIs_pasienbangsal"),
-                               rs.getBoolean("grafik_HAIs_pasienbulan")
+                               rs.getBoolean("grafik_HAIs_pasienbulan"),
+                               rs.getBoolean("grafik_HAIs_laju_vap"),
+                               rs.getBoolean("grafik_HAIs_laju_iad"),
+                               rs.getBoolean("grafik_HAIs_laju_pleb"),
+                               rs.getBoolean("grafik_HAIs_laju_isk"),
+                               rs.getBoolean("grafik_HAIs_laju_ilo"),
+                               rs.getBoolean("grafik_HAIs_laju_hap"),
+                               rs.getBoolean("inhealth_mapping_poli"),
+                               rs.getBoolean("inhealth_mapping_dokter"),
+                               rs.getBoolean("inhealth_mapping_tindakan_ralan"),
+                               rs.getBoolean("inhealth_mapping_tindakan_ranap"),
+                               rs.getBoolean("inhealth_mapping_tindakan_radiologi"),
+                               rs.getBoolean("inhealth_mapping_tindakan_laborat"),
+                               rs.getBoolean("inhealth_mapping_tindakan_operasi"),
+                               rs.getBoolean("hibah_obat_bhp"),
+                               rs.getBoolean("asal_hibah"),
+                               rs.getBoolean("asuhan_gizi"),
+                               rs.getBoolean("inhealth_kirim_tagihan"),
+                               rs.getBoolean("sirkulasi_obat4"),
+                               rs.getBoolean("sirkulasi_obat5"),
+                               rs.getBoolean("sirkulasi_non_medis2"),
+                               rs.getBoolean("monitoring_asuhan_gizi")
                             });
                         }   
                     } catch (Exception e) {
@@ -4247,7 +4365,28 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("rekap_obat_pasien"),
                            rs.getBoolean("permintaan_perbaikan_inventaris"),
                            rs.getBoolean("grafik_HAIs_pasienbangsal"),
-                           rs.getBoolean("grafik_HAIs_pasienbulan")
+                           rs.getBoolean("grafik_HAIs_pasienbulan"),
+                           rs.getBoolean("grafik_HAIs_laju_vap"),
+                           rs.getBoolean("grafik_HAIs_laju_iad"),
+                           rs.getBoolean("grafik_HAIs_laju_pleb"),
+                           rs.getBoolean("grafik_HAIs_laju_isk"),
+                           rs.getBoolean("grafik_HAIs_laju_ilo"),
+                           rs.getBoolean("grafik_HAIs_laju_hap"),
+                           rs.getBoolean("inhealth_mapping_poli"),
+                           rs.getBoolean("inhealth_mapping_dokter"),
+                           rs.getBoolean("inhealth_mapping_tindakan_ralan"),
+                           rs.getBoolean("inhealth_mapping_tindakan_ranap"),
+                           rs.getBoolean("inhealth_mapping_tindakan_radiologi"),
+                           rs.getBoolean("inhealth_mapping_tindakan_laborat"),
+                           rs.getBoolean("inhealth_mapping_tindakan_operasi"),
+                           rs.getBoolean("hibah_obat_bhp"),
+                           rs.getBoolean("asal_hibah"),
+                           rs.getBoolean("asuhan_gizi"),
+                           rs.getBoolean("inhealth_kirim_tagihan"),
+                           rs.getBoolean("sirkulasi_obat4"),
+                           rs.getBoolean("sirkulasi_obat5"),
+                           rs.getBoolean("sirkulasi_non_medis2"),
+                           rs.getBoolean("monitoring_asuhan_gizi")
                         });
                     }                                             
                  }
