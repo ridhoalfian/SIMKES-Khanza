@@ -62,7 +62,7 @@ public class MYLIMSApi {
                     "if(permintaan_lab.jam_permintaan='00:00:00','',permintaan_lab.jam_permintaan) as jam_permintaan,pasien.tgl_lahir,pasien.jk,pasien.alamat,"+
                     "if(permintaan_lab.tgl_sampel='0000-00-00','',permintaan_lab.tgl_sampel) as tgl_sampel,if(permintaan_lab.jam_sampel='00:00:00','',permintaan_lab.jam_sampel) as jam_sampel,"+
                     "if(permintaan_lab.tgl_hasil='0000-00-00','',permintaan_lab.tgl_hasil) as tgl_hasil,if(permintaan_lab.jam_hasil='00:00:00','',permintaan_lab.jam_hasil) as jam_hasil,"+
-                    "permintaan_lab.dokter_perujuk,dokter.nm_dokter,poliklinik.nm_poli,pasien.no_tlp,penjab.png_jawab from permintaan_lab "+
+                    "permintaan_lab.dokter_perujuk,dokter.nm_dokter,bangsal.nm_bangsal,pasien.no_tlp,penjab.png_jawab,pasien.tgl_lahir,pasien.umur,reg_periksa.umurdaftar,reg_periksa.sttsumur from permintaan_lab "+
                     "inner join reg_periksa inner join pasien inner join dokter inner join poliklinik inner join penjab "+
                     "on permintaan_lab.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_pj=penjab.kd_pj "+
                     "and permintaan_lab.dokter_perujuk=dokter.kd_dokter and reg_periksa.kd_poli=poliklinik.kd_poli where permintaan_lab.noorder=?");
@@ -86,10 +86,7 @@ public class MYLIMSApi {
                         while(rs2.next()){
                             requestJson2=
                                 "{" +
-                                    "\"id\": \""+rs2.getString("urut")+"\"," +
-                                    "\"test_id\": \""+rs2.getString("id_template")+"\"," +
-                                    "\"test_nm\": \""+rs2.getString("Pemeriksaan")+"\"," +
-                                    "\"cito\": \"1\"" +
+                                    "\"id\": \""+rs2.getString("urut")+"\"" +
                                 "},"+requestJson2;
                         }
                         if(requestJson2.endsWith(",")){
@@ -107,30 +104,32 @@ public class MYLIMSApi {
                     }
 
                     requestJson="{" +
-                                    "\"demografi\": {" +
-                                        "\"no_rkm_medis\": \""+rs.getString("no_rkm_medis")+"\"," +
-                                        "\"nm_pasien\": \""+rs.getString("nm_pasien")+"\"," +
+                                    "\"pasien\": {" +
+                                        "\"recmed\": \""+rs.getString("no_rkm_medis")+"\"," +
+                                        "\"nama\": \""+rs.getString("nm_pasien")+"\"," +
+                                        "\"sex\": \""+rs.getString("jk")+"\"," +
                                         "\"tgl_lahir\": \""+rs.getString("tgl_lahir")+"\"," +
-                                        "\"jk\": \""+rs.getString("jk")+"\"," +
-                                        "\"alamat\": \""+rs.getString("alamat")+"\"," +
-                                        "\"no_telp\": \""+rs.getString("no_tlp")+"\"" +
+                                        "\"umur\": \""+rs.getString("umur")+"\"," +
+                                        "\"u_satuan\": \""+rs.getString("sttsumur")+"\"," +
+                                        "\"u_lengkap\": \""+rs.getString("umurdaftar")+"\"," +
+                                        "\"no_transaksi\": \""+rs.getString("noorder")+"\"," +
+                                        "\"nm_ruang\": \""+rs.getString("nm_bangsal")+"\"," +
+                                        "\"id_kelas\": \"1\"," +
+                                        "\"id_status\": \"1\"," +
+                                        "\"dr_pengirim\": \""+rs.getString("nm_dokter")+"\"," +
+                                        "\"ket\": \"ket\"," +
+                                        "\"catatan_1\": \"cat1\"," +
+                                        "\"catatan_2\": \"cat2\"" +
                                     "}," +
-                                    "\"transaksi\": {" +
-                                        "\"no_order\": \""+rs.getString("noorder")+"\"," +
-                                        "\"tgl_permintaan\": \""+rs.getString("tgl_permintaan")+"\"," +
-                                        "\"jam_permintaan\": \""+rs.getString("jam_permintaan")+"\"," +
-                                        "\"pembayaran\": \""+rs.getString("png_jawab")+"\"," +
-                                        "\"ruangan\": \""+rs.getString("nm_poli")+"\"," +
-                                        "\"jnsreg\": \"1\"," +
-                                        "\"dokter\": \""+rs.getString("nm_dokter")+"\"" +
+                                    "\"detils\": {" +
+                                        "\"idlab\": ["+
+                                            requestJson2+
+                                        "]" +
                                     "}," +
-                                    "\"test\": ["+
-                                        requestJson2+
-                                    "]" +
                                 "}";
                     System.out.println("JSON : "+requestJson);
                     requestEntity = new HttpEntity(requestJson,headers);
-                    stringbalik=getRest().exchange(URL+"/insert", HttpMethod.POST, requestEntity, String.class).getBody();
+                    stringbalik=getRest().exchange(URL+"/addCekup", HttpMethod.POST, requestEntity, String.class).getBody();
                     JOptionPane.showMessageDialog(null,stringbalik);
                 }
              } catch (Exception e) {
@@ -161,20 +160,20 @@ public class MYLIMSApi {
             headers.add("Content-Type","application/json;charset=UTF-8");
             headers.add("x-api-key",KEY);
             requestEntity = new HttpEntity(headers);
-            stringbalik=getRest().exchange(URL+"/get/"+nopermintaan, HttpMethod.GET, requestEntity, String.class).getBody();
+            stringbalik=getRest().exchange(URL+"/getCekup/"+nopermintaan, HttpMethod.GET, requestEntity, String.class).getBody();
             System.out.println("JSON : "+stringbalik);
             root = mapper.readTree(stringbalik);
-            response = root.path("tpas");
+            response = root.path("detil");
             Sequel.queryu("truncate table temporary_permintaan_lab");
             if(response.isArray()){
                 for(JsonNode list:response){
                     Sequel.menyimpan("temporary_permintaan_lab","'0','"+response+"','"+
-                            list.path("nmdisplay").asText()+"','"+
+                            list.path("pemeriksaan").asText()+"','"+
                             list.path("hasil").asText()+"','"+
-                            list.path("nn").asText()+"','"+
+                            list.path("rujukan").asText()+"','"+
                             list.path("satuan").asText()+"','"+
-                            list.path("keterangan").asText()+"','"+
-                            list.path("tindakan_id").asText()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Periksa Lab");
+                            list.path("ket").asText()+"','"+
+                            list.path("kode").asText()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Periksa Lab");
                 }
             }
         } catch (Exception ex) {
