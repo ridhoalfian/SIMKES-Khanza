@@ -62,7 +62,7 @@ public class MYLIMSApi {
                     "if(permintaan_lab.jam_permintaan='00:00:00','',permintaan_lab.jam_permintaan) as jam_permintaan,pasien.tgl_lahir,pasien.jk,pasien.alamat,"+
                     "if(permintaan_lab.tgl_sampel='0000-00-00','',permintaan_lab.tgl_sampel) as tgl_sampel,if(permintaan_lab.jam_sampel='00:00:00','',permintaan_lab.jam_sampel) as jam_sampel,"+
                     "if(permintaan_lab.tgl_hasil='0000-00-00','',permintaan_lab.tgl_hasil) as tgl_hasil,if(permintaan_lab.jam_hasil='00:00:00','',permintaan_lab.jam_hasil) as jam_hasil,"+
-                    "permintaan_lab.dokter_perujuk,dokter.nm_dokter,bangsal.nm_bangsal,pasien.no_tlp,penjab.png_jawab,pasien.tgl_lahir,pasien.umur,reg_periksa.umurdaftar,reg_periksa.sttsumur from permintaan_lab "+
+                    "permintaan_lab.dokter_perujuk,dokter.nm_dokter,poliklinik.nm_poli,pasien.no_tlp,penjab.png_jawab,pasien.tgl_lahir,pasien.umur,reg_periksa.umurdaftar,reg_periksa.sttsumur from permintaan_lab "+
                     "inner join reg_periksa inner join pasien inner join dokter inner join poliklinik inner join penjab "+
                     "on permintaan_lab.no_rawat=reg_periksa.no_rawat and reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_pj=penjab.kd_pj "+
                     "and permintaan_lab.dokter_perujuk=dokter.kd_dokter and reg_periksa.kd_poli=poliklinik.kd_poli where permintaan_lab.noorder=?");
@@ -109,11 +109,11 @@ public class MYLIMSApi {
                                         "\"nama\": \""+rs.getString("nm_pasien")+"\"," +
                                         "\"sex\": \""+rs.getString("jk")+"\"," +
                                         "\"tgl_lahir\": \""+rs.getString("tgl_lahir")+"\"," +
-                                        "\"umur\": \""+rs.getString("umur")+"\"," +
+                                        "\"umur\": \""+rs.getString("umurdaftar")+"\"," +
                                         "\"u_satuan\": \""+rs.getString("sttsumur")+"\"," +
-                                        "\"u_lengkap\": \""+rs.getString("umurdaftar")+"\"," +
+                                        "\"u_lengkap\": \""+rs.getString("umur")+"\"," +
                                         "\"no_transaksi\": \""+rs.getString("noorder")+"\"," +
-                                        "\"nm_ruang\": \""+rs.getString("nm_bangsal")+"\"," +
+                                        "\"nm_ruang\": \""+rs.getString("nm_poli")+"\"," +
                                         "\"id_kelas\": \"1\"," +
                                         "\"id_status\": \"1\"," +
                                         "\"dr_pengirim\": \""+rs.getString("nm_dokter")+"\"," +

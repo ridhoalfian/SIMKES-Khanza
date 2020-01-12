@@ -110,9 +110,9 @@ public class MYLIMSApi2 {
                                         "\"nama\": \""+rs.getString("nm_pasien")+"\"," +
                                         "\"sex\": \""+rs.getString("jk")+"\"," +
                                         "\"tgl_lahir\": \""+rs.getString("tgl_lahir")+"\"," +
-                                        "\"umur\": \""+rs.getString("umur")+"\"," +
+                                        "\"umur\": \""+rs.getString("umurdaftar")+"\"," +
                                         "\"u_satuan\": \""+rs.getString("sttsumur")+"\"," +
-                                        "\"u_lengkap\": \""+rs.getString("umurdaftar")+"\"," +
+                                        "\"u_lengkap\": \""+rs.getString("umur")+"\"," +
                                         "\"no_transaksi\": \""+rs.getString("noorder")+"\"," +
                                         "\"nm_ruang\": \""+rs.getString("nm_bangsal")+"\"," +
                                         "\"id_kelas\": \"1\"," +
