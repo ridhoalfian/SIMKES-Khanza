@@ -129,7 +129,7 @@ public class MYLIMSApi {
                                 "}";
                     System.out.println("JSON : "+requestJson);
                     requestEntity = new HttpEntity(requestJson,headers);
-                    stringbalik=getRest().exchange(URL+"/addCekup", HttpMethod.POST, requestEntity, String.class).getBody();
+                    stringbalik=getRest().exchange(URL+"/cekup/addCekup", HttpMethod.POST, requestEntity, String.class).getBody();
                     JOptionPane.showMessageDialog(null,stringbalik);
                 }
              } catch (Exception e) {
