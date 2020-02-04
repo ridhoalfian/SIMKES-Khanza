@@ -69,9 +69,6 @@
     <entry key="AKTIFKANTRACKSQL">no</entry>
     <entry key="HOSTWSLICA">http://localhost/bridging-lica/public</entry>
     <entry key="KEYWSLICA">yLT3/8b0KAb5QK1ueFkW7g==</entry>
-<<<<<<< HEAD
     <entry key="HOSTWSMYLIMS">http://192.198.2.1:777/api/v1</entry>
     <entry key="KEYWSMYLIMS">8nMW6Jt60AR5QSMSszmtajKwivtyS5EnBnAHwXv5cfuDxxqHhbC0RS5htQ9c</entry>
-=======
->>>>>>> master
 </properties>
