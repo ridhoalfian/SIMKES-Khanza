@@ -711,4 +711,24 @@ public class koneksiDB {
         return var;
     }
 
+    public static String HOSTWSMYLIMS(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("HOSTWSMYLIMS");
+        }catch(Exception e){
+            var="";
+        }
+        return var;
+    }
+
+    public static String KEYWSMYLIMS(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=EnkripsiAES.decrypt(prop.getProperty("KEYWSMYLIMS"));
+        }catch(Exception e){
+            var="";
+        }
+        return var;
+    }
+    
 }
