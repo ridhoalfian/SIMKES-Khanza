@@ -1431,10 +1431,8 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan catatan dokter
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select catatan_perawatan.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
-                                        "catatan_perawatan.catatan from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join catatan_perawatan on catatan_perawatan.no_rawat=reg_periksa.no_rawat inner join dokter on catatan_perawatan.kd_dokter=dokter.kd_dokter "+
+                                        "select catatan_perawatan.no_rawat,catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
+                                        "catatan_perawatan.catatan from catatan_perawatan inner join dokter on catatan_perawatan.kd_dokter=dokter.kd_dokter "+
                                         "where catatan_perawatan.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
@@ -1594,9 +1592,7 @@ public class PanelRiwayat extends widget.panelisi {
                                         "pemeriksaan_obstetri_ralan.kualitas_mnt,pemeriksaan_obstetri_ralan.kualitas_dtk,pemeriksaan_obstetri_ralan.fluksus,pemeriksaan_obstetri_ralan.albus, " +
                                         "pemeriksaan_obstetri_ralan.vulva,pemeriksaan_obstetri_ralan.portio,pemeriksaan_obstetri_ralan.dalam, pemeriksaan_obstetri_ralan.tebal, pemeriksaan_obstetri_ralan.arah, pemeriksaan_obstetri_ralan.pembukaan," +
                                         "pemeriksaan_obstetri_ralan.penurunan, pemeriksaan_obstetri_ralan.denominator, pemeriksaan_obstetri_ralan.ketuban, pemeriksaan_obstetri_ralan.feto " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join pemeriksaan_obstetri_ralan on pemeriksaan_obstetri_ralan.no_rawat=reg_periksa.no_rawat  where "+
-                                        "pemeriksaan_obstetri_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ralan.tgl_perawatan,pemeriksaan_obstetri_ralan.jam_rawat").executeQuery();
+                                        "from pemeriksaan_obstetri_ralan where pemeriksaan_obstetri_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ralan.tgl_perawatan,pemeriksaan_obstetri_ralan.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -1715,15 +1711,12 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan riwayat pemeriksaan genekologi ralan
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select pemeriksaan_ginekologi_ralan.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat,pemeriksaan_ginekologi_ralan.inspeksi,pemeriksaan_ginekologi_ralan.inspeksi_vulva,pemeriksaan_ginekologi_ralan.inspekulo_gine, " +
+                                        "select pemeriksaan_ginekologi_ralan.no_rawat,pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat,pemeriksaan_ginekologi_ralan.inspeksi,pemeriksaan_ginekologi_ralan.inspeksi_vulva,pemeriksaan_ginekologi_ralan.inspekulo_gine, " +
                                         "pemeriksaan_ginekologi_ralan.fluxus_gine,pemeriksaan_ginekologi_ralan.fluor_gine,pemeriksaan_ginekologi_ralan.vulva_inspekulo, " +
                                         "pemeriksaan_ginekologi_ralan.portio_inspekulo,pemeriksaan_ginekologi_ralan.sondage,pemeriksaan_ginekologi_ralan.portio_dalam,pemeriksaan_ginekologi_ralan.bentuk, " +
                                         "pemeriksaan_ginekologi_ralan.cavum_uteri,pemeriksaan_ginekologi_ralan.mobilitas,pemeriksaan_ginekologi_ralan.ukuran, pemeriksaan_ginekologi_ralan.nyeri_tekan, pemeriksaan_ginekologi_ralan.adnexa_kanan, pemeriksaan_ginekologi_ralan.adnexa_kiri," +
                                         "pemeriksaan_ginekologi_ralan.cavum_douglas " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join pemeriksaan_ginekologi_ralan on pemeriksaan_ginekologi_ralan.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_ginekologi_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat").executeQuery();
+                                        "from pemeriksaan_ginekologi_ralan where pemeriksaan_ginekologi_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -1931,9 +1924,7 @@ public class PanelRiwayat extends widget.panelisi {
                                         "pemeriksaan_obstetri_ranap.kualitas_mnt,pemeriksaan_obstetri_ranap.kualitas_dtk,pemeriksaan_obstetri_ranap.fluksus,pemeriksaan_obstetri_ranap.albus, " +
                                         "pemeriksaan_obstetri_ranap.vulva,pemeriksaan_obstetri_ranap.portio,pemeriksaan_obstetri_ranap.dalam, pemeriksaan_obstetri_ranap.tebal, pemeriksaan_obstetri_ranap.arah, pemeriksaan_obstetri_ranap.pembukaan," +
                                         "pemeriksaan_obstetri_ranap.penurunan, pemeriksaan_obstetri_ranap.denominator, pemeriksaan_obstetri_ranap.ketuban, pemeriksaan_obstetri_ranap.feto " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join pemeriksaan_obstetri_ranap "+
-                                        "on pemeriksaan_obstetri_ranap.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_obstetri_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat").executeQuery();
+                                        "from pemeriksaan_obstetri_ranap where pemeriksaan_obstetri_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -2052,15 +2043,12 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan riwayat pemeriksaan genekologi ranap
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select pemeriksaan_ginekologi_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat,pemeriksaan_ginekologi_ranap.inspeksi,pemeriksaan_ginekologi_ranap.inspeksi_vulva,pemeriksaan_ginekologi_ranap.inspekulo_gine, " +
+                                        "select pemeriksaan_ginekologi_ranap.no_rawat,pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat,pemeriksaan_ginekologi_ranap.inspeksi,pemeriksaan_ginekologi_ranap.inspeksi_vulva,pemeriksaan_ginekologi_ranap.inspekulo_gine, " +
                                         "pemeriksaan_ginekologi_ranap.fluxus_gine,pemeriksaan_ginekologi_ranap.fluor_gine,pemeriksaan_ginekologi_ranap.vulva_inspekulo, " +
                                         "pemeriksaan_ginekologi_ranap.portio_inspekulo,pemeriksaan_ginekologi_ranap.sondage,pemeriksaan_ginekologi_ranap.portio_dalam,pemeriksaan_ginekologi_ranap.bentuk, " +
                                         "pemeriksaan_ginekologi_ranap.cavum_uteri,pemeriksaan_ginekologi_ranap.mobilitas,pemeriksaan_ginekologi_ranap.ukuran, pemeriksaan_ginekologi_ranap.nyeri_tekan, pemeriksaan_ginekologi_ranap.adnexa_kanan, pemeriksaan_ginekologi_ranap.adnexa_kiri," +
                                         "pemeriksaan_ginekologi_ranap.cavum_douglas " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join pemeriksaan_ginekologi_ranap on pemeriksaan_ginekologi_ranap.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_ginekologi_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat").executeQuery();
+                                        "from pemeriksaan_ginekologi_ranap where pemeriksaan_ginekologi_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -2156,16 +2144,14 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan asuhan gizi
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,asuhan_gizi.tanggal,"+
-                                        "asuhan_gizi.antropometri_bb,asuhan_gizi.antropometri_tb,asuhan_gizi.antropometri_imt,asuhan_gizi.antropometri_lla,"+
+                                        "select asuhan_gizi.tanggal,asuhan_gizi.antropometri_bb,asuhan_gizi.antropometri_tb,asuhan_gizi.antropometri_imt,asuhan_gizi.antropometri_lla,"+
                                         "asuhan_gizi.antropometri_tl,asuhan_gizi.antropometri_ulna,asuhan_gizi.antropometri_bbideal,asuhan_gizi.antropometri_bbperu,"+
                                         "asuhan_gizi.antropometri_tbperu,asuhan_gizi.antropometri_bbpertb,asuhan_gizi.antropometri_llaperu,asuhan_gizi.biokimia,"+
                                         "asuhan_gizi.fisik_klinis,asuhan_gizi.alergi_telur,asuhan_gizi.alergi_susu_sapi,asuhan_gizi.alergi_kacang,asuhan_gizi.alergi_gluten,"+
                                         "asuhan_gizi.alergi_udang,asuhan_gizi.alergi_ikan,asuhan_gizi.alergi_hazelnut,asuhan_gizi.pola_makan,asuhan_gizi.riwayat_personal,"+
                                         "asuhan_gizi.diagnosis,asuhan_gizi.intervensi_gizi,asuhan_gizi.monitoring_evaluasi,asuhan_gizi.nip,petugas.nama "+
-                                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join asuhan_gizi on reg_periksa.no_rawat=asuhan_gizi.no_rawat "+
-                                        "inner join petugas on asuhan_gizi.nip=petugas.nip where asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
+                                        "from asuhan_gizi inner join petugas on asuhan_gizi.nip=petugas.nip where "+
+                                        "asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -2244,6 +2230,53 @@ public class PanelRiwayat extends widget.panelisi {
                                                       "</tr>"+
                                                    "</table>"+
                                                 "</td>"+
+                                             "</tr>");                                        
+                                        w++;
+                                    }
+                                    htmlContent.append(
+                                          "</table>"+
+                                        "</td>"+
+                                      "</tr>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notifikasi : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            
+                            //menampilkan monitoring asuhan gizi
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                        "select monitoring_asuhan_gizi.tanggal,monitoring_asuhan_gizi.monitoring,monitoring_asuhan_gizi.evaluasi,"+
+                                        "monitoring_asuhan_gizi.nip,petugas.nama from monitoring_asuhan_gizi inner join petugas on monitoring_asuhan_gizi.nip=petugas.nip where "+
+                                        "monitoring_asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
+                                if(rs3.next()){
+                                    htmlContent.append(
+                                      "<tr class='isi'>"+ 
+                                        "<td valign='top' width='20%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitoring & Evaluasi Asuhan Gizi</td>"+
+                                        "<td valign='top' width='1%' align='center'>:</td>"+
+                                        "<td valign='top' width='79%'>"+
+                                          "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                             "<tr align='center'>"+
+                                                "<td valign='top' width='5%' bgcolor='#FFFAF8'>No.</td>"+
+                                                "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>"+
+                                                "<td valign='top' width='30%' bgcolor='#FFFAF8'>Monitoring</td>"+
+                                                "<td valign='top' width='30%' bgcolor='#FFFAF8'>Evaluasi</td>"+
+                                                "<td valign='top' width='20%' bgcolor='#FFFAF8'>Petugas</td>"+
+                                             "</tr>"
+                                    );
+                                    rs3.beforeFirst();
+                                    w=1;
+                                    while(rs3.next()){
+                                        htmlContent.append(
+                                             "<tr>"+
+                                                "<td valign='top' align='center'>"+w+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("tanggal")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("monitoring")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("evaluasi")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("nama")+"</td>"+
                                              "</tr>");                                        
                                         w++;
                                     }
@@ -2784,7 +2817,16 @@ public class PanelRiwayat extends widget.panelisi {
                             try{
                                 rs3=koneksi.prepareStatement(
                                      "select periksa_radiologi.tgl_periksa,periksa_radiologi.jam,periksa_radiologi.kd_jenis_prw, "+
-                                     "jns_perawatan_radiologi.nm_perawatan,petugas.nama,periksa_radiologi.biaya,periksa_radiologi.dokter_perujuk,dokter.nm_dokter "+
+                                     "jns_perawatan_radiologi.nm_perawatan,petugas.nama,periksa_radiologi.biaya,periksa_radiologi.dokter_perujuk,"+
+                                     "dokter.nm_dokter,concat("+
+                                    "if(periksa_radiologi.proyeksi<>'',concat('Proyeksi : ',periksa_radiologi.proyeksi,', '),''),"+
+                                    "if(periksa_radiologi.kV<>'',concat('kV : ',periksa_radiologi.kV,', '),''),"+
+                                    "if(periksa_radiologi.mAS<>'',concat('mAS : ',periksa_radiologi.mAS,', '),''),"+
+                                    "if(periksa_radiologi.FFD<>'',concat('FFD : ',periksa_radiologi.FFD,', '),''),"+
+                                    "if(periksa_radiologi.BSF<>'',concat('BSF : ',periksa_radiologi.BSF,', '),''),"+
+                                    "if(periksa_radiologi.inak<>'',concat('Inak : ',periksa_radiologi.inak,', '),''),"+
+                                    "if(periksa_radiologi.jml_penyinaran<>'',concat('Jml Penyinaran : ',periksa_radiologi.jml_penyinaran,', '),''),"+
+                                    "if(periksa_radiologi.dosis<>'',concat('Dosis Radiasi : ',periksa_radiologi.dosis),'')) as proyeksi "+
                                      "from periksa_radiologi inner join jns_perawatan_radiologi on periksa_radiologi.kd_jenis_prw=jns_perawatan_radiologi.kd_jenis_prw "+
                                      "inner join petugas on periksa_radiologi.nip=petugas.nip inner join dokter on periksa_radiologi.kd_dokter=dokter.kd_dokter "+
                                      "where periksa_radiologi.no_rawat='"+rs2.getString("no_rawat")+"' order by periksa_radiologi.tgl_periksa,periksa_radiologi.jam").executeQuery();
@@ -2809,7 +2851,7 @@ public class PanelRiwayat extends widget.panelisi {
                                                 "<td valign='top' align='center'>"+w+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("tgl_periksa")+" "+rs3.getString("jam")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("kd_jenis_prw")+"</td>"+
-                                                "<td valign='top'>"+rs3.getString("nm_perawatan")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("nm_perawatan")+"<br>"+rs3.getString("proyeksi")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("nm_dokter")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("nama")+"</td>"+
                                                 "<td valign='top' align='right'>"+Valid.SetAngka(rs3.getDouble("biaya"))+"</td>"+
@@ -4977,7 +5019,16 @@ public class PanelRiwayat extends widget.panelisi {
                             try{
                                 rs3=koneksi.prepareStatement(
                                      "select periksa_radiologi.tgl_periksa,periksa_radiologi.jam,periksa_radiologi.kd_jenis_prw, "+
-                                     "jns_perawatan_radiologi.nm_perawatan,petugas.nama,periksa_radiologi.biaya,periksa_radiologi.dokter_perujuk,dokter.nm_dokter "+
+                                     "jns_perawatan_radiologi.nm_perawatan,petugas.nama,periksa_radiologi.biaya,periksa_radiologi.dokter_perujuk,"+
+                                     "dokter.nm_dokter,concat("+
+                                    "if(periksa_radiologi.proyeksi<>'',concat('Proyeksi : ',periksa_radiologi.proyeksi,', '),''),"+
+                                    "if(periksa_radiologi.kV<>'',concat('kV : ',periksa_radiologi.kV,', '),''),"+
+                                    "if(periksa_radiologi.mAS<>'',concat('mAS : ',periksa_radiologi.mAS,', '),''),"+
+                                    "if(periksa_radiologi.FFD<>'',concat('FFD : ',periksa_radiologi.FFD,', '),''),"+
+                                    "if(periksa_radiologi.BSF<>'',concat('BSF : ',periksa_radiologi.BSF,', '),''),"+
+                                    "if(periksa_radiologi.inak<>'',concat('Inak : ',periksa_radiologi.inak,', '),''),"+
+                                    "if(periksa_radiologi.jml_penyinaran<>'',concat('Jml Penyinaran : ',periksa_radiologi.jml_penyinaran,', '),''),"+
+                                    "if(periksa_radiologi.dosis<>'',concat('Dosis Radiasi : ',periksa_radiologi.dosis),'')) as proyeksi "+
                                      "from periksa_radiologi inner join jns_perawatan_radiologi on periksa_radiologi.kd_jenis_prw=jns_perawatan_radiologi.kd_jenis_prw "+
                                      "inner join petugas on periksa_radiologi.nip=petugas.nip inner join dokter on periksa_radiologi.kd_dokter=dokter.kd_dokter "+
                                      "where periksa_radiologi.no_rawat='"+rs2.getString("no_rawat")+"' order by periksa_radiologi.tgl_periksa,periksa_radiologi.jam").executeQuery();
@@ -5002,7 +5053,7 @@ public class PanelRiwayat extends widget.panelisi {
                                                 "<td valign='top' align='center'>"+w+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("tgl_periksa")+" "+rs3.getString("jam")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("kd_jenis_prw")+"</td>"+
-                                                "<td valign='top'>"+rs3.getString("nm_perawatan")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("nm_perawatan")+"<br>"+rs3.getString("proyeksi")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("nm_dokter")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("nama")+"</td>"+
                                                 "<td valign='top' align='right'>"+Valid.SetAngka(rs3.getDouble("biaya"))+"</td>"+
@@ -6708,10 +6759,8 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan catatan dokter
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select catatan_perawatan.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
-                                        "catatan_perawatan.catatan from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join catatan_perawatan on catatan_perawatan.no_rawat=reg_periksa.no_rawat inner join dokter on catatan_perawatan.kd_dokter=dokter.kd_dokter "+
+                                        "select catatan_perawatan.no_rawat,catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
+                                        "catatan_perawatan.catatan from catatan_perawatan inner join dokter on catatan_perawatan.kd_dokter=dokter.kd_dokter "+
                                         "where catatan_perawatan.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
@@ -7461,11 +7510,8 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan catatan dokter
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select catatan_perawatan.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
-                                        "catatan_perawatan.catatan from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join catatan_perawatan on catatan_perawatan.no_rawat=reg_periksa.no_rawat "+
-                                        "inner join dokter on catatan_perawatan.kd_dokter=dokter.kd_dokter "+
+                                        "select catatan_perawatan.no_rawat,catatan_perawatan.tanggal,catatan_perawatan.jam,catatan_perawatan.kd_dokter,dokter.nm_dokter,"+
+                                        "catatan_perawatan.catatan from catatan_perawatan inner join dokter on catatan_perawatan.kd_dokter=dokter.kd_dokter "+
                                         "where catatan_perawatan.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
@@ -7625,9 +7671,7 @@ public class PanelRiwayat extends widget.panelisi {
                                         "pemeriksaan_obstetri_ralan.kualitas_mnt,pemeriksaan_obstetri_ralan.kualitas_dtk,pemeriksaan_obstetri_ralan.fluksus,pemeriksaan_obstetri_ralan.albus, " +
                                         "pemeriksaan_obstetri_ralan.vulva,pemeriksaan_obstetri_ralan.portio,pemeriksaan_obstetri_ralan.dalam, pemeriksaan_obstetri_ralan.tebal, pemeriksaan_obstetri_ralan.arah, pemeriksaan_obstetri_ralan.pembukaan," +
                                         "pemeriksaan_obstetri_ralan.penurunan, pemeriksaan_obstetri_ralan.denominator, pemeriksaan_obstetri_ralan.ketuban, pemeriksaan_obstetri_ralan.feto " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis  "+
-                                        "inner join pemeriksaan_obstetri_ralan on pemeriksaan_obstetri_ralan.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_obstetri_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ralan.tgl_perawatan,pemeriksaan_obstetri_ralan.jam_rawat").executeQuery();
+                                        "from pemeriksaan_obstetri_ralan where pemeriksaan_obstetri_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ralan.tgl_perawatan,pemeriksaan_obstetri_ralan.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -7746,15 +7790,12 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan riwayat pemeriksaan genekologi ralan
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select pemeriksaan_ginekologi_ralan.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat,pemeriksaan_ginekologi_ralan.inspeksi,pemeriksaan_ginekologi_ralan.inspeksi_vulva,pemeriksaan_ginekologi_ralan.inspekulo_gine, " +
+                                        "select pemeriksaan_ginekologi_ralan.no_rawat,pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat,pemeriksaan_ginekologi_ralan.inspeksi,pemeriksaan_ginekologi_ralan.inspeksi_vulva,pemeriksaan_ginekologi_ralan.inspekulo_gine, " +
                                         "pemeriksaan_ginekologi_ralan.fluxus_gine,pemeriksaan_ginekologi_ralan.fluor_gine,pemeriksaan_ginekologi_ralan.vulva_inspekulo, " +
                                         "pemeriksaan_ginekologi_ralan.portio_inspekulo,pemeriksaan_ginekologi_ralan.sondage,pemeriksaan_ginekologi_ralan.portio_dalam,pemeriksaan_ginekologi_ralan.bentuk, " +
                                         "pemeriksaan_ginekologi_ralan.cavum_uteri,pemeriksaan_ginekologi_ralan.mobilitas,pemeriksaan_ginekologi_ralan.ukuran, pemeriksaan_ginekologi_ralan.nyeri_tekan, pemeriksaan_ginekologi_ralan.adnexa_kanan, pemeriksaan_ginekologi_ralan.adnexa_kiri," +
                                         "pemeriksaan_ginekologi_ralan.cavum_douglas " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join pemeriksaan_ginekologi_ralan on pemeriksaan_ginekologi_ralan.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_ginekologi_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat").executeQuery();
+                                        "from pemeriksaan_ginekologi_ralan where pemeriksaan_ginekologi_ralan.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ralan.tgl_perawatan,pemeriksaan_ginekologi_ralan.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -7962,9 +8003,7 @@ public class PanelRiwayat extends widget.panelisi {
                                         "pemeriksaan_obstetri_ranap.kualitas_mnt,pemeriksaan_obstetri_ranap.kualitas_dtk,pemeriksaan_obstetri_ranap.fluksus,pemeriksaan_obstetri_ranap.albus, " +
                                         "pemeriksaan_obstetri_ranap.vulva,pemeriksaan_obstetri_ranap.portio,pemeriksaan_obstetri_ranap.dalam, pemeriksaan_obstetri_ranap.tebal, pemeriksaan_obstetri_ranap.arah, pemeriksaan_obstetri_ranap.pembukaan," +
                                         "pemeriksaan_obstetri_ranap.penurunan, pemeriksaan_obstetri_ranap.denominator, pemeriksaan_obstetri_ranap.ketuban, pemeriksaan_obstetri_ranap.feto " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join pemeriksaan_obstetri_ranap on pemeriksaan_obstetri_ranap.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_obstetri_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat").executeQuery();
+                                        "from pemeriksaan_obstetri_ranap where pemeriksaan_obstetri_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_obstetri_ranap.tgl_perawatan,pemeriksaan_obstetri_ranap.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -8083,15 +8122,12 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan riwayat pemeriksaan genekologi ranap
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select pemeriksaan_ginekologi_ranap.no_rawat,reg_periksa.no_rkm_medis,pasien.nm_pasien,"+
-                                        "pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat,pemeriksaan_ginekologi_ranap.inspeksi,pemeriksaan_ginekologi_ranap.inspeksi_vulva,pemeriksaan_ginekologi_ranap.inspekulo_gine, " +
+                                        "select pemeriksaan_ginekologi_ranap.no_rawat,pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat,pemeriksaan_ginekologi_ranap.inspeksi,pemeriksaan_ginekologi_ranap.inspeksi_vulva,pemeriksaan_ginekologi_ranap.inspekulo_gine, " +
                                         "pemeriksaan_ginekologi_ranap.fluxus_gine,pemeriksaan_ginekologi_ranap.fluor_gine,pemeriksaan_ginekologi_ranap.vulva_inspekulo, " +
                                         "pemeriksaan_ginekologi_ranap.portio_inspekulo,pemeriksaan_ginekologi_ranap.sondage,pemeriksaan_ginekologi_ranap.portio_dalam,pemeriksaan_ginekologi_ranap.bentuk, " +
                                         "pemeriksaan_ginekologi_ranap.cavum_uteri,pemeriksaan_ginekologi_ranap.mobilitas,pemeriksaan_ginekologi_ranap.ukuran, pemeriksaan_ginekologi_ranap.nyeri_tekan, pemeriksaan_ginekologi_ranap.adnexa_kanan, pemeriksaan_ginekologi_ranap.adnexa_kiri," +
                                         "pemeriksaan_ginekologi_ranap.cavum_douglas " +
-                                        "from pasien inner join reg_periksa on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join pemeriksaan_ginekologi_ranap on pemeriksaan_ginekologi_ranap.no_rawat=reg_periksa.no_rawat where "+
-                                        "pemeriksaan_ginekologi_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat").executeQuery();
+                                        "from pemeriksaan_ginekologi_ranap where pemeriksaan_ginekologi_ranap.no_rawat='"+rs2.getString("no_rawat")+"' order by pemeriksaan_ginekologi_ranap.tgl_perawatan,pemeriksaan_ginekologi_ranap.jam_rawat").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -8187,16 +8223,14 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan asuhan gizi
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,asuhan_gizi.tanggal,"+
+                                        "select asuhan_gizi.tanggal,"+
                                         "asuhan_gizi.antropometri_bb,asuhan_gizi.antropometri_tb,asuhan_gizi.antropometri_imt,asuhan_gizi.antropometri_lla,"+
                                         "asuhan_gizi.antropometri_tl,asuhan_gizi.antropometri_ulna,asuhan_gizi.antropometri_bbideal,asuhan_gizi.antropometri_bbperu,"+
                                         "asuhan_gizi.antropometri_tbperu,asuhan_gizi.antropometri_bbpertb,asuhan_gizi.antropometri_llaperu,asuhan_gizi.biokimia,"+
                                         "asuhan_gizi.fisik_klinis,asuhan_gizi.alergi_telur,asuhan_gizi.alergi_susu_sapi,asuhan_gizi.alergi_kacang,asuhan_gizi.alergi_gluten,"+
                                         "asuhan_gizi.alergi_udang,asuhan_gizi.alergi_ikan,asuhan_gizi.alergi_hazelnut,asuhan_gizi.pola_makan,asuhan_gizi.riwayat_personal,"+
                                         "asuhan_gizi.diagnosis,asuhan_gizi.intervensi_gizi,asuhan_gizi.monitoring_evaluasi,asuhan_gizi.nip,petugas.nama "+
-                                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join asuhan_gizi on reg_periksa.no_rawat=asuhan_gizi.no_rawat "+
-                                        "inner join petugas on asuhan_gizi.nip=petugas.nip where asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
+                                        "from asuhan_gizi inner join petugas on asuhan_gizi.nip=petugas.nip where asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -8291,6 +8325,52 @@ public class PanelRiwayat extends widget.panelisi {
                                 }
                             }
                             
+                            //menampilkan monitoring asuhan gizi
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                        "select monitoring_asuhan_gizi.tanggal,monitoring_asuhan_gizi.monitoring,monitoring_asuhan_gizi.evaluasi,"+
+                                        "monitoring_asuhan_gizi.nip,petugas.nama from monitoring_asuhan_gizi inner join petugas on monitoring_asuhan_gizi.nip=petugas.nip where "+
+                                        "monitoring_asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
+                                if(rs3.next()){
+                                    htmlContent.append(
+                                      "<tr class='isi'>"+ 
+                                        "<td valign='top' width='20%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitoring & Evaluasi Asuhan Gizi</td>"+
+                                        "<td valign='top' width='1%' align='center'>:</td>"+
+                                        "<td valign='top' width='79%'>"+
+                                          "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                             "<tr align='center'>"+
+                                                "<td valign='top' width='5%' bgcolor='#FFFAF8'>No.</td>"+
+                                                "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>"+
+                                                "<td valign='top' width='30%' bgcolor='#FFFAF8'>Monitoring</td>"+
+                                                "<td valign='top' width='30%' bgcolor='#FFFAF8'>Evaluasi</td>"+
+                                                "<td valign='top' width='20%' bgcolor='#FFFAF8'>Petugas</td>"+
+                                             "</tr>"
+                                    );
+                                    rs3.beforeFirst();
+                                    w=1;
+                                    while(rs3.next()){
+                                        htmlContent.append(
+                                             "<tr>"+
+                                                "<td valign='top' align='center'>"+w+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("tanggal")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("monitoring")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("evaluasi")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("nama")+"</td>"+
+                                             "</tr>");                                        
+                                        w++;
+                                    }
+                                    htmlContent.append(
+                                          "</table>"+
+                                        "</td>"+
+                                      "</tr>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notifikasi : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
                             
                             //biaya administrasi
                             htmlContent.append(
@@ -8816,7 +8896,16 @@ public class PanelRiwayat extends widget.panelisi {
                             try{
                                 rs3=koneksi.prepareStatement(
                                      "select periksa_radiologi.tgl_periksa,periksa_radiologi.jam,periksa_radiologi.kd_jenis_prw, "+
-                                     "jns_perawatan_radiologi.nm_perawatan,petugas.nama,periksa_radiologi.biaya,periksa_radiologi.dokter_perujuk,dokter.nm_dokter "+
+                                     "jns_perawatan_radiologi.nm_perawatan,petugas.nama,periksa_radiologi.biaya,periksa_radiologi.dokter_perujuk,"+
+                                     "dokter.nm_dokter,concat("+
+                                    "if(periksa_radiologi.proyeksi<>'',concat('Proyeksi : ',periksa_radiologi.proyeksi,', '),''),"+
+                                    "if(periksa_radiologi.kV<>'',concat('kV : ',periksa_radiologi.kV,', '),''),"+
+                                    "if(periksa_radiologi.mAS<>'',concat('mAS : ',periksa_radiologi.mAS,', '),''),"+
+                                    "if(periksa_radiologi.FFD<>'',concat('FFD : ',periksa_radiologi.FFD,', '),''),"+
+                                    "if(periksa_radiologi.BSF<>'',concat('BSF : ',periksa_radiologi.BSF,', '),''),"+
+                                    "if(periksa_radiologi.inak<>'',concat('Inak : ',periksa_radiologi.inak,', '),''),"+
+                                    "if(periksa_radiologi.jml_penyinaran<>'',concat('Jml Penyinaran : ',periksa_radiologi.jml_penyinaran,', '),''),"+
+                                    "if(periksa_radiologi.dosis<>'',concat('Dosis Radiasi : ',periksa_radiologi.dosis),'')) as proyeksi "+
                                      "from periksa_radiologi inner join jns_perawatan_radiologi on periksa_radiologi.kd_jenis_prw=jns_perawatan_radiologi.kd_jenis_prw "+
                                      "inner join petugas on periksa_radiologi.nip=petugas.nip inner join dokter on periksa_radiologi.kd_dokter=dokter.kd_dokter "+
                                      "where periksa_radiologi.no_rawat='"+rs2.getString("no_rawat")+"' order by periksa_radiologi.tgl_periksa,periksa_radiologi.jam").executeQuery();
@@ -8841,7 +8930,7 @@ public class PanelRiwayat extends widget.panelisi {
                                                 "<td valign='top' align='center'>"+w+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("tgl_periksa")+" "+rs3.getString("jam")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("kd_jenis_prw")+"</td>"+
-                                                "<td valign='top'>"+rs3.getString("nm_perawatan")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("nm_perawatan")+"<br>"+rs3.getString("proyeksi")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("nm_dokter")+"</td>"+
                                                 "<td valign='top'>"+rs3.getString("nama")+"</td>"+
                                                 "<td valign='top' align='right'>"+Valid.SetAngka(rs3.getDouble("biaya"))+"</td>"+
@@ -9530,7 +9619,7 @@ public class PanelRiwayat extends widget.panelisi {
                                     "resume_pasien.prosedur_utama,resume_pasien.kd_prosedur_utama,resume_pasien.prosedur_sekunder,resume_pasien.kd_prosedur_sekunder, "+
                                     "resume_pasien.prosedur_sekunder2,resume_pasien.kd_prosedur_sekunder2,resume_pasien.prosedur_sekunder3,resume_pasien.kd_prosedur_sekunder3, "+
                                     "resume_pasien.obat_pulang from resume_pasien inner join reg_periksa on resume_pasien.no_rawat=reg_periksa.no_rawat  "+
-                                    "inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis inner join dokter on resume_pasien.kd_dokter=dokter.kd_dokter "+
+                                    "inner join dokter on resume_pasien.kd_dokter=dokter.kd_dokter "+
                                     "where resume_pasien.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
@@ -10119,16 +10208,13 @@ public class PanelRiwayat extends widget.panelisi {
                             //menampilkan asuhan gizi
                             try {
                                 rs3=koneksi.prepareStatement(
-                                        "select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.jk,pasien.tgl_lahir,asuhan_gizi.tanggal,"+
-                                        "asuhan_gizi.antropometri_bb,asuhan_gizi.antropometri_tb,asuhan_gizi.antropometri_imt,asuhan_gizi.antropometri_lla,"+
+                                        "select asuhan_gizi.tanggal,asuhan_gizi.antropometri_bb,asuhan_gizi.antropometri_tb,asuhan_gizi.antropometri_imt,asuhan_gizi.antropometri_lla,"+
                                         "asuhan_gizi.antropometri_tl,asuhan_gizi.antropometri_ulna,asuhan_gizi.antropometri_bbideal,asuhan_gizi.antropometri_bbperu,"+
                                         "asuhan_gizi.antropometri_tbperu,asuhan_gizi.antropometri_bbpertb,asuhan_gizi.antropometri_llaperu,asuhan_gizi.biokimia,"+
                                         "asuhan_gizi.fisik_klinis,asuhan_gizi.alergi_telur,asuhan_gizi.alergi_susu_sapi,asuhan_gizi.alergi_kacang,asuhan_gizi.alergi_gluten,"+
                                         "asuhan_gizi.alergi_udang,asuhan_gizi.alergi_ikan,asuhan_gizi.alergi_hazelnut,asuhan_gizi.pola_makan,asuhan_gizi.riwayat_personal,"+
                                         "asuhan_gizi.diagnosis,asuhan_gizi.intervensi_gizi,asuhan_gizi.monitoring_evaluasi,asuhan_gizi.nip,petugas.nama "+
-                                        "from reg_periksa inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis "+
-                                        "inner join asuhan_gizi on reg_periksa.no_rawat=asuhan_gizi.no_rawat "+
-                                        "inner join petugas on asuhan_gizi.nip=petugas.nip where asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
+                                        "from asuhan_gizi inner join petugas on asuhan_gizi.nip=petugas.nip where asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
                                 if(rs3.next()){
                                     htmlContent.append(
                                       "<tr class='isi'>"+ 
@@ -10207,6 +10293,53 @@ public class PanelRiwayat extends widget.panelisi {
                                                       "</tr>"+
                                                    "</table>"+
                                                 "</td>"+
+                                             "</tr>");                                        
+                                        w++;
+                                    }
+                                    htmlContent.append(
+                                          "</table>"+
+                                        "</td>"+
+                                      "</tr>");
+                                }
+                            } catch (Exception e) {
+                                System.out.println("Notifikasi : "+e);
+                            } finally{
+                                if(rs3!=null){
+                                    rs3.close();
+                                }
+                            }
+                            
+                            //menampilkan monitoring asuhan gizi
+                            try {
+                                rs3=koneksi.prepareStatement(
+                                        "select monitoring_asuhan_gizi.tanggal,monitoring_asuhan_gizi.monitoring,monitoring_asuhan_gizi.evaluasi,"+
+                                        "monitoring_asuhan_gizi.nip,petugas.nama from monitoring_asuhan_gizi inner join petugas on monitoring_asuhan_gizi.nip=petugas.nip where "+
+                                        "monitoring_asuhan_gizi.no_rawat='"+rs2.getString("no_rawat")+"'").executeQuery();
+                                if(rs3.next()){
+                                    htmlContent.append(
+                                      "<tr class='isi'>"+ 
+                                        "<td valign='top' width='20%'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitoring & Evaluasi Asuhan Gizi</td>"+
+                                        "<td valign='top' width='1%' align='center'>:</td>"+
+                                        "<td valign='top' width='79%'>"+
+                                          "<table width='100%' border='0' align='center' cellpadding='3px' cellspacing='0' class='tbl_form'>"+
+                                             "<tr align='center'>"+
+                                                "<td valign='top' width='5%' bgcolor='#FFFAF8'>No.</td>"+
+                                                "<td valign='top' width='15%' bgcolor='#FFFAF8'>Tanggal</td>"+
+                                                "<td valign='top' width='30%' bgcolor='#FFFAF8'>Monitoring</td>"+
+                                                "<td valign='top' width='30%' bgcolor='#FFFAF8'>Evaluasi</td>"+
+                                                "<td valign='top' width='20%' bgcolor='#FFFAF8'>Petugas</td>"+
+                                             "</tr>"
+                                    );
+                                    rs3.beforeFirst();
+                                    w=1;
+                                    while(rs3.next()){
+                                        htmlContent.append(
+                                             "<tr>"+
+                                                "<td valign='top' align='center'>"+w+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("tanggal")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("monitoring")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("evaluasi")+"</td>"+
+                                                "<td valign='top'>"+rs3.getString("nama")+"</td>"+
                                              "</tr>");                                        
                                         w++;
                                     }
@@ -10411,6 +10544,9 @@ public class PanelRiwayat extends widget.panelisi {
                 break;
             case 17:
                 panggilLaporan(LoadHTML17.getText());
+                break;
+            case 18:
+                panggilLaporan(LoadHTML18.getText());
                 break;
             default:
                 break;
