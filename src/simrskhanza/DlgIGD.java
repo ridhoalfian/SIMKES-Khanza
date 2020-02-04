@@ -3602,12 +3602,7 @@ public final class DlgIGD extends javax.swing.JDialog {
         dokter.dispose();
         dokter.dokter.dispose();
         dlgrjk.dispose();
-<<<<<<< HEAD
         rujukmasuk.WindowPerujuk.dispose();
-        DlgSakit.dispose();
-=======
-        rujukmasuk.WindowPerujuk.dispose();   
->>>>>>> 883295463c245e06ad4cd99fd21b0db1b9326b00
         DlgSakit2.dispose();
         DlgDemografi.dispose();
         DlgCatatan.dispose();
@@ -3843,7 +3838,7 @@ private void MnKamarInapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     dlgki.setLocationRelativeTo(internalFrame1);
                     dlgki.emptTeks();
                     dlgki.isCek();
-                    dlgki.setNoRm(TNoRw.getText());   
+                    dlgki.setNoRm(TNoRw.getText());
                     dlgki.setVisible(true);
                 }
             }
@@ -4094,37 +4089,6 @@ private void MnCetakSuratSakitActionPerformed(java.awt.event.ActionEvent evt) {/
     }
 }//GEN-LAST:event_MnCetakSuratSakitActionPerformed
 
-<<<<<<< HEAD
-private void BtnPrint2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrint2ActionPerformed
-      if(TPasien.getText().trim().equals("")){
-          JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");
-      }else{
-          Map<String, Object> param = new HashMap<>();
-            param.put("hari",lmsakit.getText());
-            param.put("TanggalAwal",TglSakit1.getSelectedItem().toString());
-            param.put("TanggalAkhir",TglSakit2.getSelectedItem().toString());
-            param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());
-                param.put("logo",Sequel.cariGambar("select logo from setting"));
-          Valid.MyReportqry("rptSuratSakit.jasper","report","::[ Surat Sakit ]::",
-                        "select reg_periksa.no_rawat,dokter.nm_dokter,pasien.keluarga,pasien.namakeluarga,pasien.tgl_lahir,pasien.jk," +
-                        " pasien.nm_pasien,pasien.jk,concat(reg_periksa.umurdaftar,' ',reg_periksa.sttsumur)as umur,pasien.pekerjaan,pasien.alamat" +
-                        " from reg_periksa inner join pasien inner join dokter" +
-                        " on reg_periksa.no_rkm_medis=pasien.no_rkm_medis and reg_periksa.kd_dokter=dokter.kd_dokter "+
-                        "where reg_periksa.no_rawat='"+TNoRw.getText()+"' ",param);
-      }
-}//GEN-LAST:event_BtnPrint2ActionPerformed
-
-private void BtnKeluar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKeluar2ActionPerformed
-   DlgSakit.dispose();
-}//GEN-LAST:event_BtnKeluar2ActionPerformed
-
-=======
->>>>>>> 883295463c245e06ad4cd99fd21b0db1b9326b00
 private void BtnPrint3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrint3ActionPerformed
 
             if(!Kelurahan2.getText().equals("")){
