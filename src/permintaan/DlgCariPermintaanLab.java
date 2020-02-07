@@ -474,7 +474,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
         MnKirimLica.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnKirimLica.setForeground(new java.awt.Color(50, 50, 50));
         MnKirimLica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnKirimLica.setText("Kirim Permintaan ke LIS LICA");
+        MnKirimLica.setText("Kirim Permintaan ke LIS");
         MnKirimLica.setName("MnKirimLica"); // NOI18N
         MnKirimLica.setPreferredSize(new java.awt.Dimension(200, 28));
         MnKirimLica.addActionListener(new java.awt.event.ActionListener() {
@@ -488,7 +488,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
         MnAmbilLica.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnAmbilLica.setForeground(new java.awt.Color(50, 50, 50));
         MnAmbilLica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnAmbilLica.setText("Ambil Hasil dari LIS LICA");
+        MnAmbilLica.setText("Ambil Hasil dari LIS");
         MnAmbilLica.setName("MnAmbilLica"); // NOI18N
         MnAmbilLica.setPreferredSize(new java.awt.Dimension(200, 28));
         MnAmbilLica.addActionListener(new java.awt.event.ActionListener() {
