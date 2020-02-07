@@ -1007,7 +1007,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.add(jLabel36);
         jLabel36.setBounds(592, 40, 130, 23);
 
-        jLabel37.setText("Alergi :");
+        jLabel37.setText("Riwayat Alergi :");
         jLabel37.setName("jLabel37"); // NOI18N
         FormInput.add(jLabel37);
         jLabel37.setBounds(0, 290, 175, 23);
@@ -1034,7 +1034,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         jLabel50.setBounds(476, 340, 60, 23);
 
         jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel52.setText("VIII. PENILIAIAN TINGKAT NYERI");
+        jLabel52.setText("VIII. PENILAIAN TINGKAT NYERI");
         jLabel52.setName("jLabel52"); // NOI18N
         FormInput.add(jLabel52);
         jLabel52.setBounds(10, 800, 380, 23);
@@ -1303,17 +1303,17 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.add(KetEdukasi);
         KetEdukasi.setBounds(484, 530, 370, 23);
 
-        jLabel64.setText("Jam dilaporkan :");
+        jLabel64.setText("Jam  :");
         jLabel64.setName("jLabel64"); // NOI18N
         FormInput.add(jLabel64);
-        jLabel64.setBounds(680, 970, 90, 23);
+        jLabel64.setBounds(720, 970, 50, 23);
 
-        jLabel65.setText("a. Tidak seimbang / sempoyongan / limbung :");
+        jLabel65.setText("1. Tidak seimbang / sempoyongan / limbung :");
         jLabel65.setName("jLabel65"); // NOI18N
         FormInput.add(jLabel65);
         jLabel65.setBounds(35, 600, 250, 23);
 
-        jLabel66.setText("b. Jalan dengan menggunakan alat bantu (kruk, tripot, kursi roda, orang lain) :");
+        jLabel66.setText("2. Jalan dengan menggunakan alat bantu (kruk, tripot, kursi roda, orang lain) :");
         jLabel66.setName("jLabel66"); // NOI18N
         FormInput.add(jLabel66);
         jLabel66.setBounds(370, 600, 400, 23);
@@ -1326,7 +1326,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             }
         });
         FormInput.add(Lapor);
-        Lapor.setBounds(563, 660, 80, 23);
+        Lapor.setBounds(575, 660, 80, 23);
 
         ATS.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Ya" }));
         ATS.setName("ATS"); // NOI18N
@@ -1398,10 +1398,10 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.add(jLabel69);
         jLabel69.setBounds(695, 740, 75, 23);
 
-        jLabel70.setText("Menopang saat akan duduk, tampak memegang pinggiran kursi atau meja / benda lain sebagai penopang :");
+        jLabel70.setText("b. Menopang saat akan duduk, tampak memegang pinggiran kursi atau meja / benda lain sebagai penopang :");
         jLabel70.setName("jLabel70"); // NOI18N
         FormInput.add(jLabel70);
-        jLabel70.setBounds(0, 630, 559, 23);
+        jLabel70.setBounds(0, 630, 571, 23);
 
         SG1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Tidak", "Tidak Yakin", "Ya, 1-5 Kg", "Ya, 6-10 Kg", "Ya, 11-15 Kg", "Ya, >15 Kg" }));
         SG1.setName("SG1"); // NOI18N
@@ -1418,10 +1418,10 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         FormInput.add(SG1);
         SG1.setBounds(520, 710, 160, 23);
 
-        jLabel72.setText("Cara Berjalan :");
+        jLabel72.setText("a. Cara Berjalan :");
         jLabel72.setName("jLabel72"); // NOI18N
         FormInput.add(jLabel72);
-        jLabel72.setBounds(0, 580, 114, 23);
+        jLabel72.setBounds(0, 580, 126, 23);
 
         Nilai1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "0", "2", "1", "2", "3", "4" }));
         Nilai1.setName("Nilai1"); // NOI18N
@@ -1446,7 +1446,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             }
         });
         FormInput.add(MSA);
-        MSA.setBounds(563, 630, 80, 23);
+        MSA.setBounds(575, 630, 80, 23);
 
         jLabel73.setText("Total Skor :");
         jLabel73.setName("jLabel73"); // NOI18N
@@ -1590,7 +1590,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         jLabel86.setText("Diberitahukan pada dokter ?");
         jLabel86.setName("jLabel86"); // NOI18N
         FormInput.add(jLabel86);
-        jLabel86.setBounds(440, 970, 150, 23);
+        jLabel86.setBounds(480, 970, 150, 23);
 
         Durasi.setFocusTraversalPolicyProvider(true);
         Durasi.setName("Durasi"); // NOI18N
@@ -1645,7 +1645,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
             }
         });
         FormInput.add(PadaDokter);
-        PadaDokter.setBounds(594, 970, 80, 23);
+        PadaDokter.setBounds(634, 970, 80, 23);
 
         KetDokter.setFocusTraversalPolicyProvider(true);
         KetDokter.setName("KetDokter"); // NOI18N
@@ -1692,7 +1692,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         TotalHasil.setBounds(774, 770, 80, 23);
 
         TglAsuhan.setForeground(new java.awt.Color(50, 70, 50));
-        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2020 05:49:35" }));
+        TglAsuhan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-02-2020 10:41:28" }));
         TglAsuhan.setDisplayFormat("dd-MM-yyyy HH:mm:ss");
         TglAsuhan.setName("TglAsuhan"); // NOI18N
         TglAsuhan.setOpaque(false);
@@ -1792,7 +1792,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         jLabel97.setText("Dilaporkan kepada dokter ?");
         jLabel97.setName("jLabel97"); // NOI18N
         FormInput.add(jLabel97);
-        jLabel97.setBounds(369, 660, 190, 23);
+        jLabel97.setBounds(381, 660, 190, 23);
 
         jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel63.setText("VI. PENILAIAN RESIKO JATUH");
@@ -2023,7 +2023,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel19);
 
         DTPCari1.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2020" }));
+        DTPCari1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-02-2020" }));
         DTPCari1.setDisplayFormat("dd-MM-yyyy");
         DTPCari1.setName("DTPCari1"); // NOI18N
         DTPCari1.setOpaque(false);
@@ -2037,7 +2037,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
         panelGlass9.add(jLabel21);
 
         DTPCari2.setForeground(new java.awt.Color(50, 70, 50));
-        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "05-02-2020" }));
+        DTPCari2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "07-02-2020" }));
         DTPCari2.setDisplayFormat("dd-MM-yyyy");
         DTPCari2.setName("DTPCari2"); // NOI18N
         DTPCari2.setOpaque(false);
@@ -3442,6 +3442,7 @@ public final class RMPenilaianAwalKeperawatanRalan extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
+        System.out.println("Notip ");
         Valid.tabelKosong(tabMode);
         try{
             if(TCari.getText().equals("")){
