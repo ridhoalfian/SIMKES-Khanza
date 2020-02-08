@@ -13,3 +13,6 @@
 [submodule "webapps/anjungan"]
 	path = webapps/anjungan
 	url = https://github.com/basoro/APM
+[submodule "webapps/khanza-jkn-mobile"]
+	path = webapps/khanza-jkn-mobile
+	url = https://github.com/basoro/khanza-jkn-mobile
