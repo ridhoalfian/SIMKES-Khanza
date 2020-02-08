@@ -44,7 +44,7 @@ public class LICAApi {
     private sekuel Sequel=new sekuel();
     private JsonNode response;
     private ObjectMapper mapper = new ObjectMapper();
-    
+
     public LICAApi(){
         super();
         try {
@@ -54,7 +54,7 @@ public class LICAApi {
             System.out.println("Notif : "+e);
         }
     }
-    
+
     public void kirim(String nopermintaan) {
         try {
              ps=koneksi.prepareStatement(
@@ -105,7 +105,7 @@ public class LICAApi {
                             ps2.close();
                         }
                     }
-                    
+
                     requestJson="{" +
                                     "\"demografi\": {" +
                                         "\"no_rkm_medis\": \""+rs.getString("no_rkm_medis")+"\"," +
@@ -127,16 +127,16 @@ public class LICAApi {
                                     "\"test\": ["+
                                         requestJson2+
                                     "]" +
-                                "}"; 
+                                "}";
                     System.out.println("JSON : "+requestJson);
-                    requestEntity = new HttpEntity(requestJson,headers);	    
+                    requestEntity = new HttpEntity(requestJson,headers);
                     stringbalik=getRest().exchange(URL+"/insert", HttpMethod.POST, requestEntity, String.class).getBody();
                     JOptionPane.showMessageDialog(null,stringbalik);
                 }
              } catch (Exception e) {
                  System.out.println("Notif : "+e);
                  if(e.toString().contains("UnknownHostException")||e.toString().contains("404")){
-                    JOptionPane.showMessageDialog(null,"Koneksi ke server LICA terputus...!");
+                    JOptionPane.showMessageDialog(null,"Koneksi ke Server LIS terputus...!");
                  }
              } finally{
                  if(rs!=null){
@@ -149,11 +149,11 @@ public class LICAApi {
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
             if(ex.toString().contains("UnknownHostException")||ex.toString().contains("404")){
-                JOptionPane.showMessageDialog(null,"Koneksi ke server LICA terputus...!");
+                JOptionPane.showMessageDialog(null,"Koneksi ke Server LIS terputus...!");
             }
         }
     }
-    
+
     public void ambil(String nopermintaan) {
         try{
             headers = new HttpHeaders();
@@ -174,17 +174,17 @@ public class LICAApi {
                             list.path("nn").asText()+"','"+
                             list.path("satuan").asText()+"','"+
                             list.path("keterangan").asText()+"','"+
-                            list.path("tindakan_id").asText()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Periksa Lab"); 
+                            list.path("tindakan_id").asText()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Periksa Lab");
                 }
             }
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
             if(ex.toString().contains("UnknownHostException")||ex.toString().contains("404")){
-                JOptionPane.showMessageDialog(null,"Koneksi ke server LICA terputus...!");
+                JOptionPane.showMessageDialog(null,"Koneksi ke Server LIS terputus...!");
             }
         }
     }
-    
+
     public RestTemplate getRest() throws NoSuchAlgorithmException, KeyManagementException {
         SSLContext sslContext = SSLContext.getInstance("SSL");
         javax.net.ssl.TrustManager[] trustManagers= {
@@ -201,5 +201,5 @@ public class LICAApi {
         factory.getHttpClient().getConnectionManager().getSchemeRegistry().register(scheme);
         return new RestTemplate(factory);
     }
-    
+
 }

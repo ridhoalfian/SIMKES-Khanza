@@ -137,7 +137,7 @@ public class LICAApi2 {
              } catch (Exception e) {
                  System.out.println("Notif : "+e);
                  if(e.toString().contains("UnknownHostException")||e.toString().contains("404")){
-                    JOptionPane.showMessageDialog(null,"Koneksi ke server LICA terputus...!");
+                    JOptionPane.showMessageDialog(null,"Koneksi ke Server LIS terputus...!");
                  }
              } finally{
                  if(rs!=null){
@@ -150,7 +150,7 @@ public class LICAApi2 {
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
             if(ex.toString().contains("UnknownHostException")||ex.toString().contains("404")){
-                JOptionPane.showMessageDialog(null,"Koneksi ke server LICA terputus...!");
+                JOptionPane.showMessageDialog(null,"Koneksi ke Server LIS terputus...!");
             }
         }
     }
@@ -181,7 +181,7 @@ public class LICAApi2 {
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
             if(ex.toString().contains("UnknownHostException")||ex.toString().contains("404")){
-                JOptionPane.showMessageDialog(null,"Koneksi ke server LICA terputus...!");
+                JOptionPane.showMessageDialog(null,"Koneksi ke Server LIS terputus...!");
             }
         }
     }
