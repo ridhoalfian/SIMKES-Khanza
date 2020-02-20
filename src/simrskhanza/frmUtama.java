@@ -8206,12 +8206,8 @@ public class frmUtama extends javax.swing.JFrame {
                     BtnToolReg.setEnabled(false);
                     BtnToolKamnap.setEnabled(false);
                     BtnToolKasir.setEnabled(false);
-<<<<<<< HEAD
                     MnGantiPassword.setEnabled(false);
-=======
-                    MnGantiPassword.setEnabled(false);  
                     MnPengajuanCutiPegawai.setEnabled(false);
->>>>>>> f434b74b2d18b72dde6d31db01f93391dd32fac3
                     btnToolIGD.setEnabled(false);
                     btnToolBcdRalan.setEnabled(false);
                     btnToolBcdRanap.setEnabled(false);
@@ -15767,10 +15763,7 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }
-<<<<<<< HEAD
-        /**
-=======
-    
+
     private void btnPengajuanCutiActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
@@ -15782,9 +15775,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }
-    
+
     /**
->>>>>>> f434b74b2d18b72dde6d31db01f93391dd32fac3
     * @param args the command line arguments
     */
     public static void main(String args[]) {
@@ -16376,12 +16368,8 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             btnMappingPoliInhealth,btnMappingDokterInhealth,btnMappingTindakanRalanInhealth,btnMappingTindakanRanapInhealth,btnMappingTindakanRadiologiInhealth,
             btnMappingTindakanLaboratInhealth,btnMappingTindakanOperasiInhealth,btnHibahObatBHP,btnAsalHibah,btnAsuhanGizi,btnKirimTagihanInheath,
             btnSirkulasiObat4,btnSirkulasiObat5,btnSirkulasiNonMedis2,btnMonitoringAsuhanGizi,btnGrafikPenerimaanObatPerBulan,btnRekapKunjungan,
-<<<<<<< HEAD
-            btnSuratSakit,btnPenilaianAwalKeperawatanRalan,btnMasterMasalahKeperawatan;
-=======
             btnSuratSakit,btnPenilaianAwalKeperawatanRalan,btnMasterMasalahKeperawatan,btnPengajuanCuti;
-    
->>>>>>> f434b74b2d18b72dde6d31db01f93391dd32fac3
+
     public void isWall(){
         try{
             ps=koneksi.prepareStatement("select nama_instansi, alamat_instansi, kabupaten, propinsi, aktifkan, wallpaper,kontak,email,logo from setting");
@@ -16673,9 +16661,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 Panelmenu.add(btnTemporaryPresensi);
                 jmlmenu++;
             }
-            
+
             if(akses.getpengajuan_cuti()==true){
-                Panelmenu.add(btnPengajuanCuti);   
+                Panelmenu.add(btnPengajuanCuti);
                 jmlmenu++;
             }
 
@@ -19611,9 +19599,9 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
             Panelmenu.add(btnTemporaryPresensi);
             jmlmenu++;
         }
-        
+
         if(akses.getpengajuan_cuti()==true){
-            Panelmenu.add(btnPengajuanCuti);   
+            Panelmenu.add(btnPengajuanCuti);
             jmlmenu++;
         }
 
@@ -22602,12 +22590,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 jmlmenu++;
             }
         }
-        
+
         if(akses.getpengajuan_cuti()==true){
             if(btnPengajuanCuti.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
-                Panelmenu.add(btnPengajuanCuti);   
+                Panelmenu.add(btnPengajuanCuti);
                 jmlmenu++;
-            }                
+            }
         }
 
         if(btnRekapPresensi.getText().toLowerCase().trim().contains(TCari.getText().toLowerCase().trim())){
@@ -27932,12 +27920,12 @@ private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt
                 btnMasterMasalahKeperawatanActionPerformed(evt);
             }
         });
-        
+
         btnPengajuanCuti = new widget.ButtonBig();
-        btnPengajuanCuti.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_reminders_3572.png"))); 
+        btnPengajuanCuti.setIcon(new javax.swing.ImageIcon(getClass().getResource("/48x48/iconfinder_reminders_3572.png")));
         btnPengajuanCuti.setText("Pengajuan Cuti");
         btnPengajuanCuti.setIconTextGap(0);
-        btnPengajuanCuti.setName("btnPengajuanCuti"); 
+        btnPengajuanCuti.setName("btnPengajuanCuti");
         btnPengajuanCuti.setPreferredSize(new java.awt.Dimension(200, 90));
         btnPengajuanCuti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
