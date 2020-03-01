@@ -66,7 +66,8 @@ Untuk lingkungan pengembangan, silahkan ikuti langkah-langkah berikut.
 7. Silahkan clean, build atau clean build.
 
 Note:
-Hasil build ada di folder dist. Support semua OS. Tidak perlu nambah library lagi.
+- Hasil build ada di folder dist. Support semua OS. Tidak perlu nambah library lagi.
+- Pertanggal 21 Pebruari 2020 ada penambahan fitur bridging dengan LIS (laboratorium) merek SYSMEX dan RIS (Radiologi) merek FUJI.
 
 ---
 
