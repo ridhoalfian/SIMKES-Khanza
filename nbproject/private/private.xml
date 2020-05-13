@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/Users/basoro/Desktop/Basoro.ID/SIMRS-Khanza/src/simrskhanza/DlgKamarInap.java</file>
             <file>file:/Users/basoro/Desktop/Basoro.ID/SIMRS-Khanza/src/rekammedis/BerkasRM.java</file>
+=======
+            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/bridging/SisruteRujukanKeluar.java</file>
+            <file>file:/Users/windiartonugroho/Documents/Pekerjaan/SIMRSKhanza/src/bridging/SisruteCekReferensiKriteriaSarana.java</file>
+>>>>>>> upstream/master
         </group>
     </open-files>
 </project-private>
