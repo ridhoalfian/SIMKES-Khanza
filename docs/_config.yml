@@ -3,7 +3,7 @@ remote_theme: pmarsceill/just-the-docs
 title: SIMKES Khanza
 description: Dokumentasi SIMKES Khanza untuk keperluan pribadi
 baseurl: "/"
-url: "https://simkes.basoro.id"
+url: "http://simkes.basoro.id"
 
 permalink: pretty
 exclude: ["package.json"]
