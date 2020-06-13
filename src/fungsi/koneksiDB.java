@@ -40,7 +40,6 @@ public class koneksiDB {
                         "    ___) || | | |  | ||  _ <  ___) | | . \\ | | | || (_| || | | | / /| (_| |\n" +
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
-                        "   PROUDLY POWERED BY RS Aura Syifa - Kediri                  \n"+
                         "   Version 2020.06.12 [Activated]                                   \n\n"+
                         "                                                                           \n"+
                         "  Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License \n"+
