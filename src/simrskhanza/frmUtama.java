@@ -6970,7 +6970,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(50, 50, 50));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/file-edit-16x16.png"))); // NOI18N
-        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media.  Optimasi oleh Instalasi ICT RSHD Barabai. Build-V.20200612.");
+        jLabel7.setText(" Didesain & dibuat oleh Khanza.Soft Media.  Optimasi oleh RS Aura Syifa - Kediri. Build-V.20200612.");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel7.setIconTextGap(3);
         jLabel7.setName("jLabel7"); // NOI18N

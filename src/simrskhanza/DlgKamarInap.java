@@ -66,7 +66,6 @@ import permintaan.DlgPermintaanLaboratorium;
 import permintaan.DlgPermintaanRadiologi;
 import rekammedis.RMDataAsuhanGizi;
 import rekammedis.RMDataMonitoringAsuhanGizi;
-import rekammedis.BerkasRM;
 
 /**
  *
@@ -739,7 +738,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
         ppResume = new javax.swing.JMenuItem();
         MnDiagnosa = new javax.swing.JMenuItem();
         ppRiwayat = new javax.swing.JMenuItem();
-        ppBerkasRM = new javax.swing.JMenuItem();
         MnPermintaan = new javax.swing.JMenu();
         MnJadwalOperasi = new javax.swing.JMenuItem();
         MnSKDPBPJS = new javax.swing.JMenuItem();
@@ -1461,22 +1459,6 @@ public class DlgKamarInap extends javax.swing.JDialog {
             }
         });
         MnDataRM.add(ppRiwayat);
-
-        ppBerkasRM.setBackground(new java.awt.Color(255, 255, 254));
-        ppBerkasRM.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        ppBerkasRM.setForeground(new java.awt.Color(50, 50, 50));
-        ppBerkasRM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        ppBerkasRM.setText("Berkas Rekam Medik");
-        ppBerkasRM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ppBerkasRM.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        ppBerkasRM.setName("ppBerkasRM"); // NOI18N
-        ppBerkasRM.setPreferredSize(new java.awt.Dimension(170, 26));
-        ppBerkasRM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ppBerkasRMBtnPrintActionPerformed(evt);
-            }
-        });
-        MnDataRM.add(ppBerkasRM);
 
         jPopupMenu1.add(MnDataRM);
 
@@ -9820,7 +9802,6 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     private widget.panelisi panelGlass9;
     private javax.swing.JMenuItem ppAsuhanGizi;
     private javax.swing.JMenuItem ppBerkasDigital;
-    private javax.swing.JMenuItem ppBerkasRM;
     private javax.swing.JMenuItem ppCatatanPasien;
     private javax.swing.JMenuItem ppDataHAIs;
     private javax.swing.JMenuItem ppIKP;
