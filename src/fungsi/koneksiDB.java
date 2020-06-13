@@ -41,7 +41,7 @@ public class koneksiDB {
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
                         "   PROUDLY POWERED BY Instalasi ICT RSUD H. Damanhuri - Barabai                  \n"+
-                        "   Version 20.02.2020 [Activated]                                   \n\n"+
+                        "   Version 12.06.2020 [Activated]                                   \n\n"+
                         "                                                                           \n"+
                         "  Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License \n"+
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
