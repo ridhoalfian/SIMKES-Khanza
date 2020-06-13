@@ -41,7 +41,7 @@ public class koneksiDB {
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
                         "   PROUDLY POWERED BY RS Aura Syifa - Kediri                  \n"+
-                        "   Version 2020.05.15 [Activated]                                   \n\n"+
+                        "   Version 2020.06.12 [Activated]                                   \n\n"+
                         "                                                                           \n"+
                         "  Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License \n"+
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
