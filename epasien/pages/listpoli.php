@@ -1,3 +1,8 @@
+<?php
+    if(strpos($_SERVER['REQUEST_URI'],"pages")){
+        exit(header("Location:../index.php"));
+    }
+?>
 <section id="news" data-stellar-background-ratio="2.5">
       <div class="container">
            <div class="row">
@@ -28,7 +33,7 @@
                             <?php 
                                $poli      = trim(isset($_POST['poli']))?trim($_POST['poli']):NULL;
                                $poli      = cleankar($poli);
-                               $querypoli = @bukaquery("select nm_poli,registrasi,registrasilama from poliklinik where status='1' ".(isset($poli)?" and (nm_poli like '%$poli%')":"")." order by nm_poli");
+                               $querypoli = bukaquery("select nm_poli,registrasi,registrasilama from poliklinik where status='1' ".(isset($poli)?" and (nm_poli like '%$poli%')":"")." order by nm_poli");
                                while($rsquerypoli = mysqli_fetch_array($querypoli)) {
                                    echo "<tr>
                                            <td align='left'>".$rsquerypoli["nm_poli"]."</td>

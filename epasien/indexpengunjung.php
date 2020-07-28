@@ -14,35 +14,6 @@
      <link rel="stylesheet" href="css/owl.carousel.css"/>
      <link rel="stylesheet" href="css/owl.theme.default.min.css"/>
      <link rel="stylesheet" href="css/tooplate-style.css"/>
-     <link rel="stylesheet" href="css/bootstrap-datepicker.min.css" type="text/css">
-     <script src="conf/validator.js" type="text/javascript"></script>
-     <script src="js/jquery.min.js"></script>
-     <script src="js/jquery.js"></script>
-     <script src="js/jquery.sticky.js"></script>
-     <script src="js/jquery.stellar.min.js"></script>
-     <script type="text/javascript">
-        $(function() {
-            $("#carikeyword").bind('submit',function() {
-                 $.post('pages/listjadwaldokter.php',{value:$('#keyword').val()}, function(data){$("#hasilcari").html(data);});
-                 return false;
-            });
-        });
-        
-        $(function(){
-            $(".datepicker").datepicker({
-                format: 'yyyy-mm-dd',
-                autoclose: true,
-                todayHighlight: true
-            });
-        });
-        
-        function PopupCenter(pageURL, title,w,h) {
-            var left = (screen.width/2)-(w/2);
-            var top = (screen.height/2)-(h/2);
-            var targetWin = window.open (pageURL, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
-            
-        }
-    </script>
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
      <section class="preloader">
@@ -108,8 +79,16 @@
                               <h4 class="wow fadeInUp" data-wow-delay="0.4s">Pengumuman/Informasi</h4>
                               <div class="latest-stories">
                                    <div class="stories-info">
-                                       <p><i class="fa fa-bell"></i> <?=$isipengumuman;?></p>
-                                       <span><?=$tanggalpengumuman;?>, oleh <?=$namapegawai;?></span>
+                                       <?php
+                                            $querypengumuman = bukaquery("select pegawai.nama,date_format(pengumuman_epasien.tanggal,'%d/%m/%Y')as tanggal,pengumuman_epasien.pengumuman from pengumuman_epasien inner join pegawai on pengumuman_epasien.nik=pegawai.nik order by pengumuman_epasien.tanggal desc limit 1");
+                                            if($pengumuman = mysqli_fetch_array($querypengumuman)) {
+                                                echo "<p><i class='fa fa-bell'></i> ".$pengumuman["pengumuman"]."</p>
+                                                      <span>".$pengumuman["tanggal"].", oleh ".$pengumuman["nama"]."</span>";
+                                            }else{
+                                                echo "<p><i class='fa fa-bell'></i> Tidak ada pengumuman</p>
+                                                      <span>".date('d/m/Y').", oleh Admin</span>";
+                                            }
+                                       ?>
                                    </div>
                               </div>
                          </div>
@@ -135,7 +114,7 @@
                     <div class="col-md-12 col-sm-12 border-top">
                          <div class="col-md-4 col-sm-6">
                               <div class="copyright-text"> 
-                                   <p>Copyright &copy; 2020 <?=$_SESSION["nama_instansi"];?> | SIMKES Khanza</p>
+                                   <p>Copyright &copy; 2020 <?=$_SESSION["nama_instansi"];?> | <a href="http://www.yaski.or.id">www.yaski.or.id</a></p>
                               </div>
                          </div>
                          <div class="col-md-6 col-sm-6">
@@ -143,6 +122,7 @@
                                   <center>
                                      <a href="index.php?act=CekPoli">Poli/Unit Tersedia</a>
                                      <a href="index.php?act=CekAsuransi">Kerja Sama Asuransi</a>
+                                     <?=$stokdarah=="aktif"?"<a href=\"index.php?act=CekStokDarah\">Ketersediaan Darah</a>":"";?>
                                   </center>
                               </div>
                          </div>
@@ -155,11 +135,22 @@
                </div>
           </div>
      </footer>
-     <script src="js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+     <script src="js/jquery.js"></script>
      <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery.sticky.js"></script>
+     <script src="js/jquery.stellar.min.js"></script>
      <script src="js/wow.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/custom.js"></script>
+     <script src="conf/validator.js" type="text/javascript"></script>
+     <script type="text/javascript">
+        $(function() {
+            $("#carikeyword").bind('submit',function() {
+                 $.post('pages/listjadwaldokter.php',{value:$('#keyword').val()}, function(data){$("#hasilcari").html(data);});
+                 return false;
+            });
+        });
+    </script>
 </body>
 </html>

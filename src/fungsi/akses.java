@@ -139,7 +139,11 @@ public final class akses {
             toko_sirkulasi2=false,toko_keuntungan_barang=false,zis_pengeluaran_penerima_dankes=false,zis_penghasilan_penerima_dankes=false,
             zis_ukuran_rumah_penerima_dankes=false,zis_dinding_rumah_penerima_dankes=false,zis_lantai_rumah_penerima_dankes=false,
             zis_atap_rumah_penerima_dankes=false,zis_kepemilikan_rumah_penerima_dankes=false,zis_kamar_mandi_penerima_dankes=false,
-            zis_dapur_rumah_penerima_dankes=false,zis_kursi_rumah_penerima_dankes=false;
+            zis_dapur_rumah_penerima_dankes=false,zis_kursi_rumah_penerima_dankes=false,zis_kategori_phbs_penerima_dankes=false,
+            zis_elektronik_penerima_dankes=false,zis_ternak_penerima_dankes=false,zis_jenis_simpanan_penerima_dankes=false,penilaian_awal_keperawatan_anak=false,
+            zis_kategori_asnaf_penerima_dankes=false,master_masalah_keperawatan_anak=false,master_imunisasi=false,zis_patologis_penerima_dankes=false,
+            pcare_cek_kartu=false,surat_bebas_narkoba=false,surat_keterangan_covid=false,pemakaian_air_tanah=false,grafik_air_tanah_pertanggal=false,
+            grafik_air_tanah_perbulan=false,lama_pelayanan_poli=false;
     
     public static void setData(String user, String pass) {
        try {                
@@ -800,6 +804,22 @@ public final class akses {
                         akses.zis_kamar_mandi_penerima_dankes=true;
                         akses.zis_dapur_rumah_penerima_dankes=true;
                         akses.zis_kursi_rumah_penerima_dankes=true;
+                        akses.zis_kategori_phbs_penerima_dankes=true;
+                        akses.zis_elektronik_penerima_dankes=true;
+                        akses.zis_ternak_penerima_dankes=true;
+                        akses.zis_jenis_simpanan_penerima_dankes=true;
+                        akses.penilaian_awal_keperawatan_anak=true;
+                        akses.zis_kategori_asnaf_penerima_dankes=true;
+                        akses.master_masalah_keperawatan_anak=true;
+                        akses.master_imunisasi=true;
+                        akses.zis_patologis_penerima_dankes=true;
+                        akses.pcare_cek_kartu=true;
+                        akses.surat_bebas_narkoba=true;
+                        akses.surat_keterangan_covid=true;
+                        akses.pemakaian_air_tanah=true;
+                        akses.grafik_air_tanah_pertanggal=true;
+                        akses.grafik_air_tanah_perbulan=true;
+                        akses.lama_pelayanan_poli=true;
                     }else if(rs2.getRow()>=1){   
                         rs2.beforeFirst();
                         rs2.next();
@@ -1444,6 +1464,22 @@ public final class akses {
                         akses.zis_kamar_mandi_penerima_dankes=rs2.getBoolean("zis_kamar_mandi_penerima_dankes");
                         akses.zis_dapur_rumah_penerima_dankes=rs2.getBoolean("zis_dapur_rumah_penerima_dankes");
                         akses.zis_kursi_rumah_penerima_dankes=rs2.getBoolean("zis_kursi_rumah_penerima_dankes");
+                        akses.zis_kategori_phbs_penerima_dankes=rs2.getBoolean("zis_kategori_phbs_penerima_dankes");
+                        akses.zis_elektronik_penerima_dankes=rs2.getBoolean("zis_elektronik_penerima_dankes");
+                        akses.zis_ternak_penerima_dankes=rs2.getBoolean("zis_ternak_penerima_dankes");
+                        akses.zis_jenis_simpanan_penerima_dankes=rs2.getBoolean("zis_jenis_simpanan_penerima_dankes");
+                        akses.penilaian_awal_keperawatan_anak=rs2.getBoolean("penilaian_awal_keperawatan_anak");
+                        akses.zis_kategori_asnaf_penerima_dankes=rs2.getBoolean("zis_kategori_asnaf_penerima_dankes");
+                        akses.master_masalah_keperawatan_anak=rs2.getBoolean("master_masalah_keperawatan_anak");
+                        akses.master_imunisasi=rs2.getBoolean("master_imunisasi");
+                        akses.zis_patologis_penerima_dankes=rs2.getBoolean("zis_patologis_penerima_dankes");
+                        akses.pcare_cek_kartu=rs2.getBoolean("pcare_cek_kartu");
+                        akses.surat_bebas_narkoba=rs2.getBoolean("surat_bebas_narkoba");
+                        akses.surat_keterangan_covid=rs2.getBoolean("surat_keterangan_covid");
+                        akses.pemakaian_air_tanah=rs2.getBoolean("pemakaian_air_tanah");
+                        akses.grafik_air_tanah_pertanggal=rs2.getBoolean("grafik_air_tanah_pertanggal");
+                        akses.grafik_air_tanah_perbulan=rs2.getBoolean("grafik_air_tanah_perbulan");
+                        akses.lama_pelayanan_poli=rs2.getBoolean("lama_pelayanan_poli");
                     }else if((rs.getRow()==0)&&(rs2.getRow()==0)){
                         akses.kode="";                  
                         akses.penyakit= false;
@@ -2086,6 +2122,22 @@ public final class akses {
                         akses.zis_kamar_mandi_penerima_dankes=false;
                         akses.zis_dapur_rumah_penerima_dankes=false;
                         akses.zis_kursi_rumah_penerima_dankes=false;
+                        akses.zis_kategori_phbs_penerima_dankes=false;
+                        akses.zis_elektronik_penerima_dankes=false;
+                        akses.zis_ternak_penerima_dankes=false;
+                        akses.zis_jenis_simpanan_penerima_dankes=false;
+                        akses.penilaian_awal_keperawatan_anak=false;
+                        akses.zis_kategori_asnaf_penerima_dankes=false;
+                        akses.master_masalah_keperawatan_anak=false;
+                        akses.master_imunisasi=false;
+                        akses.zis_patologis_penerima_dankes=false;
+                        akses.pcare_cek_kartu=false;
+                        akses.surat_bebas_narkoba=false;
+                        akses.surat_keterangan_covid=false;
+                        akses.pemakaian_air_tanah=false;
+                        akses.grafik_air_tanah_pertanggal=false;
+                        akses.grafik_air_tanah_perbulan=false;
+                        akses.lama_pelayanan_poli=false;
                     }
                 } catch (Exception e) {
                     System.out.println("Notifikasi : "+e);
@@ -2782,4 +2834,20 @@ public final class akses {
     public static boolean getzis_kamar_mandi_penerima_dankes(){return akses.zis_kamar_mandi_penerima_dankes;}
     public static boolean getzis_dapur_rumah_penerima_dankes(){return akses.zis_dapur_rumah_penerima_dankes;}
     public static boolean getzis_kursi_rumah_penerima_dankes(){return akses.zis_kursi_rumah_penerima_dankes;}
+    public static boolean getzis_kategori_phbs_penerima_dankes(){return akses.zis_kategori_phbs_penerima_dankes;}
+    public static boolean getzis_elektronik_penerima_dankes(){return akses.zis_elektronik_penerima_dankes;}
+    public static boolean getzis_ternak_penerima_dankes(){return akses.zis_ternak_penerima_dankes;}
+    public static boolean getzis_jenis_simpanan_penerima_dankes(){return akses.zis_jenis_simpanan_penerima_dankes;}
+    public static boolean getpenilaian_awal_keperawatan_anak(){return akses.penilaian_awal_keperawatan_anak;}
+    public static boolean getzis_kategori_asnaf_penerima_dankes(){return akses.zis_kategori_asnaf_penerima_dankes;}
+    public static boolean getmaster_masalah_keperawatan_anak(){return akses.master_masalah_keperawatan_anak;}
+    public static boolean getmaster_imunisasi(){return akses.master_imunisasi;}
+    public static boolean getzis_patologis_penerima_dankes(){return akses.zis_patologis_penerima_dankes;}
+    public static boolean getpcare_cek_kartu(){return akses.pcare_cek_kartu;}
+    public static boolean getsurat_bebas_narkoba(){return akses.surat_bebas_narkoba;}
+    public static boolean getsurat_keterangan_covid(){return akses.surat_keterangan_covid;}
+    public static boolean getpemakaian_air_tanah(){return akses.pemakaian_air_tanah;}
+    public static boolean getgrafik_air_tanah_pertanggal(){return akses.grafik_air_tanah_pertanggal;}
+    public static boolean getgrafik_air_tanah_perbulan(){return akses.grafik_air_tanah_perbulan;}
+    public static boolean getlama_pelayanan_poli(){return akses.lama_pelayanan_poli;}
 }   
