@@ -94,20 +94,10 @@ public final class DlgIGD extends javax.swing.JDialog {
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
-<<<<<<< HEAD
-    public  DlgPasien pasien=new DlgPasien(null,false);
-    public  DlgCariDokter dokter=new DlgCariDokter(null,false);
-    public  DlgRujukMasuk rujukmasuk=new DlgRujukMasuk(null,false);
-    private DlgCatatan catatan=new DlgCatatan(null,false);
-    private DlgRujukanPoliInternal dlgrjk=new DlgRujukanPoliInternal(null,false);
-
-    private PreparedStatement ps,ps2,ps3,pscaripiutang;
-=======
     private DlgPasien pasien=new DlgPasien(null,false);
     private DlgCariDokter dokter=new DlgCariDokter(null,false);
     private DlgRujukMasuk rujukmasuk=new DlgRujukMasuk(null,false);
     private PreparedStatement ps,ps3,pscaripiutang;
->>>>>>> upstream/master
     private ResultSet rs;
     private boolean ceksukses=false;
     private int i=0,jmlparsial=0;
@@ -534,16 +524,9 @@ public final class DlgIGD extends javax.swing.JDialog {
         DlgCatatan.setSize(595,34);
 
         try {
-<<<<<<< HEAD
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
-            IPPRINTERTRACER=prop.getProperty("IPPRINTERTRACER");
-            URUTNOREG=prop.getProperty("URUTNOREG");
-            aktifkanparsial=prop.getProperty("AKTIFKANBILLINGPARSIAL");
-=======
             IPPRINTERTRACER=koneksiDB.IPPRINTERTRACER();
-            URUTNOREG=koneksiDB.URUTNOREG();            
+            URUTNOREG=koneksiDB.URUTNOREG();
             aktifkanparsial=koneksiDB.AKTIFKANBILLINGPARSIAL();
->>>>>>> upstream/master
             ps3=koneksi.prepareStatement("select * from poliklinik where kd_poli='IGDK'");
             try {
                 rs=ps3.executeQuery();
@@ -3753,13 +3736,7 @@ public final class DlgIGD extends javax.swing.JDialog {
         pasien.satuantni.dispose();
         pasien.suku.dispose();
         dokter.dispose();
-<<<<<<< HEAD
-        dokter.dokter.dispose();
-        dlgrjk.dispose();
         rujukmasuk.WindowPerujuk.dispose();
-=======
-        rujukmasuk.WindowPerujuk.dispose();   
->>>>>>> upstream/master
         DlgSakit2.dispose();
         DlgDemografi.dispose();
         DlgCatatan.dispose();
@@ -3813,7 +3790,7 @@ public final class DlgIGD extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(rootPane,"Data billing sudah terverifikasi, data tidak boleh diubah.\nSilahkan hubungi bagian kasir/keuangan ..!!");
                     TCari.requestFocus();
                 }else{
-                    
+
                 }
                 if(akses.getedit_registrasi()==true){
                     Sequel.queryu2("update reg_periksa set no_rawat=?,no_reg=?,tgl_registrasi=?,jam_reg=?,kd_dokter=?,no_rkm_medis=?,kd_poli=?,"+
@@ -3830,13 +3807,7 @@ public final class DlgIGD extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(rootPane,"Maaf hak akses anda dibatasi, silahkan konfirmasi kepada admin..!!! ");
                     TCari.requestFocus();
                 }
-<<<<<<< HEAD
-                tampil();
-                emptTeks();
             }
-=======
-            }                
->>>>>>> upstream/master
         }
 }//GEN-LAST:event_BtnEditActionPerformed
 
@@ -3970,12 +3941,7 @@ private void kddokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
 
 private void BtnDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDokterActionPerformed
         akses.setform("DlgIGD");
-<<<<<<< HEAD
-        pilihan=1;
         dokter.isCek();
-=======
-        dokter.isCek();        
->>>>>>> upstream/master
         dokter.TCari.requestFocus();
         dokter.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         dokter.setLocationRelativeTo(internalFrame1);
@@ -4000,11 +3966,7 @@ private void MnKamarInapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
                     dlgki.setLocationRelativeTo(internalFrame1);
                     dlgki.emptTeks();
                     dlgki.isCek();
-<<<<<<< HEAD
-                    dlgki.setNoRm(TNoRw.getText());
-=======
-                    dlgki.setNoRm(TNoRw.getText(),TNoRM.getText(),TPasien.getText());   
->>>>>>> upstream/master
+                    dlgki.setNoRm(TNoRw.getText(),TNoRM.getText(),TPasien.getText());
                     dlgki.setVisible(true);
                 }
             }
@@ -6818,7 +6780,7 @@ private void MnLaporanRekapKunjunganBulananPoliActionPerformed(java.awt.event.Ac
         ppDeteksiDIniCorona.setEnabled(akses.getdeteksi_corona());
         MnCetakSuratHamil.setEnabled(akses.getsurat_hamil());
         MnCetakBebasNarkoba.setEnabled(akses.getsurat_bebas_narkoba());
-        MnPCare.setEnabled(akses.getbridging_pcare_daftar()); 
+        MnPCare.setEnabled(akses.getbridging_pcare_daftar());
         MnCetakSuratCovid.setEnabled(akses.getsurat_keterangan_covid());
     }
 
