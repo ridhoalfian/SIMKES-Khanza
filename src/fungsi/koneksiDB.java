@@ -21,13 +21,10 @@ public class koneksiDB {
     private static final Properties prop = new Properties();
     private static final MysqlDataSource dataSource=new MysqlDataSource();
     private static String var="";
+    private static final String RESET = "\033[0m";  // Text Reset
+    private static final String BLACK = "\033[0;30m";   // BLACK
 
     public koneksiDB(){}
-
-    public class ConsoleColors {
-        public static final String RESET = "\033[0m";  // Text Reset
-        public static final String BLACK = "\033[0;30m";   // BLACK
-    }
 
     public static Connection condb(){
         if(connection == null){
@@ -37,18 +34,18 @@ public class koneksiDB {
                 dataSource.setUser(EnkripsiAES.decrypt(prop.getProperty("USER")));
                 dataSource.setPassword(EnkripsiAES.decrypt(prop.getProperty("PAS")));
                 connection=dataSource.getConnection();
-                System.out.println(ConsoleColors.BLACK + "  Koneksi Berhasil. Sorry bro loading, silahkan baca dulu.... \n\n"+
-                        "	 Software ini adalah Software Menejemen Rumah Sakit/Klinik/\n" +
-                        "  Puskesmas yang  gratis dan boleh digunakan siapa saja tanpa dikenai \n" +
-                        "  biaya apapun. Dilarang keras memperjualbelikan/mengambil \n" +
-                        "  keuntungan dari Software ini dalam bentuk apapun tanpa seijin pembuat \n" +
-                        "  software (Khanza.Soft Media). Bagi yang sengaja memperjualbelikan/\n" +
-                        "  mengambil keuntangan dari softaware ini tanpa ijin, kami sumpahi sial \n" +
-                        "  1000 turunan, miskin sampai 500 turunan. Selalu mendapat kecelakaan \n" +
-                        "  sampai 400 turunan. Anak pertamanya cacat tidak punya kaki sampai 300 \n" +
-                        "  turunan. Susah cari jodoh sampai umur 50 tahun sampai 200 turunan.\n" +
-                        "  Ya Alloh maafkan kami karena telah berdoa buruk, semua ini kami lakukan\n" +
-                        "  karena kami tidak pernah rela karya kami dibajak tanpa ijin.\n\n" + ConsoleColors.RESET +                         "                                                                           \n"+
+                System.out.println("  Koneksi Berhasil. Sorry bro loading, silahkan baca dulu.... \n\n"+ BLACK +
+                        "	 Software ini adalah Software Menejemen Rumah Sakit/Klinik/\n" + BLACK +
+                        "  Puskesmas yang  gratis dan boleh digunakan siapa saja tanpa dikenai \n" + BLACK +
+                        "  biaya apapun. Dilarang keras memperjualbelikan/mengambil \n" + BLACK +
+                        "  keuntungan dari Software ini dalam bentuk apapun tanpa seijin pembuat \n" + BLACK +
+                        "  software (Khanza.Soft Media). Bagi yang sengaja memperjualbelikan/\n" + BLACK +
+                        "  mengambil keuntangan dari softaware ini tanpa ijin, kami sumpahi sial \n" + BLACK +
+                        "  1000 turunan, miskin sampai 500 turunan. Selalu mendapat kecelakaan \n" + BLACK +
+                        "  sampai 400 turunan. Anak pertamanya cacat tidak punya kaki sampai 300 \n" + BLACK +
+                        "  turunan. Susah cari jodoh sampai umur 50 tahun sampai 200 turunan.\n" + BLACK +
+                        "  Ya Alloh maafkan kami karena telah berdoa buruk, semua ini kami lakukan\n" + BLACK +
+                        "  karena kami tidak pernah rela karya kami dibajak tanpa ijin.\n\n" + RESET +                         "                                                                           \n"+
                         "                                                                       \n\n"+
                         "    ____  ___  __  __  ____   ____    _  __ _                              \n" +
                         "   / ___||_ _||  \\/  ||  _ \\ / ___|  | |/ /| |__    __ _  _ __   ____ __ _ \n" +
@@ -56,7 +53,7 @@ public class koneksiDB {
                         "    ___) || | | |  | ||  _ <  ___) | | . \\ | | | || (_| || | | | / /| (_| |\n" +
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
-                        "   Version 26.07.2020 [Basoro.ID]                                   \n\n"+
+                        "   Version 01.08.2020 [Basoro.ID]                                   \n\n"+
                         "                                                                           \n"+
                         "  Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License \n"+
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
