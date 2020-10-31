@@ -124,7 +124,7 @@ public class DlgUser extends javax.swing.JDialog {
                 "[I]Lama Pelayanan Radiologi","[I]Lama Pelayanan Lab","[K]Cek Nomor SEP","[A]Catatan Dokter","[O]Surat Keluar","[D]Kegiatan Farmasi",
                 "[E]Stok Opname Non Medis","[E]Sirkulasi Non Medis","[I]Rekap Lab Per Tahun","[I]Perujuk Lab Per Tahun","[I]Rekap Radiologi Per Tahun",
                 "[I]Perujuk Radiologi Per Tahun","[I]Rekap Bulanan Porsi Diet","[I]Rekap Bulanan Macam Diet","[H]Payment Point 2","[H]Pembayaran Per Akun Bayar 2",
-                "[H]Hapus Nota Salah","[A]Asesmen Awal Rawat Inap","[L]HAIs Per Kamar/Bangsal","[D]PPN Obat","[J]Saldo Akun Per Bulan","[S]Display Antrian Apotek",
+                "[H]Hapus Nota Salah","[A]Asesmen Awal Rawat Inap","[I]HAIs Per Kamar/Bangsal","[D]PPN Obat","[J]Saldo Akun Per Bulan","[S]Display Antrian Apotek",
                 "[K]Referensi Faskes Sisrute","[K]Referensi Alasan Rujuk Sisrute","[K]Referensi Diagnosa Sisrute","[K]Rujukan Masuk Sisrute","[K]Rujukan Keluar Sisrute",
                 "[K]Cek SKDP VClaim","[D]Data Batch","[I]Kunjungan Lab Ralan","[I]Kunjungan Lab Ranap","[I]Kunjungan Radiologi Ralan","[I]Kunjungan Radiologi Ranap",
                 "[K]Pemberian Obat PCare","[K]Pemberian Tindakan PCare","[H]Pembayaran Per Akun Bayar 3","[S]Password Asuransi","[I]Data TB","[K]Ketersediaan Kamar SIRANAP",
@@ -169,7 +169,10 @@ public class DlgUser extends javax.swing.JDialog {
                 "[R]Ternak Penerima Dankes","[R]Jenis Simpanan Penerima Dankes","[L]Penilaian Awal Ralan Bayi/Anak","[R]Kategori Asnaf Penerima Dankes",
                 "[L]Master Masalah Keperawatan Bayi/Anak","[L]Master Imunisasi","[R]Patologis Penerima Dankes","[K]Cek No.Kartu PCare","[O]Surat Bebas Narkoba",
                 "[O]Surat Keterangan Covid","[F]Pemakaian Air Tanah","[N]Pemakaian Air Tanah Per Tanggal","[N]Pemakaian Air Tanah Per Bulan",
-                "[I]Lama Pelayanan Poli"
+                "[I]Lama Pelayanan Poli","[L]Hemodialisa","[I]Laporan Tahunan IRJ","[N]Hemodialisa Per Tanggal","[N]Hemodialisa Per Bulan","[N]Hemodialisa Per Tahun",
+                "[N]Pasien Meninggal Per Bulan","[F]Perbaikan Inventaris","[O]Surat Cuti Hamil","[D]Permintaan Stok Obat Pasien","[F]Pemeliharaan Inventaris",
+                "[L]Klasifikasi Pasien Ranap","[I]Bulanan Klasifikasi Pasien Ranap","[I]Harian Klasifikasi Pasien Ranap","[I]Klasifikasi Pasien Per Ruang",
+                "[L]SOAP Perawatan","[J]Klaim Rawat Jalan"
         };
         
         tabMode=new DefaultTableModel(null,row){
@@ -348,6 +351,12 @@ public class DlgUser extends javax.swing.JDialog {
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
+                java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class,
                 java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class
              };
              @Override
@@ -361,7 +370,7 @@ public class DlgUser extends javax.swing.JDialog {
         tbUser.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbUser.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 657;i++) {
+        for (i = 0; i < 673;i++) {
             TableColumn column = tbUser.getColumnModel().getColumn(i);
             switch (i) {
                 case 0:
@@ -1786,6 +1795,54 @@ public class DlgUser extends javax.swing.JDialog {
                 case 656:
                     column.setPreferredWidth(119);
                     break;
+                case 657:
+                    column.setPreferredWidth(80);
+                    break;
+                case 658:
+                    column.setPreferredWidth(122);
+                    break;
+                case 659:
+                    column.setPreferredWidth(143);
+                    break;
+                case 660:
+                    column.setPreferredWidth(131);
+                    break;
+                case 661:
+                    column.setPreferredWidth(134);
+                    break;
+                case 662:
+                    column.setPreferredWidth(156);
+                    break;
+                case 663:
+                    column.setPreferredWidth(121);
+                    break;
+                case 664:
+                    column.setPreferredWidth(103);
+                    break;
+                case 665:
+                    column.setPreferredWidth(164);
+                    break;
+                case 666:
+                    column.setPreferredWidth(140);
+                    break;
+                case 667:
+                    column.setPreferredWidth(137);
+                    break;
+                case 668:
+                    column.setPreferredWidth(179);
+                    break;
+                case 669:
+                    column.setPreferredWidth(172);
+                    break;
+                case 670:
+                    column.setPreferredWidth(156);
+                    break;
+                case 671:
+                    column.setPreferredWidth(102);
+                    break;
+                case 672:
+                    column.setPreferredWidth(110);
+                    break;
                 default:
                     column.setPreferredWidth(130);
                     break;
@@ -2282,7 +2339,7 @@ public class DlgUser extends javax.swing.JDialog {
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
                     "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false',"+
-                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
+                    "'false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false','false'","User")==true){
                 tampil();
                 emptTeks();
             }            
@@ -2981,7 +3038,23 @@ public class DlgUser extends javax.swing.JDialog {
                     "pemakaian_air_tanah='"+tbUser.getValueAt(i,653).toString()+"',"+
                     "grafik_air_tanah_pertanggal='"+tbUser.getValueAt(i,654).toString()+"',"+
                     "grafik_air_tanah_perbulan='"+tbUser.getValueAt(i,655).toString()+"',"+
-                    "lama_pelayanan_poli='"+tbUser.getValueAt(i,656).toString()+"'");
+                    "lama_pelayanan_poli='"+tbUser.getValueAt(i,656).toString()+"',"+
+                    "hemodialisa='"+tbUser.getValueAt(i,657).toString()+"',"+
+                    "laporan_tahunan_irj='"+tbUser.getValueAt(i,658).toString()+"',"+
+                    "grafik_harian_hemodialisa='"+tbUser.getValueAt(i,659).toString()+"',"+
+                    "grafik_bulanan_hemodialisa='"+tbUser.getValueAt(i,660).toString()+"',"+
+                    "grafik_tahunan_hemodialisa='"+tbUser.getValueAt(i,661).toString()+"',"+
+                    "grafik_bulanan_meninggal='"+tbUser.getValueAt(i,662).toString()+"',"+
+                    "perbaikan_inventaris='"+tbUser.getValueAt(i,663).toString()+"',"+
+                    "surat_cuti_hamil='"+tbUser.getValueAt(i,664).toString()+"',"+
+                    "permintaan_stok_obat_pasien='"+tbUser.getValueAt(i,665).toString()+"',"+
+                    "pemeliharaan_inventaris='"+tbUser.getValueAt(i,666).toString()+"',"+
+                    "klasifikasi_pasien_ranap='"+tbUser.getValueAt(i,667).toString()+"',"+
+                    "bulanan_klasifikasi_pasien_ranap='"+tbUser.getValueAt(i,668).toString()+"',"+
+                    "harian_klasifikasi_pasien_ranap='"+tbUser.getValueAt(i,669).toString()+"',"+
+                    "klasifikasi_pasien_perbangsal='"+tbUser.getValueAt(i,670).toString()+"',"+
+                    "soap_perawatan='"+tbUser.getValueAt(i,671).toString()+"',"+
+                    "klaim_rawat_jalan='"+tbUser.getValueAt(i,672).toString()+"'");
             }            
             tampil();
             emptTeks();
@@ -3719,7 +3792,23 @@ public class DlgUser extends javax.swing.JDialog {
                                     "pemakaian_air_tanah='"+tbUser.getValueAt(barisdicopy,653).toString()+"',"+
                                     "grafik_air_tanah_pertanggal='"+tbUser.getValueAt(barisdicopy,654).toString()+"',"+
                                     "grafik_air_tanah_perbulan='"+tbUser.getValueAt(barisdicopy,655).toString()+"',"+
-                                    "lama_pelayanan_poli='"+tbUser.getValueAt(barisdicopy,656).toString()+"'");
+                                    "lama_pelayanan_poli='"+tbUser.getValueAt(barisdicopy,656).toString()+"',"+
+                                    "hemodialisa='"+tbUser.getValueAt(barisdicopy,657).toString()+"',"+
+                                    "laporan_tahunan_irj='"+tbUser.getValueAt(barisdicopy,658).toString()+"',"+
+                                    "grafik_harian_hemodialisa='"+tbUser.getValueAt(barisdicopy,659).toString()+"',"+
+                                    "grafik_bulanan_hemodialisa='"+tbUser.getValueAt(barisdicopy,660).toString()+"',"+
+                                    "grafik_tahunan_hemodialisa='"+tbUser.getValueAt(barisdicopy,661).toString()+"',"+
+                                    "grafik_bulanan_meninggal='"+tbUser.getValueAt(barisdicopy,662).toString()+"',"+
+                                    "perbaikan_inventaris='"+tbUser.getValueAt(barisdicopy,663).toString()+"',"+
+                                    "surat_cuti_hamil='"+tbUser.getValueAt(barisdicopy,664).toString()+"',"+
+                                    "permintaan_stok_obat_pasien='"+tbUser.getValueAt(barisdicopy,665).toString()+"',"+
+                                    "pemeliharaan_inventaris='"+tbUser.getValueAt(barisdicopy,666).toString()+"',"+
+                                    "klasifikasi_pasien_ranap='"+tbUser.getValueAt(barisdicopy,667).toString()+"',"+
+                                    "bulanan_klasifikasi_pasien_ranap='"+tbUser.getValueAt(barisdicopy,668).toString()+"',"+
+                                    "harian_klasifikasi_pasien_ranap='"+tbUser.getValueAt(barisdicopy,669).toString()+"',"+
+                                    "klasifikasi_pasien_perbangsal='"+tbUser.getValueAt(barisdicopy,670).toString()+"',"+
+                                    "soap_perawatan='"+tbUser.getValueAt(barisdicopy,671).toString()+"',"+
+                                    "klaim_rawat_jalan='"+tbUser.getValueAt(barisdicopy,672).toString()+"'");
                             }    
                             userdicopy="";
                             copyhakakses="";
@@ -4040,7 +4129,11 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         "zis_kategori_phbs_penerima_dankes,zis_elektronik_penerima_dankes,zis_ternak_penerima_dankes,zis_jenis_simpanan_penerima_dankes,"+
                         "penilaian_awal_keperawatan_anak,zis_kategori_asnaf_penerima_dankes,master_masalah_keperawatan_anak,master_imunisasi,"+
                         "zis_patologis_penerima_dankes,pcare_cek_kartu,surat_bebas_narkoba,surat_keterangan_covid,pemakaian_air_tanah,"+
-                        "grafik_air_tanah_pertanggal,grafik_air_tanah_perbulan,lama_pelayanan_poli from user order by AES_DECRYPT(id_user,'nur')");
+                        "grafik_air_tanah_pertanggal,grafik_air_tanah_perbulan,lama_pelayanan_poli,hemodialisa,laporan_tahunan_irj,"+
+                        "grafik_harian_hemodialisa,grafik_bulanan_hemodialisa,grafik_tahunan_hemodialisa,grafik_bulanan_meninggal,"+
+                        "perbaikan_inventaris,surat_cuti_hamil,permintaan_stok_obat_pasien,pemeliharaan_inventaris,klasifikasi_pasien_ranap,"+
+                        "bulanan_klasifikasi_pasien_ranap,harian_klasifikasi_pasien_ranap,klasifikasi_pasien_perbangsal,soap_perawatan,"+
+                        "klaim_rawat_jalan from user order by AES_DECRYPT(id_user,'nur')");
             try {
                 rs=ps.executeQuery();
                 while(rs.next()){
@@ -4709,7 +4802,23 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                                rs.getBoolean("pemakaian_air_tanah"),
                                rs.getBoolean("grafik_air_tanah_pertanggal"),
                                rs.getBoolean("grafik_air_tanah_perbulan"),
-                               rs.getBoolean("lama_pelayanan_poli")
+                               rs.getBoolean("lama_pelayanan_poli"),
+                               rs.getBoolean("hemodialisa"),
+                               rs.getBoolean("laporan_tahunan_irj"),
+                               rs.getBoolean("grafik_harian_hemodialisa"),
+                               rs.getBoolean("grafik_bulanan_hemodialisa"),
+                               rs.getBoolean("grafik_tahunan_hemodialisa"),
+                               rs.getBoolean("grafik_bulanan_meninggal"),
+                               rs.getBoolean("perbaikan_inventaris"),
+                               rs.getBoolean("surat_cuti_hamil"),
+                               rs.getBoolean("permintaan_stok_obat_pasien"),
+                               rs.getBoolean("pemeliharaan_inventaris"),
+                               rs.getBoolean("klasifikasi_pasien_ranap"),
+                               rs.getBoolean("bulanan_klasifikasi_pasien_ranap"),
+                               rs.getBoolean("harian_klasifikasi_pasien_ranap"),
+                               rs.getBoolean("klasifikasi_pasien_perbangsal"),
+                               rs.getBoolean("soap_perawatan"),
+                               rs.getBoolean("klaim_rawat_jalan")
                             });
                         }   
                     } catch (Exception e) {
@@ -5367,7 +5476,23 @@ private void BtnPrintKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                            rs.getBoolean("pemakaian_air_tanah"),
                            rs.getBoolean("grafik_air_tanah_pertanggal"),
                            rs.getBoolean("grafik_air_tanah_perbulan"),
-                           rs.getBoolean("lama_pelayanan_poli")
+                           rs.getBoolean("lama_pelayanan_poli"),
+                           rs.getBoolean("hemodialisa"),
+                           rs.getBoolean("laporan_tahunan_irj"),
+                           rs.getBoolean("grafik_harian_hemodialisa"),
+                           rs.getBoolean("grafik_bulanan_hemodialisa"),
+                           rs.getBoolean("grafik_tahunan_hemodialisa"),
+                           rs.getBoolean("grafik_bulanan_meninggal"),
+                           rs.getBoolean("perbaikan_inventaris"),
+                           rs.getBoolean("surat_cuti_hamil"),
+                           rs.getBoolean("permintaan_stok_obat_pasien"),
+                           rs.getBoolean("pemeliharaan_inventaris"),
+                           rs.getBoolean("klasifikasi_pasien_ranap"),
+                           rs.getBoolean("bulanan_klasifikasi_pasien_ranap"),
+                           rs.getBoolean("harian_klasifikasi_pasien_ranap"),
+                           rs.getBoolean("klasifikasi_pasien_perbangsal"),
+                           rs.getBoolean("soap_perawatan"),
+                           rs.getBoolean("klaim_rawat_jalan")
                         });
                     }                                             
                  }
