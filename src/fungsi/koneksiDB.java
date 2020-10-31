@@ -21,8 +21,11 @@ public class koneksiDB {
     private static final Properties prop = new Properties();
     private static final MysqlDataSource dataSource=new MysqlDataSource();
     private static String var="";
+    private static final String RESET = "\033[0m";  // Text Reset
+    private static final String BLACK = "\033[0;30m";   // BLACK
 
     public koneksiDB(){}
+
     public static Connection condb(){
         if(connection == null){
             try{
@@ -31,8 +34,18 @@ public class koneksiDB {
                 dataSource.setUser(EnkripsiAES.decrypt(prop.getProperty("USER")));
                 dataSource.setPassword(EnkripsiAES.decrypt(prop.getProperty("PAS")));
                 connection=dataSource.getConnection();
-                System.out.println("   Koneksi Berhasil. Sorry bro loading, silahkan baca dulu.... \n\n"+
-                        "                                                                           \n"+
+                System.out.println("  Koneksi Berhasil. Sorry bro loading, silahkan baca dulu.... \n\n"+ BLACK +
+                        "	 Software ini adalah Software Menejemen Rumah Sakit/Klinik/\n" + BLACK +
+                        "  Puskesmas yang  gratis dan boleh digunakan siapa saja tanpa dikenai \n" + BLACK +
+                        "  biaya apapun. Dilarang keras memperjualbelikan/mengambil \n" + BLACK +
+                        "  keuntungan dari Software ini dalam bentuk apapun tanpa seijin pembuat \n" + BLACK +
+                        "  software (Khanza.Soft Media). Bagi yang sengaja memperjualbelikan/\n" + BLACK +
+                        "  mengambil keuntangan dari softaware ini tanpa ijin, kami sumpahi sial \n" + BLACK +
+                        "  1000 turunan, miskin sampai 500 turunan. Selalu mendapat kecelakaan \n" + BLACK +
+                        "  sampai 400 turunan. Anak pertamanya cacat tidak punya kaki sampai 300 \n" + BLACK +
+                        "  turunan. Susah cari jodoh sampai umur 50 tahun sampai 200 turunan.\n" + BLACK +
+                        "  Ya Alloh maafkan kami karena telah berdoa buruk, semua ini kami lakukan\n" + BLACK +
+                        "  karena kami tidak pernah rela karya kami dibajak tanpa ijin.\n\n" + RESET +                         "                                                                           \n"+
                         "                                                                       \n\n"+
                         "    ____  ___  __  __  ____   ____    _  __ _                              \n" +
                         "   / ___||_ _||  \\/  ||  _ \\ / ___|  | |/ /| |__    __ _  _ __   ____ __ _ \n" +
@@ -41,7 +54,7 @@ public class koneksiDB {
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
                         "   PROUDLY POWERED BY RS Aura Syifa - Kediri                  \n"+
-                        "   Version 2020.06.12 [Activated]                                   \n\n"+
+                        "   Version 2020.11.24 [Activated]                                   \n\n"+
                         "                                                                           \n"+
                         "  Licensi yang dianut di software ini https://en.wikipedia.org/wiki/Aladdin_Free_Public_License \n"+
                         "  Informasi dan panduan bisa dicek di halaman https://github.com/mas-elkhanza/SIMRS-Khanza/wiki \n"+
@@ -228,6 +241,16 @@ public class koneksiDB {
         try{
             prop.loadFromXML(new FileInputStream("setting/database.xml"));
             var=prop.getProperty("ALARMBOOKINGPERIKSA");
+        }catch(Exception e){
+            var="";
+        }
+        return var;
+    }
+
+    public static String ALARMPENGADUANPASIEN(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("ALARMPENGADUANPASIEN");
         }catch(Exception e){
             var="";
         }
@@ -764,4 +787,13 @@ public class koneksiDB {
         return var;
     }
 
+    public static String DEPOAKTIFOBAT(){
+        try{
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            var=prop.getProperty("DEPOAKTIFOBAT");
+        }catch(Exception e){
+            var="";
+        }
+        return var;
+    }
 }

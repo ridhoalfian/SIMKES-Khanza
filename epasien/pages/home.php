@@ -1,5 +1,8 @@
 <?php
-    require_once('conf/conf.php');
+    if(strpos($_SERVER['REQUEST_URI'],"pages")){
+        exit(header("Location:../index.php"));
+    }
+
     $besok                  = date("Y-m-d", strtotime("+1 day"));
     $thnbesok               = substr($besok,0,4);
     $blnbesok               = substr($besok,5,2);
@@ -75,29 +78,36 @@
                 </div>
                 <div class="clearfix"></div>
                 <?php
-                    $delay=0.2;
-                    $querydokter=@bukaquery("select dokter.kd_dokter,left(dokter.nm_dokter,20) as dokter,spesialis.nm_sps,dokter.no_ijn_praktek,pegawai.photo,dokter.no_telp from dokter inner join spesialis on dokter.kd_sps=spesialis.kd_sps inner join pegawai on dokter.kd_dokter=pegawai.nik where dokter.status='1' and dokter.kd_dokter<>'-' group by spesialis.nm_sps limit 5");
-                    while($rsquerydokter = mysqli_fetch_array($querydokter)) {
-                        echo "<div class='col-md-4 col-sm-6'>
-                                <div class='team-thumb wow fadeInUp' data-wow-delay='".$delay."s'>
-                                     <img alt='Photo' src='http://".host()."/webapps/penggajian/$rsquerydokter[4]' class='img-responsive' />
-                                      <div class='team-info'>
-                                           <h3>$rsquerydokter[1]</h3>
-                                           <p>$rsquerydokter[2]</p>
-                                           <div class='team-contact-info'>
-                                                <p><i class='fa fa-phone'></i> HP/Telp. $rsquerydokter[5] </p>
-                                                <p><i class='fa fa-envelope-o'></i> No.SIP. $rsquerydokter[3] </p>
-                                           </div>
-                                           <ul class='social-icon'>
-                                                <li><a href='#' class='fa fa-linkedin-square'></a></li>
-                                                <li><a href='#' class='fa fa-envelope-o'></a></li>
-                                           </ul>
-                                      </div>
-                                </div>
-                                <br/>
-                           </div>";
-                        $delay=$delay+0.2;
+                    if(!isset($_SESSION["dokter"])){
+                        $delay          = 0.2;
+                        $datadokter     = "";
+                        $querydokter=bukaquery("select dokter.kd_dokter,left(dokter.nm_dokter,20) as dokter,spesialis.nm_sps,dokter.no_ijn_praktek,pegawai.photo,dokter.no_telp from dokter inner join spesialis on dokter.kd_sps=spesialis.kd_sps inner join pegawai on dokter.kd_dokter=pegawai.nik where dokter.status='1' and dokter.kd_dokter<>'-' group by spesialis.nm_sps limit 5");
+                        while($rsquerydokter = mysqli_fetch_array($querydokter)) {
+                            $datadokter=$datadokter.
+                               "<div class='col-md-4 col-sm-6'>
+                                    <div class='team-thumb wow fadeInUp' data-wow-delay='".$delay."s'>
+                                         <img alt='Photo' src='http://".host()."/webapps/penggajian/$rsquerydokter[4]' class='img-responsive' />
+                                          <div class='team-info'>
+                                               <h3>$rsquerydokter[1]</h3>
+                                               <p>$rsquerydokter[2]</p>
+                                               <div class='team-contact-info'>
+                                                    <p><i class='fa fa-phone'></i> HP/Telp. $rsquerydokter[5] </p>
+                                                    <p><i class='fa fa-envelope-o'></i> No.SIP. $rsquerydokter[3] </p>
+                                               </div>
+                                               <ul class='social-icon'>
+                                                    <li><a href='#' class='fa fa-linkedin-square'></a></li>
+                                                    <li><a href='#' class='fa fa-envelope-o'></a></li>
+                                               </ul>
+                                          </div>
+                                    </div>
+                                    <br/>
+                               </div>";
+                            $delay=$delay+0.2;
+                        }
+                        $_SESSION["dokter"]=$datadokter;
                     }
+
+                    echo $_SESSION["dokter"];
                 ?>
                 <div class="col-md-4 col-sm-6">
                      <div class="wow fadeInUp" data-wow-delay="<?=$delay;?>s">
@@ -121,10 +131,10 @@
                        <form id="carikeyword" name="frmCariJadwal" method="post" action="" enctype=multipart/form-data>
                            <table width="100%" border='0' align="center">
                                <tr class="head">
-                                  <td width="15%" align="right"><label for="keyword">Keyword</label></td>
+                                  <td width="20%" align="right"><label for="keyword">Keyword</label></td>
                                   <td width="1%"><label for=":">&nbsp;:&nbsp;</label></td>
-                                  <td width="69%"><input name="keyword" type="text" id="keyword" pattern="[a-zA-Z0-9, ./@_]{1,65}" title=" a-zA-Z0-9, ./@_" class="form-control" value="" size="65" maxlength="250" autocomplete="off"/></td>
-                                  <td width="15%" align="left">&nbsp;<input name="BtnKeyword" type=submit class="btn btn-warning" value="Cari"></td>
+                                  <td width="60%"><input name="keyword" type="text" id="keyword" pattern="[a-zA-Z0-9, ./@_]{1,65}" title=" a-zA-Z0-9, ./@_" class="form-control" value="" size="65" maxlength="250" autocomplete="off"/></td>
+                                  <td width="19%" align="left">&nbsp;<input name="BtnKeyword" type=submit class="btn btn-warning" value="Cari"></td>
                                </tr>
                            </table>
                        </form>
@@ -134,7 +144,6 @@
          </div>
     </div>
  </section>
-
 
  <!-- MAKE AN APPOINTMENT -->
  <section id="appointment" data-stellar-background-ratio="3">
@@ -203,9 +212,8 @@
                                     <select name="poli" class="form-control">
                                          <?php
                                             if(!isset($_SESSION["poli"])){
-                                                echo "tes poli";
                                                 $datapoli   = "";
-                                                $querypoli  = @bukaquery("SELECT * from poliklinik order by nm_poli");
+                                                $querypoli  = bukaquery("SELECT * from poliklinik order by nm_poli");
                                                 while($rsquerypoli = mysqli_fetch_array($querypoli)) {
                                                     $datapoli=$datapoli."<option value='$rsquerypoli[0]'>$rsquerypoli[1]</option>";
                                                 }
@@ -223,7 +231,7 @@
                                     <button type="submit" class="form-control" id="cf-submit" name="btnBooking">Kirimkan</button>
                                </div>
                                <div class="col-md-12 col-sm-12">
-                                   <label><a href="index.php?act=CekBooking" class="btn btn-danger" >Cek Booking</a> untuk melihat status booking Anda. Sudah pernah periksa sebelumnya? Silahkan <a href="index.php?act=LoginPasien" class="btn btn-success" >Log In</a></label><br/><br/>
+                                   <label><a href="index.php?act=CekBooking" class="btn btn-danger">Cek Booking</a> untuk melihat status booking Anda. Sudah pernah periksa sebelumnya? Silahkan <a href="index.php?act=LoginPasien" class="btn btn-success">Log In</a></label><br/><br/>
                                </div>
                           </div>
                     </form>

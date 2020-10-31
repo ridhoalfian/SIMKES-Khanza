@@ -18,6 +18,7 @@ build
 dist
 driverFlexCode
 k-base
+lib
 nbproject
 pendaftaran-android-ios/pendaftaran-android-ios
 pendaftaran2
@@ -26,7 +27,6 @@ resumepasien
 sim
 suara
 suaraapotek
-webapps
 .DS_Store
 BulananHAIs.html
 DetailJMDokter2.doc
@@ -58,6 +58,12 @@ sensusharian.html
 sensuspoli.html
 sik2.sql
 sisastok.html
+<<<<<<< HEAD
 webapps/.DS_Store
 webapps/api-bpjs/Icon
+=======
+webapps/dashboard
+webapps/.DS_Store
+webapps/api-bpjs/Icon
+>>>>>>> master
 webapps/restapi_security/.DS_Store

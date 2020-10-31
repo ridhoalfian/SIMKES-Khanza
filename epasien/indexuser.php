@@ -1,11 +1,28 @@
 <?php 
     if(isset($_SESSION["ses_pasien"])){
+        $halaman                            = isset($_GET["hal"])?$_GET["hal"]:NULL;
+        $subhalaman                         = isset($_GET["act"])?$_GET["act"]:NULL;
         if(!isset($_SESSION["nm_pasien"])){
-            $queryuser                 = @bukaquery2("select pasien.nm_pasien,pasien.email,personal_pasien.gambar from pasien inner join personal_pasien on personal_pasien.no_rkm_medis=pasien.no_rkm_medis where pasien.no_rkm_medis='".encrypt_decrypt($_SESSION["ses_pasien"],"d")."'");
+            $queryuser                      = @bukaquery2("select pasien.nm_pasien,pasien.email,pasien.jk,personal_pasien.gambar,pasien.no_tlp,pasien.no_peserta,pasien.no_ktp,pasien.tmp_lahir,date_format(pasien.tgl_lahir,'%d/%m/%Y') as tgl_lahir from pasien inner join personal_pasien on personal_pasien.no_rkm_medis=pasien.no_rkm_medis where pasien.no_rkm_medis='".encrypt_decrypt($_SESSION["ses_pasien"],"d")."'");
             while($rsqueryuser = mysqli_fetch_array($queryuser)) {
-                $_SESSION["nm_pasien"] = $rsqueryuser["nm_pasien"];
-                $_SESSION["email"]     = $rsqueryuser["email"];
-                $_SESSION["photo"]     = host()."/webapps/photopasien/".$rsqueryuser["gambar"];
+                $_SESSION["nm_pasien"]      = $rsqueryuser["nm_pasien"];
+                $_SESSION["email"]          = $rsqueryuser["email"];
+                $_SESSION["jk"]             = $rsqueryuser["jk"];
+                $_SESSION["no_tlp"]         = $rsqueryuser["no_tlp"];
+                $_SESSION["no_peserta"]     = $rsqueryuser["no_peserta"];
+                $_SESSION["no_ktp"]         = $rsqueryuser["no_ktp"];
+                $_SESSION["tmp_lahir"]      = $rsqueryuser["tmp_lahir"];
+                $_SESSION["tgl_lahir"]      = $rsqueryuser["tgl_lahir"];
+                $_SESSION["photo"]          = "";
+                if(($rsqueryuser["gambar"]=="")||($rsqueryuser["gambar"]=="-")){
+                    if($rsqueryuser["jk"]=="L"){
+                        $_SESSION["photo"]  = "images/userlaki.png";
+                    }else{
+                        $_SESSION["photo"]  = "images/userperempuan.png";
+                    }
+                }else{
+                    $_SESSION["photo"]      = "http://".host()."/webapps/photopasien/".$rsqueryuser["gambar"];
+                }
             }
         }
     }else{
@@ -26,10 +43,12 @@
     <link href="plugins/node-waves/waves.css" rel="stylesheet" />
     <link href="plugins/animate-css/animate.css" rel="stylesheet" />
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+    <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
     <link href="css/style2.css" rel="stylesheet">
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 </head>
-<body class="theme-red">
+<body class="theme-pink">
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
@@ -60,7 +79,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">E-Pasien <?=$_SESSION["nama_instansi"];?></a>
+                <a class="navbar-brand" href="index.php?act=HomeUser">E-Pasien <?=$_SESSION["nama_instansi"];?></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -248,7 +267,6 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
             </div>
         </div>
@@ -258,7 +276,7 @@
         <aside id="leftsidebar" class="sidebar">
             <div class="user-info">
                 <div class="image">
-                    <img src="http://<?=$_SESSION["photo"];?>" width="55" height="48" alt="Photo" />&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#DDFF55">No.RM : <?=encrypt_decrypt($_SESSION["ses_pasien"],"d");?></font></b>
+                    <img src="<?=$_SESSION["photo"];?>" width="55" height="48" alt="Photo" />&nbsp;&nbsp;&nbsp;&nbsp;<b><font color="#DDFF55">No.RM : <?=encrypt_decrypt($_SESSION["ses_pasien"],"d");?></font></b>
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=$_SESSION["nm_pasien"];?></div>
@@ -268,10 +286,6 @@
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                            <li role="separator" class="divider"></li>
                             <li><a href="pages/logout.php"><i class="material-icons">input</i>Log Out</a></li>
                         </ul>
                     </div>
@@ -280,339 +294,101 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MENU UTAMA</li>
-                    <li class="active">
-                        <a href="index.php?act=Home">
+                    <li <?=$halaman=="Beranda"?"class='active'":""?>>
+                        <a href="index.php?act=HomeUser&hal=Beranda">
                             <i class="material-icons">home</i>
                             <span>Beranda</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages/typography.html">
-                            <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
+                    <li <?=$halaman=="Booking"?"class='active'":""?>>
+                        <a href="index.php?act=BookingRegistrasi&hal=Booking">
+                            <i class="material-icons">library_books</i>
+                            <span>Booking Registrasi</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages/helper-classes.html">
+                    <li <?=$halaman=="RiwayatPeriksa"?"class='active'":""?>>
+                        <a href="index.php?act=RiwayatPeriksa&hal=RiwayatPeriksa">
+                            <i class="material-icons">local_pharmacy</i>
+                            <span>Riwayat Periksa</span>
+                        </a>
+                    </li>
+                    <li <?=$halaman=="Surat"?"class='active'":""?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">widgets</i>
-                            <span>Widgets</span>
+                            <span>Permintaan Surat</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Cards</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="pages/widgets/cards/basic.html">Basic</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/cards/colored.html">Colored</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/cards/no-header.html">No Header</a>
-                                    </li>
-                                </ul>
+                            <li <?=$subhalaman=="SuratSakit"?"class='active'":""?>>
+                                <a href="index.php?act=SuratSakit&hal=Surat">Cuti Sakit</a>
                             </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Infobox</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                                    </li>
-                                    <li>
-                                        <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                                    </li>
-                                </ul>
+                            <li <?=$subhalaman=="SuratHamil"?"class='active'":""?>>
+                                <a href="index.php?act=SuratHamil&hal=Surat">Hamil/Tidak</a>
+                            </li>
+                            <li <?=$subhalaman=="SuratBebasNarkoba"?"class='active'":""?>>
+                                <a href="index.php?act=SuratBebasNarkoba&hal=Surat">Bebas Narkoba</a>
+                            </li>
+                            <li <?=$subhalaman=="SuratKontrol"?"class='active'":""?>>
+                                <a href="index.php?act=SuratKontrol&hal=Surat">Kontrol/SKDP</a>
+                            </li>
+                            <li <?=$subhalaman=="SuratRujuk"?"class='active'":""?>>
+                                <a href="index.php?act=SuratRujuk&hal=Surat">Rujukan</a>
+                            </li>
+                            <li <?=$subhalaman=="SuratCovid"?"class='active'":""?>>
+                                <a href="index.php?act=SuratCovid&hal=Surat">Keterangan Covid</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li <?=$halaman=="Fasilitas"?"class='active'":""?>>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">swap_calls</i>
-                            <span>User Interface (UI)</span>
+                            <i class="material-icons">layers</i>
+                            <span>Fasilitas & Tarif</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="pages/ui/alerts.html">Alerts</a>
+                            <li <?=$subhalaman=="FasilitasKamarUser"?"class='active'":""?>>
+                                <a href="index.php?act=FasilitasKamarUser&hal=Fasilitas">Kamar</a>
                             </li>
-                            <li>
-                                <a href="pages/ui/animations.html">Animations</a>
+                            <li <?=$subhalaman=="FasilitasRadiologiUser"?"class='active'":""?>>
+                                <a href="index.php?act=FasilitasRadiologiUser&hal=Fasilitas">Radiologi</a>
                             </li>
-                            <li>
-                                <a href="pages/ui/badges.html">Badges</a>
+                            <li <?=$subhalaman=="FasilitasLaboratUser"?"class='active'":""?>>
+                                <a href="index.php?act=FasilitasLaboratUser&hal=Fasilitas">Laborat</a>
                             </li>
-
-                            <li>
-                                <a href="pages/ui/breadcrumbs.html">Breadcrumbs</a>
+                            <li <?=$subhalaman=="FasilitasOperasiUser"?"class='active'":""?>>
+                                <a href="index.php?act=FasilitasOperasiUser&hal=Fasilitas">Operasi</a>
                             </li>
-                            <li>
-                                <a href="pages/ui/buttons.html">Buttons</a>
+                            <li <?=$subhalaman=="FasilitasOnlineUser"?"class='active'":""?>>
+                                <a href="index.php?act=FasilitasOnlineUser&hal=Fasilitas">Konsultasi Online</a>
                             </li>
-                            <li>
-                                <a href="pages/ui/collapse.html">Collapse</a>
+                            <li <?=$subhalaman=="CekPoliUser"?"class='active'":""?>>
+                                <a href="index.php?act=CekPoliUser&hal=Fasilitas">Poli Tersedia</a>
                             </li>
-                            <li>
-                                <a href="pages/ui/colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/dialogs.html">Dialogs</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/icons.html">Icons</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/labels.html">Labels</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/list-group.html">List Group</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/media-object.html">Media Object</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/modals.html">Modals</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/pagination.html">Pagination</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/preloaders.html">Preloaders</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/progressbars.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/range-sliders.html">Range Sliders</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/sortable-nestable.html">Sortable & Nestable</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/thumbnails.html">Thumbnails</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/waves.html">Waves</a>
+                            <li <?=$subhalaman=="CekAsuransiUser"?"class='active'":""?>>
+                                <a href="index.php?act=CekAsuransiUser&hal=Fasilitas">Kerjasama Asuransi</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Forms</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/forms/basic-form-elements.html">Basic Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/advanced-form-elements.html">Advanced Form Elements</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-examples.html">Form Examples</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-validation.html">Form Validation</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/form-wizard.html">Form Wizard</a>
-                            </li>
-                            <li>
-                                <a href="pages/forms/editors.html">Editors</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Tables</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/tables/normal-tables.html">Normal Tables</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/jquery-datatable.html">Jquery Datatables</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/editable-table.html">Editable Tables</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">perm_media</i>
-                            <span>Medias</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/medias/image-gallery.html">Image Gallery</a>
-                            </li>
-                            <li>
-                                <a href="pages/medias/carousel.html">Carousel</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Charts</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/charts/morris.html">Morris</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/flot.html">Flot</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/chartjs.html">ChartJS</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/sparkline.html">Sparkline</a>
-                            </li>
-                            <li>
-                                <a href="pages/charts/jquery-knob.html">Jquery Knob</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">content_copy</i>
-                            <span>Example Pages</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/examples/profile.html">Profile</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/sign-in.html">Sign In</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/sign-up.html">Sign Up</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/forgot-password.html">Forgot Password</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/404.html">404 - Not Found</a>
-                            </li>
-                            <li>
-                                <a href="pages/examples/500.html">500 - Server Error</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">map</i>
-                            <span>Maps</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="pages/maps/yandex.html">YandexMap</a>
-                            </li>
-                            <li>
-                                <a href="pages/maps/jvectormap.html">jVectorMap</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">trending_down</i>
-                            <span>Multi Level Menu</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <span>Menu Item - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);" class="menu-toggle">
-                                    <span>Level - 2</span>
-                                </a>
-                                <ul class="ml-menu">
-                                    <li>
-                                        <a href="javascript:void(0);">
-                                            <span>Menu Item</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0);" class="menu-toggle">
-                                            <span>Level - 3</span>
-                                        </a>
-                                        <ul class="ml-menu">
-                                            <li>
-                                                <a href="javascript:void(0);">
-                                                    <span>Level - 4</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="pages/changelogs.html">
-                            <i class="material-icons">update</i>
-                            <span>Changelogs</span>
+                    <li <?=$halaman=="JadwalDokter"?"class='active'":""?>>
+                        <a href="index.php?act=JadwalDokterUser&hal=JadwalDokter">
+                            <i class="material-icons">event_available</i>
+                            <span>Jadwal Dokter</span>
                         </a>
                     </li>
-                    <li class="header">LABELS</li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-red">donut_large</i>
-                            <span>Important</span>
+                    <li <?=$halaman=="InformasiKamar"?"class='active'":""?>>
+                        <a href="index.php?act=InformasiKamarUser&hal=InformasiKamar">
+                            <i class="material-icons">hotel</i>
+                            <span>Ketersediaan Kamar</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-amber">donut_large</i>
-                            <span>Warning</span>
+                    <li <?=$halaman=="Pengaduan"?"class='active'":""?>>
+                        <a href="index.php?act=Pengaduan&hal=Pengaduan">
+                            <i class="material-icons">message</i>
+                            <span>Pengaduan</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
+                    <li <?=$halaman=="KartuPasien"?"class='active'":""?>>
+                        <a href="index.php?act=KartuPasien&hal=KartuPasien">
+                            <i class="material-icons">card_membership</i>
+                            <span>Kartu Pasien</span>
                         </a>
                     </li>
                 </ul>
@@ -621,158 +397,11 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
-                </div>
-                <div class="version">
-                    <b>Version: </b> 1.0.5
+                    &copy; 2010 - 2020 <a href="javascript:void(0);">SIMKES Khanza</a>.
                 </div>
             </div>
             <!-- #Footer -->
         </aside>
-        <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
-        <aside id="rightsidebar" class="right-sidebar">
-            <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
-                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
-            </ul>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
-                    <ul class="demo-choose-skin">
-                        <li data-theme="red" class="active">
-                            <div class="red"></div>
-                            <span>Red</span>
-                        </li>
-                        <li data-theme="pink">
-                            <div class="pink"></div>
-                            <span>Pink</span>
-                        </li>
-                        <li data-theme="purple">
-                            <div class="purple"></div>
-                            <span>Purple</span>
-                        </li>
-                        <li data-theme="deep-purple">
-                            <div class="deep-purple"></div>
-                            <span>Deep Purple</span>
-                        </li>
-                        <li data-theme="indigo">
-                            <div class="indigo"></div>
-                            <span>Indigo</span>
-                        </li>
-                        <li data-theme="blue">
-                            <div class="blue"></div>
-                            <span>Blue</span>
-                        </li>
-                        <li data-theme="light-blue">
-                            <div class="light-blue"></div>
-                            <span>Light Blue</span>
-                        </li>
-                        <li data-theme="cyan">
-                            <div class="cyan"></div>
-                            <span>Cyan</span>
-                        </li>
-                        <li data-theme="teal">
-                            <div class="teal"></div>
-                            <span>Teal</span>
-                        </li>
-                        <li data-theme="green">
-                            <div class="green"></div>
-                            <span>Green</span>
-                        </li>
-                        <li data-theme="light-green">
-                            <div class="light-green"></div>
-                            <span>Light Green</span>
-                        </li>
-                        <li data-theme="lime">
-                            <div class="lime"></div>
-                            <span>Lime</span>
-                        </li>
-                        <li data-theme="yellow">
-                            <div class="yellow"></div>
-                            <span>Yellow</span>
-                        </li>
-                        <li data-theme="amber">
-                            <div class="amber"></div>
-                            <span>Amber</span>
-                        </li>
-                        <li data-theme="orange">
-                            <div class="orange"></div>
-                            <span>Orange</span>
-                        </li>
-                        <li data-theme="deep-orange">
-                            <div class="deep-orange"></div>
-                            <span>Deep Orange</span>
-                        </li>
-                        <li data-theme="brown">
-                            <div class="brown"></div>
-                            <span>Brown</span>
-                        </li>
-                        <li data-theme="grey">
-                            <div class="grey"></div>
-                            <span>Grey</span>
-                        </li>
-                        <li data-theme="blue-grey">
-                            <div class="blue-grey"></div>
-                            <span>Blue Grey</span>
-                        </li>
-                        <li data-theme="black">
-                            <div class="black"></div>
-                            <span>Black</span>
-                        </li>
-                    </ul>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="settings">
-                    <div class="demo-settings">
-                        <p>GENERAL SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Report Panel Usage</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Email Redirect</span>
-                                <div class="switch">
-                                    <label><input type="checkbox"><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>SYSTEM SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Notifications</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Auto Updates</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                        <p>ACCOUNT SETTINGS</p>
-                        <ul class="setting-list">
-                            <li>
-                                <span>Offline</span>
-                                <div class="switch">
-                                    <label><input type="checkbox"><span class="lever"></span></label>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Location Permission</span>
-                                <div class="switch">
-                                    <label><input type="checkbox" checked><span class="lever"></span></label>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </aside>
-        <!-- #END# Right Sidebar -->
     </section>
 
     <section class="content">
@@ -794,11 +423,21 @@
     <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
     <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
     <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+    <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/pages/tables/jquery-datatable.js"></script>
     <script src="js/pages/index.js"></script>
     <script src="js/demo.js"></script>
+    <script src="conf/validator.js" type="text/javascript"></script>
 </body>
-
 </html>
 
