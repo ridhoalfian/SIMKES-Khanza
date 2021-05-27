@@ -488,6 +488,7 @@ public class frmUtama extends javax.swing.JFrame {
         FlayMenu = new usu.widget.glass.PanelGlass();
         MenuBar = new widget.MenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         MnLogin = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         MnGantiPassword = new javax.swing.JMenuItem();
@@ -514,7 +515,26 @@ public class frmUtama extends javax.swing.JFrame {
         MnAnjungan = new javax.swing.JMenuItem();
         MnRekapHadir3 = new javax.swing.JMenuItem();
         MnRekapHadir4 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        MnAnjungan1 = new javax.swing.JMenuItem();
+        MnRekapHadir5 = new javax.swing.JMenuItem();
+        MnRekapHadir6 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        MnAnjungan2 = new javax.swing.JMenuItem();
+        MnRekapHadir7 = new javax.swing.JMenuItem();
+        MnRekapHadir8 = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        MnAnjungan3 = new javax.swing.JMenuItem();
+        MnRekapHadir9 = new javax.swing.JMenuItem();
+        MnRekapHadir10 = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
+        MnAnjungan4 = new javax.swing.JMenuItem();
+        MnRekapHadir11 = new javax.swing.JMenuItem();
+        MnRekapHadir12 = new javax.swing.JMenuItem();
+        jMenu12 = new javax.swing.JMenu();
+        MnAnjungan5 = new javax.swing.JMenuItem();
+        MnRekapHadir13 = new javax.swing.JMenuItem();
+        MnRekapHadir14 = new javax.swing.JMenuItem();
 
         DlgLogin.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgLogin.setName("DlgLogin"); // NOI18N
@@ -3511,14 +3531,38 @@ public class frmUtama extends javax.swing.JFrame {
 
         jMenu1.setBorder(null);
         jMenu1.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/85.png"))); // NOI18N
         jMenu1.setMnemonic('A');
-        jMenu1.setText("Program");
+        jMenu1.setText("  SIMKESKhanza");
         jMenu1.setToolTipText("Alt+A");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu1.setName("jMenu1"); // NOI18N
         jMenu1.setOpaque(false);
-        jMenu1.setPreferredSize(new java.awt.Dimension(80, 30));
+        jMenu1.setPreferredSize(new java.awt.Dimension(110, 30));
+
+        jMenu4.setBorder(null);
+        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu4.setMnemonic('G');
+        jMenu4.setText("Tentang SIMKES Khanza");
+        jMenu4.setToolTipText("Alt+G");
+        jMenu4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu4.setName("jMenu4"); // NOI18N
+        jMenu4.setOpaque(false);
+        jMenu4.setPreferredSize(new java.awt.Dimension(124, 30));
+        jMenu4.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu4MenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenu1.add(jMenu4);
 
         MnLogin.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnLogin.setForeground(new java.awt.Color(153, 0, 51));
@@ -3570,14 +3614,13 @@ public class frmUtama extends javax.swing.JFrame {
 
         jMenu5.setBorder(null);
         jMenu5.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/PatientMale.png"))); // NOI18N
         jMenu5.setMnemonic('P');
-        jMenu5.setText("Presensi Pegawai");
+        jMenu5.setText("  Umum");
         jMenu5.setToolTipText("Alt+P");
-        jMenu5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu5.setName("jMenu5"); // NOI18N
         jMenu5.setOpaque(false);
-        jMenu5.setPreferredSize(new java.awt.Dimension(127, 30));
+        jMenu5.setPreferredSize(new java.awt.Dimension(58, 30));
 
         MnBelumDatang1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnBelumDatang1.setForeground(new java.awt.Color(153, 0, 51));
@@ -3648,14 +3691,13 @@ public class frmUtama extends javax.swing.JFrame {
 
         jMenu6.setBorder(null);
         jMenu6.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Bar Chart.png"))); // NOI18N
         jMenu6.setMnemonic('I');
-        jMenu6.setText("Informasi");
+        jMenu6.setText("  Layanan");
         jMenu6.setToolTipText("Alt+I");
-        jMenu6.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu6.setName("jMenu6"); // NOI18N
         jMenu6.setOpaque(false);
-        jMenu6.setPreferredSize(new java.awt.Dimension(89, 30));
+        jMenu6.setPreferredSize(new java.awt.Dimension(70, 30));
 
         MnRekapBulanan1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnRekapBulanan1.setForeground(new java.awt.Color(153, 0, 51));
@@ -3804,14 +3846,13 @@ public class frmUtama extends javax.swing.JFrame {
 
         jMenu7.setBorder(null);
         jMenu7.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/My-Tickets24.png"))); // NOI18N
         jMenu7.setMnemonic('N');
-        jMenu7.setText("Anjungan & Antrian");
+        jMenu7.setText("  Manajemen");
         jMenu7.setToolTipText("Alt+N");
-        jMenu7.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        jMenu7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu7.setName("jMenu7"); // NOI18N
         jMenu7.setOpaque(false);
-        jMenu7.setPreferredSize(new java.awt.Dimension(138, 30));
+        jMenu7.setPreferredSize(new java.awt.Dimension(88, 30));
 
         MnAnjungan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnAnjungan.setForeground(new java.awt.Color(153, 0, 51));
@@ -3854,31 +3895,260 @@ public class frmUtama extends javax.swing.JFrame {
 
         MenuBar.add(jMenu7);
 
-        jMenu4.setBorder(null);
-        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/63.png"))); // NOI18N
-        jMenu4.setMnemonic('G');
-        jMenu4.setText("Tentang Program");
-        jMenu4.setToolTipText("Alt+G");
-        jMenu4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        jMenu4.setName("jMenu4"); // NOI18N
-        jMenu4.setOpaque(false);
-        jMenu4.setPreferredSize(new java.awt.Dimension(124, 30));
-        jMenu4.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu4MenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+        jMenu8.setBorder(null);
+        jMenu8.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu8.setMnemonic('N');
+        jMenu8.setText("  Keuangan");
+        jMenu8.setToolTipText("Alt+N");
+        jMenu8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenu8.setName("jMenu8"); // NOI18N
+        jMenu8.setOpaque(false);
+        jMenu8.setPreferredSize(new java.awt.Dimension(78, 30));
+
+        MnAnjungan1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnAnjungan1.setForeground(new java.awt.Color(153, 0, 51));
+        MnAnjungan1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/family24.png"))); // NOI18N
+        MnAnjungan1.setText("Anjungan Registrasi Mandiri");
+        MnAnjungan1.setName("MnAnjungan1"); // NOI18N
+        MnAnjungan1.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnAnjungan1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAnjungan1ActionPerformed(evt);
             }
         });
-        MenuBar.add(jMenu4);
+        jMenu8.add(MnAnjungan1);
+
+        MnRekapHadir5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir5.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir5.setText("Antrian Loket");
+        MnRekapHadir5.setName("MnRekapHadir5"); // NOI18N
+        MnRekapHadir5.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir5ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(MnRekapHadir5);
+
+        MnRekapHadir6.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir6.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir6.setText("Antrian Unit/Poliklinik");
+        MnRekapHadir6.setName("MnRekapHadir6"); // NOI18N
+        MnRekapHadir6.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir6ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(MnRekapHadir6);
+
+        MenuBar.add(jMenu8);
+
+        jMenu9.setBorder(null);
+        jMenu9.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu9.setMnemonic('N');
+        jMenu9.setText("  Inventory");
+        jMenu9.setToolTipText("Alt+N");
+        jMenu9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenu9.setName("jMenu9"); // NOI18N
+        jMenu9.setOpaque(false);
+        jMenu9.setPreferredSize(new java.awt.Dimension(74, 30));
+
+        MnAnjungan2.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnAnjungan2.setForeground(new java.awt.Color(153, 0, 51));
+        MnAnjungan2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/family24.png"))); // NOI18N
+        MnAnjungan2.setText("Anjungan Registrasi Mandiri");
+        MnAnjungan2.setName("MnAnjungan2"); // NOI18N
+        MnAnjungan2.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnAnjungan2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAnjungan2ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(MnAnjungan2);
+
+        MnRekapHadir7.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir7.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir7.setText("Antrian Loket");
+        MnRekapHadir7.setName("MnRekapHadir7"); // NOI18N
+        MnRekapHadir7.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir7ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(MnRekapHadir7);
+
+        MnRekapHadir8.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir8.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir8.setText("Antrian Unit/Poliklinik");
+        MnRekapHadir8.setName("MnRekapHadir8"); // NOI18N
+        MnRekapHadir8.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir8ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(MnRekapHadir8);
+
+        MenuBar.add(jMenu9);
+
+        jMenu10.setBorder(null);
+        jMenu10.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu10.setMnemonic('N');
+        jMenu10.setText("  Bridging");
+        jMenu10.setToolTipText("Alt+N");
+        jMenu10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenu10.setName("jMenu10"); // NOI18N
+        jMenu10.setOpaque(false);
+        jMenu10.setPreferredSize(new java.awt.Dimension(68, 30));
+
+        MnAnjungan3.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnAnjungan3.setForeground(new java.awt.Color(153, 0, 51));
+        MnAnjungan3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/family24.png"))); // NOI18N
+        MnAnjungan3.setText("Anjungan Registrasi Mandiri");
+        MnAnjungan3.setName("MnAnjungan3"); // NOI18N
+        MnAnjungan3.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnAnjungan3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAnjungan3ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(MnAnjungan3);
+
+        MnRekapHadir9.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir9.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir9.setText("Antrian Loket");
+        MnRekapHadir9.setName("MnRekapHadir9"); // NOI18N
+        MnRekapHadir9.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir9ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(MnRekapHadir9);
+
+        MnRekapHadir10.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir10.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir10.setText("Antrian Unit/Poliklinik");
+        MnRekapHadir10.setName("MnRekapHadir10"); // NOI18N
+        MnRekapHadir10.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir10ActionPerformed(evt);
+            }
+        });
+        jMenu10.add(MnRekapHadir10);
+
+        MenuBar.add(jMenu10);
+
+        jMenu11.setBorder(null);
+        jMenu11.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu11.setMnemonic('N');
+        jMenu11.setText("  Laporan");
+        jMenu11.setToolTipText("Alt+N");
+        jMenu11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenu11.setName("jMenu11"); // NOI18N
+        jMenu11.setOpaque(false);
+        jMenu11.setPreferredSize(new java.awt.Dimension(67, 30));
+
+        MnAnjungan4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnAnjungan4.setForeground(new java.awt.Color(153, 0, 51));
+        MnAnjungan4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/family24.png"))); // NOI18N
+        MnAnjungan4.setText("Anjungan Registrasi Mandiri");
+        MnAnjungan4.setName("MnAnjungan4"); // NOI18N
+        MnAnjungan4.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnAnjungan4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAnjungan4ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(MnAnjungan4);
+
+        MnRekapHadir11.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir11.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir11.setText("Antrian Loket");
+        MnRekapHadir11.setName("MnRekapHadir11"); // NOI18N
+        MnRekapHadir11.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir11ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(MnRekapHadir11);
+
+        MnRekapHadir12.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir12.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir12.setText("Antrian Unit/Poliklinik");
+        MnRekapHadir12.setName("MnRekapHadir12"); // NOI18N
+        MnRekapHadir12.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir12ActionPerformed(evt);
+            }
+        });
+        jMenu11.add(MnRekapHadir12);
+
+        MenuBar.add(jMenu11);
+
+        jMenu12.setBorder(null);
+        jMenu12.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu12.setMnemonic('N');
+        jMenu12.setText("  Bantuan");
+        jMenu12.setToolTipText("Alt+N");
+        jMenu12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenu12.setName("jMenu12"); // NOI18N
+        jMenu12.setOpaque(false);
+        jMenu12.setPreferredSize(new java.awt.Dimension(68, 30));
+
+        MnAnjungan5.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnAnjungan5.setForeground(new java.awt.Color(153, 0, 51));
+        MnAnjungan5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/family24.png"))); // NOI18N
+        MnAnjungan5.setText("Anjungan Registrasi Mandiri");
+        MnAnjungan5.setName("MnAnjungan5"); // NOI18N
+        MnAnjungan5.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnAnjungan5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAnjungan5ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(MnAnjungan5);
+
+        MnRekapHadir13.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir13.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir13.setText("Antrian Loket");
+        MnRekapHadir13.setName("MnRekapHadir13"); // NOI18N
+        MnRekapHadir13.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir13ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(MnRekapHadir13);
+
+        MnRekapHadir14.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        MnRekapHadir14.setForeground(new java.awt.Color(153, 0, 51));
+        MnRekapHadir14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
+        MnRekapHadir14.setText("Antrian Unit/Poliklinik");
+        MnRekapHadir14.setName("MnRekapHadir14"); // NOI18N
+        MnRekapHadir14.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnRekapHadir14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRekapHadir14ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(MnRekapHadir14);
+
+        MenuBar.add(jMenu12);
 
         setJMenuBar(MenuBar);
 
@@ -5358,16 +5628,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSudahPulang1ActionPerformed
 
-    private void MnRekapBulanan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapBulanan1ActionPerformed
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
-        DlgHome.dispose();
-        informasikamar.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-        informasikamar.setLocationRelativeTo(PanelUtama);
-        informasikamar.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_MnRekapBulanan1ActionPerformed
-
     private void MnRekapHadir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir1ActionPerformed
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgHome.dispose();
@@ -6688,6 +6948,76 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnBatalPendaftaranMobileJKNActionPerformed
 
+    private void MnAnjungan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAnjungan1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnAnjungan1ActionPerformed
+
+    private void MnRekapHadir5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir5ActionPerformed
+
+    private void MnRekapHadir6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir6ActionPerformed
+
+    private void MnAnjungan2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAnjungan2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnAnjungan2ActionPerformed
+
+    private void MnRekapHadir7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir7ActionPerformed
+
+    private void MnRekapHadir8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir8ActionPerformed
+
+    private void MnAnjungan3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAnjungan3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnAnjungan3ActionPerformed
+
+    private void MnRekapHadir9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir9ActionPerformed
+
+    private void MnRekapHadir10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir10ActionPerformed
+
+    private void MnAnjungan4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAnjungan4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnAnjungan4ActionPerformed
+
+    private void MnRekapHadir11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir11ActionPerformed
+
+    private void MnRekapHadir12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir12ActionPerformed
+
+    private void MnAnjungan5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAnjungan5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnAnjungan5ActionPerformed
+
+    private void MnRekapHadir13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir13ActionPerformed
+
+    private void MnRekapHadir14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnRekapHadir14ActionPerformed
+
+    private void MnRekapBulanan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapBulanan1ActionPerformed
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+        DlgHome.dispose();
+        informasikamar.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        informasikamar.setLocationRelativeTo(PanelUtama);
+        informasikamar.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_MnRekapBulanan1ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -6717,6 +7047,11 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private widget.MenuBar MenuBar;
     private javax.swing.JMenuItem MenuKeluar;
     private javax.swing.JMenuItem MnAnjungan;
+    private javax.swing.JMenuItem MnAnjungan1;
+    private javax.swing.JMenuItem MnAnjungan2;
+    private javax.swing.JMenuItem MnAnjungan3;
+    private javax.swing.JMenuItem MnAnjungan4;
+    private javax.swing.JMenuItem MnAnjungan5;
     private javax.swing.JMenuItem MnBelumDatang;
     private javax.swing.JMenuItem MnBelumDatang1;
     private javax.swing.JMenuItem MnGantiPassword;
@@ -6728,8 +7063,18 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenuItem MnRekapBulanan2;
     private javax.swing.JMenuItem MnRekapHadir;
     private javax.swing.JMenuItem MnRekapHadir1;
+    private javax.swing.JMenuItem MnRekapHadir10;
+    private javax.swing.JMenuItem MnRekapHadir11;
+    private javax.swing.JMenuItem MnRekapHadir12;
+    private javax.swing.JMenuItem MnRekapHadir13;
+    private javax.swing.JMenuItem MnRekapHadir14;
     private javax.swing.JMenuItem MnRekapHadir3;
     private javax.swing.JMenuItem MnRekapHadir4;
+    private javax.swing.JMenuItem MnRekapHadir5;
+    private javax.swing.JMenuItem MnRekapHadir6;
+    private javax.swing.JMenuItem MnRekapHadir7;
+    private javax.swing.JMenuItem MnRekapHadir8;
+    private javax.swing.JMenuItem MnRekapHadir9;
     private javax.swing.JMenuItem MnSudahPulang;
     private javax.swing.JMenuItem MnSudahPulang1;
     private javax.swing.JMenuItem MnSudahPulang2;
@@ -6942,10 +7287,15 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JLabel jLabel8;
     private widget.Label jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
