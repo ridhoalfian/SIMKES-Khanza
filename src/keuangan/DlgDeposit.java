@@ -11,13 +11,13 @@
 
 package keuangan;
 
-import kepegawaian.DlgCariPetugas;
+import simrskhanza.DlgCariPetugas;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -64,6 +64,8 @@ public class DlgDeposit extends javax.swing.JDialog {
     public DlgDeposit(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocation(10,2);
+        setSize(628,674);
 
         Object[] row={"No.Rawat","Pasien","Tanggal","Besar Deposit","Petugas"};
         tabMode=new DefaultTableModel(null,row){
@@ -95,7 +97,7 @@ public class DlgDeposit extends javax.swing.JDialog {
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         kdptg.setDocument(new batasInput((byte)20).getKata(kdptg));
         BesarDeposit.setDocument(new batasInput((byte)15).getOnlyAngka(BesarDeposit));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -214,7 +216,6 @@ public class DlgDeposit extends javax.swing.JDialog {
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
-        MnKwitansiDeposit.setBackground(new java.awt.Color(255, 255, 254));
         MnKwitansiDeposit.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnKwitansiDeposit.setForeground(java.awt.Color.darkGray);
         MnKwitansiDeposit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
@@ -237,7 +238,7 @@ public class DlgDeposit extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Deposit/Titipan Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Deposit/Titipan Pasien ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -732,14 +733,14 @@ public class DlgDeposit extends javax.swing.JDialog {
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){
             Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReportqry("rptDeposit.jasper","report","::[ Data Deposit/Titipan Pasien ]::","select deposit.no_rawat,concat(reg_periksa.no_rkm_medis,' ',pasien.nm_pasien) as pasien, " +
+            Valid.MyReport("rptDeposit.jrxml","report","::[ Data Deposit/Titipan Pasien ]::","select deposit.no_rawat,concat(reg_periksa.no_rkm_medis,' ',pasien.nm_pasien) as pasien, " +
                 "deposit.tgl_deposit,deposit.besar_deposit,concat(deposit.nip,' ',petugas.nama) as petugas " +
                 "from deposit inner join reg_periksa inner join pasien inner join petugas " +
                 "on deposit.no_rawat=reg_periksa.no_rawat " +
@@ -1003,9 +1004,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getdeposit_pasien());
-        BtnHapus.setEnabled(akses.getdeposit_pasien());
-        BtnPrint.setEnabled(akses.getdeposit_pasien());
+        BtnSimpan.setEnabled(var.getdeposit_pasien());
+        BtnHapus.setEnabled(var.getdeposit_pasien());
+        BtnPrint.setEnabled(var.getdeposit_pasien());
     }
     
     private void jam(){

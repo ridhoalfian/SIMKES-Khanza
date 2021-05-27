@@ -44,7 +44,7 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
-        Object[] row={"P","Kode Periksa","Nama Pemeriksaan","J.S. RS","Paket BHP","J.M. Perujuk","J.M. Dokter","J.M. Petugas","K.S.O.","Menejemen","Total Tarif","Jenis Bayar","Kelas"};
+        Object[] row={"P","Kode Periksa","Nama Pemeriksaan","J.S. RS","Paket BHP","J.M. Perujuk","J.M. Dokter","J.M. Petugas","K.S.O.","Menejemen","Total Tarif","Jenis Bayar"};
         tabMode=new DefaultTableModel(null,row){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -56,8 +56,7 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Double.class, 
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, 
-                java.lang.Double.class,java.lang.Double.class,java.lang.Double.class, java.lang.Object.class, 
-                java.lang.Object.class
+                java.lang.Double.class,java.lang.Double.class,java.lang.Double.class, java.lang.Object.class
              };
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -70,7 +69,7 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
         tbJnsPerawatan.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbJnsPerawatan.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 13; i++) {
+        for (i = 0; i < 12; i++) {
             TableColumn column = tbJnsPerawatan.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(20);
@@ -80,8 +79,6 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
                 column.setPreferredWidth(180);
             }else if(i==11){
                 column.setPreferredWidth(140);
-            }else if(i==12){
-                column.setPreferredWidth(70);
             }else{
                 column.setPreferredWidth(80);
             }
@@ -89,26 +86,14 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
         tbJnsPerawatan.setDefaultRenderer(Object.class, new WarnaTable());
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
-                public void insertUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void insertUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void removeUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void removeUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void changedUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void changedUpdate(DocumentEvent e) {tampil();}
             });
         }  
         
@@ -148,7 +133,7 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Restore & Hapus Permanen Data Sampah ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Restore & Hapus Permanen Data Sampah ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -156,6 +141,7 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbJnsPerawatan.setAutoCreateRowSorter(true);
+        tbJnsPerawatan.setToolTipText("Silahkan klik untuk memilih data yang mau diedit, untuk menghapus data silahkan centang kemudian klik hapus");
         tbJnsPerawatan.setName("tbJnsPerawatan"); // NOI18N
         Scroll.setViewportView(tbJnsPerawatan);
 
@@ -409,17 +395,15 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
                         "select jns_perawatan_lab.kd_jenis_prw,jns_perawatan_lab.nm_perawatan,jns_perawatan_lab.bagian_rs,jns_perawatan_lab.bhp,"+
                         "jns_perawatan_lab.tarif_perujuk,jns_perawatan_lab.tarif_tindakan_dokter,jns_perawatan_lab.tarif_tindakan_petugas,"+
                         "jns_perawatan_lab.kso,jns_perawatan_lab.menejemen,jns_perawatan_lab.total_byr, "+
-                        "penjab.png_jawab,jns_perawatan_lab.kelas from jns_perawatan_lab inner join penjab on penjab.kd_pj=jns_perawatan_lab.kd_pj where "+
+                        "penjab.png_jawab from jns_perawatan_lab inner join penjab on penjab.kd_pj=jns_perawatan_lab.kd_pj where "+
                         " jns_perawatan_lab.status='0' and jns_perawatan_lab.kd_jenis_prw like ? or  "+
                         " jns_perawatan_lab.status='0' and jns_perawatan_lab.nm_perawatan like ? or "+
-                        " jns_perawatan_lab.status='0' and jns_perawatan_lab.kelas like ? or "+
                         " jns_perawatan_lab.status='0' and penjab.png_jawab like ? "+
                         "order by jns_perawatan_lab.kd_jenis_prw");
             try {    
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 ps.setString(2,"%"+TCari.getText().trim()+"%");
                 ps.setString(3,"%"+TCari.getText().trim()+"%");
-                ps.setString(4,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
                     Object[] data={false,rs.getString(1),
@@ -432,8 +416,7 @@ public final class DlgRestoreTarifLab extends javax.swing.JDialog {
                                    rs.getDouble(8),
                                    rs.getDouble(9),
                                    rs.getDouble(10),
-                                   rs.getString(11),
-                                   rs.getString(12)};
+                                   rs.getString(11)};
                     tabMode.addRow(data);
                 }
             } catch (Exception e) {

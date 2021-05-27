@@ -46,11 +46,18 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
-        Object[] row={"P","Kode Tindakan","Nama Tnd/Prw/Tagihan","Kategori",
-                      "J.S.Rumah Sakit","BHP/Paket Obat","J.Medis Dr",
-                      "J.Medis Pr","KSO","Menejemen","Ttl Biaya Dr",
-                      "Ttl Biaya Pr","Ttl Biaya Dr & Pr","Jenis Bayar",
-                      "Kamar","Kelas"};
+        Object[] row={"P","Kode Tindakan",
+                      "Nama Tnd/Prw/Tagihan",
+                      "Kategori",
+                      "J.S.Rumah Sakit",
+                      "BHP/Paket Obat",
+                      "J.Medis Dr",
+                      "J.Medis Pr",
+                      "Ttl Biaya Dr",
+                      "Ttl Biaya Pr",
+                      "Ttl Biaya Dr & Pr",
+                      "Jenis Bayar",
+                      "Kamar"};
         tabMode=new DefaultTableModel(null,row){
              @Override public boolean isCellEditable(int rowIndex, int colIndex){
                 boolean a = false;
@@ -62,8 +69,8 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
              Class[] types = new Class[] {
                 java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class,
                 java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class,
-                java.lang.Double.class, java.lang.Double.class,java.lang.Double.class,java.lang.Double.class,
-                java.lang.Double.class, java.lang.Object.class,java.lang.Object.class,java.lang.Object.class
+                java.lang.Double.class, java.lang.Double.class, java.lang.Double.class, java.lang.Object.class,
+                java.lang.Object.class
              };
              @Override
              public Class getColumnClass(int columnIndex) {
@@ -76,7 +83,7 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
         tbJnsPerawatan.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbJnsPerawatan.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (i = 0; i < 16; i++) {
+        for (i = 0; i < 13; i++) {
             TableColumn column = tbJnsPerawatan.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(20);
@@ -84,8 +91,6 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
                 column.setPreferredWidth(80);
             }else if(i==2){
                 column.setPreferredWidth(250);
-            }else if(i==15){
-                column.setPreferredWidth(70);
             }else{
                 column.setPreferredWidth(85);
             }
@@ -93,26 +98,14 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
         tbJnsPerawatan.setDefaultRenderer(Object.class, new WarnaTable());
         
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
-                public void insertUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void insertUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void removeUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void removeUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void changedUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void changedUpdate(DocumentEvent e) {tampil();}
             });
         }  
         
@@ -152,7 +145,7 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Restore & Hapus Permanen Data Sampah ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Restore & Hapus Permanen Data Sampah ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -160,6 +153,7 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbJnsPerawatan.setAutoCreateRowSorter(true);
+        tbJnsPerawatan.setToolTipText("Silahkan klik untuk memilih data yang mau diedit, untuk menghapus data silahkan centang kemudian klik hapus");
         tbJnsPerawatan.setName("tbJnsPerawatan"); // NOI18N
         Scroll.setViewportView(tbJnsPerawatan);
 
@@ -411,8 +405,8 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
         try{
             ps=koneksi.prepareStatement(
                         "select jns_perawatan_inap.kd_jenis_prw,jns_perawatan_inap.nm_perawatan,kategori_perawatan.nm_kategori,"+
-                       "jns_perawatan_inap.material,jns_perawatan_inap.bhp,jns_perawatan_inap.tarif_tindakandr,jns_perawatan_inap.tarif_tindakanpr,jns_perawatan_inap.kso,jns_perawatan_inap.menejemen,"+
-                       "jns_perawatan_inap.total_byrdr,jns_perawatan_inap.total_byrpr,jns_perawatan_inap.total_byrdrpr,penjab.png_jawab,bangsal.nm_bangsal,jns_perawatan_inap.kelas "+
+                       "jns_perawatan_inap.material,jns_perawatan_inap.bhp,jns_perawatan_inap.tarif_tindakandr,jns_perawatan_inap.tarif_tindakanpr,"+
+                       "jns_perawatan_inap.total_byrdr,jns_perawatan_inap.total_byrpr,jns_perawatan_inap.total_byrdrpr,penjab.png_jawab,bangsal.nm_bangsal "+
                        "from jns_perawatan_inap inner join kategori_perawatan inner join penjab inner join bangsal  "+
                        "on jns_perawatan_inap.kd_kategori=kategori_perawatan.kd_kategori "+
                        "and bangsal.kd_bangsal=jns_perawatan_inap.kd_bangsal "+
@@ -421,7 +415,6 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
                         "jns_perawatan_inap.status='0' and jns_perawatan_inap.nm_perawatan like ? or "+
                         "jns_perawatan_inap.status='0' and kategori_perawatan.nm_kategori like ? or "+
                         "jns_perawatan_inap.status='0' and penjab.png_jawab like ? or "+
-                        "jns_perawatan_inap.status='0' and jns_perawatan_inap.kelas like ? or "+
                         "jns_perawatan_inap.status='0' and bangsal.nm_bangsal like ?  "+
                         "order by jns_perawatan_inap.kd_jenis_prw");
             try {  
@@ -430,14 +423,12 @@ public final class DlgRestoreTarifRanap extends javax.swing.JDialog {
                 ps.setString(3,"%"+TCari.getText().trim()+"%");
                 ps.setString(4,"%"+TCari.getText().trim()+"%");
                 ps.setString(5,"%"+TCari.getText().trim()+"%");
-                ps.setString(6,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
                     tabMode.addRow(new Object[]{
                         false,rs.getString(1),rs.getString(2),rs.getString(3),rs.getDouble(4),
                         rs.getDouble(5),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),
-                        rs.getDouble(9),rs.getDouble(10),rs.getDouble(11),rs.getDouble(12),
-                        rs.getString(13),rs.getString(14),rs.getString(15)
+                        rs.getDouble(9),rs.getDouble(10),rs.getString(11),rs.getString(12)
                     });
                 }
             } catch (SQLException e) {

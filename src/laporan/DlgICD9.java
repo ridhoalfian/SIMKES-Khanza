@@ -16,7 +16,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -94,26 +94,14 @@ public final class DlgICD9 extends javax.swing.JDialog {
         Pendek.setDocument(new batasInput((int)100).getKata(Pendek));
         Panjang.setDocument(new batasInput((int)1500).getKata(Panjang));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
-                public void insertUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void insertUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void removeUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void removeUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void changedUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void changedUpdate(DocumentEvent e) {tampil();}
             });
         } 
         
@@ -171,7 +159,7 @@ public final class DlgICD9 extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data ICD 9 Prosedur Tindakan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data ICD 9 Prosedur Tindakan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -425,11 +413,10 @@ public final class DlgICD9 extends javax.swing.JDialog {
         FormInput.add(jLabel9);
         jLabel9.setBounds(0, 42, 100, 23);
 
-        ScrollCiri.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        ScrollCiri.setForeground(new java.awt.Color(50,50,50));
+        ScrollCiri.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        ScrollCiri.setForeground(new java.awt.Color(153, 0, 51));
         ScrollCiri.setName("ScrollCiri"); // NOI18N
 
-        Panjang.setBorder(null);
         Panjang.setColumns(20);
         Panjang.setRows(5);
         Panjang.setName("Panjang"); // NOI18N
@@ -580,14 +567,14 @@ public final class DlgICD9 extends javax.swing.JDialog {
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){  
             Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting"));           
-            Valid.MyReportqry("rptICD9.jasper","report","::[ Data Prosedur ]::",
+            Valid.MyReport("rptICD9.jrxml","report","::[ Data Prosedur ]::",
                 "select * from icd9 where kode like '%"+TCari.getText().trim()+"%' or "+
                 " deskripsi_panjang like '%"+TCari.getText().trim()+"%' or "+
                 " deskripsi_pendek like '%"+TCari.getText().trim()+"%' order by kode ",param);
@@ -788,9 +775,9 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.geticd9());
-        BtnHapus.setEnabled(akses.geticd9());
-        BtnEdit.setEnabled(akses.geticd9());
-        BtnPrint.setEnabled(akses.geticd9());
+        BtnSimpan.setEnabled(var.geticd9());
+        BtnHapus.setEnabled(var.geticd9());
+        BtnEdit.setEnabled(var.geticd9());
+        BtnPrint.setEnabled(var.geticd9());
     }
 }

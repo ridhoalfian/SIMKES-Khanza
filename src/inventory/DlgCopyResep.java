@@ -3,7 +3,7 @@ import fungsi.WarnaTable;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
@@ -105,7 +105,7 @@ public class DlgCopyResep extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Daftar Resep Dokter Di Kunjungan Sebelumnya ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Daftar Resep Dokter Di Kunjungan Sebelumnya ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -118,7 +118,7 @@ public class DlgCopyResep extends javax.swing.JDialog {
         ChkTanggal.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         ChkTanggal.setName("ChkTanggal"); // NOI18N
         ChkTanggal.setOpaque(false);
-        ChkTanggal.setPreferredSize(new java.awt.Dimension(90, 23));
+        ChkTanggal.setPreferredSize(new java.awt.Dimension(85, 23));
         ChkTanggal.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ChkTanggalItemStateChanged(evt);
@@ -292,7 +292,7 @@ public class DlgCopyResep extends javax.swing.JDialog {
     private void tbPemisahanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPemisahanMouseClicked
         if(tabMode.getRowCount()!=0){
             if(evt.getClickCount()==2){
-                if(akses.getberi_obat()==true){
+                if(var.getberi_obat()==true){
                     BtnTambahActionPerformed(null);
                 }
             }
@@ -302,7 +302,7 @@ public class DlgCopyResep extends javax.swing.JDialog {
     private void tbPemisahanKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPemisahanKeyPressed
         if(tabMode.getRowCount()!=0){
             if(evt.getKeyCode()==KeyEvent.VK_SPACE){
-                if(akses.getberi_obat()==true){
+                if(var.getberi_obat()==true){
                     BtnTambahActionPerformed(null);
                 }                    
             }
@@ -323,10 +323,10 @@ public class DlgCopyResep extends javax.swing.JDialog {
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
         }else if(tbPemisahan.getSelectedRow()<= -1){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data resep dokter..!!");
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data resep dokter yang mau divalidasi..!!");
         }else{
             if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString().equals("")){
-                JOptionPane.showMessageDialog(rootPane,"Silahkan pilih No.Resep..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan pilih No.Resep yang mau dicopy ..!!");
             }else {
                 jmlparsial=0;
                 if(aktifkanparsial.equals("yes")){
@@ -366,10 +366,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
         }else if(tbPemisahan.getSelectedRow()<= -1){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data resep dokter..!!");
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data resep dokter yang mau divalidasi..!!");
         }else{
             if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString().equals("")){
-                JOptionPane.showMessageDialog(rootPane,"Silahkan pilih No.Resep ..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan pilih No.Resep yang mau dicopy ..!!");
             }else {
                 jmlparsial=0;
                 if(aktifkanparsial.equals("yes")){
@@ -400,10 +400,10 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
         }else if(tbPemisahan.getSelectedRow()<= -1){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data resep dokter..!!");
+            JOptionPane.showMessageDialog(null,"Maaf, Silahkan pilih data resep dokter yang mau divalidasi..!!");
         }else{
             if(tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString().equals("")){
-                JOptionPane.showMessageDialog(rootPane,"Silahkan pilih No.Resep..!!");
+                JOptionPane.showMessageDialog(rootPane,"Silahkan pilih No.Resep yang mau dicopy ..!!");
             }else {
                 Sequel.meghapus("resep_obat","no_resep",tbPemisahan.getValueAt(tbPemisahan.getSelectedRow(),0).toString()); 
                 tampil();               
@@ -572,7 +572,7 @@ private void KdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TKdKey
     }
 
     public void isCek(){
-        BtnTambah.setEnabled(akses.getresep_dokter());
+        //BtnTambah.setEnabled(var.getresep_dokter());
     }
     
     public void setRM(String norawat,String norm,String kodedokter,String kodepj,String status){

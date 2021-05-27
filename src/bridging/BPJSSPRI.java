@@ -7,13 +7,14 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.FileInputStream;
 import java.net.URI;
 import java.security.SecureRandom;
 import java.security.cert.CertificateException;
@@ -24,6 +25,7 @@ import java.sql.ResultSet;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.X509TrustManager;
 import javax.swing.JOptionPane;
@@ -49,6 +51,7 @@ import org.springframework.web.client.RestTemplate;
  */
 public class BPJSSPRI extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
+    private final Properties prop = new Properties();
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
@@ -125,7 +128,7 @@ public class BPJSSPRI extends javax.swing.JDialog {
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         Diagnosa.setDocument(new batasInput((byte)50).getKata(Diagnosa));
         KdDokter.setDocument(new batasInput((byte)20).getKata(KdDokter));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -231,13 +234,14 @@ public class BPJSSPRI extends javax.swing.JDialog {
         
         
         try {
-            user=akses.getkode().replace(" ","").substring(0,9);
+            user=var.getkode().replace(" ","").substring(0,9);
         } catch (Exception e) {
-            user=akses.getkode();
+            user=var.getkode();
         }
         
         try {
-            link=koneksiDB.URLAPIBPJS();
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            link = prop.getProperty("URLAPIBPJS");
         } catch (Exception e) {
             System.out.println("E : "+e);
         }
@@ -924,7 +928,7 @@ public class BPJSSPRI extends javax.swing.JDialog {
             try {
                 headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-                headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+                headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
                 headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
                 headers.add("X-Signature",api.getHmac());
                 URL = link+"/RencanaKontrol/InsertSPRI";            
@@ -1021,12 +1025,12 @@ public class BPJSSPRI extends javax.swing.JDialog {
         }else if(tabMode.getRowCount()!=0){
             if(R1.isSelected()==true){
                 Map<String, Object> param = new HashMap<>(); 
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
                 Valid.MyReportqry("rptBridgingSuratPRI.jasper","report","::[ Data Surat PRI VClaim ]::",
                     "select bridging_surat_pri_bpjs.no_rawat,bridging_surat_pri_bpjs.no_kartu,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,"+
@@ -1041,12 +1045,12 @@ public class BPJSSPRI extends javax.swing.JDialog {
                     "order by bridging_surat_pri_bpjs.tgl_surat",param);
             }else if(R2.isSelected()==true){
                 Map<String, Object> param = new HashMap<>(); 
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
                 Valid.MyReportqry("rptBridgingSuratPRI.jasper","report","::[ Data Surat PRI VClaim ]::",
                     "select bridging_surat_pri_bpjs.no_rawat,bridging_surat_pri_bpjs.no_kartu,reg_periksa.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,"+
@@ -1162,7 +1166,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
                 try {
                     headers = new HttpHeaders();
                     headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-                    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+                    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
                     headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
                     headers.add("X-Signature",api.getHmac());
                     URL = link+"/RencanaKontrol/UpdateSPRI";            
@@ -1246,11 +1250,11 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         if(tbObat.getSelectedRow()!= -1){
             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)); 
             Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
             param.put("logo",Sequel.cariGambar("select bpjs from gambar")); 
             param.put("parameter",tbObat.getValueAt(tbObat.getSelectedRow(),0).toString());
             Valid.MyReportqry("rptBridgingSuratPRI2.jasper","report","::[ Data Surat PRI VClaim ]::",
@@ -1567,10 +1571,10 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getbpjs_surat_pri());
-        BtnHapus.setEnabled(akses.getbpjs_surat_pri());
-        BtnPrint.setEnabled(akses.getbpjs_surat_pri());
-        BtnEdit.setEnabled(akses.getbpjs_surat_pri());
+        //BtnSimpan.setEnabled(var.getbpjs_surat_pri());
+        //BtnHapus.setEnabled(var.getbpjs_surat_pri());
+        //BtnPrint.setEnabled(var.getbpjs_surat_pri());
+        //BtnEdit.setEnabled(var.getbpjs_surat_pri());
     }
 
     public JTable getTable(){
@@ -1619,7 +1623,7 @@ private void ChkInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-            headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
             headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
             headers.add("X-Signature",api.getHmac());
             URL = link+"/RencanaKontrol/DeleteSPRI";

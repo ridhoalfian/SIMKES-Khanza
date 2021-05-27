@@ -49,7 +49,7 @@ public class DlgKelurahan extends javax.swing.JDialog {
         this.setLocation(10,10);
         setSize(459,539);
 
-        Object[] row={"Nama Kelurahan","Kode"};
+        Object[] row={"Nama Kelurahan"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -60,41 +60,31 @@ public class DlgKelurahan extends javax.swing.JDialog {
         tbkelurahan.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbkelurahan.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             TableColumn column = tbkelurahan.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(500);
-            }else if(i==1){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
             }
         }
 
         tbkelurahan.setDefaultRenderer(Object.class, new WarnaTable());
         Nama.setDocument(new batasInput((byte)60).getFilter(Nama));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
-                public void insertUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void insertUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void removeUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void removeUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void changedUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void changedUpdate(DocumentEvent e) {tampil();}
             });
         } 
+        
+        try {
+            ps=koneksi.prepareStatement("select nm_kel from kelurahan where nm_kel like ? ");
+        } catch (Exception e) {
+        }
     }
 
     /** This method is called from within the constructor to
@@ -136,7 +126,7 @@ public class DlgKelurahan extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Kelurahan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Kelurahan ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -144,6 +134,7 @@ public class DlgKelurahan extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbkelurahan.setAutoCreateRowSorter(true);
+        tbkelurahan.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbkelurahan.setName("tbkelurahan"); // NOI18N
         tbkelurahan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -484,24 +475,12 @@ public class DlgKelurahan extends javax.swing.JDialog {
 
     private void tampil() {
         Valid.tabelKosong(tabMode);
-        try{    
-            ps=koneksi.prepareStatement("select nm_kel,kd_kel from kelurahan where nm_kel like ? ");
-            try {
-                ps.setString(1,"%"+TCari.getText().trim()+"%");
-                rs=ps.executeQuery();
-                while(rs.next()){                
-                    tabMode.addRow(new String[]{rs.getString(1),rs.getString(2)});
-                }
-            } catch (Exception e) {
-                System.out.println("Notif : "+e);
-            } finally{
-                if(rs!=null){
-                    rs.close();
-                }
-                if(ps!=null){
-                    ps.close();
-                }
-            }
+        try{            
+            ps.setString(1,"%"+TCari.getText().trim()+"%");
+            rs=ps.executeQuery();
+            while(rs.next()){                
+                tabMode.addRow(new String[]{rs.getString(1)});
+             }
         }catch(SQLException e){
             System.out.println("Notifikasi : "+e);
         }

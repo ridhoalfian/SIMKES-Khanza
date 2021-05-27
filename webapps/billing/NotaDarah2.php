@@ -6,9 +6,7 @@
         <link href="css/default.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <script type="text/javascript">
-            window.onload = function() { window.print(); }
-        </script>
+
     <?php
     reportsqlinjection();      
         $nopenyerahan    =str_replace("_"," ",$_GET['nopenyerahan']); 

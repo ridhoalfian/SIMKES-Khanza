@@ -2,19 +2,15 @@
  include '../../../conf/conf.php';
    $_sql         = "SELECT * FROM set_tahun";
    $hasil        = bukaquery($_sql);
-   $baristahun   = mysqli_fetch_row($hasil);
-   $tahun     = empty($baristhn[0])?date("Y"):$baristhn[0];
-   $blnini    = empty($baristhn[1])?date("m"):$baristhn[1];
-   $hari      = empty($baristhn[2])?date("d"):$baristhn[2];
-   $bln_leng  = strlen($blnini);
-   $bulan     = "0";
+   $baris        = mysqli_fetch_row($hasil);
+   $tahun         = $baris[0];
+   $bln_leng=strlen($baris[1]);
+   $bulan="0";
    if ($bln_leng==1){
-       $bulan="0".$blnini;
+    	$bulan="0".($baris[1]-1);
    }else{
-       $bulan=$blnini;
+	$bulan=$baris[1]-1;
    }
-
-   $bulanindex = empty($baristhn[1])?date("m"):$baristhn[1];
 
 ?>
 <html>

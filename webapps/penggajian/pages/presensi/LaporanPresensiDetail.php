@@ -10,30 +10,30 @@
         $_sql         = "SELECT * FROM set_tahun";
         $hasil        = bukaquery($_sql);
         $baris        = mysqli_fetch_row($hasil);
-        $tahun        = empty($baris[0])?date("Y"):$baris[0];
-        $bulan        = empty($baris[1])?date("m"):$baris[1];
-        $bln_leng     = strlen(empty($baris[1])?date("m"):$baris[1]);
+        $tahun         = $baris[0];
+        $bln_leng=strlen($baris[1]);
+        $bulan="0";
         if ($bln_leng==1){
-                $bulan = "0".$bulan;
+                $bulan="0".$baris[1];
         }else{
-                $bulan = $bulan;
+		$bulan=$baris[1];
         }
-        $id           = $_GET['id'];
+        $id     =$_GET['id'];
         
-        $_sqlc        = "SELECT nik,nama FROM pegawai where id='$id'";
-        $hasilc       = bukaquery($_sqlc);
-        $barisc       = mysqli_fetch_row($hasilc);
+        $_sqlc = "SELECT nik,nama FROM pegawai where id='$id'";
+        $hasilc=bukaquery($_sqlc);
+        $barisc = mysqli_fetch_row($hasilc);
         
-        $_sql         = "SELECT tgl,id,jns,lembur
-                        from presensi where id='$id'
-		                and tgl like '%".$tahun."-".$bulan."%' ORDER BY tgl ASC ";
-        $hasil        = bukaquery($_sql);
-        $jumlah       = mysqli_num_rows($hasil);
-        $ttllembur    = 0;
-        $ttlhr        = 0;
+        $_sql = "SELECT tgl,id,jns,lembur
+                from presensi where id='$id'
+		and tgl like '%".$tahun."-".$bulan."%' ORDER BY tgl ASC ";
+        $hasil=bukaquery($_sql);
+        $jumlah=mysqli_num_rows($hasil);
+        $ttllembur=0;
+        $ttlhr=0;
         
         if(mysqli_num_rows($hasil)!=0) {
-                echo "<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0' class='tbl_form'>
+                    echo "<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0' class='tbl_form'>
                             <caption><h1 class=title><font color='999999'>Laporan Lembur ".$barisc[0]." ".$barisc[1]." Tahun ".$tahun." Bulan ".$bulan."<br></font></h1></caption>
                             <tr class='head'>
                                 <td width='90px'><div align='center'>Tgl.Lembur</div></td>
@@ -55,19 +55,10 @@
                     }
                 echo "</table>";
                 echo("<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0' class='tbl_form'>
-                        <tr class='head'>
-                            <td><div align='left'>Ttl.Lembur HB : ".$ttllembur." , Ttl.Lembur HR : ".$ttlhr."</div></td>                        
-                        </tr>     
-                    </table>");
-            }else{
-                echo "<table width='100%' border='0' align='center' cellpadding='0' cellspacing='0' class='tbl_form'>
-                            <caption><h1 class=title><font color='999999'>Laporan Lembur ".$barisc[0]." ".$barisc[1]." Tahun ".$tahun." Bulan ".$bulan."<br></font></h1></caption>
-                            <tr class='head'>
-                                <td width='90px'><div align='center'>Tgl.Lembur</div></td>
-                                <td width='110px'><div align='center'>Jns Lembur</div></td>
-                                <td width='110px'><div align='center'><strong>Lembur</div></td>
-                            </tr>
-                        </table>";
+                    <tr class='head'>
+                        <td><div align='left'>Ttl.Lembur HB : ".$ttllembur." , Ttl.Lembur HR : ".$ttlhr."</div></td>                        
+                    </tr>     
+                 </table>");
             } 
     ?>
     </body>

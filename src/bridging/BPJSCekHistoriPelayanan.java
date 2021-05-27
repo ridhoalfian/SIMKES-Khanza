@@ -27,8 +27,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.FileInputStream;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -42,6 +44,7 @@ import simrskhanza.DlgPasien;
  */
 public final class BPJSCekHistoriPelayanan extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
+    private final Properties prop = new Properties();
     private validasi Valid=new validasi();
     private int i=0;
     private DlgPasien pasien=new DlgPasien(null,false);
@@ -146,7 +149,8 @@ public final class BPJSCekHistoriPelayanan extends javax.swing.JDialog {
         }); 
         
         try {
-            link=koneksiDB.URLAPIBPJS();
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            link = prop.getProperty("URLAPIBPJS");
         } catch (Exception e) {
             System.out.println("E : "+e);
         }
@@ -345,7 +349,7 @@ public final class BPJSCekHistoriPelayanan extends javax.swing.JDialog {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
 	    headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
 	    headers.add("X-Signature",api.getHmac());
 	    requestEntity = new HttpEntity(headers);

@@ -16,15 +16,14 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
@@ -89,7 +88,7 @@ public final class DlgMetodeRacik extends javax.swing.JDialog {
         Kd.setDocument(new batasInput((byte)3).getKata(Kd));
         Nm.setDocument(new batasInput((byte)30).getKata(Nm));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -156,7 +155,7 @@ public final class DlgMetodeRacik extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Metode Racik ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Metode Racik ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -501,17 +500,10 @@ public final class DlgMetodeRacik extends javax.swing.JDialog {
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis. Tidak ada data yang bisa anda print...!!!!");
             BtnBatal.requestFocus();
-        }else if(tabMode.getRowCount()!=0){   
-            Map<String, Object> param = new HashMap<>();
-            param.put("namars", akses.getnamars());
-            param.put("alamatrs", akses.getalamatrs());
-            param.put("kotars", akses.getkabupatenrs());
-            param.put("propinsirs", akses.getpropinsirs());
-            param.put("kontakrs", akses.getkontakrs());
-            param.put("emailrs", akses.getemailrs());                  
-            Valid.MyReportqry("rptMetodeRacik.jasper","report","::[ Data Racik ]::","select kd_racik, nm_racik "+
+        }else if(tabMode.getRowCount()!=0){            
+            Valid.MyReport("rptMetodeRacik.jrxml","report","::[ Data Racik ]::","select kd_racik, nm_racik "+
                 " from metode_racik where  kd_racik like '%"+TCari.getText().trim()+"%' or "+
-                " nm_racik like '%"+TCari.getText().trim()+"%' order by kd_racik",param);
+                " nm_racik like '%"+TCari.getText().trim()+"%' order by kd_racik");
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
@@ -689,10 +681,10 @@ private void NmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NmKeyP
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getmetode_racik());
-        BtnHapus.setEnabled(akses.getmetode_racik());
-        BtnEdit.setEnabled(akses.getmetode_racik());
-        BtnPrint.setEnabled(akses.getmetode_racik());
+        //BtnSimpan.setEnabled(var.getmetode_racik());
+        //BtnHapus.setEnabled(var.getmetode_racik());
+        //BtnEdit.setEnabled(var.getmetode_racik());
+        //BtnPrint.setEnabled(var.getmetode_racik());
     }
     
 }

@@ -15,7 +15,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -113,7 +113,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
         TNoRM.setDocument(new batasInput((byte)15).getKata(TNoRM));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
         TKtg.setDocument(new batasInput((byte)100).getKata(TKtg));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -142,18 +142,10 @@ public class DlgPasienMati extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgPasienMati")){
+                if(var.getform().equals("DlgPasienMati")){
                     if(pasien.getTable().getSelectedRow()!= -1){                   
                         TNoRM.setText(pasien.getTable().getValueAt(pasien.getTable().getSelectedRow(),1).toString());
                         TPasien.setText(pasien.getTable().getValueAt(pasien.getTable().getSelectedRow(),2).toString());
-                    }  
-                    if(pasien.getTable2().getSelectedRow()!= -1){                   
-                        TNoRM.setText(pasien.getTable2().getValueAt(pasien.getTable2().getSelectedRow(),1).toString());
-                        TPasien.setText(pasien.getTable2().getValueAt(pasien.getTable2().getSelectedRow(),2).toString());
-                    }  
-                    if(pasien.getTable3().getSelectedRow()!= -1){                   
-                        TNoRM.setText(pasien.getTable3().getValueAt(pasien.getTable3().getSelectedRow(),1).toString());
-                        TPasien.setText(pasien.getTable3().getValueAt(pasien.getTable3().getSelectedRow(),2).toString());
                     }  
                     TNoRM.requestFocus();
                 }
@@ -173,7 +165,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
             public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgPasienMati")){
+                if(var.getform().equals("DlgPasienMati")){
                     if(e.getKeyCode()==KeyEvent.VK_SPACE){
                         pasien.dispose();
                     }
@@ -183,35 +175,6 @@ public class DlgPasienMati extends javax.swing.JDialog {
             public void keyReleased(KeyEvent e) {}
         });
         
-        pasien.getTable2().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgPasienMati")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.dispose();
-                    }
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.getTable3().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgPasienMati")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.dispose();
-                    }
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
     }
     
     
@@ -227,7 +190,6 @@ public class DlgPasienMati extends javax.swing.JDialog {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         MnCetakSuratMati = new javax.swing.JMenuItem();
-        MnCetakSuratMati1 = new javax.swing.JMenuItem();
         MnAngkutJenazah = new javax.swing.JMenuItem();
         internalFrame1 = new widget.InternalFrame();
         Scroll = new widget.ScrollPane();
@@ -273,13 +235,12 @@ public class DlgPasienMati extends javax.swing.JDialog {
 
         jPopupMenu1.setName("jPopupMenu1"); // NOI18N
 
-        MnCetakSuratMati.setBackground(new java.awt.Color(255, 255, 254));
         MnCetakSuratMati.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnCetakSuratMati.setForeground(java.awt.Color.darkGray);
         MnCetakSuratMati.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakSuratMati.setText("Surat Kematian 1");
+        MnCetakSuratMati.setText("Surat Kematian");
         MnCetakSuratMati.setName("MnCetakSuratMati"); // NOI18N
-        MnCetakSuratMati.setPreferredSize(new java.awt.Dimension(190, 28));
+        MnCetakSuratMati.setPreferredSize(new java.awt.Dimension(250, 28));
         MnCetakSuratMati.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnCetakSuratMatiActionPerformed(evt);
@@ -287,27 +248,12 @@ public class DlgPasienMati extends javax.swing.JDialog {
         });
         jPopupMenu1.add(MnCetakSuratMati);
 
-        MnCetakSuratMati1.setBackground(new java.awt.Color(255, 255, 254));
-        MnCetakSuratMati1.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnCetakSuratMati1.setForeground(java.awt.Color.darkGray);
-        MnCetakSuratMati1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnCetakSuratMati1.setText("Surat Kematian 2");
-        MnCetakSuratMati1.setName("MnCetakSuratMati1"); // NOI18N
-        MnCetakSuratMati1.setPreferredSize(new java.awt.Dimension(190, 28));
-        MnCetakSuratMati1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnCetakSuratMati1ActionPerformed(evt);
-            }
-        });
-        jPopupMenu1.add(MnCetakSuratMati1);
-
-        MnAngkutJenazah.setBackground(new java.awt.Color(255, 255, 254));
         MnAngkutJenazah.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnAngkutJenazah.setForeground(java.awt.Color.darkGray);
         MnAngkutJenazah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
         MnAngkutJenazah.setText("Surat Angkut Jenazah");
         MnAngkutJenazah.setName("MnAngkutJenazah"); // NOI18N
-        MnAngkutJenazah.setPreferredSize(new java.awt.Dimension(190, 28));
+        MnAngkutJenazah.setPreferredSize(new java.awt.Dimension(250, 28));
         MnAngkutJenazah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnAngkutJenazahActionPerformed(evt);
@@ -324,7 +270,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Pasien Meninggal ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Pasien Meninggal ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -333,6 +279,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbMati.setAutoCreateRowSorter(true);
+        tbMati.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbMati.setComponentPopupMenu(jPopupMenu1);
         tbMati.setName("tbMati"); // NOI18N
         tbMati.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -554,7 +501,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
 
         DTPTgl.setEditable(false);
         DTPTgl.setForeground(new java.awt.Color(50, 70, 50));
-        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16-03-2021" }));
+        DTPTgl.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "25-02-2019" }));
         DTPTgl.setDisplayFormat("dd-MM-yyyy");
         DTPTgl.setName("DTPTgl"); // NOI18N
         DTPTgl.setOpaque(false);
@@ -720,7 +667,7 @@ public class DlgPasienMati extends javax.swing.JDialog {
 }//GEN-LAST:event_DTPTglKeyPressed
 
     private void BtnSeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSeekActionPerformed
-        akses.setform("DlgPasienMati");
+        var.setform("DlgPasienMati");
         pasien.emptTeks();
         pasien.isCek();
         pasien.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -816,14 +763,14 @@ public class DlgPasienMati extends javax.swing.JDialog {
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){            
             Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
-                Valid.MyReportqry("rptPasienMati.jasper","report","::[ Data Pasien Meninggal ]::",
+                Valid.MyReport("rptPasienMati.jrxml","report","::[ Data Pasien Meninggal ]::",
                         "select tanggal,jam,pasien_mati.no_rkm_medis,nm_pasien, "+
                         "jk,tmp_lahir,tgl_lahir,gol_darah,stts_nikah, "+
                         "agama,keterangan,temp_meninggal,icd1,icd2,icd3,icd4 from pasien_mati,pasien where "+
@@ -899,14 +846,14 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
           JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");                
       }else{
           Map<String, Object> param = new HashMap<>(); 
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
-          Valid.MyReportqry("rptSuratKematian.jasper","report","::[ Surat Kematian ]::",
+          Valid.MyReport("rptSuratKematian.jrxml","report","::[ Surat Kematian ]::",
                         "select tanggal,jam,pasien_mati.no_rkm_medis,pasien.nm_pasien, "+
                         "pasien.umur,pasien.alamat,jk,tmp_lahir,tgl_lahir,gol_darah,stts_nikah, "+
                         "agama,keterangan from pasien_mati,pasien "+
@@ -924,14 +871,14 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
           JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");                
         }else{
             Map<String, Object> param = new HashMap<>();
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReportqry("rptAngkutJenazah.jasper","report","::[ Surat Angkut Jenazah ]::",
+            Valid.MyReport("rptAngkutJenazah.jrxml","report","::[ Surat Angkut Jenazah ]::",
                           "select tanggal,jam,pasien_mati.no_rkm_medis,pasien.nm_pasien,pasien.pekerjaan, "+
                           "pasien.umur,pasien.alamat,jk,tmp_lahir,tgl_lahir,gol_darah,stts_nikah, "+
                           "agama,keterangan from pasien_mati,pasien "+
@@ -985,27 +932,6 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
         }
     }//GEN-LAST:event_tbMatiKeyReleased
 
-    private void MnCetakSuratMati1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakSuratMati1ActionPerformed
-        if(TPasien.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Maaf, Silahkan anda pilih dulu pasien...!!!");                
-        }else{
-            Map<String, Object> param = new HashMap<>(); 
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
-            param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReportqry("rptSuratKematian2.jasper","report","::[ Surat Kematian ]::",
-                          "select date_format(pasien_mati.tanggal,'%d/%m/%Y') as tanggal,jam,pasien_mati.no_rkm_medis,pasien.nm_pasien, "+
-                          "pasien.umur,pasien.alamat,jk,tmp_lahir,tgl_lahir,gol_darah,stts_nikah, "+
-                          "agama,keterangan from pasien_mati,pasien "+
-                          "where pasien_mati.no_rkm_medis=pasien.no_rkm_medis "+
-                          "and pasien_mati.no_rkm_medis='"+TNoRM.getText()+"' ",param);
-        }
-    }//GEN-LAST:event_MnCetakSuratMati1ActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -1035,7 +961,6 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
     private widget.Label LCount;
     private javax.swing.JMenuItem MnAngkutJenazah;
     private javax.swing.JMenuItem MnCetakSuratMati;
-    private javax.swing.JMenuItem MnCetakSuratMati1;
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
     private widget.TextBox TKtg;
@@ -1144,9 +1069,9 @@ private void MnCetakSuratMatiActionPerformed(java.awt.event.ActionEvent evt) {//
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getpasien_meninggal());
-        BtnHapus.setEnabled(akses.getpasien_meninggal());
-        BtnPrint.setEnabled(akses.getpasien_meninggal());
+        BtnSimpan.setEnabled(var.getpasien_meninggal());
+        BtnHapus.setEnabled(var.getpasien_meninggal());
+        BtnPrint.setEnabled(var.getpasien_meninggal());
     }
     
     public void setNoRm(String norm) {

@@ -6,9 +6,6 @@
         <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
     </head>
     <body bgcolor='#ffffff'>
-        <script type="text/javascript">
-            window.onload = function() { window.print(); }
-        </script>
 
     <?php
         reportsqlinjection();        
@@ -73,7 +70,7 @@
                                        <td><font color='333333' size='3'  face='Tahoma'>:</font></td>
                                        <td><font color='333333' size='3'  face='Tahoma'>Pelayanan Kesehatan Rawat Inap di ".$setting["nama_instansi"]." a/n ".str_replace(":","",getOne("select temp2 from temporary_bayar_ranap where temp1='Nama Pasien'")).", 
                                            RM ".str_replace(":","",getOne("select temp2 from temporary_bayar_ranap where temp1='No.RM'")).", 
-                                           ".ltrim(getOne("select temp2 from temporary_bayar_ranap where temp1='Tgl.Perawatan'"),":")."</font></td>
+                                           ".str_replace(":","",getOne("select temp2 from temporary_bayar_ranap where temp1='Tgl.Perawatan'"))."</font></td>
                                     </tr>                           
                                     <tr>
                                        <td>&nbsp;</td>

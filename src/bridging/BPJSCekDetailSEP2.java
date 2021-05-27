@@ -11,7 +11,7 @@
 
 package bridging;
 
-import AESsecurity.EnkripsiAES;
+//import AESsecurity.EnkripsiAES;
 import fungsi.WarnaTable;
 import java.awt.Dimension;
 import javax.swing.JTable;
@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.batasInput;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import fungsi.koneksiDB;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
@@ -42,6 +42,7 @@ import org.springframework.http.MediaType;
  */
 public final class BPJSCekDetailSEP2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
+    private final Properties prop = new Properties();
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
     private ApiBPJS api=new ApiBPJS();
@@ -86,7 +87,8 @@ public final class BPJSCekDetailSEP2 extends javax.swing.JDialog {
         tbKamar.setDefaultRenderer(Object.class, new WarnaTable()); 
         SEP.setDocument(new batasInput((byte)60).getKata(SEP));
         try {
-            URL = koneksiDB.URLAPIBPJS()+"/SEP/";
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            URL = prop.getProperty("URLAPIBPJS")+"/SEP/";
         } catch (Exception e) {
             System.out.println("E : "+e);
         }
@@ -242,14 +244,15 @@ public final class BPJSCekDetailSEP2 extends javax.swing.JDialog {
                                 tabMode.getValueAt(r,2).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Rekap Harian Pengadaan Ipsrs"); 
             }
             Map<String, Object> param = new HashMap<>();                 
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptCariBPJSDetailSEP.jasper","report","[ Detail SEP Peserta ]",param);
+            Valid.MyReport("rptCariBPJSDetailSEP.jrxml","report","[ Detail SEP Peserta ]",
+                "select no, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14 from temporary order by no asc",param);
             this.setCursor(Cursor.getDefaultCursor());
         }        
     }//GEN-LAST:event_BtnPrintActionPerformed
@@ -313,7 +316,7 @@ public final class BPJSCekDetailSEP2 extends javax.swing.JDialog {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
 	    headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
 	    headers.add("X-Signature",api.getHmac());
 	    requestEntity = new HttpEntity(headers);

@@ -11,11 +11,8 @@
 
 package setting;
 
-import fungsi.batasInput;
-import fungsi.WarnaTable;
-import fungsi.validasi;
-import fungsi.sekuel;
 import fungsi.koneksiDB;
+import fungsi.*;
 import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -57,7 +54,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         this.setLocation(10,10);
         setSize(457,249);
 
-        Object[] row={"Nama Toko","Alamat Toko","Kota","Propinsi","Aktifkan?","Wallpaper","KontaK","Email","Logo","Kode PPK BPJS","Kode PPK Inhealth","Kode PPK Kemenkes"};
+        Object[] row={"Nama Toko","Alamat Toko","Kota","Propinsi","Aktifkan?","Wallpaper","KontaK","Email","Logo","Kode PPK BPJS"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -68,7 +65,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         tbAdmin.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbAdmin.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 10; i++) {
             TableColumn column = tbAdmin.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(150);
@@ -80,14 +77,12 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         tbAdmin.setDefaultRenderer(Object.class, new WarnaTable());
 
         Nm.setDocument(new batasInput((byte)60).getKata(Nm));
-        Almt.setDocument(new batasInput((int)150).getKata(Almt));
+        Almt.setDocument(new batasInput((byte)50).getKata(Almt));
         Kota.setDocument(new batasInput((byte)30).getKata(Kota));
         Propinsi.setDocument(new batasInput((byte)30).getKata(Propinsi));
         Kontak.setDocument(new batasInput((byte)50).getKata(Kontak));
         Email.setDocument(new batasInput((byte)50).getKata(Email));
         kdPPK.setDocument(new batasInput((byte)15).getKata(kdPPK));
-        kdPPK1.setDocument(new batasInput((byte)15).getKata(kdPPK1));
-        kdPPK2.setDocument(new batasInput((byte)15).getKata(kdPPK2));
     }
     Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
     private javax.swing.JFileChooser jfc = new JFileChooser();    
@@ -142,10 +137,6 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         BtnCariLogo = new widget.Button();
         label42 = new widget.Label();
         kdPPK = new widget.TextBox();
-        label43 = new widget.Label();
-        kdPPK1 = new widget.TextBox();
-        label44 = new widget.Label();
-        kdPPK2 = new widget.TextBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -156,7 +147,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Setup Aplikasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Setup Aplikasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -491,36 +482,6 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         panelGlass1.add(kdPPK);
         kdPPK.setBounds(105, 250, 110, 23);
 
-        label43.setText("Kode PPK Inhealth :");
-        label43.setName("label43"); // NOI18N
-        label43.setPreferredSize(new java.awt.Dimension(35, 23));
-        panelGlass1.add(label43);
-        label43.setBounds(226, 250, 120, 23);
-
-        kdPPK1.setName("kdPPK1"); // NOI18N
-        kdPPK1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                kdPPK1KeyPressed(evt);
-            }
-        });
-        panelGlass1.add(kdPPK1);
-        kdPPK1.setBounds(350, 250, 110, 23);
-
-        label44.setText("Kode PPK Kemenkes :");
-        label44.setName("label44"); // NOI18N
-        label44.setPreferredSize(new java.awt.Dimension(35, 23));
-        panelGlass1.add(label44);
-        label44.setBounds(486, 250, 120, 23);
-
-        kdPPK2.setName("kdPPK2"); // NOI18N
-        kdPPK2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                kdPPK2KeyPressed(evt);
-            }
-        });
-        panelGlass1.add(kdPPK2);
-        kdPPK2.setBounds(610, 250, 110, 23);
-
         internalFrame1.add(panelGlass1, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
@@ -595,7 +556,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         }else if(tabMode.getRowCount()==0){
             Sequel.menyimpan("setting","'"+Nm.getText()+"','"+Almt.getText()+"','"+Kota.getText()+
                              "','"+Propinsi.getText()+"','"+Kontak.getText()+"','"+Email.getText()+
-                             "','"+YesNo.getSelectedItem()+"','"+kdPPK.getText()+"','"+kdPPK1.getText()+"','"+kdPPK2.getText()+"'","Setting",EGb,ELogo);
+                             "','"+YesNo.getSelectedItem()+"','"+kdPPK.getText()+"'","Setting",EGb,ELogo);
             tampil();
         }else if(tabMode.getRowCount()>0){
             JOptionPane.showMessageDialog(null,"Maaf, Hanya diijinkan satu Set Aplikasi...!!!!");
@@ -688,7 +649,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnCariLogoActionPerformed
 
     private void BtnCariLogoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_BtnCariLogoKeyPressed
-        Valid.pindah(evt,kdPPK2,BtnSimpan);
+        Valid.pindah(evt,Email,BtnSimpan);
     }//GEN-LAST:event_BtnCariLogoKeyPressed
 
     private void BtnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEditActionPerformed
@@ -704,7 +665,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
             Sequel.queryu("delete from setting ");
             Sequel.menyimpan("setting","'"+Nm.getText()+"','"+Almt.getText()+"','"+Kota.getText()+
                              "','"+Propinsi.getText()+"','"+Kontak.getText()+"','"+Email.getText()+
-                             "','"+YesNo.getSelectedItem()+"','"+kdPPK.getText()+"','"+kdPPK1.getText()+"','"+kdPPK2.getText()+"'","Setting",EGb,ELogo);
+                             "','"+YesNo.getSelectedItem()+"','"+kdPPK.getText()+"'","Setting",EGb,ELogo);
             tampil();
         }
     }//GEN-LAST:event_BtnEditActionPerformed
@@ -718,16 +679,8 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnEditKeyPressed
 
     private void kdPPKKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdPPKKeyPressed
-        Valid.pindah(evt,Email,kdPPK1);
+        Valid.pindah(evt,Email,kdPPK);
     }//GEN-LAST:event_kdPPKKeyPressed
-
-    private void kdPPK1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdPPK1KeyPressed
-        Valid.pindah(evt,kdPPK,kdPPK2);
-    }//GEN-LAST:event_kdPPK1KeyPressed
-
-    private void kdPPK2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kdPPK2KeyPressed
-        Valid.pindah(evt,kdPPK1,BtnCariLogo);
-    }//GEN-LAST:event_kdPPK2KeyPressed
 
     /**
     * @param args the command line arguments
@@ -767,8 +720,6 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
     private widget.ComboBox YesNo;
     private widget.InternalFrame internalFrame1;
     private widget.TextBox kdPPK;
-    private widget.TextBox kdPPK1;
-    private widget.TextBox kdPPK2;
     private widget.Label label12;
     private widget.Label label34;
     private widget.Label label35;
@@ -779,8 +730,6 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
     private widget.Label label40;
     private widget.Label label41;
     private widget.Label label42;
-    private widget.Label label43;
-    private widget.Label label44;
     private widget.panelGlass panelGlass1;
     private widget.panelisi panelisi1;
     private widget.ScrollPane scrollPane2;
@@ -789,7 +738,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
-        String sql="select nama_instansi, alamat_instansi, kabupaten, propinsi, aktifkan, wallpaper,kontak,email,logo,kode_ppk,kode_ppkinhealth,kode_ppkkemenkes from setting";
+        String sql="select nama_instansi, alamat_instansi, kabupaten, propinsi, aktifkan, wallpaper,kontak,email,logo,kode_ppk from setting";
         prosesCari(sql);
     }
 
@@ -801,7 +750,7 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
                 Object[] data={rs.getString(1),rs.getString(2),rs.getString(3),
                                rs.getString(4),rs.getString(5),rs.getBlob(6),
                                rs.getString(7),rs.getString(8),rs.getBlob(9),
-                               rs.getString(10),rs.getString(11),rs.getString(12)
+                               rs.getString(10)
                 };
                 tabMode.addRow(data);
             }
@@ -821,10 +770,9 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
             Kontak.setText(tabMode.getValueAt(row,6).toString());
             Email.setText(tabMode.getValueAt(row,7).toString());
             kdPPK.setText(tabMode.getValueAt(row,9).toString());
-            kdPPK1.setText(tabMode.getValueAt(row,10).toString());
-            kdPPK2.setText(tabMode.getValueAt(row,11).toString());
             try {
-                ResultSet hasil = koneksi.prepareStatement("select wallpaper,logo from setting").executeQuery();
+                ResultSet hasil = koneksi.createStatement().executeQuery(
+                        "select wallpaper,logo from setting");
                 for (int I = 0; hasil.next(); I++) {
                     ((Painter) PhotoGambar).setImage(gambar(tabMode.getValueAt(row,0).toString()));
                     Blob blob = hasil.getBlob(1);
@@ -838,7 +786,6 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
                         blob2.getBytes(1, (int) (blob2.length()))));
                     blob2.free();
                 }
-                hasil.close();
             } catch (Exception ex) {
                 cetak(ex.toString());
             }
@@ -851,8 +798,6 @@ public class DlgSetAplikasi extends javax.swing.JDialog {
         Kota.setText("");
         Propinsi.setText("");
         kdPPK.setText("");        
-        kdPPK1.setText("");       
-        kdPPK2.setText("");
         ((Painter) PhotoGambar).setImage("");
         EGb.setText("");
         ((Painter) PhotoLogo).setImage("");

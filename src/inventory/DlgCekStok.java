@@ -28,6 +28,7 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import keuangan.Jurnal;
 import simrskhanza.DlgCariBangsal;
 
 public class DlgCekStok extends javax.swing.JDialog {
@@ -41,7 +42,6 @@ public class DlgCekStok extends javax.swing.JDialog {
     private int i=0;
     private double stokbarang=0;
     private WarnaTable warna=new WarnaTable();
-    private String hppfarmasi="";
 
     /** Creates new form DlgProgramStudi
      * @param parent
@@ -94,7 +94,7 @@ public class DlgCekStok extends javax.swing.JDialog {
 
         kdgudang.setDocument(new batasInput((byte)5).getKata(kdgudang)); 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari)); 
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -142,12 +142,6 @@ public class DlgCekStok extends javax.swing.JDialog {
             @Override
             public void windowDeactivated(WindowEvent e) {}
         });
-        
-        try {
-            hppfarmasi=koneksiDB.HPPFARMASI();
-        } catch (Exception e) {
-            hppfarmasi="dasar";
-        }
             
     }
     
@@ -184,7 +178,7 @@ public class DlgCekStok extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Cek Stok Per Lokasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Cek Stok Per Lokasi ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -202,6 +196,7 @@ public class DlgCekStok extends javax.swing.JDialog {
 
             }
         ));
+        tbDokter.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbDokter.setName("tbDokter"); // NOI18N
         scrollPane1.setViewportView(tbDokter);
 
@@ -406,7 +401,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
         try{  
             Valid.tabelKosong(tabMode);
             pstampil=koneksi.prepareStatement("select databarang.kode_brng, databarang.nama_brng,jenis.nama, databarang.kode_sat, "+
-                "databarang."+hppfarmasi+" as dasar from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
+                "databarang.h_beli from databarang inner join jenis on databarang.kdjns=jenis.kdjns "+
                 " where databarang.status='1' and databarang.kode_brng like ? or "+
                 " databarang.status='1' and databarang.nama_brng like ? or "+
                 " databarang.status='1' and databarang.kode_sat like ? or "+
@@ -420,7 +415,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                 while(rstampil.next()){     
                     stokbarang=0;   
                     if(!nmgudang.getText().equals("")){
-                        psstok=koneksi.prepareStatement("select ifnull(sum(stok),'0') from gudangbarang where kd_bangsal=? and kode_brng=?");
+                        psstok=koneksi.prepareStatement("select ifnull(stok,'0') from gudangbarang where kd_bangsal=? and kode_brng=?");
                         try{
                             psstok.setString(1,kdgudang.getText());
                             psstok.setString(2,rstampil.getString("kode_brng"));
@@ -443,7 +438,7 @@ private void BtnGudangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIR
                     tabMode.addRow(new Object[]{
                         rstampil.getString("kode_brng"),rstampil.getString("nama_brng"),
                         rstampil.getString("nama"),rstampil.getString("kode_sat"),
-                        rstampil.getDouble("dasar"),stokbarang
+                        rstampil.getDouble("h_beli"),stokbarang
                     });
                 }  
             } catch (Exception e) {

@@ -22,11 +22,10 @@
                 $keyword     =isset($_GET['keyword'])?$_GET['keyword']:NULL;
                 echo "<input type=hidden name=keyword value=$keyword><input type=hidden name=action value=$action>";
         ?>
-    <div style="width: 100%; height: 91%; overflow: auto;">
+    <div style="width: 100%; height: 90%; overflow: auto;">
     <?php
         
-        $keyword= trim(isset($_POST['keyword']))?trim($_POST['keyword']):NULL;   
-        $keyword= validTeks($keyword);
+	$keyword=trim(isset($_POST['keyword']))?trim($_POST['keyword']):NULL;        
 
         $_sql = "SELECT no_rkm_medis, nm_pasien, jk, tgl_lahir, nm_ibu from pasien where no_rkm_medis like '%".$keyword."%' or 
 		       nm_pasien like '%".$keyword."%' or tgl_lahir like '%".$keyword."%' or nm_ibu like '%".$keyword."%' order by no_rkm_medis DESC limit 1000";
@@ -64,7 +63,7 @@
                                                     <td width='5%'><div align='center'>NO.</div></td>
                                                     <td width='20%'><div align='center'>Terakhir Daftar</div></td>
                                                     <td width='20%'><div align='center'>Tanggal Retensi</div></td>
-                                                    <td width='55%'><div align='center'>File Retensi</div></td>
+                                                    <td width='55%'><div align='center'>File PDF</div></td>
                                                   </tr>";
                                         }
                                         $no=1;

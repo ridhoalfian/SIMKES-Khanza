@@ -8,9 +8,11 @@ package bridging;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fungsi.koneksiDB;
+import java.io.FileInputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +24,7 @@ import org.springframework.http.MediaType;
  * @author khanzasoft
  */
 public class BPJSCekNIK {
+    private final Properties prop = new Properties();
     public String cobnmAsuransi="",cobnoAsuransi="",cobtglTAT="",cobtglTMT="",
             hakKelasketerangan="",hakKelaskode="",informasidinsos="",informasinoSKTM="",
             informasiprolanisPRB="",jenisPesertaketerangan="",jenisPesertakode="",
@@ -42,7 +45,8 @@ public class BPJSCekNIK {
     public BPJSCekNIK(){
         super();
         try {
-            link=koneksiDB.URLAPIBPJS();  
+            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            link=prop.getProperty("URLAPIBPJS");   
         } catch (Exception e) {
             System.out.println("E : "+e);
         }
@@ -52,7 +56,7 @@ public class BPJSCekNIK {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
 	    headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));
 	    headers.add("X-Signature",api.getHmac());
 	    requestEntity = new HttpEntity(headers);

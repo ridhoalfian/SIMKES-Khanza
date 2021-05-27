@@ -2,7 +2,9 @@
 package widget;
 
 import java.awt.Color;
+//import usu.widget.TextBox;
 import usu.widget.glass.TextBoxGlass;
+//import javax.swing.JTextField;
 
 /**
  *
@@ -12,10 +14,10 @@ public class TextBox extends TextBoxGlass {
     public TextBox() {
         super();
         setFont(new java.awt.Font("Tahoma", 0, 11));        
-        setSelectionColor(new Color(255,255,255));
-        setSelectedTextColor(new Color(255,0,0));
-        setForeground(new Color(50,50,50));
-        setBackground(new Color(255,255,255));
+        setSelectionColor(new Color(50,51,0));
+        setSelectedTextColor(new Color(255,255,0));
+        setForeground(new Color(60,80,50));
+        setBackground(new Color(250,255,245));
         setHorizontalAlignment(LEFT);
         setSize(WIDTH,23);
     }

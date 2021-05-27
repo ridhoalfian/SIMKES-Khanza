@@ -24,6 +24,8 @@ import javax.swing.table.TableColumn;
 import fungsi.validasi;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
+import java.io.FileInputStream;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import org.springframework.http.HttpEntity;
@@ -37,6 +39,7 @@ import org.springframework.http.MediaType;
  */
 public final class BPJSCekReferensiSpesialistik extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
+    private final Properties prop = new Properties();
     private validasi Valid=new validasi();
     private int i=0;
     private ApiBPJS api=new ApiBPJS();
@@ -81,7 +84,7 @@ public final class BPJSCekReferensiSpesialistik extends javax.swing.JDialog {
         
         Poli.setDocument(new batasInput((byte)100).getKata(Poli));
         
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             Poli.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -105,7 +108,8 @@ public final class BPJSCekReferensiSpesialistik extends javax.swing.JDialog {
         } 
         
         try {
-            link=koneksiDB.URLAPIBPJS();
+            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            link=prop.getProperty("URLAPIBPJS");
             URL = link+"/referensi/spesialistik";
         } catch (Exception e) {
             System.out.println("E : "+e);
@@ -286,7 +290,7 @@ public final class BPJSCekReferensiSpesialistik extends javax.swing.JDialog {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
 	    headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
 	    headers.add("X-Signature",api.getHmac());
 	    requestEntity = new HttpEntity(headers);

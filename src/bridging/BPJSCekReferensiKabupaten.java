@@ -42,6 +42,7 @@ import org.springframework.http.MediaType;
  */
 public final class BPJSCekReferensiKabupaten extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
+    private final Properties prop = new Properties();
     private validasi Valid=new validasi();
     private sekuel Sequel=new sekuel();
     private BPJSCekReferensiPropinsi propinsi=new BPJSCekReferensiPropinsi(null,false);
@@ -87,7 +88,7 @@ public final class BPJSCekReferensiKabupaten extends javax.swing.JDialog {
         
         Kabupaten.setDocument(new batasInput((byte)100).getKata(Kabupaten));
         
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             Kabupaten.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -147,7 +148,8 @@ public final class BPJSCekReferensiKabupaten extends javax.swing.JDialog {
         }); 
         
         try {
-            link=koneksiDB.URLAPIBPJS();
+            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            link=prop.getProperty("URLAPIBPJS");
         } catch (Exception e) {
             System.out.println("E : "+e);
         }
@@ -373,7 +375,7 @@ public final class BPJSCekReferensiKabupaten extends javax.swing.JDialog {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
 	    headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
 	    headers.add("X-Signature",api.getHmac());
 	    requestEntity = new HttpEntity(headers);

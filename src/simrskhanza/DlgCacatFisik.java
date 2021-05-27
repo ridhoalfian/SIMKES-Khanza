@@ -16,7 +16,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -73,7 +73,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
         tbkecamatan.setDefaultRenderer(Object.class, new WarnaTable());
         Nama.setDocument(new batasInput((byte)30).getKata(Nama));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -113,16 +113,16 @@ public class DlgCacatFisik extends javax.swing.JDialog {
         panelGlass7 = new widget.panelisi();
         jLabel4 = new widget.Label();
         Nama = new widget.TextBox();
-        panelisi3 = new widget.panelisi();
+        panelGlass9 = new widget.panelisi();
         jLabel6 = new widget.Label();
         TCari = new widget.TextBox();
         BtnCari = new widget.Button();
         BtnAll = new widget.Button();
-        jLabel7 = new widget.Label();
-        LCount = new widget.Label();
         BtnSimpan = new widget.Button();
         BtnBatal = new widget.Button();
         BtnHapus = new widget.Button();
+        jLabel7 = new widget.Label();
+        LCount = new widget.Label();
         BtnKeluar = new widget.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -137,7 +137,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Cacat Fisik ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Cacat Fisik ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(70, 70, 70))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -145,6 +145,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbkecamatan.setAutoCreateRowSorter(true);
+        tbkecamatan.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbkecamatan.setName("tbkecamatan"); // NOI18N
         tbkecamatan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -176,27 +177,27 @@ public class DlgCacatFisik extends javax.swing.JDialog {
             }
         });
         panelGlass7.add(Nama);
-        Nama.setBounds(85, 12, 450, 23);
+        Nama.setBounds(85, 12, 560, 23);
 
         internalFrame1.add(panelGlass7, java.awt.BorderLayout.PAGE_START);
 
-        panelisi3.setName("panelisi3"); // NOI18N
-        panelisi3.setPreferredSize(new java.awt.Dimension(100, 43));
-        panelisi3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 4, 9));
+        panelGlass9.setName("panelGlass9"); // NOI18N
+        panelGlass9.setPreferredSize(new java.awt.Dimension(44, 44));
+        panelGlass9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 5, 9));
 
         jLabel6.setText("Key Word :");
         jLabel6.setName("jLabel6"); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(60, 23));
-        panelisi3.add(jLabel6);
+        jLabel6.setPreferredSize(new java.awt.Dimension(70, 23));
+        panelGlass9.add(jLabel6);
 
         TCari.setName("TCari"); // NOI18N
-        TCari.setPreferredSize(new java.awt.Dimension(190, 23));
+        TCari.setPreferredSize(new java.awt.Dimension(250, 23));
         TCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TCariKeyPressed(evt);
             }
         });
-        panelisi3.add(TCari);
+        panelGlass9.add(TCari);
 
         BtnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/accept.png"))); // NOI18N
         BtnCari.setMnemonic('1');
@@ -213,7 +214,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
                 BtnCariKeyPressed(evt);
             }
         });
-        panelisi3.add(BtnCari);
+        panelGlass9.add(BtnCari);
 
         BtnAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Search-16x16.png"))); // NOI18N
         BtnAll.setMnemonic('2');
@@ -230,18 +231,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
                 BtnAllKeyPressed(evt);
             }
         });
-        panelisi3.add(BtnAll);
-
-        jLabel7.setText("Record :");
-        jLabel7.setName("jLabel7"); // NOI18N
-        jLabel7.setPreferredSize(new java.awt.Dimension(50, 23));
-        panelisi3.add(jLabel7);
-
-        LCount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        LCount.setText("0");
-        LCount.setName("LCount"); // NOI18N
-        LCount.setPreferredSize(new java.awt.Dimension(40, 23));
-        panelisi3.add(LCount);
+        panelGlass9.add(BtnAll);
 
         BtnSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/save-16x16.png"))); // NOI18N
         BtnSimpan.setMnemonic('S');
@@ -258,7 +248,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
                 BtnSimpanKeyPressed(evt);
             }
         });
-        panelisi3.add(BtnSimpan);
+        panelGlass9.add(BtnSimpan);
 
         BtnBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Cancel-2-16x16.png"))); // NOI18N
         BtnBatal.setMnemonic('B');
@@ -275,7 +265,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
                 BtnBatalKeyPressed(evt);
             }
         });
-        panelisi3.add(BtnBatal);
+        panelGlass9.add(BtnBatal);
 
         BtnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/stop_f2.png"))); // NOI18N
         BtnHapus.setMnemonic('H');
@@ -292,7 +282,18 @@ public class DlgCacatFisik extends javax.swing.JDialog {
                 BtnHapusKeyPressed(evt);
             }
         });
-        panelisi3.add(BtnHapus);
+        panelGlass9.add(BtnHapus);
+
+        jLabel7.setText("Record :");
+        jLabel7.setName("jLabel7"); // NOI18N
+        jLabel7.setPreferredSize(new java.awt.Dimension(65, 23));
+        panelGlass9.add(jLabel7);
+
+        LCount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        LCount.setText("0");
+        LCount.setName("LCount"); // NOI18N
+        LCount.setPreferredSize(new java.awt.Dimension(50, 23));
+        panelGlass9.add(LCount);
 
         BtnKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/exit.png"))); // NOI18N
         BtnKeluar.setMnemonic('K');
@@ -309,9 +310,9 @@ public class DlgCacatFisik extends javax.swing.JDialog {
                 BtnKeluarKeyPressed(evt);
             }
         });
-        panelisi3.add(BtnKeluar);
+        panelGlass9.add(BtnKeluar);
 
-        internalFrame1.add(panelisi3, java.awt.BorderLayout.PAGE_END);
+        internalFrame1.add(panelGlass9, java.awt.BorderLayout.PAGE_END);
 
         getContentPane().add(internalFrame1, java.awt.BorderLayout.CENTER);
 
@@ -482,7 +483,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
     private widget.Label jLabel6;
     private widget.Label jLabel7;
     private widget.panelisi panelGlass7;
-    private widget.panelisi panelisi3;
+    private widget.panelisi panelGlass9;
     private widget.Table tbkecamatan;
     // End of variables declaration//GEN-END:variables
 
@@ -533,7 +534,7 @@ public class DlgCacatFisik extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getcacat_fisik());
-        BtnHapus.setEnabled(akses.getcacat_fisik());
+        //BtnSimpan.setEnabled(var.getcacat_fisik());
+        //BtnHapus.setEnabled(var.getcacat_fisik());
     }
 }

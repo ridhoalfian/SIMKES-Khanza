@@ -49,7 +49,7 @@ public class DlgKabupaten extends javax.swing.JDialog {
         this.setLocation(10,10);
         setSize(459,539);
 
-        Object[] row={"Nama Kabupaten","Kode"};
+        Object[] row={"Nama Kabupaten"};
         tabMode=new DefaultTableModel(null,row){
               @Override public boolean isCellEditable(int rowIndex, int colIndex){return false;}
         };
@@ -60,39 +60,24 @@ public class DlgKabupaten extends javax.swing.JDialog {
         tbkabupaten.setPreferredScrollableViewportSize(new Dimension(500,500));
         tbkabupaten.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 1; i++) {
             TableColumn column = tbkabupaten.getColumnModel().getColumn(i);
             if(i==0){
                 column.setPreferredWidth(500);
-            }else if(i==1){
-                column.setMinWidth(0);
-                column.setMaxWidth(0);
             }
         }
 
         tbkabupaten.setDefaultRenderer(Object.class, new WarnaTable());
         Nama.setDocument(new batasInput((byte)60).getFilter(Nama));
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
-                public void insertUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void insertUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void removeUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void removeUpdate(DocumentEvent e) {tampil();}
                 @Override
-                public void changedUpdate(DocumentEvent e) {
-                    if(TCari.getText().length()>2){
-                        tampil();
-                    }
-                }
+                public void changedUpdate(DocumentEvent e) {tampil();}
             });
         } 
         
@@ -129,15 +114,15 @@ public class DlgKabupaten extends javax.swing.JDialog {
         setUndecorated(true);
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Kabupaten ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Data Kabupaten ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
 
@@ -145,6 +130,7 @@ public class DlgKabupaten extends javax.swing.JDialog {
         Scroll.setOpaque(true);
 
         tbkabupaten.setAutoCreateRowSorter(true);
+        tbkabupaten.setToolTipText("Silahkan klik untuk memilih data yang mau diedit ataupun dihapus");
         tbkabupaten.setName("tbkabupaten"); // NOI18N
         tbkabupaten.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -486,12 +472,12 @@ public class DlgKabupaten extends javax.swing.JDialog {
     private void tampil() {
         Valid.tabelKosong(tabMode);
         try{   
-            ps=koneksi.prepareStatement("select nm_kab,kd_kab from kabupaten where nm_kab like ? ");
+            ps=koneksi.prepareStatement("select nm_kab from kabupaten where nm_kab like ? ");
             try {
                 ps.setString(1,"%"+TCari.getText().trim()+"%");
                 rs=ps.executeQuery();
                 while(rs.next()){
-                    tabMode.addRow(new String[]{rs.getString(1),rs.getString(2)});
+                    tabMode.addRow(new String[]{rs.getString(1)});
                 }
             } catch (Exception e) {
                 System.out.println("Notifikasi : "+e);

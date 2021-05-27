@@ -15,7 +15,7 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -32,7 +32,7 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
-import kepegawaian.DlgCariDokter;
+import simrskhanza.DlgCariDokter;
 
 /**
  *
@@ -85,7 +85,7 @@ public final class BPJSMapingDokterDPJP extends javax.swing.JDialog {
 
         TCari.setDocument(new batasInput((byte)100).getKata(TCari));                  
         
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             TCari.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -610,15 +610,15 @@ public final class BPJSMapingDokterDPJP extends javax.swing.JDialog {
             BtnBatal.requestFocus();
         }else if(tabMode.getRowCount()!=0){            
                 Map<String, Object> param = new HashMap<>();    
-                param.put("namars",akses.getnamars());
-                param.put("alamatrs",akses.getalamatrs());
-                param.put("kotars",akses.getkabupatenrs());
-                param.put("propinsirs",akses.getpropinsirs());
-                param.put("kontakrs",akses.getkontakrs());
-                param.put("emailrs",akses.getemailrs());   
+                param.put("namars",var.getnamars());
+                param.put("alamatrs",var.getalamatrs());
+                param.put("kotars",var.getkabupatenrs());
+                param.put("propinsirs",var.getpropinsirs());
+                param.put("kontakrs",var.getkontakrs());
+                param.put("emailrs",var.getemailrs());   
                 param.put("logo",Sequel.cariGambar("select logo from setting")); 
                 param.put("parameter","%"+TCari.getText().trim()+"%");   
-                Valid.MyReport("rptMapingDokterDPJPVClaim.jasper","report","::[ Mapping Dokter RS & DPJP VClaim ]::",param);            
+                //Valid.MyReport("rptMapingDokterDPJPVClaim.jasper","report","::[ Mapping Dokter RS & DPJP VClaim ]::",param);            
         }
         this.setCursor(Cursor.getDefaultCursor());
 }//GEN-LAST:event_BtnPrintActionPerformed
@@ -797,10 +797,10 @@ private void btnPoliBPJSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-F
     
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getbpjs_mapping_dokterdpjp());
-        BtnHapus.setEnabled(akses.getbpjs_mapping_dokterdpjp());
-        BtnEdit.setEnabled(akses.getbpjs_mapping_dokterdpjp());
-        BtnPrint.setEnabled(akses.getbpjs_mapping_dokterdpjp());
+        //BtnSimpan.setEnabled(var.getbpjs_mapping_dokterdpjp());
+        //BtnHapus.setEnabled(var.getbpjs_mapping_dokterdpjp());
+        //BtnEdit.setEnabled(var.getbpjs_mapping_dokterdpjp());
+        //BtnPrint.setEnabled(var.getbpjs_mapping_dokterdpjp());
     }
     
     public JTable getTable(){

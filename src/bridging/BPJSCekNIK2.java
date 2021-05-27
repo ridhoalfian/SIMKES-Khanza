@@ -22,13 +22,14 @@ import fungsi.batasInput;
 import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,13 +37,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import keuangan.DlgKamar;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import kepegawaian.DlgCariDokter;
+import simrskhanza.DlgCariDokter;
 import simrskhanza.DlgPasien;
 import simrskhanza.DlgPilihanCetakDokumen;
 
@@ -52,6 +54,7 @@ import simrskhanza.DlgPilihanCetakDokumen;
  */
 public final class BPJSCekNIK2 extends javax.swing.JDialog {
     private final DefaultTableModel tabMode;
+    private final Properties prop = new Properties();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
     private Connection koneksi=koneksiDB.condb();
@@ -81,8 +84,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             umur="",namakeluarga="",no_peserta="",kelurahan="",kecamatan="",sttsumur="",
             kabupaten="",pekerjaanpj="",alamatpj="",kelurahanpj="",kecamatanpj="",
             kabupatenpj="",hariawal="",requestJson,URL="",nosep="",user="",prb="",peserta="",
-            penjamin="",jasaraharja="",BPJS="",Taspen="",Asabri="",status="Baru",propinsi="",propinsipj="",
-            tampilkantni=Sequel.cariIsi("select tampilkan_tni_polri from set_tni_polri");
+            penjamin="",jasaraharja="",BPJS="",Taspen="",Asabri="",status="Baru",propinsi="",propinsipj="";
     private PreparedStatement ps,pskelengkapan,pscariumur,pssetalamat,pstni,pspolri;
     private ResultSet rs,rs2;
     private double biaya=0;
@@ -142,20 +144,6 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
                         TNik.setText(pasien.getTable().getValueAt(pasien.getTable().getSelectedRow(),3).toString());
                     }                            
                 }
-                if(pasien.getTable2().getSelectedRow()!= -1){ 
-                    if(pasien.getTable2().getValueAt(pasien.getTable2().getSelectedRow(),3).toString().equals("")){
-                        JOptionPane.showMessageDialog(rootPane,"Maaf pasien tidak punya NIK...!");
-                    }else{
-                        TNik.setText(pasien.getTable2().getValueAt(pasien.getTable2().getSelectedRow(),3).toString());
-                    }  
-                }
-                if(pasien.getTable3().getSelectedRow()!= -1){ 
-                    if(pasien.getTable3().getValueAt(pasien.getTable3().getSelectedRow(),3).toString().equals("")){
-                        JOptionPane.showMessageDialog(rootPane,"Maaf pasien tidak punya NIK...!");
-                    }else{
-                        TNik.setText(pasien.getTable3().getValueAt(pasien.getTable3().getSelectedRow(),3).toString());
-                    }  
-                }    
             }
             @Override
             public void windowIconified(WindowEvent e) {}
@@ -180,32 +168,6 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void keyReleased(KeyEvent e) {}
         });       
     
-        pasien.getTable2().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                    pasien.dispose();
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        }); 
-        
-        pasien.getTable3().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                    pasien.dispose();
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        }); 
-        
         faskes.addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {}
@@ -324,7 +286,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.penjab.getTable().getSelectedRow()!= -1){
                         Kdpnj.setText(pasien.penjab.getTable().getValueAt(pasien.penjab.getTable().getSelectedRow(),1).toString());
                         nmpnj.setText(pasien.penjab.getTable().getValueAt(pasien.penjab.getTable().getSelectedRow(),2).toString());
@@ -347,7 +309,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(e.getKeyCode()==KeyEvent.VK_SPACE){
                         pasien.penjab.dispose();
                     } 
@@ -364,7 +326,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.kab.getTable().getSelectedRow()!= -1){
                         if(pilih==1){                    
                             Kabupaten.setText(pasien.kab.getTable().getValueAt(pasien.kab.getTable().getSelectedRow(),0).toString());
@@ -394,7 +356,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.kec.getTable().getSelectedRow()!= -1){
                         if(pilih==1){                    
                             Kecamatan.setText(pasien.kec.getTable().getValueAt(pasien.kec.getTable().getSelectedRow(),0).toString());
@@ -424,7 +386,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.kel.getTable().getSelectedRow()!= -1){
                         if(pilih==1){                    
                             Kelurahan.setText(pasien.kel.getTable().getValueAt(pasien.kel.getTable().getSelectedRow(),0).toString());
@@ -519,7 +481,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.perusahaan.getTable().getSelectedRow()!= -1){
                         kdperusahaan.setText(pasien.perusahaan.getTable().getValueAt(pasien.perusahaan.getTable().getSelectedRow(),0).toString());
                         nmperusahaan.setText(pasien.perusahaan.getTable().getValueAt(pasien.perusahaan.getTable().getSelectedRow(),1).toString());
@@ -542,329 +504,9 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(e.getKeyCode()==KeyEvent.VK_SPACE){
                         pasien.perusahaan.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.golongantni.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.golongantni.getTable().getSelectedRow()!= -1){
-                        kdgolongantni.setText(pasien.golongantni.getTable().getValueAt(pasien.golongantni.getTable().getSelectedRow(),0).toString());
-                        nmgolongantni.setText(pasien.golongantni.getTable().getValueAt(pasien.golongantni.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdgolongantni.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.golongantni.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.golongantni.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.jabatantni.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.jabatantni.getTable().getSelectedRow()!= -1){
-                        kdjabatantni.setText(pasien.jabatantni.getTable().getValueAt(pasien.jabatantni.getTable().getSelectedRow(),0).toString());
-                        nmjabatantni.setText(pasien.jabatantni.getTable().getValueAt(pasien.jabatantni.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdjabatantni.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.jabatantni.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.jabatantni.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.satuantni.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.satuantni.getTable().getSelectedRow()!= -1){
-                        kdsatuantni.setText(pasien.satuantni.getTable().getValueAt(pasien.satuantni.getTable().getSelectedRow(),0).toString());
-                        nmsatuantni.setText(pasien.satuantni.getTable().getValueAt(pasien.satuantni.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdsatuantni.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.satuantni.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.satuantni.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.pangkattni.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.pangkattni.getTable().getSelectedRow()!= -1){
-                        kdpangkattni.setText(pasien.pangkattni.getTable().getValueAt(pasien.pangkattni.getTable().getSelectedRow(),0).toString());
-                        nmpangkattni.setText(pasien.pangkattni.getTable().getValueAt(pasien.pangkattni.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdpangkattni.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.pangkattni.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.pangkattni.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.golonganpolri.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.golonganpolri.getTable().getSelectedRow()!= -1){
-                        kdgolonganpolri.setText(pasien.golonganpolri.getTable().getValueAt(pasien.golonganpolri.getTable().getSelectedRow(),0).toString());
-                        nmgolonganpolri.setText(pasien.golonganpolri.getTable().getValueAt(pasien.golonganpolri.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdgolonganpolri.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.golonganpolri.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.golonganpolri.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.jabatanpolri.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.jabatanpolri.getTable().getSelectedRow()!= -1){
-                        kdjabatanpolri.setText(pasien.jabatanpolri.getTable().getValueAt(pasien.jabatanpolri.getTable().getSelectedRow(),0).toString());
-                        nmjabatanpolri.setText(pasien.jabatanpolri.getTable().getValueAt(pasien.jabatanpolri.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdjabatanpolri.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.jabatanpolri.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.jabatanpolri.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.satuanpolri.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.satuanpolri.getTable().getSelectedRow()!= -1){
-                        kdsatuanpolri.setText(pasien.satuanpolri.getTable().getValueAt(pasien.satuanpolri.getTable().getSelectedRow(),0).toString());
-                        nmsatuanpolri.setText(pasien.satuanpolri.getTable().getValueAt(pasien.satuanpolri.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdsatuanpolri.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.satuanpolri.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.satuanpolri.dispose();
-                    }                
-                }
-            }
-            @Override
-            public void keyReleased(KeyEvent e) {}
-        });
-        
-        pasien.pangkatpolri.addWindowListener(new WindowListener() {
-            @Override
-            public void windowOpened(WindowEvent e) {}
-            @Override
-            public void windowClosing(WindowEvent e) {}
-            @Override
-            public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(pasien.pangkatpolri.getTable().getSelectedRow()!= -1){
-                        kdpangkatpolri.setText(pasien.pangkatpolri.getTable().getValueAt(pasien.pangkatpolri.getTable().getSelectedRow(),0).toString());
-                        nmpangkatpolri.setText(pasien.pangkatpolri.getTable().getValueAt(pasien.pangkatpolri.getTable().getSelectedRow(),1).toString());
-                    }  
-                    kdpangkatpolri.requestFocus();
-                }
-            }
-            @Override
-            public void windowIconified(WindowEvent e) {}
-            @Override
-            public void windowDeiconified(WindowEvent e) {}
-            @Override
-            public void windowActivated(WindowEvent e) {}
-            @Override
-            public void windowDeactivated(WindowEvent e) {}
-        });
-        
-        pasien.pangkatpolri.getTable().addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {}
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
-                    if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                        pasien.pangkatpolri.dispose();
                     }                
                 }
             }
@@ -879,7 +521,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.bahasa.getTable().getSelectedRow()!= -1){
                         kdbahasa.setText(pasien.bahasa.getTable().getValueAt(pasien.bahasa.getTable().getSelectedRow(),0).toString());
                         nmbahasa.setText(pasien.bahasa.getTable().getValueAt(pasien.bahasa.getTable().getSelectedRow(),1).toString());
@@ -902,7 +544,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(e.getKeyCode()==KeyEvent.VK_SPACE){
                         pasien.bahasa.dispose();
                     }                
@@ -919,7 +561,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.suku.getTable().getSelectedRow()!= -1){
                         kdsuku.setText(pasien.suku.getTable().getValueAt(pasien.suku.getTable().getSelectedRow(),0).toString());
                         nmsukubangsa.setText(pasien.suku.getTable().getValueAt(pasien.suku.getTable().getSelectedRow(),1).toString());
@@ -942,7 +584,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(e.getKeyCode()==KeyEvent.VK_SPACE){
                         pasien.suku.dispose();
                     }                
@@ -959,7 +601,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.prop.getTable().getSelectedRow()!= -1){
                         if(pilih==1){                    
                             Propinsi.setText(pasien.prop.getTable().getValueAt(pasien.prop.getTable().getSelectedRow(),0).toString());
@@ -989,7 +631,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void windowClosing(WindowEvent e) {}
             @Override
             public void windowClosed(WindowEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(pasien.cacat.getTable().getSelectedRow()!= -1){
                         kdcacat.setText(pasien.cacat.getTable().getValueAt(pasien.cacat.getTable().getSelectedRow(),0).toString());
                         nmcacat.setText(pasien.cacat.getTable().getValueAt(pasien.cacat.getTable().getSelectedRow(),1).toString());
@@ -1012,7 +654,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             public void keyTyped(KeyEvent e) {}
             @Override
             public void keyPressed(KeyEvent e) {
-                if(akses.getform().equals("DlgBridgingBPJS")){
+                if(var.getform().equals("DlgBridgingBPJS")){
                     if(e.getKeyCode()==KeyEvent.VK_SPACE){
                         pasien.cacat.dispose();
                     }                
@@ -1438,75 +1080,21 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
         hariawal=Sequel.cariIsi("select hariawal from set_jam_minimal");
         
         try {
-            user=akses.getkode().replace(" ","").substring(0,9);
+            user=var.getkode().replace(" ","").substring(0,9);
         } catch (Exception e) {
-            user=akses.getkode();
+            user=var.getkode();
         }
         try {
-            link=koneksiDB.URLAPIBPJS();
-            URUTNOREG=koneksiDB.URUTNOREG();
-            BASENOREG=koneksiDB.BASENOREG();
+            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            link=prop.getProperty("URLAPIBPJS");
+            URUTNOREG=prop.getProperty("URUTNOREG");
+            BASENOREG=prop.getProperty("BASENOREG");
         } catch (Exception e) {
             URUTNOREG="";
             BASENOREG="";
             System.out.println("E : "+e);
         }
         
-        if(tampilkantni.equals("Yes")){
-            chkPolri.setVisible(true);
-            nmgolonganpolri.setVisible(true);
-            BtnGolonganPolri.setVisible(true);
-            nmsatuanpolri.setVisible(true);
-            BtnSatuanPolri.setVisible(true);
-            nmpangkatpolri.setVisible(true);
-            BtnPangkatPolri.setVisible(true);
-            nmjabatanpolri.setVisible(true);
-            BtnJabatanPolri.setVisible(true);
-            chkTNI.setVisible(true);
-            nmgolongantni.setVisible(true);
-            BtnGolonganTNI.setVisible(true);
-            nmsatuantni.setVisible(true);
-            BtnSatuanTNI.setVisible(true);
-            nmpangkattni.setVisible(true);
-            BtnPangkatTNI.setVisible(true);
-            nmjabatantni.setVisible(true);
-            BtnJabatanTNI.setVisible(true);
-            LabelGolonganPolri.setVisible(true);
-            LabelGolonganTNI.setVisible(true);
-            LabelSatuanPolri.setVisible(true);
-            LabelSatuanTNI.setVisible(true);
-            LabelPangkatPolri.setVisible(true);
-            LabelPangkatTNI.setVisible(true);
-            LabelJabatanPolri.setVisible(true);
-            LabelJabatanTNI.setVisible(true);
-        }else{
-            chkPolri.setVisible(false);
-            nmgolonganpolri.setVisible(false);
-            BtnGolonganPolri.setVisible(false);
-            nmsatuanpolri.setVisible(false);
-            BtnSatuanPolri.setVisible(false);
-            nmpangkatpolri.setVisible(false);
-            BtnPangkatPolri.setVisible(false);
-            nmjabatanpolri.setVisible(false);
-            BtnJabatanPolri.setVisible(false);
-            chkTNI.setVisible(false);
-            nmgolongantni.setVisible(false);
-            BtnGolonganTNI.setVisible(false);
-            nmsatuantni.setVisible(false);
-            BtnSatuanTNI.setVisible(false);
-            nmpangkattni.setVisible(false);
-            BtnPangkatTNI.setVisible(false);
-            nmjabatantni.setVisible(false);
-            BtnJabatanTNI.setVisible(false);     
-            LabelGolonganPolri.setVisible(false);
-            LabelGolonganTNI.setVisible(false);
-            LabelSatuanPolri.setVisible(false);
-            LabelSatuanTNI.setVisible(false);
-            LabelPangkatPolri.setVisible(false);
-            LabelPangkatTNI.setVisible(false);
-            LabelJabatanPolri.setVisible(false);
-            LabelJabatanTNI.setVisible(false);
-        }
     }
     
     
@@ -3787,21 +3375,13 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
         pasien.bahasa.dispose();
         pasien.cacat.dispose();
         pasien.suku.dispose();
-        pasien.golongantni.dispose();
-        pasien.satuantni.dispose();
-        pasien.pangkattni.dispose();
-        pasien.jabatantni.dispose();
-        pasien.golonganpolri.dispose();
-        pasien.satuanpolri.dispose();
-        pasien.pangkatpolri.dispose();
-        pasien.jabatanpolri.dispose();
         pilihan.dispose();
         dpjp.dispose();
         skdp.dispose();
         propinsikll.dispose();
         kabupatenkll.dispose();
         kecamatankll.dispose();
-        akses.setAktif(false);
+        //var.setAktif(false);
         dispose();
     }//GEN-LAST:event_BtnKeluarActionPerformed
 
@@ -3827,14 +3407,15 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             }
             
             Map<String, Object> param = new HashMap<>();                 
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptCariBPJSNoPeserta.jasper","report","[ Pencarian Peserta BPJS Berdasarkan Nomor Kepesertaan ]",param);
+            Valid.MyReport("rptCariBPJSNoPeserta.jrxml","report","[ Pencarian Peserta BPJS Berdasarkan Nomor Kepesertaan ]",
+                "select no, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14 from temporary order by no asc",param);
             this.setCursor(Cursor.getDefaultCursor());
         }        
     }//GEN-LAST:event_BtnPrintActionPerformed
@@ -3998,7 +3579,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
                 URL = link+"/Sep/pengajuanSEP";
                 headers= new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-                headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+                headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
                 headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
                 headers.add("X-Signature",api.getHmac());
                 requestJson =" {" +
@@ -4043,7 +3624,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
                 URL = link+"/Sep/aprovalSEP";
                 headers= new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-                headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+                headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
                 headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
                 headers.add("X-Signature",api.getHmac());
                 requestJson =" {" +
@@ -4200,7 +3781,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_KdpnjKeyPressed
 
     private void BtnPenjabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPenjabActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pasien.penjab.isCek();
         pasien.penjab.onCari();
         pasien.penjab.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
@@ -4311,7 +3892,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_KabupatenKeyPressed
 
     private void BtnKelurahanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKelurahanActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=1;
         pasien.kel.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.kel.setLocationRelativeTo(internalFrame1);
@@ -4319,7 +3900,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnKelurahanActionPerformed
 
     private void BtnKecamatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKecamatanActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=1;
         pasien.kec.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.kec.setLocationRelativeTo(internalFrame1);
@@ -4327,7 +3908,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnKecamatanActionPerformed
 
     private void BtnKabupatenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKabupatenActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=1;
         pasien.kab.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.kab.setLocationRelativeTo(internalFrame1);
@@ -4413,7 +3994,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_KecamatanPjKeyPressed
 
     private void BtnKecamatanPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKecamatanPjActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=2;
         pasien.kec.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.kec.setLocationRelativeTo(internalFrame1);
@@ -4455,7 +4036,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_KabupatenPjKeyPressed
 
     private void BtnKabupatenPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKabupatenPjActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=2;
         pasien.kab.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.kab.setLocationRelativeTo(internalFrame1);
@@ -4463,7 +4044,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnKabupatenPjActionPerformed
 
     private void BtnKelurahanPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnKelurahanPjActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=2;
         pasien.kel.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.kel.setLocationRelativeTo(internalFrame1);
@@ -4518,7 +4099,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_ChkRMItemStateChanged
 
     private void BtnSukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSukuActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pasien.suku.isCek();
         pasien.suku.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.suku.setLocationRelativeTo(internalFrame1);
@@ -4536,7 +4117,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnSukuKeyPressed
 
     private void BtnBahasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBahasaActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pasien.bahasa.isCek();
         pasien.bahasa.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.bahasa.setLocationRelativeTo(internalFrame1);
@@ -4554,7 +4135,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnBahasaKeyPressed
 
     private void BtnCacatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCacatActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pasien.cacat.isCek();
         pasien.cacat.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.cacat.setLocationRelativeTo(internalFrame1);
@@ -4575,7 +4156,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_BtnCacatKeyPressed
 
     private void BtnPerusahaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPerusahaanActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pasien.perusahaan.isCek();
         pasien.perusahaan.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.perusahaan.setLocationRelativeTo(internalFrame1);
@@ -4635,7 +4216,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_PropinsiKeyPressed
 
     private void BtnPropinsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPropinsiActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=1;
         pasien.prop.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.prop.setLocationRelativeTo(internalFrame1);
@@ -4674,7 +4255,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_PropinsiPjKeyPressed
 
     private void btnPropinsiPjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPropinsiPjActionPerformed
-        akses.setform("DlgBridgingBPJS");
+        var.setform("DlgBridgingBPJS");
         pilih=2;
         pasien.prop.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
         pasien.prop.setLocationRelativeTo(internalFrame1);
@@ -4704,35 +4285,19 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_chkTNIActionPerformed
 
     private void BtnGolonganTNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGolonganTNIActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.golongantni.isCek();
-        pasien.golongantni.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.golongantni.setLocationRelativeTo(internalFrame1);
-        pasien.golongantni.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnGolonganTNIActionPerformed
 
     private void BtnSatuanTNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSatuanTNIActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.satuantni.isCek();
-        pasien.satuantni.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.satuantni.setLocationRelativeTo(internalFrame1);
-        pasien.satuantni.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnSatuanTNIActionPerformed
 
     private void BtnPangkatTNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPangkatTNIActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.pangkattni.isCek();
-        pasien.pangkattni.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.pangkattni.setLocationRelativeTo(internalFrame1);
-        pasien.pangkattni.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnPangkatTNIActionPerformed
 
     private void BtnJabatanTNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnJabatanTNIActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.jabatantni.isCek();
-        pasien.jabatantni.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.jabatantni.setLocationRelativeTo(internalFrame1);
-        pasien.jabatantni.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnJabatanTNIActionPerformed
 
     private void chkPolriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPolriActionPerformed
@@ -4758,35 +4323,19 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }//GEN-LAST:event_chkPolriActionPerformed
 
     private void BtnGolonganPolriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGolonganPolriActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.golonganpolri.isCek();
-        pasien.golonganpolri.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.golonganpolri.setLocationRelativeTo(internalFrame1);
-        pasien.golonganpolri.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnGolonganPolriActionPerformed
 
     private void BtnSatuanPolriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSatuanPolriActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.satuanpolri.isCek();
-        pasien.satuanpolri.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.satuanpolri.setLocationRelativeTo(internalFrame1);
-        pasien.satuanpolri.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnSatuanPolriActionPerformed
 
     private void BtnPangkatPolriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPangkatPolriActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.pangkatpolri.isCek();
-        pasien.pangkatpolri.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.pangkatpolri.setLocationRelativeTo(internalFrame1);
-        pasien.pangkatpolri.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnPangkatPolriActionPerformed
 
     private void BtnJabatanPolriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnJabatanPolriActionPerformed
-        akses.setform("DlgBridgingBPJS");
-        pasien.jabatanpolri.isCek();
-        pasien.jabatanpolri.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
-        pasien.jabatanpolri.setLocationRelativeTo(internalFrame1);
-        pasien.jabatanpolri.setVisible(true);
+        var.setform("DlgBridgingBPJS");
     }//GEN-LAST:event_BtnJabatanPolriActionPerformed
 
     private void TanggalSEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TanggalSEPKeyPressed
@@ -5628,75 +5177,6 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
                                 R6.setSelected(true);
                                 break;
                         } 
-                        if(tampilkantni.equals("Yes")){
-                            pstni=koneksi.prepareStatement(
-                                "select pasien_tni.no_rkm_medis,pasien_tni.golongan_tni,golongan_tni.nama_golongan,"+
-                                "pasien_tni.satuan_tni,satuan_tni.nama_satuan,pasien_tni.pangkat_tni,"+
-                                "pangkat_tni.nama_pangkat,pasien_tni.jabatan_tni,jabatan_tni.nama_jabatan "+
-                                "from pasien_tni inner join golongan_tni inner join satuan_tni "+
-                                "inner join pangkat_tni inner join jabatan_tni on pasien_tni.golongan_tni=golongan_tni.id "+
-                                "and pasien_tni.pangkat_tni=pangkat_tni.id and pasien_tni.satuan_tni=satuan_tni.id "+
-                                "and pasien_tni.jabatan_tni=jabatan_tni.id where pasien_tni.no_rkm_medis=?");
-                            try {
-                                pstni.setString(1,rs.getString("no_rkm_medis"));
-                                rs2=pstni.executeQuery();
-                                if(rs2.next()){
-                                    kdgolongantni.setText(rs2.getString("golongan_tni"));
-                                    nmgolongantni.setText(rs2.getString("nama_golongan"));
-                                    kdsatuantni.setText(rs2.getString("satuan_tni"));
-                                    nmsatuantni.setText(rs2.getString("nama_satuan"));
-                                    kdpangkattni.setText(rs2.getString("pangkat_tni"));
-                                    nmpangkattni.setText(rs2.getString("nama_pangkat"));
-                                    kdjabatantni.setText(rs2.getString("jabatan_tni"));
-                                    nmjabatantni.setText(rs2.getString("nama_jabatan"));
-                                    chkTNI.setSelected(true);
-                                    chkTNIActionPerformed(null);
-                                }
-                            } catch (Exception e) {
-                                System.out.println("Notif TNI : "+e);
-                            } finally{
-                                if(rs2!=null){
-                                    rs2.close();
-                                }
-                                if(pstni!=null){
-                                    pstni.close();
-                                }
-                            }
-                                
-                            pspolri=koneksi.prepareStatement(
-                                "select pasien_polri.no_rkm_medis,pasien_polri.golongan_polri,golongan_polri.nama_golongan,"+
-                                "pasien_polri.satuan_polri,satuan_polri.nama_satuan,pasien_polri.pangkat_polri,"+
-                                "pangkat_polri.nama_pangkat,pasien_polri.jabatan_polri,jabatan_polri.nama_jabatan "+
-                                "from pasien_polri inner join golongan_polri inner join satuan_polri "+
-                                "inner join pangkat_polri inner join jabatan_polri on pasien_polri.golongan_polri=golongan_polri.id "+
-                                "and pasien_polri.pangkat_polri=pangkat_polri.id and pasien_polri.satuan_polri=satuan_polri.id "+
-                                "and pasien_polri.jabatan_polri=jabatan_polri.id where pasien_polri.no_rkm_medis=?");
-                            try {
-                                pspolri.setString(1,rs.getString("no_rkm_medis"));
-                                rs2=pspolri.executeQuery();
-                                if(rs2.next()){
-                                    kdgolonganpolri.setText(rs2.getString("golongan_polri"));
-                                    nmgolonganpolri.setText(rs2.getString("nama_golongan"));
-                                    kdsatuanpolri.setText(rs2.getString("satuan_polri"));
-                                    nmsatuanpolri.setText(rs2.getString("nama_satuan"));
-                                    kdpangkatpolri.setText(rs2.getString("pangkat_polri"));
-                                    nmpangkatpolri.setText(rs2.getString("nama_pangkat"));
-                                    kdjabatanpolri.setText(rs2.getString("jabatan_polri"));
-                                    nmjabatanpolri.setText(rs2.getString("nama_jabatan"));
-                                    chkPolri.setSelected(true);
-                                    chkPolriActionPerformed(null);
-                                }
-                            } catch (Exception e) {
-                                System.out.println("Notif TNI : "+e);
-                            } finally{
-                                if(rs2!=null){
-                                    rs2.close();
-                                }
-                                if(pspolri!=null){
-                                    pspolri.close();
-                                }
-                            }
-                        }
                     }else{
                         statuspasien="Baru";
                         autoNomor();
@@ -5726,59 +5206,30 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
         if(ChkCari.isSelected()==true){
             panelCari.setVisible(true);
                 
-            if(tampilkantni.equals("Yes")){
-                FormInput.setPreferredSize(new Dimension(955,820));
-                if(internalFrame1.getHeight()>530){
-                    PanelInput.setPreferredSize(new Dimension(WIDTH,570));
-                    scrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-                    if(internalFrame1.getWidth()<960){
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(952,485));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(952,334));
-                    }else{
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,485));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,334));
-                    }
+            FormInput.setPreferredSize(new Dimension(955,670));
+            if(internalFrame1.getHeight()>530){
+                PanelInput.setPreferredSize(new Dimension(WIDTH,570));
+                scrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+                if(internalFrame1.getWidth()<960){
+                    scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+                    FormKelengkapanPasien.setPreferredSize(new Dimension(952,335));
+                    FormKelengkapanSEP.setPreferredSize(new Dimension(952,334));
                 }else{
-                    scrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-                    PanelInput.setPreferredSize(new Dimension(WIDTH,internalFrame1.getHeight()-20));
-                    if(internalFrame1.getWidth()<960){
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(952,485));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(952,334));
-                    }else{
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,485));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,334));
-                    }
+                    scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+                    FormKelengkapanPasien.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,335));
+                    FormKelengkapanSEP.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,334));
                 }
             }else{
-                FormInput.setPreferredSize(new Dimension(955,670));
-                if(internalFrame1.getHeight()>530){
-                    PanelInput.setPreferredSize(new Dimension(WIDTH,570));
-                    scrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-                    if(internalFrame1.getWidth()<960){
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(952,335));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(952,334));
-                    }else{
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,335));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,334));
-                    }
+                scrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+                PanelInput.setPreferredSize(new Dimension(WIDTH,internalFrame1.getHeight()-20));
+                if(internalFrame1.getWidth()<960){
+                    scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+                    FormKelengkapanPasien.setPreferredSize(new Dimension(952,335));
+                    FormKelengkapanSEP.setPreferredSize(new Dimension(952,334));
                 }else{
-                    scrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-                    PanelInput.setPreferredSize(new Dimension(WIDTH,internalFrame1.getHeight()-20));
-                    if(internalFrame1.getWidth()<960){
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(952,335));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(952,334));
-                    }else{
-                        scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-                        FormKelengkapanPasien.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,335));
-                        FormKelengkapanSEP.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,334));
-                    }
+                    scrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+                    FormKelengkapanPasien.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,335));
+                    FormKelengkapanSEP.setPreferredSize(new Dimension(internalFrame1.getWidth()-32,334));
                 }
             }
                 
@@ -6071,7 +5522,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             
             headers= new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-            headers.add("X-Cons-ID",koneksiDB.CONSIDAPIBPJS());
+            headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIBPJS"));
             headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
             headers.add("X-Signature",api.getHmac());
             URL = link+"/SEP/1.1/insert";
@@ -6504,9 +5955,9 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
     }
     
     public void isCek(){
-        BtnSimpan.setEnabled(akses.getbpjs_sep());
-        ppPengajuan.setEnabled(akses.getbpjs_sep());
-        ppPengajuan1.setEnabled(akses.getbpjs_sep());
+        BtnSimpan.setEnabled(var.getbpjs_sep());
+        ppPengajuan.setEnabled(var.getbpjs_sep());
+        ppPengajuan1.setEnabled(var.getbpjs_sep());
     }
     
     public void SetNoKTP(String NoKTP){

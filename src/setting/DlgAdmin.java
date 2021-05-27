@@ -1,16 +1,3 @@
-/*
-  Dilarang keras menggandakan/mengcopy/menyebarkan/membajak/mendecompile 
-  Software ini dalam bentuk apapun tanpa seijin pembuat software
-  (Khanza.Soft Media). Bagi yang sengaja membajak softaware ini ta
-  npa ijin, kami sumpahi sial 1000 turunan, miskin sampai 500 turu
-  nan. Selalu mendapat kecelakaan sampai 400 turunan. Anak pertama
-  nya cacat tidak punya kaki sampai 300 turunan. Susah cari jodoh
-  sampai umur 50 tahun sampai 200 turunan. Ya Alloh maafkan kami 
-  karena telah berdoa buruk, semua ini kami lakukan karena kami ti
-  dak pernah rela karya kami dibajak tanpa ijin.
- */
-
-
 package setting;
 
 import fungsi.WarnaTable;
@@ -21,8 +8,8 @@ import fungsi.validasi;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -37,8 +24,6 @@ public class DlgAdmin extends javax.swing.JDialog {
     private Connection koneksi=koneksiDB.condb();
     private sekuel Sequel=new sekuel();
     private validasi Valid=new validasi();
-    private ResultSet rs;
-    private PreparedStatement ps;
 
     /** Creates new form DlgAdmin
      * @param parent
@@ -112,7 +97,7 @@ public class DlgAdmin extends javax.swing.JDialog {
             }
         });
 
-        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Setup Admin ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50,50,50))); // NOI18N
+        internalFrame1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(240, 245, 235)), "::[ Setup Admin ]::", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 70, 40))); // NOI18N
         internalFrame1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         internalFrame1.setName("internalFrame1"); // NOI18N
         internalFrame1.setLayout(new java.awt.BorderLayout(1, 1));
@@ -437,27 +422,22 @@ public class DlgAdmin extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     public void tampil() {
+        String sql="select AES_DECRYPT(usere,'nur'),AES_DECRYPT(passworde,'windi') from admin";
+        prosesCari(sql);
+    }
+
+    private void prosesCari(String sql) {
         Valid.tabelKosong(tabMode);
         try{
-            ps=koneksi.prepareStatement("select AES_DECRYPT(usere,'nur'),AES_DECRYPT(passworde,'windi') from admin");
-            try {
-                rs=ps.executeQuery();
-                while(rs.next()){
-                    tabMode.addRow(new String[]{
-                        rs.getString(1),rs.getString(2)
-                    });
-                 }
-            } catch (Exception e) {
-                System.out.println("Notifikasi : "+e);
-            } finally{
-                if(rs!=null){
-                    rs.close();
-                }
-                if(ps!=null){
-                    ps.close();
-                }
-            }
-        }catch(Exception e){
+            java.sql.Statement stat=koneksi.createStatement();
+            ResultSet rs=stat.executeQuery(sql);
+            while(rs.next()){
+                String kd=rs.getString(1);
+                String nm=rs.getString(2);
+                String[] data={kd,nm};
+                tabMode.addRow(data);
+             }
+        }catch(SQLException e){
             System.out.println("Notifikasi : "+e);
         }
     }

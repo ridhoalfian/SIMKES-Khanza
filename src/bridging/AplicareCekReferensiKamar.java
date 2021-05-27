@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import fungsi.sekuel;
 import fungsi.validasi;
-import fungsi.akses;
+import fungsi.var;
 import fungsi.koneksiDB;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
@@ -88,7 +88,7 @@ public final class AplicareCekReferensiKamar extends javax.swing.JDialog {
         
         Kelas.setDocument(new batasInput((byte)100).getKata(Kelas));
         
-        if(koneksiDB.CARICEPAT().equals("aktif")){
+        if(koneksiDB.cariCepat().equals("aktif")){
             Kelas.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
                 @Override
                 public void insertUpdate(DocumentEvent e) {
@@ -112,7 +112,7 @@ public final class AplicareCekReferensiKamar extends javax.swing.JDialog {
         } 
         
         try {
-            URL = koneksiDB.URLAPIAPLICARE()+"/rest/ref/kelas";
+            URL = prop.getProperty("URLAPIAPLICARE")+"/rest/ref/kelas";
         } catch (Exception e) {
             System.out.println("E : "+e);
         }     
@@ -262,15 +262,16 @@ public final class AplicareCekReferensiKamar extends javax.swing.JDialog {
                                 tabMode.getValueAt(r,2).toString()+"','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',''","Rekap Harian Pengadaan Ipsrs"); 
             }
             Map<String, Object> param = new HashMap<>();                 
-            param.put("namars",akses.getnamars());
-            param.put("alamatrs",akses.getalamatrs());
-            param.put("kotars",akses.getkabupatenrs());
-            param.put("propinsirs",akses.getpropinsirs());
+            param.put("namars",var.getnamars());
+            param.put("alamatrs",var.getalamatrs());
+            param.put("kotars",var.getkabupatenrs());
+            param.put("propinsirs",var.getpropinsirs());
             //param.put("peserta","No.Peserta : "+NoKartu.getText()+" Nama Peserta : "+NamaPasien.getText());
-            param.put("kontakrs",akses.getkontakrs());
-            param.put("emailrs",akses.getemailrs());   
+            param.put("kontakrs",var.getkontakrs());
+            param.put("emailrs",var.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
-            Valid.MyReport("rptCariAplicareReferensiKamar.jasper","report","[ Pencarian Referensi Kamar Aplicare ]",param);
+            Valid.MyReport("rptCariAplicareReferensiKamar.jrxml","report","[ Pencarian Referensi Kamar Aplicare ]",
+                "select no, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14 from temporary order by no asc",param);
             this.setCursor(Cursor.getDefaultCursor());
         }        
     }//GEN-LAST:event_BtnPrintActionPerformed
@@ -335,7 +336,7 @@ public final class AplicareCekReferensiKamar extends javax.swing.JDialog {
         try {
             headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.add("X-Cons-ID",koneksiDB.CONSIDAPIAPLICARE());
+	    headers.add("X-Cons-ID",prop.getProperty("CONSIDAPIAPLICARE"));
 	    headers.add("X-Timestamp",String.valueOf(api.GetUTCdatetimeAsString()));            
 	    headers.add("X-Signature",api.getHmac());
 	    requestEntity = new HttpEntity(headers);

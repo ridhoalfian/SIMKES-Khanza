@@ -1,6 +1,6 @@
 package bridging;
 
-import AESsecurity.EnkripsiAES;
+//import AESsecurity.EnkripsiAES;
 import fungsi.koneksiDB;
 import java.io.FileInputStream;
 import java.io.UnsupportedEncodingException;
@@ -40,8 +40,8 @@ public class ApiBPJS {
     public ApiBPJS(){
         try {
             prop.loadFromXML(new FileInputStream("setting/database.xml"));
-            Key = koneksiDB.SECRETKEYAPIBPJS();
-            Consid = koneksiDB.CONSIDAPIBPJS();
+            Key = prop.getProperty("SECRETKEYAPIBPJS");
+            Consid = prop.getProperty("CONSIDAPIBPJS");
         } catch (Exception ex) {
             System.out.println("Notifikasi : "+ex);
         }

@@ -41,7 +41,7 @@
                                 if($action == "UBAH"){
                                     echo "<option id='TxtIsi1' value=$TglTerakhir>$TglTerakhir</option>";
                                 }
-                                loadTgl2();
+                                loadTgl();
                              ?>
                         </select>
 			<select name="BlnTerakhir" class="text" onkeydown="setDefault(this, document.getElementById('MsgIsi1'));" id="TxtIsi1">
@@ -49,7 +49,7 @@
                                 if($action == "UBAH"){
                                     echo "<option id='TxtIsi1' value=$BlnTerakhir>$BlnTerakhir</option>";
                                 }
-                                loadBln2();
+                                loadBln();
                              ?>
                         </select>
 			<select name="ThnTerakhir" class="text" onkeydown="setDefault(this, document.getElementById('MsgIsi1'));" id="TxtIsi1">
@@ -57,7 +57,7 @@
                                 if($action == "UBAH"){
                                     echo "<option id='TxtIsi1' value=$ThnTerakhir>$ThnTerakhir</option>";
                                 }
-                                loadThn4();
+                                loadThn();
                              ?>
                         </select>
                         <span id="MsgIsi1" style="color:#CC0000; font-size:10px;"></span>
@@ -94,7 +94,7 @@
                     </td>
                 </tr>                
                 <tr class="head">
-                    <td width="31%" >File Retensi</td><td width="">:</td>
+                    <td width="31%" >File PDF Retensi</td><td width="">:</td>
                     <td width="67%"><input name="dokumen" class="text" onkeydown="setDefault(this, document.getElementById('MsgIsi3'));" type=file id="TxtIsi3" value="<?php echo $dokumen;?>" size="30" maxlength="255" />
                     <span id="MsgIsi3" style="color:#CC0000; font-size:10px;"></span>
                     </td>
@@ -143,7 +143,7 @@
                       echo "<tr class='isi'>
                                 <td width='70'>
                                     <center>"; ?>
-                                    <a href="?act=Detail&action=HAPUS&tgl_retensi=<?php print $baris[2] ?>&id=<?php echo $id ?>&lokasi_pdf=<?php print $baris[3] ?>" >[hapus]</a>
+                                    <a href="?act=Detail&action=HAPUS&tgl_retensi=<?php print $baris[2] ?>&id=<?php echo $id ?>" >[hapus]</a>
                             <?php
                             echo "</center>
                                 </td>
@@ -154,20 +154,12 @@
                     }
                 echo "</table>";
 
-            } else {echo "<table width='99.6%' border='0' align='center' cellpadding='0' cellspacing='0' class='tbl_form'>
-                            <tr class='head'>
-                                <td width='5%'><div align='center'>Proses</div></td>
-                                <td width='10%'><div align='center'>Terakhir Daftar</div></td>
-                                <td width='10%'><div align='center'>Tgl.Retensi</div></td>
-                                <td width='25%'><div align='center'>File Retensi</div></td>
-                            </tr>
-                         </table>";}
+            } else {echo "Data retensi masih kosong!";}
         ?>
         </div>
         </form>
         <?php
             if ($action=="HAPUS") {
-                unlink($_GET['lokasi_pdf']);
                 Hapus(" retensi_pasien "," no_rkm_medis ='".$_GET['id']."' and tgl_retensi ='".$_GET['tgl_retensi']."' ","?act=Detail&action=TAMBAH&id=$id");
             }
 
