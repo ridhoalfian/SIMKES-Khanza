@@ -41,8 +41,7 @@ public final class koneksiDB {
                         "   |____/|___||_|  |_||_| \\_\\|____/  |_|\\_\\|_| |_| \\__,_||_| |_|/___|\\__,_|\n" +
                         "                                                                           \n\n"+
                         "                                                                           \n\n"+
-//                        "   PROUDLY POWERED BY Instalasi ICT RSUD H. Damanhuri - Barabai                  \n"+
-                        "   OPTIMIZE BY RS Aura Syfa - Kediri                                       \n"+
+                        "   OPTIMIZED VERSION                                       \n"+
                         "   Version 20210512 [Legacy]                                           \n\n"+
                         "                                                                           ");
             }catch(Exception e){
