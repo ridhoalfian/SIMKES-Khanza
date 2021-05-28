@@ -12,7 +12,7 @@
 </head>
 <body>
   
-    <h1 class="title">SIMRS KhanzaHMS</h1>
+    <h1 class="title">SIMRSKhanza</h1>
     <div id="post">
        <b><br>Dikembangkan Oleh : <br>
 		&nbsp;&nbsp;&nbsp;&nbsp;Khanza.Soft Media<br>

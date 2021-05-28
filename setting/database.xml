@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-    <comment>KhanzaHMS</comment>
+    <comment>SIMRSKhanza</comment>
     <entry key="HOST">localhost</entry>
     <entry key="DATABASE">sik_2017</entry>
     <entry key="PORT">3306</entry>
