@@ -18,9 +18,10 @@ public class SIMRSKhanza {
      */
     public static void main(String[] args) {
         WidgetUtilities.invokeLater(() -> {
-           frmUtama utama=frmUtama.getInstance();
-           utama.isWall();
+           //frmUtama utama=frmUtama.getInstance();
+           //utama.isWall();
            //utama.setIconImage(new javax.swing.ImageIcon( getClass(). getResource("/picture/home.PNG")).getImage());
+           splash utama=new splash();
            utama.setVisible(true);
        });
     }
