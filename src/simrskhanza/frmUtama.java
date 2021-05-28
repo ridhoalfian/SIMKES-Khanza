@@ -488,9 +488,9 @@ public class frmUtama extends javax.swing.JFrame {
         FlayMenu = new usu.widget.glass.PanelGlass();
         MenuBar = new widget.MenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        MnLogin = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
+        MnLogin = new javax.swing.JMenuItem();
         MnGantiPassword = new javax.swing.JMenuItem();
         MenuKeluar = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
@@ -3532,44 +3532,30 @@ public class frmUtama extends javax.swing.JFrame {
         jMenu1.setBorder(null);
         jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setMnemonic('A');
-        jMenu1.setText("  SIMKESKhanza");
+        jMenu1.setText("  SIMRSKhanza");
         jMenu1.setToolTipText("Alt+A");
         jMenu1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu1.setName("jMenu1"); // NOI18N
         jMenu1.setOpaque(false);
-        jMenu1.setPreferredSize(new java.awt.Dimension(110, 30));
+        jMenu1.setPreferredSize(new java.awt.Dimension(103, 30));
 
-        jMenu4.setBorder(null);
-        jMenu4.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu4.setMnemonic('G');
-        jMenu4.setText("Tentang SIMKES Khanza");
-        jMenu4.setToolTipText("Alt+G");
-        jMenu4.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        jMenu4.setName("jMenu4"); // NOI18N
-        jMenu4.setOpaque(false);
-        jMenu4.setPreferredSize(new java.awt.Dimension(124, 30));
-        jMenu4.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu4MenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenu1.add(jMenu4);
+        jMenuItem2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jMenuItem2.setText("Tentang SIMRS Khanza");
+        jMenuItem2.setName("jMenuItem2"); // NOI18N
+        jMenuItem2.setPreferredSize(new java.awt.Dimension(105, 20));
+        jMenu1.add(jMenuItem2);
 
-        MnLogin.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnLogin.setForeground(new java.awt.Color(153, 0, 51));
-        MnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/login2.png"))); // NOI18N
+        jSeparator8.setBackground(new java.awt.Color(155, 175, 130));
+        jSeparator8.setForeground(new java.awt.Color(155, 175, 130));
+        jSeparator8.setName("jSeparator8"); // NOI18N
+        jSeparator8.setPreferredSize(new java.awt.Dimension(0, 2));
+        jMenu1.add(jSeparator8);
+
+        MnLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnLogin.setText("Log In");
+        MnLogin.setMargin(new java.awt.Insets(10, 0, 0, 0));
         MnLogin.setName("MnLogin"); // NOI18N
-        MnLogin.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnLogin.setPreferredSize(new java.awt.Dimension(200, 20));
         MnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnLogActionPerformed(evt);
@@ -3577,19 +3563,11 @@ public class frmUtama extends javax.swing.JFrame {
         });
         jMenu1.add(MnLogin);
 
-        jSeparator8.setBackground(new java.awt.Color(155, 175, 130));
-        jSeparator8.setForeground(new java.awt.Color(155, 175, 130));
-        jSeparator8.setName("jSeparator8"); // NOI18N
-        jSeparator8.setPreferredSize(new java.awt.Dimension(0, 1));
-        jMenu1.add(jSeparator8);
-
-        MnGantiPassword.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnGantiPassword.setForeground(new java.awt.Color(153, 0, 51));
-        MnGantiPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/73.png"))); // NOI18N
+        MnGantiPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnGantiPassword.setText("Ubah Password");
         MnGantiPassword.setEnabled(false);
         MnGantiPassword.setName("MnGantiPassword"); // NOI18N
-        MnGantiPassword.setPreferredSize(new java.awt.Dimension(200, 40));
+        MnGantiPassword.setPreferredSize(new java.awt.Dimension(200, 20));
         MnGantiPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnGantiPasswordBtnLogActionPerformed(evt);
@@ -3597,12 +3575,10 @@ public class frmUtama extends javax.swing.JFrame {
         });
         jMenu1.add(MnGantiPassword);
 
-        MenuKeluar.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MenuKeluar.setForeground(new java.awt.Color(153, 0, 51));
-        MenuKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Delete.png"))); // NOI18N
+        MenuKeluar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MenuKeluar.setText("Keluar");
         MenuKeluar.setName("MenuKeluar"); // NOI18N
-        MenuKeluar.setPreferredSize(new java.awt.Dimension(200, 40));
+        MenuKeluar.setPreferredSize(new java.awt.Dimension(200, 20));
         MenuKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuKeluarBtnKeluarActionPerformed(evt);
@@ -4309,30 +4285,6 @@ public class frmUtama extends javax.swing.JFrame {
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_BtnToolKamnapActionPerformed
 
-private void MenuKeluarBtnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuKeluarBtnKeluarActionPerformed
-        int jawab=JOptionPane.showConfirmDialog(null, "Yakin anda mau keluar dari aplikasi ini ????","Konfirmasi",JOptionPane.YES_NO_OPTION);
-        if(jawab==JOptionPane.YES_OPTION){
-            this.dispose();
-            System.exit(0);
-        }
-}//GEN-LAST:event_MenuKeluarBtnKeluarActionPerformed
-
-private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-     isTutup();
-     About.setSize(PanelWall.getWidth(), PanelWall.getHeight());
-     About.setLocationRelativeTo(PanelWall);
-     About.setVisible(true);
-     DlgHome.dispose();
-}//GEN-LAST:event_jMenu4MouseClicked
-
-private void jMenu4MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu4MenuSelected
-    isTutup();
-    About.setSize(PanelWall.getWidth(), PanelWall.getHeight());
-    About.setLocationRelativeTo(PanelWall);
-    About.setVisible(true);
-    DlgHome.dispose();
-}//GEN-LAST:event_jMenu4MenuSelected
-
 private void edAdminKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edAdminKeyPressed
         Valid.pindah(evt,BtnCancel, edPwd);
 }//GEN-LAST:event_edAdminKeyPressed
@@ -4400,13 +4352,6 @@ private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST
         isTutup();
     }
 }//GEN-LAST:event_formWindowStateChanged
-
-private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnGantiPasswordBtnLogActionPerformed
-    PassLama.setText("");
-    Passbaru1.setText("");
-    PassBaru2.setText("");
-    WindowInput.setVisible(true);
-}//GEN-LAST:event_MnGantiPasswordBtnLogActionPerformed
 
 private void BtnClosePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClosePassActionPerformed
         WindowInput.dispose();
@@ -7018,6 +6963,21 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRekapBulanan1ActionPerformed
 
+    private void MenuKeluarBtnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuKeluarBtnKeluarActionPerformed
+        int jawab=JOptionPane.showConfirmDialog(null, "Yakin anda mau keluar dari aplikasi ini ????","Konfirmasi",JOptionPane.YES_NO_OPTION);
+        if(jawab==JOptionPane.YES_OPTION){
+            this.dispose();
+            System.exit(0);
+        }
+    }//GEN-LAST:event_MenuKeluarBtnKeluarActionPerformed
+
+    private void MnGantiPasswordBtnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnGantiPasswordBtnLogActionPerformed
+        PassLama.setText("");
+        Passbaru1.setText("");
+        PassBaru2.setText("");
+        WindowInput.setVisible(true);
+    }//GEN-LAST:event_MnGantiPasswordBtnLogActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -7290,12 +7250,12 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
