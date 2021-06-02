@@ -4261,7 +4261,6 @@
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Registrasi"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="MnRegistrasi" noResource="true"/>
                   </Properties>
                   <Events>
@@ -4944,7 +4943,7 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="MnKepGj">
+            <MenuItem class="javax.swing.JMenuItem" name="MnPresensiHarian1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
@@ -4954,10 +4953,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kepegawaian &amp; Gaji"/>
                 <Property name="enabled" type="boolean" value="false"/>
-                <Property name="name" type="java.lang.String" value="MnKepGj" noResource="true"/>
+                <Property name="name" type="java.lang.String" value="MnPresensiHarian1" noResource="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnKepGjActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnPresensiHarian1ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
