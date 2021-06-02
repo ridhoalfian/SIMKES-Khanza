@@ -487,8 +487,29 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         FlayMenu = new usu.widget.glass.PanelGlass();
         MenuBar = new widget.MenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenuSIMRSKhanza = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        MenuPengaturan = new javax.swing.JMenu();
+        MnSetAplikasi = new javax.swing.JMenuItem();
+        MnSetAdmin = new javax.swing.JMenuItem();
+        MnPenujang = new javax.swing.JMenuItem();
+        MnSetOtoLok = new javax.swing.JMenuItem();
+        MnSetKmrInp = new javax.swing.JMenuItem();
+        MnSetHargaKamar = new javax.swing.JMenuItem();
+        MnSetEmbTus = new javax.swing.JMenuItem();
+        MnSetUser = new javax.swing.JMenuItem();
+        MnSetTrackerLog = new javax.swing.JMenuItem();
+        MnDisplayAntrian = new javax.swing.JMenuItem();
+        MnSetHargaObt = new javax.swing.JMenuItem();
+        MnSetObtRnp = new javax.swing.JMenuItem();
+        MnSetPenggTrf = new javax.swing.JMenuItem();
+        MnSetOtoRalan = new javax.swing.JMenuItem();
+        MnBiayaHarian = new javax.swing.JMenuItem();
+        MnBiayaMskSkl = new javax.swing.JMenuItem();
+        MnSetRM = new javax.swing.JMenuItem();
+        MnSetBilling = new javax.swing.JMenuItem();
+        MnClosingKsr = new javax.swing.JMenuItem();
+        MnSetLambtPres = new javax.swing.JMenuItem();
         jSeparator8 = new javax.swing.JPopupMenu.Separator();
         MnLogin = new javax.swing.JMenuItem();
         MnGantiPassword = new javax.swing.JMenuItem();
@@ -672,31 +693,10 @@ public class frmUtama extends javax.swing.JFrame {
         MnBukuBesar = new javax.swing.JMenuItem();
         MnCashFlow = new javax.swing.JMenuItem();
         MnKeu = new javax.swing.JMenuItem();
-        jMenuPengaturan = new javax.swing.JMenu();
-        MnSetAplikasi = new javax.swing.JMenuItem();
-        MnSetAdmin = new javax.swing.JMenuItem();
-        MnPenujang = new javax.swing.JMenuItem();
-        MnSetOtoLok = new javax.swing.JMenuItem();
-        MnSetKmrInp = new javax.swing.JMenuItem();
-        MnSetHargaKamar = new javax.swing.JMenuItem();
-        MnSetEmbTus = new javax.swing.JMenuItem();
-        MnSetUser = new javax.swing.JMenuItem();
-        MnSetTrackerLog = new javax.swing.JMenuItem();
-        MnDisplayAntrian = new javax.swing.JMenuItem();
-        MnSetHargaObt = new javax.swing.JMenuItem();
-        MnSetObtRnp = new javax.swing.JMenuItem();
-        MnSetPenggTrf = new javax.swing.JMenuItem();
-        MnSetOtoRalan = new javax.swing.JMenuItem();
-        MnBiayaHarian = new javax.swing.JMenuItem();
-        MnBiayaMskSkl = new javax.swing.JMenuItem();
-        MnSetRM = new javax.swing.JMenuItem();
-        MnSetBilling = new javax.swing.JMenuItem();
-        MnClosingKsr = new javax.swing.JMenuItem();
-        MnSetLambtPres = new javax.swing.JMenuItem();
-        jMenu13 = new javax.swing.JMenu();
-        MnAnjungan6 = new javax.swing.JMenuItem();
-        MnRekapHadir15 = new javax.swing.JMenuItem();
-        MnRekapHadir16 = new javax.swing.JMenuItem();
+        jMenuBantuan = new javax.swing.JMenu();
+        MnBantuan = new javax.swing.JMenuItem();
+        MnDokumentasi = new javax.swing.JMenuItem();
+        MnUcapan = new javax.swing.JMenuItem();
 
         DlgLogin.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         DlgLogin.setName("DlgLogin"); // NOI18N
@@ -3232,7 +3232,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "02/06/2021" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03/06/2021" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -3690,63 +3690,319 @@ public class frmUtama extends javax.swing.JFrame {
         MenuBar.setName("MenuBar"); // NOI18N
         MenuBar.setPreferredSize(new java.awt.Dimension(227, 32));
 
-        jMenu1.setBorder(null);
-        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu1.setMnemonic('A');
-        jMenu1.setText("  SIMRSKhanza");
-        jMenu1.setToolTipText("Alt+A");
-        jMenu1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jMenu1.setName("jMenu1"); // NOI18N
-        jMenu1.setOpaque(false);
-        jMenu1.setPreferredSize(new java.awt.Dimension(103, 30));
+        jMenuSIMRSKhanza.setBorder(null);
+        jMenuSIMRSKhanza.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuSIMRSKhanza.setMnemonic('A');
+        jMenuSIMRSKhanza.setText("  SIMRSKhanza");
+        jMenuSIMRSKhanza.setToolTipText("Alt+A");
+        jMenuSIMRSKhanza.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenuSIMRSKhanza.setIconTextGap(8);
+        jMenuSIMRSKhanza.setName("jMenuSIMRSKhanza"); // NOI18N
+        jMenuSIMRSKhanza.setOpaque(false);
+        jMenuSIMRSKhanza.setPreferredSize(new java.awt.Dimension(103, 24));
 
         jMenuItem2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jMenuItem2.setText("Tentang SIMRS Khanza");
         jMenuItem2.setName("jMenuItem2"); // NOI18N
-        jMenuItem2.setPreferredSize(new java.awt.Dimension(105, 20));
-        jMenu1.add(jMenuItem2);
+        jMenuItem2.setPreferredSize(new java.awt.Dimension(200, 22));
+        jMenuSIMRSKhanza.add(jMenuItem2);
+
+        MenuPengaturan.setBorder(null);
+        MenuPengaturan.setForeground(new java.awt.Color(51, 51, 51));
+        MenuPengaturan.setMnemonic('P');
+        MenuPengaturan.setText("Pengaturan");
+        MenuPengaturan.setToolTipText("Alt+P");
+        MenuPengaturan.setAutoscrolls(true);
+        MenuPengaturan.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        MenuPengaturan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuPengaturan.setIconTextGap(7);
+        MenuPengaturan.setName("MenuPengaturan"); // NOI18N
+        MenuPengaturan.setPreferredSize(new java.awt.Dimension(200, 22));
+
+        MnSetAplikasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetAplikasi.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetAplikasi.setText("Set Aplikasi");
+        MnSetAplikasi.setEnabled(false);
+        MnSetAplikasi.setName("MnSetAplikasi"); // NOI18N
+        MnSetAplikasi.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnSetAplikasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetAplikasiActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetAplikasi);
+
+        MnSetAdmin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetAdmin.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetAdmin.setText("Set Admin");
+        MnSetAdmin.setEnabled(false);
+        MnSetAdmin.setName("MnSetAdmin"); // NOI18N
+        MnSetAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetAdminActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetAdmin);
+
+        MnPenujang.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnPenujang.setForeground(new java.awt.Color(51, 51, 51));
+        MnPenujang.setText("Set PJ Penunjang");
+        MnPenujang.setEnabled(false);
+        MnPenujang.setName("MnPenujang"); // NOI18N
+        MnPenujang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnPenujangActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnPenujang);
+
+        MnSetOtoLok.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetOtoLok.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetOtoLok.setText("Set Oto Lokasi");
+        MnSetOtoLok.setEnabled(false);
+        MnSetOtoLok.setName("MnSetOtoLok"); // NOI18N
+        MnSetOtoLok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetOtoLokActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetOtoLok);
+
+        MnSetKmrInp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetKmrInp.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetKmrInp.setText("Set Kamar Inap");
+        MnSetKmrInp.setEnabled(false);
+        MnSetKmrInp.setName("MnSetKmrInp"); // NOI18N
+        MnSetKmrInp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetKmrInpActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetKmrInp);
+
+        MnSetHargaKamar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetHargaKamar.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetHargaKamar.setText("Set Harga Kamar");
+        MnSetHargaKamar.setEnabled(false);
+        MnSetHargaKamar.setName("MnSetHargaKamar"); // NOI18N
+        MnSetHargaKamar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetHargaKamarActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetHargaKamar);
+
+        MnSetEmbTus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetEmbTus.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetEmbTus.setText("Set Embalase & Tuslah");
+        MnSetEmbTus.setEnabled(false);
+        MnSetEmbTus.setName("MnSetEmbTus"); // NOI18N
+        MnSetEmbTus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetEmbTusActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetEmbTus);
+
+        MnSetUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetUser.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetUser.setText("Set User");
+        MnSetUser.setEnabled(false);
+        MnSetUser.setName("MnSetUser"); // NOI18N
+        MnSetUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetUserActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetUser);
+
+        MnSetTrackerLog.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetTrackerLog.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetTrackerLog.setText("Tracker Login");
+        MnSetTrackerLog.setEnabled(false);
+        MnSetTrackerLog.setName("MnSetTrackerLog"); // NOI18N
+        MnSetTrackerLog.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetTrackerLogActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetTrackerLog);
+
+        MnDisplayAntrian.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnDisplayAntrian.setForeground(new java.awt.Color(51, 51, 51));
+        MnDisplayAntrian.setText("Display Antrian");
+        MnDisplayAntrian.setEnabled(false);
+        MnDisplayAntrian.setName("MnDisplayAntrian"); // NOI18N
+        MnDisplayAntrian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnDisplayAntrianActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnDisplayAntrian);
+
+        MnSetHargaObt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetHargaObt.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetHargaObt.setText("Set Harga Obat");
+        MnSetHargaObt.setEnabled(false);
+        MnSetHargaObt.setName("MnSetHargaObt"); // NOI18N
+        MnSetHargaObt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetHargaObtActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetHargaObt);
+
+        MnSetObtRnp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetObtRnp.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetObtRnp.setText("Set Obat Ranap");
+        MnSetObtRnp.setEnabled(false);
+        MnSetObtRnp.setName("MnSetObtRnp"); // NOI18N
+        MnSetObtRnp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetObtRnpActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetObtRnp);
+
+        MnSetPenggTrf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetPenggTrf.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetPenggTrf.setText("Set Penggunaan Tarif");
+        MnSetPenggTrf.setEnabled(false);
+        MnSetPenggTrf.setName("MnSetPenggTrf"); // NOI18N
+        MnSetPenggTrf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetPenggTrfActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetPenggTrf);
+
+        MnSetOtoRalan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetOtoRalan.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetOtoRalan.setText("Set Oto Ralan");
+        MnSetOtoRalan.setEnabled(false);
+        MnSetOtoRalan.setName("MnSetOtoRalan"); // NOI18N
+        MnSetOtoRalan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetOtoRalanActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetOtoRalan);
+
+        MnBiayaHarian.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnBiayaHarian.setForeground(new java.awt.Color(51, 51, 51));
+        MnBiayaHarian.setText("Biaya Harian");
+        MnBiayaHarian.setEnabled(false);
+        MnBiayaHarian.setName("MnBiayaHarian"); // NOI18N
+        MnBiayaHarian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnBiayaHarianActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnBiayaHarian);
+
+        MnBiayaMskSkl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnBiayaMskSkl.setForeground(new java.awt.Color(51, 51, 51));
+        MnBiayaMskSkl.setText("Biaya Masuk Sekali");
+        MnBiayaMskSkl.setEnabled(false);
+        MnBiayaMskSkl.setName("MnBiayaMskSkl"); // NOI18N
+        MnBiayaMskSkl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnBiayaMskSklActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnBiayaMskSkl);
+
+        MnSetRM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetRM.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetRM.setText("Set RM");
+        MnSetRM.setEnabled(false);
+        MnSetRM.setName("MnSetRM"); // NOI18N
+        MnSetRM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetRMActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetRM);
+
+        MnSetBilling.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetBilling.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetBilling.setText("Set Billing");
+        MnSetBilling.setEnabled(false);
+        MnSetBilling.setName("MnSetBilling"); // NOI18N
+        MnSetBilling.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetBillingActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetBilling);
+
+        MnClosingKsr.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnClosingKsr.setForeground(new java.awt.Color(51, 51, 51));
+        MnClosingKsr.setText("Closing Kasir");
+        MnClosingKsr.setEnabled(false);
+        MnClosingKsr.setName("MnClosingKsr"); // NOI18N
+        MnClosingKsr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnClosingKsrActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnClosingKsr);
+
+        MnSetLambtPres.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnSetLambtPres.setForeground(new java.awt.Color(51, 51, 51));
+        MnSetLambtPres.setText("Set Keterlambatan Presensi");
+        MnSetLambtPres.setEnabled(false);
+        MnSetLambtPres.setName("MnSetLambtPres"); // NOI18N
+        MnSetLambtPres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnSetLambtPresActionPerformed(evt);
+            }
+        });
+        MenuPengaturan.add(MnSetLambtPres);
+
+        jMenuSIMRSKhanza.add(MenuPengaturan);
 
         jSeparator8.setBackground(new java.awt.Color(155, 175, 130));
         jSeparator8.setForeground(new java.awt.Color(155, 175, 130));
         jSeparator8.setName("jSeparator8"); // NOI18N
-        jMenu1.add(jSeparator8);
+        jMenuSIMRSKhanza.add(jSeparator8);
 
         MnLogin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnLogin.setText("Log In");
         MnLogin.setMargin(new java.awt.Insets(10, 0, 0, 0));
         MnLogin.setName("MnLogin"); // NOI18N
-        MnLogin.setPreferredSize(new java.awt.Dimension(200, 20));
+        MnLogin.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnLogActionPerformed(evt);
             }
         });
-        jMenu1.add(MnLogin);
+        jMenuSIMRSKhanza.add(MnLogin);
 
         MnGantiPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnGantiPassword.setText("Ubah Password");
         MnGantiPassword.setEnabled(false);
         MnGantiPassword.setName("MnGantiPassword"); // NOI18N
-        MnGantiPassword.setPreferredSize(new java.awt.Dimension(200, 20));
+        MnGantiPassword.setPreferredSize(new java.awt.Dimension(200, 22));
         MnGantiPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnGantiPasswordBtnLogActionPerformed(evt);
             }
         });
-        jMenu1.add(MnGantiPassword);
+        jMenuSIMRSKhanza.add(MnGantiPassword);
 
         MenuKeluar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MenuKeluar.setText("Keluar");
         MenuKeluar.setName("MenuKeluar"); // NOI18N
-        MenuKeluar.setPreferredSize(new java.awt.Dimension(200, 20));
+        MenuKeluar.setPreferredSize(new java.awt.Dimension(200, 22));
         MenuKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuKeluarBtnKeluarActionPerformed(evt);
             }
         });
-        jMenu1.add(MenuKeluar);
+        jMenuSIMRSKhanza.add(MenuKeluar);
 
-        MenuBar.add(jMenu1);
+        MenuBar.add(jMenuSIMRSKhanza);
 
         jMenuPasien.setBorder(null);
         jMenuPasien.setForeground(new java.awt.Color(255, 255, 255));
@@ -3756,13 +4012,14 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuPasien.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuPasien.setName("jMenuPasien"); // NOI18N
         jMenuPasien.setOpaque(false);
-        jMenuPasien.setPreferredSize(new java.awt.Dimension(68, 30));
+        jMenuPasien.setPreferredSize(new java.awt.Dimension(62, 30));
 
         MnPasien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnPasien.setForeground(new java.awt.Color(51, 51, 51));
         MnPasien.setText("Pasien");
         MnPasien.setEnabled(false);
         MnPasien.setName("MnPasien"); // NOI18N
+        MnPasien.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPasienActionPerformed(evt);
@@ -3775,6 +4032,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnKelahiranBayi.setText("Kelahiran Bayi");
         MnKelahiranBayi.setEnabled(false);
         MnKelahiranBayi.setName("MnKelahiranBayi"); // NOI18N
+        MnKelahiranBayi.setPreferredSize(new java.awt.Dimension(200, 22));
         MnKelahiranBayi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnKelahiranBayiActionPerformed(evt);
@@ -3787,6 +4045,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPasienMeninggal.setText("Pasien Meninggal");
         MnPasienMeninggal.setEnabled(false);
         MnPasienMeninggal.setName("MnPasienMeninggal"); // NOI18N
+        MnPasienMeninggal.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPasienMeninggal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPasienMeninggalActionPerformed(evt);
@@ -3799,6 +4058,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDiagnosaPasien.setText("Diagnosa Pasien");
         MnDiagnosaPasien.setEnabled(false);
         MnDiagnosaPasien.setName("MnDiagnosaPasien"); // NOI18N
+        MnDiagnosaPasien.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDiagnosaPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDiagnosaPasienActionPerformed(evt);
@@ -3811,6 +4071,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRiwayatPerawatan.setText("Riwayat Perawatan");
         MnRiwayatPerawatan.setEnabled(false);
         MnRiwayatPerawatan.setName("MnRiwayatPerawatan"); // NOI18N
+        MnRiwayatPerawatan.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRiwayatPerawatan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRiwayatPerawatanActionPerformed(evt);
@@ -3823,7 +4084,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRetBrksRm.setText("Retensi Berkas Rekam Medik");
         MnRetBrksRm.setEnabled(false);
         MnRetBrksRm.setName("MnRetBrksRm"); // NOI18N
-        MnRetBrksRm.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnRetBrksRm.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRetBrksRm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRetBrksRmActionPerformed(evt);
@@ -3841,6 +4102,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuLayanan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuLayanan.setName("jMenuLayanan"); // NOI18N
         jMenuLayanan.setOpaque(false);
+        jMenuLayanan.setPreferredSize(new java.awt.Dimension(68, 21));
 
         MenuRawatJalan.setBorder(null);
         MenuRawatJalan.setForeground(new java.awt.Color(51, 51, 51));
@@ -3848,8 +4110,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuRawatJalan.setText("Rawat Jalan");
         MenuRawatJalan.setToolTipText("Alt+P");
         MenuRawatJalan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuRawatJalan.setIconTextGap(8);
         MenuRawatJalan.setName("MenuRawatJalan"); // NOI18N
-        MenuRawatJalan.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuRawatJalan.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnRegistrasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnRegistrasi.setForeground(new java.awt.Color(51, 51, 51));
@@ -3883,8 +4146,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuRawatInap.setText("Rawat Inap");
         MenuRawatInap.setToolTipText("Alt+P");
         MenuRawatInap.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuRawatInap.setIconTextGap(8);
         MenuRawatInap.setName("MenuRawatInap"); // NOI18N
-        MenuRawatInap.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuRawatInap.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnKamarInap.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnKamarInap.setForeground(new java.awt.Color(51, 51, 51));
@@ -3930,8 +4194,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuRujukan.setText("Rujukan");
         MenuRujukan.setToolTipText("Alt+P");
         MenuRujukan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuRujukan.setIconTextGap(8);
         MenuRujukan.setName("MenuRujukan"); // NOI18N
-        MenuRujukan.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuRujukan.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnRujukMasuk.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnRujukMasuk.setForeground(new java.awt.Color(51, 51, 51));
@@ -3966,7 +4231,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnInfoKamar.setText("Informasi Kamar");
         MnInfoKamar.setEnabled(false);
         MnInfoKamar.setName("MnInfoKamar"); // NOI18N
-        MnInfoKamar.setPreferredSize(new java.awt.Dimension(175, 20));
+        MnInfoKamar.setPreferredSize(new java.awt.Dimension(200, 22));
         MnInfoKamar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnInfoKamarActionPerformed(evt);
@@ -3979,7 +4244,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnIgd.setText("IGD / UGD");
         MnIgd.setEnabled(false);
         MnIgd.setName("MnIgd"); // NOI18N
-        MnIgd.setPreferredSize(new java.awt.Dimension(175, 20));
+        MnIgd.setPreferredSize(new java.awt.Dimension(200, 22));
         MnIgd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnIgdActionPerformed(evt);
@@ -3992,7 +4257,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnJadwalDokter.setText("Jadwal Praktek Dokter");
         MnJadwalDokter.setEnabled(false);
         MnJadwalDokter.setName("MnJadwalDokter"); // NOI18N
-        MnJadwalDokter.setPreferredSize(null);
+        MnJadwalDokter.setPreferredSize(new java.awt.Dimension(200, 22));
         MnJadwalDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnJadwalDokterActionPerformed(evt);
@@ -4005,6 +4270,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnOperasi.setText("Operasi / VK");
         MnOperasi.setEnabled(false);
         MnOperasi.setName("MnOperasi"); // NOI18N
+        MnOperasi.setPreferredSize(new java.awt.Dimension(200, 22));
         MnOperasi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnOperasiActionPerformed(evt);
@@ -4018,8 +4284,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuObat.setText("Obat");
         MenuObat.setToolTipText("Alt+P");
         MenuObat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuObat.setIconTextGap(8);
         MenuObat.setName("MenuObat"); // NOI18N
-        MenuObat.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuObat.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnPemberianObat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnPemberianObat.setForeground(new java.awt.Color(51, 51, 51));
@@ -4064,7 +4331,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDietPasien.setText("Diet Pasien");
         MnDietPasien.setEnabled(false);
         MnDietPasien.setName("MnDietPasien"); // NOI18N
-        MnDietPasien.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnDietPasien.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDietPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDietPasienActionPerformed(evt);
@@ -4077,6 +4344,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPeriksaLab.setText("Periksa Laboratorium");
         MnPeriksaLab.setEnabled(false);
         MnPeriksaLab.setName("MnPeriksaLab"); // NOI18N
+        MnPeriksaLab.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPeriksaLab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPeriksaLabActionPerformed(evt);
@@ -4089,6 +4357,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPeriksaRad.setText("Periksa Radiologi");
         MnPeriksaRad.setEnabled(false);
         MnPeriksaRad.setName("MnPeriksaRad"); // NOI18N
+        MnPeriksaRad.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPeriksaRad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPeriksaRadActionPerformed(evt);
@@ -4102,8 +4371,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuKasir.setText("Kasir");
         MenuKasir.setToolTipText("Alt+P");
         MenuKasir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuKasir.setIconTextGap(8);
         MenuKasir.setName("MenuKasir"); // NOI18N
-        MenuKasir.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuKasir.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnKasirRalan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnKasirRalan.setForeground(new java.awt.Color(51, 51, 51));
@@ -4160,7 +4430,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDataDokter.setText("Data Dokter");
         MnDataDokter.setEnabled(false);
         MnDataDokter.setName("MnDataDokter"); // NOI18N
-        MnDataDokter.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnDataDokter.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDataDokter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDataDokterActionPerformed(evt);
@@ -4173,6 +4443,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDataPetugas.setText("Data Petugas");
         MnDataPetugas.setEnabled(false);
         MnDataPetugas.setName("MnDataPetugas"); // NOI18N
+        MnDataPetugas.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDataPetugas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDataPetugasActionPerformed(evt);
@@ -4185,6 +4456,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDataPegawai.setText("Data Pegawai");
         MnDataPegawai.setEnabled(false);
         MnDataPegawai.setName("MnDataPegawai"); // NOI18N
+        MnDataPegawai.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDataPegawai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDataPegawaiActionPerformed(evt);
@@ -4198,8 +4470,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuPresensi.setText("Presensi");
         MenuPresensi.setToolTipText("Alt+P");
         MenuPresensi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuPresensi.setIconTextGap(8);
         MenuPresensi.setName("MenuPresensi"); // NOI18N
-        MenuPresensi.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuPresensi.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnBarcodePresensi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnBarcodePresensi.setForeground(new java.awt.Color(51, 51, 51));
@@ -4280,6 +4553,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnSidikJari.setText("Sidik Jari");
         MnSidikJari.setEnabled(false);
         MnSidikJari.setName("MnSidikJari"); // NOI18N
+        MnSidikJari.setPreferredSize(new java.awt.Dimension(200, 22));
         MnSidikJari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnSidikJariActionPerformed(evt);
@@ -4293,8 +4567,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuJadwal.setText("Jadwal");
         MenuJadwal.setToolTipText("Alt+P");
         MenuJadwal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuJadwal.setIconTextGap(8);
         MenuJadwal.setName("MenuJadwal"); // NOI18N
-        MenuJadwal.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuJadwal.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnJadwalPegawai.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnJadwalPegawai.setForeground(new java.awt.Color(51, 51, 51));
@@ -4327,6 +4602,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPresensiHarian1.setText("Kepegawaian & Gaji");
         MnPresensiHarian1.setEnabled(false);
         MnPresensiHarian1.setName("MnPresensiHarian1"); // NOI18N
+        MnPresensiHarian1.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPresensiHarian1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPresensiHarian1ActionPerformed(evt);
@@ -4344,7 +4620,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuFarmasi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuFarmasi.setName("jMenuFarmasi"); // NOI18N
         jMenuFarmasi.setOpaque(false);
-        jMenuFarmasi.setPreferredSize(new java.awt.Dimension(78, 30));
+        jMenuFarmasi.setPreferredSize(new java.awt.Dimension(72, 30));
 
         MenuSuplier.setBorder(null);
         MenuSuplier.setForeground(new java.awt.Color(51, 51, 51));
@@ -4352,8 +4628,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuSuplier.setText("Suplier");
         MenuSuplier.setToolTipText("Alt+P");
         MenuSuplier.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuSuplier.setIconTextGap(8);
         MenuSuplier.setName("MenuSuplier"); // NOI18N
-        MenuSuplier.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuSuplier.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnIndustriFar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnIndustriFar.setForeground(new java.awt.Color(51, 51, 51));
@@ -4386,7 +4663,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnSatuanBrg.setText("Satuan Barang");
         MnSatuanBrg.setEnabled(false);
         MnSatuanBrg.setName("MnSatuanBrg"); // NOI18N
-        MnSatuanBrg.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnSatuanBrg.setPreferredSize(new java.awt.Dimension(200, 22));
         MnSatuanBrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnSatuanBrgActionPerformed(evt);
@@ -4399,6 +4676,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnKonvSat.setText("Konversi Satuan");
         MnKonvSat.setEnabled(false);
         MnKonvSat.setName("MnKonvSat"); // NOI18N
+        MnKonvSat.setPreferredSize(new java.awt.Dimension(200, 22));
         MnKonvSat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnKonvSatActionPerformed(evt);
@@ -4412,8 +4690,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuInvObat.setText("Inventory Obat");
         MenuInvObat.setToolTipText("Alt+P");
         MenuInvObat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuInvObat.setIconTextGap(8);
         MenuInvObat.setName("MenuInvObat"); // NOI18N
-        MenuInvObat.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuInvObat.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnJnsObt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnJnsObt.setForeground(new java.awt.Color(51, 51, 51));
@@ -4531,8 +4810,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuRetur.setText("Retur");
         MenuRetur.setToolTipText("Alt+P");
         MenuRetur.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuRetur.setIconTextGap(8);
         MenuRetur.setName("MenuRetur"); // NOI18N
-        MenuRetur.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuRetur.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnReturKeSup.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnReturKeSup.setForeground(new java.awt.Color(51, 51, 51));
@@ -4590,8 +4870,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuKeuntungan.setText("Keuntungan");
         MenuKeuntungan.setToolTipText("Alt+P");
         MenuKeuntungan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuKeuntungan.setIconTextGap(8);
         MenuKeuntungan.setName("MenuKeuntungan"); // NOI18N
-        MenuKeuntungan.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuKeuntungan.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnKeuntunganPenj.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnKeuntunganPenj.setForeground(new java.awt.Color(51, 51, 51));
@@ -4624,6 +4905,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnSirkulasiObt.setText("Sirkulasi Obat, Alkes & BHP");
         MnSirkulasiObt.setEnabled(false);
         MnSirkulasiObt.setName("MnSirkulasiObt"); // NOI18N
+        MnSirkulasiObt.setPreferredSize(new java.awt.Dimension(200, 22));
         MnSirkulasiObt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnSirkulasiObtActionPerformed(evt);
@@ -4636,6 +4918,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRiwayat.setText("Riwayat Obat, Alkes & BHP");
         MnRiwayat.setEnabled(false);
         MnRiwayat.setName("MnRiwayat"); // NOI18N
+        MnRiwayat.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRiwayat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRiwayatActionPerformed(evt);
@@ -4648,6 +4931,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDaruratStok.setText("Darurat Stok");
         MnDaruratStok.setEnabled(false);
         MnDaruratStok.setName("MnDaruratStok"); // NOI18N
+        MnDaruratStok.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDaruratStok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDaruratStokActionPerformed(evt);
@@ -4672,7 +4956,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnSatuanBrgNon.setText("Satuan Barang");
         MnSatuanBrgNon.setEnabled(false);
         MnSatuanBrgNon.setName("MnSatuanBrgNon"); // NOI18N
-        MnSatuanBrgNon.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnSatuanBrgNon.setPreferredSize(new java.awt.Dimension(200, 22));
         MnSatuanBrgNon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnSatuanBrgNonActionPerformed(evt);
@@ -4685,6 +4969,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnJnsBrgNon.setText("Jenis Barang");
         MnJnsBrgNon.setEnabled(false);
         MnJnsBrgNon.setName("MnJnsBrgNon"); // NOI18N
+        MnJnsBrgNon.setPreferredSize(new java.awt.Dimension(200, 22));
         MnJnsBrgNon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnJnsBrgNonActionPerformed(evt);
@@ -4697,6 +4982,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDataBrgNon.setText("Data Barang");
         MnDataBrgNon.setEnabled(false);
         MnDataBrgNon.setName("MnDataBrgNon"); // NOI18N
+        MnDataBrgNon.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDataBrgNon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDataBrgNonActionPerformed(evt);
@@ -4709,6 +4995,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnSupNon.setText("Suplier Non Medis");
         MnSupNon.setEnabled(false);
         MnSupNon.setName("MnSupNon"); // NOI18N
+        MnSupNon.setPreferredSize(new java.awt.Dimension(200, 22));
         MnSupNon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnSupNonActionPerformed(evt);
@@ -4721,6 +5008,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPengadaanbrg.setText("Pengadaan Barang");
         MnPengadaanbrg.setEnabled(false);
         MnPengadaanbrg.setName("MnPengadaanbrg"); // NOI18N
+        MnPengadaanbrg.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPengadaanbrg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPengadaanbrgActionPerformed(evt);
@@ -4733,6 +5021,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnStokKeluar.setText("Stok Keluar");
         MnStokKeluar.setEnabled(false);
         MnStokKeluar.setName("MnStokKeluar"); // NOI18N
+        MnStokKeluar.setPreferredSize(new java.awt.Dimension(200, 22));
         MnStokKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnStokKeluarActionPerformed(evt);
@@ -4745,6 +5034,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnBiayaPengadaan.setText("Biaya Pengadaan");
         MnBiayaPengadaan.setEnabled(false);
         MnBiayaPengadaan.setName("MnBiayaPengadaan"); // NOI18N
+        MnBiayaPengadaan.setPreferredSize(new java.awt.Dimension(200, 22));
         MnBiayaPengadaan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnBiayaPengadaanActionPerformed(evt);
@@ -4758,8 +5048,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuRekap.setText("Rekap");
         MenuRekap.setToolTipText("Alt+P");
         MenuRekap.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuRekap.setIconTextGap(8);
         MenuRekap.setName("MenuRekap"); // NOI18N
-        MenuRekap.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuRekap.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnRekapPengadaan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnRekapPengadaan.setForeground(new java.awt.Color(51, 51, 51));
@@ -4804,7 +5095,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnCekNoBpjs.setText("Cek No. Kartu BPJS");
         MnCekNoBpjs.setEnabled(false);
         MnCekNoBpjs.setName("MnCekNoBpjs"); // NOI18N
-        MnCekNoBpjs.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnCekNoBpjs.setPreferredSize(new java.awt.Dimension(200, 22));
         MnCekNoBpjs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnCekNoBpjsActionPerformed(evt);
@@ -4817,6 +5108,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnCekNikBpjs.setText("Cek NIK BPJS");
         MnCekNikBpjs.setEnabled(false);
         MnCekNikBpjs.setName("MnCekNikBpjs"); // NOI18N
+        MnCekNikBpjs.setPreferredSize(new java.awt.Dimension(200, 22));
         MnCekNikBpjs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnCekNikBpjsActionPerformed(evt);
@@ -4829,6 +5121,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRiwPesBpjs.setText("Riwayat Peserta BPJS");
         MnRiwPesBpjs.setEnabled(false);
         MnRiwPesBpjs.setName("MnRiwPesBpjs"); // NOI18N
+        MnRiwPesBpjs.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRiwPesBpjs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRiwPesBpjsActionPerformed(evt);
@@ -4841,6 +5134,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnCekNoRujPCare.setText("Cek No. Rujukan PCare");
         MnCekNoRujPCare.setEnabled(false);
         MnCekNoRujPCare.setName("MnCekNoRujPCare"); // NOI18N
+        MnCekNoRujPCare.setPreferredSize(new java.awt.Dimension(200, 22));
         MnCekNoRujPCare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnCekNoRujPCareActionPerformed(evt);
@@ -4853,6 +5147,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRefDiagBpjs.setText("Referensi Diagnosa BPJS");
         MnRefDiagBpjs.setEnabled(false);
         MnRefDiagBpjs.setName("MnRefDiagBpjs"); // NOI18N
+        MnRefDiagBpjs.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRefDiagBpjs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRefDiagBpjsActionPerformed(evt);
@@ -4865,6 +5160,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRefPlBpjs.setText("Referensi Poli Bpjs");
         MnRefPlBpjs.setEnabled(false);
         MnRefPlBpjs.setName("MnRefPlBpjs"); // NOI18N
+        MnRefPlBpjs.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRefPlBpjs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRefPlBpjsActionPerformed(evt);
@@ -4877,6 +5173,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRefFaskes.setText("Referensi Faskes BPJS");
         MnRefFaskes.setEnabled(false);
         MnRefFaskes.setName("MnRefFaskes"); // NOI18N
+        MnRefFaskes.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRefFaskes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRefFaskesActionPerformed(evt);
@@ -4889,6 +5186,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnBridging.setText("Data Bridging BPJS");
         MnBridging.setEnabled(false);
         MnBridging.setName("MnBridging"); // NOI18N
+        MnBridging.setPreferredSize(new java.awt.Dimension(200, 22));
         MnBridging.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnBridgingActionPerformed(evt);
@@ -4901,6 +5199,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnMonitoringKlaim.setText("Monitoring Verifikasi Klaim BPJS");
         MnMonitoringKlaim.setEnabled(false);
         MnMonitoringKlaim.setName("MnMonitoringKlaim"); // NOI18N
+        MnMonitoringKlaim.setPreferredSize(new java.awt.Dimension(200, 22));
         MnMonitoringKlaim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnMonitoringKlaimActionPerformed(evt);
@@ -4913,6 +5212,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRefKmrAplicare.setText("Referensi Kamar Aplicare");
         MnRefKmrAplicare.setEnabled(false);
         MnRefKmrAplicare.setName("MnRefKmrAplicare"); // NOI18N
+        MnRefKmrAplicare.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRefKmrAplicare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRefKmrAplicareActionPerformed(evt);
@@ -4925,6 +5225,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnKmrAplicare.setText("Ketersediaan Kamar Aplicare");
         MnKmrAplicare.setEnabled(false);
         MnKmrAplicare.setName("MnKmrAplicare"); // NOI18N
+        MnKmrAplicare.setPreferredSize(new java.awt.Dimension(200, 22));
         MnKmrAplicare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnKmrAplicareActionPerformed(evt);
@@ -4937,6 +5238,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnRefMblJkn.setText("Referensi Pendaftaran Mobile JKN");
         MnRefMblJkn.setEnabled(false);
         MnRefMblJkn.setName("MnRefMblJkn"); // NOI18N
+        MnRefMblJkn.setPreferredSize(new java.awt.Dimension(200, 22));
         MnRefMblJkn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnRefMblJknActionPerformed(evt);
@@ -4949,6 +5251,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnBtlMblJkn.setText("Batal Pendaftaran Mobile JKN");
         MnBtlMblJkn.setEnabled(false);
         MnBtlMblJkn.setName("MnBtlMblJkn"); // NOI18N
+        MnBtlMblJkn.setPreferredSize(new java.awt.Dimension(200, 22));
         MnBtlMblJkn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnBtlMblJknActionPerformed(evt);
@@ -4974,8 +5277,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuLapObat.setText("Obat");
         MenuLapObat.setToolTipText("Alt+P");
         MenuLapObat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuLapObat.setIconTextGap(8);
         MenuLapObat.setName("MenuLapObat"); // NOI18N
-        MenuLapObat.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuLapObat.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnLapObtPoli.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnLapObtPoli.setForeground(new java.awt.Color(51, 51, 51));
@@ -5056,7 +5360,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnDetJMDok.setText("Detail JM Dokter");
         MnDetJMDok.setEnabled(false);
         MnDetJMDok.setName("MnDetJMDok"); // NOI18N
-        MnDetJMDok.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnDetJMDok.setPreferredSize(new java.awt.Dimension(200, 22));
         MnDetJMDok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnDetJMDokActionPerformed(evt);
@@ -5070,8 +5374,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuLapHarian.setText("Harian");
         MenuLapHarian.setToolTipText("Alt+P");
         MenuLapHarian.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuLapHarian.setIconTextGap(8);
         MenuLapHarian.setName("MenuLapHarian"); // NOI18N
-        MenuLapHarian.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuLapHarian.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnHrDokAll.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnHrDokAll.setForeground(new java.awt.Color(51, 51, 51));
@@ -5189,8 +5494,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuLapBulanan.setText("Bulanan");
         MenuLapBulanan.setToolTipText("Alt+P");
         MenuLapBulanan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuLapBulanan.setIconTextGap(8);
         MenuLapBulanan.setName("MenuLapBulanan"); // NOI18N
-        MenuLapBulanan.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuLapBulanan.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnBulananDok.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnBulananDok.setForeground(new java.awt.Color(51, 51, 51));
@@ -5272,8 +5578,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuLapBulanan1.setText("Free");
         MenuLapBulanan1.setToolTipText("Alt+P");
         MenuLapBulanan1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuLapBulanan1.setIconTextGap(8);
         MenuLapBulanan1.setName("MenuLapBulanan1"); // NOI18N
-        MenuLapBulanan1.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuLapBulanan1.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnFreeVstDok.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnFreeVstDok.setForeground(new java.awt.Color(51, 51, 51));
@@ -5343,8 +5650,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuLapPemb.setText("Pembayaran");
         MenuLapPemb.setToolTipText("Alt+P");
         MenuLapPemb.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuLapPemb.setIconTextGap(8);
         MenuLapPemb.setName("MenuLapPemb"); // NOI18N
-        MenuLapPemb.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuLapPemb.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnLapPembRalan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnLapPembRalan.setForeground(new java.awt.Color(51, 51, 51));
@@ -5401,6 +5709,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapTagMsk.setText("Tagihan Masuk");
         MnLapTagMsk.setEnabled(false);
         MnLapTagMsk.setName("MnLapTagMsk"); // NOI18N
+        MnLapTagMsk.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapTagMsk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapTagMskActionPerformed(evt);
@@ -5413,6 +5722,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapTmbBiayaPx.setText("Tambahan Biaya Pasien");
         MnLapTmbBiayaPx.setEnabled(false);
         MnLapTmbBiayaPx.setName("MnLapTmbBiayaPx"); // NOI18N
+        MnLapTmbBiayaPx.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapTmbBiayaPx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapTmbBiayaPxActionPerformed(evt);
@@ -5425,6 +5735,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapPotBiayaPx.setText("Potongan Biaya Pasien");
         MnLapPotBiayaPx.setEnabled(false);
         MnLapPotBiayaPx.setName("MnLapPotBiayaPx"); // NOI18N
+        MnLapPotBiayaPx.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapPotBiayaPx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapPotBiayaPxActionPerformed(evt);
@@ -5437,6 +5748,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapDepositPx.setText("Deposit Pasien");
         MnLapDepositPx.setEnabled(false);
         MnLapDepositPx.setName("MnLapDepositPx"); // NOI18N
+        MnLapDepositPx.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapDepositPx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapDepositPxActionPerformed(evt);
@@ -5449,6 +5761,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapUangShift.setText("Rekap Uang Pershift");
         MnLapUangShift.setEnabled(false);
         MnLapUangShift.setName("MnLapUangShift"); // NOI18N
+        MnLapUangShift.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapUangShift.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapUangShiftActionPerformed(evt);
@@ -5461,6 +5774,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapPaymentPoint.setText("Payment Point");
         MnLapPaymentPoint.setEnabled(false);
         MnLapPaymentPoint.setName("MnLapPaymentPoint"); // NOI18N
+        MnLapPaymentPoint.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapPaymentPoint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapPaymentPointActionPerformed(evt);
@@ -5474,8 +5788,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuLapPykt.setText("Penyakit");
         MenuLapPykt.setToolTipText("Alt+P");
         MenuLapPykt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuLapPykt.setIconTextGap(8);
         MenuLapPykt.setName("MenuLapPykt"); // NOI18N
-        MenuLapPykt.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuLapPykt.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnLapIcd9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnLapIcd9.setForeground(new java.awt.Color(51, 51, 51));
@@ -5520,6 +5835,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapKjgRln.setText("Kunjungan Ralan");
         MnLapKjgRln.setEnabled(false);
         MnLapKjgRln.setName("MnLapKjgRln"); // NOI18N
+        MnLapKjgRln.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapKjgRln.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapKjgRlnActionPerformed(evt);
@@ -5532,6 +5848,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnLapKjgRanap.setText("Kunjungan Ranap");
         MnLapKjgRanap.setEnabled(false);
         MnLapKjgRanap.setName("MnLapKjgRanap"); // NOI18N
+        MnLapKjgRanap.setPreferredSize(new java.awt.Dimension(200, 22));
         MnLapKjgRanap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnLapKjgRanapActionPerformed(evt);
@@ -5544,6 +5861,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnSensusHrPoli.setText("Sensus Harian Poli");
         MnSensusHrPoli.setEnabled(false);
         MnSensusHrPoli.setName("MnSensusHrPoli"); // NOI18N
+        MnSensusHrPoli.setPreferredSize(new java.awt.Dimension(200, 22));
         MnSensusHrPoli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnSensusHrPoliActionPerformed(evt);
@@ -5556,12 +5874,12 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuKeu.setBorder(null);
         jMenuKeu.setForeground(new java.awt.Color(255, 255, 255));
         jMenuKeu.setMnemonic('N');
-        jMenuKeu.setText("Keuangan");
+        jMenuKeu.setText("  Keuangan");
         jMenuKeu.setToolTipText("Alt+N");
         jMenuKeu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuKeu.setName("jMenuKeu"); // NOI18N
         jMenuKeu.setOpaque(false);
-        jMenuKeu.setPreferredSize(new java.awt.Dimension(68, 30));
+        jMenuKeu.setPreferredSize(new java.awt.Dimension(80, 30));
 
         MenuTarif.setBorder(null);
         MenuTarif.setForeground(new java.awt.Color(51, 51, 51));
@@ -5569,8 +5887,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuTarif.setText("Tarif Pelayanan");
         MenuTarif.setToolTipText("Alt+P");
         MenuTarif.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuTarif.setIconTextGap(8);
         MenuTarif.setName("MenuTarif"); // NOI18N
-        MenuTarif.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuTarif.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnTarifKamar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnTarifKamar.setForeground(new java.awt.Color(51, 51, 51));
@@ -5652,8 +5971,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuRekening.setText("Rekening");
         MenuRekening.setToolTipText("Alt+P");
         MenuRekening.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuRekening.setIconTextGap(8);
         MenuRekening.setName("MenuRekening"); // NOI18N
-        MenuRekening.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuRekening.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnAkunRek.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnAkunRek.setForeground(new java.awt.Color(51, 51, 51));
@@ -5698,7 +6018,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnAkunPiutang.setText("Akun Piutang");
         MnAkunPiutang.setEnabled(false);
         MnAkunPiutang.setName("MnAkunPiutang"); // NOI18N
-        MnAkunPiutang.setPreferredSize(new java.awt.Dimension(250, 24));
+        MnAkunPiutang.setPreferredSize(new java.awt.Dimension(200, 22));
         MnAkunPiutang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnAkunPiutangActionPerformed(evt);
@@ -5711,6 +6031,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnAkunBayar.setText("Akun Bayar");
         MnAkunBayar.setEnabled(false);
         MnAkunBayar.setName("MnAkunBayar"); // NOI18N
+        MnAkunBayar.setPreferredSize(new java.awt.Dimension(200, 22));
         MnAkunBayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnAkunBayarActionPerformed(evt);
@@ -5723,6 +6044,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPengeluaranHr.setText("Pengeluaran Harian");
         MnPengeluaranHr.setEnabled(false);
         MnPengeluaranHr.setName("MnPengeluaranHr"); // NOI18N
+        MnPengeluaranHr.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPengeluaranHr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPengeluaranHrActionPerformed(evt);
@@ -5735,6 +6057,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPemasukanlain.setText("Pemasukan lain - lain");
         MnPemasukanlain.setEnabled(false);
         MnPemasukanlain.setName("MnPemasukanlain"); // NOI18N
+        MnPemasukanlain.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPemasukanlain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPemasukanlainActionPerformed(evt);
@@ -5748,8 +6071,9 @@ public class frmUtama extends javax.swing.JFrame {
         MenuPiutang.setText("Piutang");
         MenuPiutang.setToolTipText("Alt+P");
         MenuPiutang.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MenuPiutang.setIconTextGap(8);
         MenuPiutang.setName("MenuPiutang"); // NOI18N
-        MenuPiutang.setPreferredSize(new java.awt.Dimension(175, 20));
+        MenuPiutang.setPreferredSize(new java.awt.Dimension(200, 22));
 
         MnPiutangPx.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnPiutangPx.setForeground(new java.awt.Color(51, 51, 51));
@@ -5806,6 +6130,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnHtgObt.setText("Hutang Obat & BHP");
         MnHtgObt.setEnabled(false);
         MnHtgObt.setName("MnHtgObt"); // NOI18N
+        MnHtgObt.setPreferredSize(new java.awt.Dimension(200, 22));
         MnHtgObt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnHtgObtActionPerformed(evt);
@@ -5818,6 +6143,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnByrPsnObt.setText("Bayar Pesan Obat & BHP");
         MnByrPsnObt.setEnabled(false);
         MnByrPsnObt.setName("MnByrPsnObt"); // NOI18N
+        MnByrPsnObt.setPreferredSize(new java.awt.Dimension(200, 22));
         MnByrPsnObt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnByrPsnObtActionPerformed(evt);
@@ -5830,6 +6156,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnPostingJurnal.setText("Posting Jurnal");
         MnPostingJurnal.setEnabled(false);
         MnPostingJurnal.setName("MnPostingJurnal"); // NOI18N
+        MnPostingJurnal.setPreferredSize(new java.awt.Dimension(200, 22));
         MnPostingJurnal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnPostingJurnalActionPerformed(evt);
@@ -5842,6 +6169,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnJurnalHr.setText("Jurnal Harian");
         MnJurnalHr.setEnabled(false);
         MnJurnalHr.setName("MnJurnalHr"); // NOI18N
+        MnJurnalHr.setPreferredSize(new java.awt.Dimension(200, 22));
         MnJurnalHr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnJurnalHrActionPerformed(evt);
@@ -5854,6 +6182,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnBukuBesar.setText("Buku Besar");
         MnBukuBesar.setEnabled(false);
         MnBukuBesar.setName("MnBukuBesar"); // NOI18N
+        MnBukuBesar.setPreferredSize(new java.awt.Dimension(200, 22));
         MnBukuBesar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnBukuBesarActionPerformed(evt);
@@ -5866,6 +6195,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnCashFlow.setText("Cash Flow");
         MnCashFlow.setEnabled(false);
         MnCashFlow.setName("MnCashFlow"); // NOI18N
+        MnCashFlow.setPreferredSize(new java.awt.Dimension(200, 22));
         MnCashFlow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnCashFlowActionPerformed(evt);
@@ -5878,6 +6208,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnKeu.setText("Keuangan");
         MnKeu.setEnabled(false);
         MnKeu.setName("MnKeu"); // NOI18N
+        MnKeu.setPreferredSize(new java.awt.Dimension(200, 22));
         MnKeu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MnKeuActionPerformed(evt);
@@ -5887,309 +6218,50 @@ public class frmUtama extends javax.swing.JFrame {
 
         MenuBar.add(jMenuKeu);
 
-        jMenuPengaturan.setBorder(null);
-        jMenuPengaturan.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuPengaturan.setMnemonic('N');
-        jMenuPengaturan.setText("Pengaturan");
-        jMenuPengaturan.setToolTipText("Alt+N");
-        jMenuPengaturan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jMenuPengaturan.setName("jMenuPengaturan"); // NOI18N
-        jMenuPengaturan.setOpaque(false);
-        jMenuPengaturan.setPreferredSize(new java.awt.Dimension(75, 30));
+        jMenuBantuan.setBorder(null);
+        jMenuBantuan.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuBantuan.setMnemonic('N');
+        jMenuBantuan.setText("  Bantuan");
+        jMenuBantuan.setToolTipText("Alt+N");
+        jMenuBantuan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jMenuBantuan.setName("jMenuBantuan"); // NOI18N
+        jMenuBantuan.setOpaque(false);
+        jMenuBantuan.setPreferredSize(new java.awt.Dimension(200, 22));
 
-        MnSetAplikasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetAplikasi.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetAplikasi.setText("Set Aplikasi");
-        MnSetAplikasi.setEnabled(false);
-        MnSetAplikasi.setName("MnSetAplikasi"); // NOI18N
-        MnSetAplikasi.setPreferredSize(new java.awt.Dimension(250, 24));
-        MnSetAplikasi.addActionListener(new java.awt.event.ActionListener() {
+        MnBantuan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnBantuan.setText("Bantua Penggunaan");
+        MnBantuan.setName("MnBantuan"); // NOI18N
+        MnBantuan.setPreferredSize(new java.awt.Dimension(200, 22));
+        MnBantuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetAplikasiActionPerformed(evt);
+                MnBantuanActionPerformed(evt);
             }
         });
-        jMenuPengaturan.add(MnSetAplikasi);
+        jMenuBantuan.add(MnBantuan);
 
-        MnSetAdmin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetAdmin.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetAdmin.setText("Set Admin");
-        MnSetAdmin.setEnabled(false);
-        MnSetAdmin.setName("MnSetAdmin"); // NOI18N
-        MnSetAdmin.addActionListener(new java.awt.event.ActionListener() {
+        MnDokumentasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnDokumentasi.setText("Dokumentasi Online");
+        MnDokumentasi.setName("MnDokumentasi"); // NOI18N
+        MnDokumentasi.setPreferredSize(new java.awt.Dimension(200, 22));
+        MnDokumentasi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetAdminActionPerformed(evt);
+                MnDokumentasiActionPerformed(evt);
             }
         });
-        jMenuPengaturan.add(MnSetAdmin);
+        jMenuBantuan.add(MnDokumentasi);
 
-        MnPenujang.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnPenujang.setForeground(new java.awt.Color(51, 51, 51));
-        MnPenujang.setText("Set PJ Penunjang");
-        MnPenujang.setEnabled(false);
-        MnPenujang.setName("MnPenujang"); // NOI18N
-        MnPenujang.addActionListener(new java.awt.event.ActionListener() {
+        MnUcapan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnUcapan.setText("Ucapan Terima Kasih");
+        MnUcapan.setName("MnUcapan"); // NOI18N
+        MnUcapan.setPreferredSize(new java.awt.Dimension(200, 22));
+        MnUcapan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnPenujangActionPerformed(evt);
+                MnUcapanActionPerformed(evt);
             }
         });
-        jMenuPengaturan.add(MnPenujang);
+        jMenuBantuan.add(MnUcapan);
 
-        MnSetOtoLok.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetOtoLok.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetOtoLok.setText("Set Oto Lokasi");
-        MnSetOtoLok.setEnabled(false);
-        MnSetOtoLok.setName("MnSetOtoLok"); // NOI18N
-        MnSetOtoLok.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetOtoLokActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetOtoLok);
-
-        MnSetKmrInp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetKmrInp.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetKmrInp.setText("Set Kamar Inap");
-        MnSetKmrInp.setEnabled(false);
-        MnSetKmrInp.setName("MnSetKmrInp"); // NOI18N
-        MnSetKmrInp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetKmrInpActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetKmrInp);
-
-        MnSetHargaKamar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetHargaKamar.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetHargaKamar.setText("Set Harga Kamar");
-        MnSetHargaKamar.setEnabled(false);
-        MnSetHargaKamar.setName("MnSetHargaKamar"); // NOI18N
-        MnSetHargaKamar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetHargaKamarActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetHargaKamar);
-
-        MnSetEmbTus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetEmbTus.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetEmbTus.setText("Set Embalase & Tuslah");
-        MnSetEmbTus.setEnabled(false);
-        MnSetEmbTus.setName("MnSetEmbTus"); // NOI18N
-        MnSetEmbTus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetEmbTusActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetEmbTus);
-
-        MnSetUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetUser.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetUser.setText("Set User");
-        MnSetUser.setEnabled(false);
-        MnSetUser.setName("MnSetUser"); // NOI18N
-        MnSetUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetUserActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetUser);
-
-        MnSetTrackerLog.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetTrackerLog.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetTrackerLog.setText("Tracker Login");
-        MnSetTrackerLog.setEnabled(false);
-        MnSetTrackerLog.setName("MnSetTrackerLog"); // NOI18N
-        MnSetTrackerLog.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetTrackerLogActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetTrackerLog);
-
-        MnDisplayAntrian.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnDisplayAntrian.setForeground(new java.awt.Color(51, 51, 51));
-        MnDisplayAntrian.setText("Display Antrian");
-        MnDisplayAntrian.setEnabled(false);
-        MnDisplayAntrian.setName("MnDisplayAntrian"); // NOI18N
-        MnDisplayAntrian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnDisplayAntrianActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnDisplayAntrian);
-
-        MnSetHargaObt.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetHargaObt.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetHargaObt.setText("Set Harga Obat");
-        MnSetHargaObt.setEnabled(false);
-        MnSetHargaObt.setName("MnSetHargaObt"); // NOI18N
-        MnSetHargaObt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetHargaObtActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetHargaObt);
-
-        MnSetObtRnp.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetObtRnp.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetObtRnp.setText("Set Obat Ranap");
-        MnSetObtRnp.setEnabled(false);
-        MnSetObtRnp.setName("MnSetObtRnp"); // NOI18N
-        MnSetObtRnp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetObtRnpActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetObtRnp);
-
-        MnSetPenggTrf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetPenggTrf.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetPenggTrf.setText("Set Penggunaan Tarif");
-        MnSetPenggTrf.setEnabled(false);
-        MnSetPenggTrf.setName("MnSetPenggTrf"); // NOI18N
-        MnSetPenggTrf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetPenggTrfActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetPenggTrf);
-
-        MnSetOtoRalan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetOtoRalan.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetOtoRalan.setText("Set Oto Ralan");
-        MnSetOtoRalan.setEnabled(false);
-        MnSetOtoRalan.setName("MnSetOtoRalan"); // NOI18N
-        MnSetOtoRalan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetOtoRalanActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetOtoRalan);
-
-        MnBiayaHarian.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnBiayaHarian.setForeground(new java.awt.Color(51, 51, 51));
-        MnBiayaHarian.setText("Biaya Harian");
-        MnBiayaHarian.setEnabled(false);
-        MnBiayaHarian.setName("MnBiayaHarian"); // NOI18N
-        MnBiayaHarian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnBiayaHarianActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnBiayaHarian);
-
-        MnBiayaMskSkl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnBiayaMskSkl.setForeground(new java.awt.Color(51, 51, 51));
-        MnBiayaMskSkl.setText("Biaya Masuk Sekali");
-        MnBiayaMskSkl.setEnabled(false);
-        MnBiayaMskSkl.setName("MnBiayaMskSkl"); // NOI18N
-        MnBiayaMskSkl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnBiayaMskSklActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnBiayaMskSkl);
-
-        MnSetRM.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetRM.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetRM.setText("Set RM");
-        MnSetRM.setEnabled(false);
-        MnSetRM.setName("MnSetRM"); // NOI18N
-        MnSetRM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetRMActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetRM);
-
-        MnSetBilling.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetBilling.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetBilling.setText("Set Billing");
-        MnSetBilling.setEnabled(false);
-        MnSetBilling.setName("MnSetBilling"); // NOI18N
-        MnSetBilling.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetBillingActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetBilling);
-
-        MnClosingKsr.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnClosingKsr.setForeground(new java.awt.Color(51, 51, 51));
-        MnClosingKsr.setText("Closing Kasir");
-        MnClosingKsr.setEnabled(false);
-        MnClosingKsr.setName("MnClosingKsr"); // NOI18N
-        MnClosingKsr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnClosingKsrActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnClosingKsr);
-
-        MnSetLambtPres.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MnSetLambtPres.setForeground(new java.awt.Color(51, 51, 51));
-        MnSetLambtPres.setText("Set Keterlambatan Presensi");
-        MnSetLambtPres.setEnabled(false);
-        MnSetLambtPres.setName("MnSetLambtPres"); // NOI18N
-        MnSetLambtPres.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnSetLambtPresActionPerformed(evt);
-            }
-        });
-        jMenuPengaturan.add(MnSetLambtPres);
-
-        MenuBar.add(jMenuPengaturan);
-
-        jMenu13.setBorder(null);
-        jMenu13.setForeground(new java.awt.Color(255, 255, 255));
-        jMenu13.setMnemonic('N');
-        jMenu13.setText("  Bantuan");
-        jMenu13.setToolTipText("Alt+N");
-        jMenu13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jMenu13.setName("jMenu13"); // NOI18N
-        jMenu13.setOpaque(false);
-        jMenu13.setPreferredSize(new java.awt.Dimension(68, 30));
-
-        MnAnjungan6.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnAnjungan6.setForeground(new java.awt.Color(153, 0, 51));
-        MnAnjungan6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/family24.png"))); // NOI18N
-        MnAnjungan6.setText("Anjungan Registrasi Mandiri");
-        MnAnjungan6.setName("MnAnjungan6"); // NOI18N
-        MnAnjungan6.setPreferredSize(new java.awt.Dimension(200, 40));
-        MnAnjungan6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnAnjungan6ActionPerformed(evt);
-            }
-        });
-        jMenu13.add(MnAnjungan6);
-
-        MnRekapHadir15.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnRekapHadir15.setForeground(new java.awt.Color(153, 0, 51));
-        MnRekapHadir15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
-        MnRekapHadir15.setText("Antrian Loket");
-        MnRekapHadir15.setName("MnRekapHadir15"); // NOI18N
-        MnRekapHadir15.setPreferredSize(new java.awt.Dimension(200, 40));
-        MnRekapHadir15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnRekapHadir15ActionPerformed(evt);
-            }
-        });
-        jMenu13.add(MnRekapHadir15);
-
-        MnRekapHadir16.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
-        MnRekapHadir16.setForeground(new java.awt.Color(153, 0, 51));
-        MnRekapHadir16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/Create-Ticket24.png"))); // NOI18N
-        MnRekapHadir16.setText("Antrian Unit/Poliklinik");
-        MnRekapHadir16.setName("MnRekapHadir16"); // NOI18N
-        MnRekapHadir16.setPreferredSize(new java.awt.Dimension(200, 40));
-        MnRekapHadir16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnRekapHadir16ActionPerformed(evt);
-            }
-        });
-        jMenu13.add(MnRekapHadir16);
-
-        MenuBar.add(jMenu13);
+        MenuBar.add(jMenuBantuan);
 
         setJMenuBar(MenuBar);
 
@@ -9758,17 +9830,17 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         // TODO add your handling code here:
     }//GEN-LAST:event_MnSensusHrPoliActionPerformed
 
-    private void MnAnjungan6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAnjungan6ActionPerformed
+    private void MnBantuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBantuanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MnAnjungan6ActionPerformed
+    }//GEN-LAST:event_MnBantuanActionPerformed
 
-    private void MnRekapHadir15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir15ActionPerformed
+    private void MnUcapanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnUcapanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MnRekapHadir15ActionPerformed
+    }//GEN-LAST:event_MnUcapanActionPerformed
 
-    private void MnRekapHadir16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapHadir16ActionPerformed
+    private void MnDokumentasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDokumentasiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MnRekapHadir16ActionPerformed
+    }//GEN-LAST:event_MnDokumentasiActionPerformed
 
     private void MnTarifKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnTarifKamarActionPerformed
         // TODO add your handling code here:
@@ -9942,85 +10014,85 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         // TODO add your handling code here:
     }//GEN-LAST:event_MnRetBrksRmActionPerformed
 
-    private void MnSetAplikasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetAplikasiActionPerformed
+    private void MnSetLambtPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetLambtPresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetAplikasiActionPerformed
-
-    private void MnSetAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetAdminActionPerformed
-
-    private void MnPenujangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenujangActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnPenujangActionPerformed
-
-    private void MnSetOtoLokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetOtoLokActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetOtoLokActionPerformed
-
-    private void MnSetKmrInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetKmrInpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetKmrInpActionPerformed
-
-    private void MnSetHargaKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetHargaKamarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetHargaKamarActionPerformed
-
-    private void MnSetEmbTusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetEmbTusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetEmbTusActionPerformed
-
-    private void MnSetUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetUserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetUserActionPerformed
-
-    private void MnSetTrackerLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetTrackerLogActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetTrackerLogActionPerformed
-
-    private void MnDisplayAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDisplayAntrianActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnDisplayAntrianActionPerformed
-
-    private void MnSetHargaObtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetHargaObtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetHargaObtActionPerformed
-
-    private void MnSetObtRnpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetObtRnpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetObtRnpActionPerformed
-
-    private void MnSetPenggTrfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetPenggTrfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetPenggTrfActionPerformed
-
-    private void MnSetOtoRalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetOtoRalanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetOtoRalanActionPerformed
-
-    private void MnBiayaHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBiayaHarianActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnBiayaHarianActionPerformed
-
-    private void MnBiayaMskSklActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBiayaMskSklActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnBiayaMskSklActionPerformed
-
-    private void MnSetRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetRMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetRMActionPerformed
-
-    private void MnSetBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetBillingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetBillingActionPerformed
+    }//GEN-LAST:event_MnSetLambtPresActionPerformed
 
     private void MnClosingKsrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnClosingKsrActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_MnClosingKsrActionPerformed
 
-    private void MnSetLambtPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetLambtPresActionPerformed
+    private void MnSetBillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetBillingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MnSetLambtPresActionPerformed
+    }//GEN-LAST:event_MnSetBillingActionPerformed
+
+    private void MnSetRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetRMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetRMActionPerformed
+
+    private void MnBiayaMskSklActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBiayaMskSklActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnBiayaMskSklActionPerformed
+
+    private void MnBiayaHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBiayaHarianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnBiayaHarianActionPerformed
+
+    private void MnSetOtoRalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetOtoRalanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetOtoRalanActionPerformed
+
+    private void MnSetPenggTrfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetPenggTrfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetPenggTrfActionPerformed
+
+    private void MnSetObtRnpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetObtRnpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetObtRnpActionPerformed
+
+    private void MnSetHargaObtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetHargaObtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetHargaObtActionPerformed
+
+    private void MnDisplayAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDisplayAntrianActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnDisplayAntrianActionPerformed
+
+    private void MnSetTrackerLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetTrackerLogActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetTrackerLogActionPerformed
+
+    private void MnSetUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetUserActionPerformed
+
+    private void MnSetEmbTusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetEmbTusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetEmbTusActionPerformed
+
+    private void MnSetHargaKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetHargaKamarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetHargaKamarActionPerformed
+
+    private void MnSetKmrInpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetKmrInpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetKmrInpActionPerformed
+
+    private void MnSetOtoLokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetOtoLokActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetOtoLokActionPerformed
+
+    private void MnPenujangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenujangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnPenujangActionPerformed
+
+    private void MnSetAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetAdminActionPerformed
+
+    private void MnSetAplikasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetAplikasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnSetAplikasiActionPerformed
 
     /**
     * @param args the command line arguments
@@ -10061,6 +10133,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenu MenuLapPemb;
     private javax.swing.JMenu MenuLapPykt;
     private javax.swing.JMenu MenuObat;
+    private javax.swing.JMenu MenuPengaturan;
     private javax.swing.JMenu MenuPiutang;
     private javax.swing.JMenu MenuPresensi;
     private javax.swing.JMenu MenuRawatInap;
@@ -10074,7 +10147,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenuItem MnAkunBayar;
     private javax.swing.JMenuItem MnAkunPiutang;
     private javax.swing.JMenuItem MnAkunRek;
-    private javax.swing.JMenuItem MnAnjungan6;
+    private javax.swing.JMenuItem MnBantuan;
     private javax.swing.JMenuItem MnBarcodePresensi;
     private javax.swing.JMenuItem MnBiayaHarian;
     private javax.swing.JMenuItem MnBiayaMskSkl;
@@ -10106,6 +10179,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenuItem MnDiagnosaPasien;
     private javax.swing.JMenuItem MnDietPasien;
     private javax.swing.JMenuItem MnDisplayAntrian;
+    private javax.swing.JMenuItem MnDokumentasi;
     private javax.swing.JMenuItem MnDpjpRanap;
     private javax.swing.JMenuItem MnFreeBcEkg;
     private javax.swing.JMenuItem MnFreePrkRln;
@@ -10191,8 +10265,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenuItem MnRefPlBpjs;
     private javax.swing.JMenuItem MnRegistrasi;
     private javax.swing.JMenuItem MnRekThn;
-    private javax.swing.JMenuItem MnRekapHadir15;
-    private javax.swing.JMenuItem MnRekapHadir16;
     private javax.swing.JMenuItem MnRekapKehadiran;
     private javax.swing.JMenuItem MnRekapPengadaan;
     private javax.swing.JMenuItem MnRekapStok;
@@ -10246,6 +10318,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenuItem MnTempPresensi;
     private javax.swing.JMenuItem MnTindakanRalan;
     private javax.swing.JMenuItem MnTindakanRanap;
+    private javax.swing.JMenuItem MnUcapan;
     private javax.swing.JPanel PanelUtama;
     private usu.widget.glass.PanelGlass PanelWall;
     private widget.panelGlass Panelmenu;
@@ -10450,8 +10523,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private widget.Label jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenuBantuan;
     private javax.swing.JMenu jMenuBridging;
     private javax.swing.JMenu jMenuFarmasi;
     private javax.swing.JMenu jMenuInventory;
@@ -10461,7 +10533,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenu jMenuLayanan;
     private javax.swing.JMenu jMenuManajemen;
     private javax.swing.JMenu jMenuPasien;
-    private javax.swing.JMenu jMenuPengaturan;
+    private javax.swing.JMenu jMenuSIMRSKhanza;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
