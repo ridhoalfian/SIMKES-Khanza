@@ -3697,6 +3697,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenu1.setToolTipText("Alt+A");
         jMenu1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu1.setName("jMenu1"); // NOI18N
+        jMenu1.setOpaque(false);
         jMenu1.setPreferredSize(new java.awt.Dimension(103, 30));
 
         jMenuItem2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -3754,6 +3755,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuPasien.setToolTipText("Alt+N");
         jMenuPasien.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuPasien.setName("jMenuPasien"); // NOI18N
+        jMenuPasien.setOpaque(false);
         jMenuPasien.setPreferredSize(new java.awt.Dimension(68, 30));
 
         MnPasien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -3838,6 +3840,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuLayanan.setToolTipText("Alt+I");
         jMenuLayanan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuLayanan.setName("jMenuLayanan"); // NOI18N
+        jMenuLayanan.setOpaque(false);
 
         MenuRawatJalan.setBorder(null);
         MenuRawatJalan.setForeground(new java.awt.Color(51, 51, 51));
@@ -4150,6 +4153,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuManajemen.setToolTipText("Alt+N");
         jMenuManajemen.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuManajemen.setName("jMenuManajemen"); // NOI18N
+        jMenuManajemen.setOpaque(false);
         jMenuManajemen.setPreferredSize(new java.awt.Dimension(88, 30));
 
         MnDataDokter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -4340,6 +4344,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuFarmasi.setToolTipText("Alt+N");
         jMenuFarmasi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuFarmasi.setName("jMenuFarmasi"); // NOI18N
+        jMenuFarmasi.setOpaque(false);
         jMenuFarmasi.setPreferredSize(new java.awt.Dimension(78, 30));
 
         MenuSuplier.setBorder(null);
@@ -4660,6 +4665,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuInventory.setToolTipText("Alt+N");
         jMenuInventory.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuInventory.setName("jMenuInventory"); // NOI18N
+        jMenuInventory.setOpaque(false);
         jMenuInventory.setPreferredSize(new java.awt.Dimension(74, 30));
 
         MnSatuanBrgNon.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -4791,6 +4797,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuBridging.setToolTipText("Alt+N");
         jMenuBridging.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuBridging.setName("jMenuBridging"); // NOI18N
+        jMenuBridging.setOpaque(false);
         jMenuBridging.setPreferredSize(new java.awt.Dimension(68, 30));
 
         MnCekNoBpjs.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -4959,6 +4966,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuLaporan.setToolTipText("Alt+N");
         jMenuLaporan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuLaporan.setName("jMenuLaporan"); // NOI18N
+        jMenuLaporan.setOpaque(false);
         jMenuLaporan.setPreferredSize(new java.awt.Dimension(67, 30));
 
         MenuLapObat.setBorder(null);
@@ -5553,6 +5561,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuKeu.setToolTipText("Alt+N");
         jMenuKeu.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuKeu.setName("jMenuKeu"); // NOI18N
+        jMenuKeu.setOpaque(false);
         jMenuKeu.setPreferredSize(new java.awt.Dimension(68, 30));
 
         MenuTarif.setBorder(null);
@@ -5886,6 +5895,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuPengaturan.setToolTipText("Alt+N");
         jMenuPengaturan.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenuPengaturan.setName("jMenuPengaturan"); // NOI18N
+        jMenuPengaturan.setOpaque(false);
         jMenuPengaturan.setPreferredSize(new java.awt.Dimension(75, 30));
 
         MnSetAplikasi.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -6138,6 +6148,7 @@ public class frmUtama extends javax.swing.JFrame {
         jMenu13.setToolTipText("Alt+N");
         jMenu13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jMenu13.setName("jMenu13"); // NOI18N
+        jMenu13.setOpaque(false);
         jMenu13.setPreferredSize(new java.awt.Dimension(68, 30));
 
         MnAnjungan6.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
