@@ -1,11 +1,7 @@
 
 package simrskhanza;
 
-import simrskhanza.RMRiwayatPerawatan;
 import bridging.DlgSKDPBPJS;
-import simrskhanza.DlgCariPerawatanRanap;
-import simrskhanza.DlgCariPerawatanRanap2;
-import simrskhanza.DlgPemberianObat;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
 import fungsi.koneksiDB;
@@ -16,7 +12,6 @@ import inventory.DlgCariObat2;
 import inventory.DlgCariObat3;
 import inventory.DlgCopyResep;
 import inventory.DlgPeresepanDokter;
-//import inventory.DlgPermintaanStokPasien;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -42,7 +37,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import keuangan.Jurnal;
 import laporan.DlgBerkasRawat;
-import simrskhanza.RMDataResumePasien;
 import laporan.DlgDiagnosaPenyakit;
 import permintaan.DlgPermintaanLaboratorium;
 import permintaan.DlgPermintaanRadiologi;
@@ -736,7 +730,7 @@ public final class DlgRawatInap extends javax.swing.JDialog {
         }
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
         } catch (Exception ex) {
         }
     }

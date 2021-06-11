@@ -82,7 +82,7 @@ public final class validasi {
     public validasi(){
         super();
         try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             PEMBULATANHARGAOBAT=prop.getProperty("PEMBULATANHARGAOBAT");
         }catch(Exception e){
             PEMBULATANHARGAOBAT="no";
@@ -1033,7 +1033,7 @@ public final class validasi {
         Runtime rt = Runtime.getRuntime();
         try{
             Properties prop = new Properties();
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             if(os.contains("win")) {
                 rt.exec( "rundll32 url.dll,FileProtocolHandler " + "http://"+prop.getProperty("HOST")+"/"+prop.getProperty("HYBRIDWEB")+"/"+url);
             }else if (os.contains("mac")) {
@@ -1055,7 +1055,7 @@ public final class validasi {
         Runtime rt = Runtime.getRuntime();
         try{
             Properties prop = new Properties();
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             if(os.contains("win")) {
                 rt.exec( "rundll32 url.dll,FileProtocolHandler "+url);
             }else if (os.contains("mac")) {
@@ -1075,7 +1075,7 @@ public final class validasi {
     public void printUrl(String url) throws URISyntaxException{
         try{
            Properties prop = new Properties();
-           prop.loadFromXML(new FileInputStream("setting/database.xml"));
+           prop.loadFromXML(new FileInputStream("setting/config.xml"));
            desktop.print(new File(new java.net.URI("http://"+prop.getProperty("HOST")+"/"+url)));
         }catch (Exception e) {
            System.out.println(e);

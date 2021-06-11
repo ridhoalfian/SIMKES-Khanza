@@ -39,7 +39,7 @@ public class ApiBPJS {
     
     public ApiBPJS(){
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             Key = prop.getProperty("SECRETKEYAPIBPJS");
             Consid = prop.getProperty("CONSIDAPIBPJS");
         } catch (Exception ex) {

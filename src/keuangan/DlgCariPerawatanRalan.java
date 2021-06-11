@@ -251,7 +251,7 @@ public final class DlgCariPerawatanRalan extends javax.swing.JDialog {
         } 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));  
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));  
             otorisasi=prop.getProperty("USERPCARE")+":"+prop.getProperty("PASSPCARE")+":095";
             URL=prop.getProperty("URLAPIPCARE");
         } catch (Exception e) {

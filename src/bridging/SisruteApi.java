@@ -26,7 +26,7 @@ public class SisruteApi {
     private String Key,Consid,pass;
     public SisruteApi(){
         try {            
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));            
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));            
             pass = prop.getProperty("PASSSISRUTE");
             Consid = prop.getProperty("IDSISRUTE");
             MessageDigest md = MessageDigest.getInstance("MD5");

@@ -468,7 +468,7 @@ public final class DlgIGD extends javax.swing.JDialog {
         DlgCatatan.setSize(595,34);
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             IPPRINTERTRACER=prop.getProperty("IPPRINTERTRACER");
             URUTNOREG=prop.getProperty("URUTNOREG");            
             aktifkanparsial=prop.getProperty("AKTIFKANBILLINGPARSIAL");

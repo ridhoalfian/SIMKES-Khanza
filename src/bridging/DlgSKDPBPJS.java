@@ -189,7 +189,7 @@ public class DlgSKDPBPJS extends javax.swing.JDialog {
         });
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             URUTNOREG=prop.getProperty("URUTNOREG");
         } catch (Exception ex) {
             URUTNOREG="";

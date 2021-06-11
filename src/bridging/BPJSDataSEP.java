@@ -860,7 +860,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
         }
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            prop.loadFromXML(new FileInputStream("setting/config.xml")); 
             link=prop.getProperty("URLAPIBPJS");
         } catch (Exception e) {
             System.out.println("E : "+e);
@@ -5231,7 +5231,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
 
     public void tampilFaskes1() {
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             String URL = prop.getProperty("URLAPIBPJS")+"/Rujukan/Peserta/"+NoKartu.getText();
 
             HttpHeaders headers = new HttpHeaders();
@@ -5273,7 +5273,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
 
     public void tampilFaskes2() {
     try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             String URL = prop.getProperty("URLAPIBPJS")+"/Rujukan/RS/Peserta/"+NoKartu.getText();
 
             HttpHeaders headers = new HttpHeaders();
@@ -5315,7 +5315,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
 
     public void tampilFaskes1BYK() {
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             String URL = prop.getProperty("URLAPIBPJS") + "/Rujukan/List/Peserta/" + NoKartu.getText();
 
             HttpHeaders headers = new HttpHeaders();
@@ -5364,7 +5364,7 @@ public final class BPJSDataSEP extends javax.swing.JDialog {
 
     public void tampilFaskes2BYK() {
     try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             String URL = prop.getProperty("URLAPIBPJS")+"/Rujukan/RS/List/Peserta/"+NoKartu.getText();
 
             HttpHeaders headers = new HttpHeaders();

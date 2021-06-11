@@ -89,7 +89,7 @@ public class PanelResume extends widget.panelisi {
         tbRegistrasi.setDefaultRenderer(Object.class, new WarnaTable());
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
         } catch (Exception e) {
             System.out.println("Resume : "+e);
         }

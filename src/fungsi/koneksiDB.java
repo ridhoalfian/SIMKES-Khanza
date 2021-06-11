@@ -25,7 +25,7 @@ public final class koneksiDB {
     public static Connection condb(){      
         if(connection == null){
             try{
-                prop.loadFromXML(new FileInputStream("setting/databaseconfig.xml"));
+                prop.loadFromXML(new FileInputStream("setting/database.xml"));
                 dataSource.setURL("jdbc:mysql://"+prop.getProperty("HOST")+":"+prop.getProperty("PORT")+"/"+prop.getProperty("DATABASE")+"?zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true");
                 dataSource.setUser(prop.getProperty("USER"));
                 dataSource.setPassword(prop.getProperty("PAS"));
@@ -52,7 +52,7 @@ public final class koneksiDB {
                         int dialogButton = JOptionPane.YES_NO_OPTION;
                         int dialogResult = JOptionPane.showConfirmDialog (null, "Sambungan ke server terputus. Apakah anda ingin menyambungkan ulang?","Warning",dialogButton);
                         if(dialogResult == JOptionPane.YES_OPTION){
-                            prop.loadFromXML(new FileInputStream("setting/databaseconfig.xml"));
+                            prop.loadFromXML(new FileInputStream("setting/database.xml"));
                             dataSource.setURL("jdbc:mysql://"+prop.getProperty("HOST")+":"+prop.getProperty("PORT")+"/"+prop.getProperty("DATABASE")+"?zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;cachePrepStmts=true");
                             dataSource.setUser(prop.getProperty("USER"));
                             dataSource.setPassword(prop.getProperty("PAS"));
@@ -70,7 +70,7 @@ public final class koneksiDB {
     
     public static String cariCepat(){
         try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             caricepat=prop.getProperty("CARICEPAT");
         }catch(Exception e){
             caricepat="tidak aktif"; 
@@ -80,7 +80,7 @@ public final class koneksiDB {
 
     public static String HOST(){
         try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             var=prop.getProperty("HOSTHYBRIDWEB");
         }catch(Exception e){
             var="localhost"; 
@@ -90,7 +90,7 @@ public final class koneksiDB {
 
     public static String HOSTHYBRIDWEB(){
         try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             var=prop.getProperty("HOSTHYBRIDWEB");
         }catch(Exception e){
             var="";
@@ -100,7 +100,7 @@ public final class koneksiDB {
 
     public static String HYBRIDWEB(){
         try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             var=prop.getProperty("HYBRIDWEB");
         }catch(Exception e){
             var="";
@@ -110,7 +110,7 @@ public final class koneksiDB {
 
     public static String PORTWEB(){
         try{
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             var=prop.getProperty("PORTWEB");
         }catch(Exception e){
             var="";

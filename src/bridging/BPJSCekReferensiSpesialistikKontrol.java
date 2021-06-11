@@ -114,7 +114,7 @@ public final class BPJSCekReferensiSpesialistikKontrol extends javax.swing.JDial
         } 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             link = prop.getProperty("URLAPIBPJS");
             URL = link+"/RencanaKontrol/ListSpesialistik/JnsKontrol";
         } catch (Exception e) {

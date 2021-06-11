@@ -46,7 +46,7 @@ public class BPJSCekNoKartu {
     public BPJSCekNoKartu(){
         super();
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             URL = prop.getProperty("URLAPIBPJS")+"/Peserta/nokartu/";	
         } catch (Exception e) {
             System.out.println("E : "+e);

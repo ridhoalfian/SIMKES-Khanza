@@ -407,7 +407,7 @@ public final class DlgCariObat2 extends javax.swing.JDialog {
         }); 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));   
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));   
             aktifkanbatch = prop.getProperty("AKTIFKANBATCHOBAT");
             if(aktifkanbatch.equals("no")){
                 ppStok.setVisible(true);

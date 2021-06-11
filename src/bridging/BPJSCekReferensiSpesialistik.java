@@ -108,7 +108,7 @@ public final class BPJSCekReferensiSpesialistik extends javax.swing.JDialog {
         } 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            prop.loadFromXML(new FileInputStream("setting/config.xml")); 
             link=prop.getProperty("URLAPIBPJS");
             URL = link+"/referensi/spesialistik";
         } catch (Exception e) {

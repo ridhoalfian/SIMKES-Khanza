@@ -24,7 +24,7 @@ public class SIMRSKhanza {
     public static void main(String[] args) {
         try {
             propVer.loadFromXML(new FileInputStream("setting/version.xml"));
-            propDatabase.loadFromXML(new FileInputStream("setting/database.xml"));
+            propDatabase.loadFromXML(new FileInputStream("setting/config.xml"));
         } catch (Exception e) {
             System.out.println("Notif Setting : "+e);
         }

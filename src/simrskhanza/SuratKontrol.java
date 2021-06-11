@@ -272,7 +272,7 @@ public class SuratKontrol extends javax.swing.JDialog {
         }); 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));            
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));            
             aktifjadwal = prop.getProperty("JADWALDOKTERDIREGISTRASI");
             URUTNOREG = prop.getProperty("URUTNOREG");
         } catch (Exception ex) {

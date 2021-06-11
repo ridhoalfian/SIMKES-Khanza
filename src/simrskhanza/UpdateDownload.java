@@ -123,7 +123,7 @@ public class UpdateDownload extends JFrame{
     private void launch()
     {
         try {
-            propServ.loadFromXML(new FileInputStream("setting/database.xml"));
+            propServ.loadFromXML(new FileInputStream("setting/config.xml"));
         } catch (Exception e) {
             System.out.println("Notif Setting : "+e);
         } 

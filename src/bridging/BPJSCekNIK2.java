@@ -1085,7 +1085,7 @@ public final class BPJSCekNIK2 extends javax.swing.JDialog {
             user=var.getkode();
         }
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            prop.loadFromXML(new FileInputStream("setting/config.xml")); 
             link=prop.getProperty("URLAPIBPJS");
             URUTNOREG=prop.getProperty("URUTNOREG");
             BASENOREG=prop.getProperty("BASENOREG");

@@ -326,7 +326,7 @@ public class DlgCariPermintaanRadiologi extends javax.swing.JDialog {
         });
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             alarm=prop.getProperty("ALARMRADIOLOGI");
             formalarm=prop.getProperty("FORMALARMRADIOLOGI");
         } catch (Exception ex) {

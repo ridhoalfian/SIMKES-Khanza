@@ -8746,7 +8746,7 @@ private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-
     
     public void isCek(){
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             namakamar=prop.getProperty("KAMARAKTIFRANAP");
         } catch (Exception ex) {
             namakamar="";

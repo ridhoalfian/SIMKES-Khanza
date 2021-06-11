@@ -391,7 +391,7 @@ public final class SisruteRujukanKeluar extends javax.swing.JDialog {
         });
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml")); 
+            prop.loadFromXML(new FileInputStream("setting/config.xml")); 
             link=prop.getProperty("URLAPISISRUTE");
         } catch (Exception e) {
             System.out.println("E : "+e);

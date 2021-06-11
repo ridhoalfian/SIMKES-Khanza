@@ -113,7 +113,7 @@ public final class BPJSCekReferensiDiagnosaPRB extends javax.swing.JDialog {
         } 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));   
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));   
             link = prop.getProperty("URLAPIBPJS");
             URL =link+"/referensi/diagnosaprb";	    
         } catch (Exception e) {

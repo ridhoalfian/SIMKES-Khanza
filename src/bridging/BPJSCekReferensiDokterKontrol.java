@@ -112,7 +112,7 @@ public final class BPJSCekReferensiDokterKontrol extends javax.swing.JDialog {
         } 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             link = prop.getProperty("URLAPIBPJS");
             URL = link+"/RencanaKontrol/JadwalPraktekDokter/JnsKontrol";
         } catch (Exception e) {

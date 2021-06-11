@@ -79,7 +79,7 @@ public class DlgSetKoneksi extends JFrame
         this.prop = new Properties();
         this.initComponents();
         try {
-            this.prop.loadFromXML(new FileInputStream("setting/databaseconfig.xml"));
+            this.prop.loadFromXML(new FileInputStream("setting/database.xml"));
         }
         catch (Exception e) {
             System.out.println("Notif Setting : " + e);
@@ -278,7 +278,7 @@ public class DlgSetKoneksi extends JFrame
             properties.setProperty("PORT", this.portEn);
             properties.setProperty("USER", this.userEn);
             properties.setProperty("PAS", this.pasEn);
-            final File file = new File("setting/databaseconfig.xml");
+            final File file = new File("setting/database.xml");
             final FileOutputStream fileOut = new FileOutputStream(file);
             properties.storeToXML(fileOut, "SIMRSKhanza");
             fileOut.close();
@@ -301,7 +301,7 @@ public class DlgSetKoneksi extends JFrame
 
     private void BtnTesKoneksiActionPerformed(final ActionEvent evt) {
         try {
-            this.prop.loadFromXML(new FileInputStream("setting/databaseconfig.xml"));
+            this.prop.loadFromXML(new FileInputStream("setting/database.xml"));
             DlgSetKoneksi.dataSource.setURL("jdbc:mysql://" + this.prop.getProperty("HOST") + ":" + this.prop.getProperty("PORT") + "/" + this.prop.getProperty("DATABASE") + "?zeroDateTimeBehavior=convertToNull");
             DlgSetKoneksi.dataSource.setUser(this.prop.getProperty("USER"));
             DlgSetKoneksi.dataSource.setPassword(this.prop.getProperty("PAS"));

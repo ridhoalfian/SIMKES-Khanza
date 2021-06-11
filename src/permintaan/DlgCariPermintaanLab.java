@@ -341,7 +341,7 @@ public class DlgCariPermintaanLab extends javax.swing.JDialog {
         });
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             alarm=prop.getProperty("ALARMLAB");
             formalarm=prop.getProperty("FORMALARMLAB");
         } catch (Exception ex) {

@@ -87,7 +87,7 @@ public final class BPJSCekDetailSEP2 extends javax.swing.JDialog {
         tbKamar.setDefaultRenderer(Object.class, new WarnaTable()); 
         SEP.setDocument(new batasInput((byte)60).getKata(SEP));
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             URL = prop.getProperty("URLAPIBPJS")+"/SEP/";
         } catch (Exception e) {
             System.out.println("E : "+e);

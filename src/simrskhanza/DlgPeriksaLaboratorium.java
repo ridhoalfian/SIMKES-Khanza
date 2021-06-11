@@ -345,7 +345,7 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
         } 
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             aktifkanparsial=prop.getProperty("AKTIFKANBILLINGPARSIAL");
         } catch (Exception ex) {            
             aktifkanparsial="no";

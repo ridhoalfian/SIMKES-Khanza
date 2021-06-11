@@ -69,7 +69,7 @@ public class DlgCopyResep extends javax.swing.JDialog {
         tbPemisahan.setDefaultRenderer(Object.class, new WarnaTable());
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             aktifkanparsial=prop.getProperty("AKTIFKANBILLINGPARSIAL");
         } catch (Exception ex) {
             aktifkanparsial="no";

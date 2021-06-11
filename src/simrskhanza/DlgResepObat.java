@@ -251,7 +251,7 @@ public final class DlgResepObat extends javax.swing.JDialog {
         });
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             lembarobat=prop.getProperty("CETAKRINCIANOBAT");
         } catch (Exception ex) {
             lembarobat="";

@@ -223,7 +223,7 @@ public final class AplicareKetersediaanKamar extends javax.swing.JDialog {
         });
         
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));
             URL = prop.getProperty("URLAPIAPLICARE");	
             CONSIDAPIAPLICARE=prop.getProperty("CONSIDAPIAPLICARE");
         } catch (Exception e) {

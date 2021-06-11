@@ -37,7 +37,7 @@ public class ApiBPJSAplicare {
     private HttpComponentsClientHttpRequestFactory factory;
     public ApiBPJSAplicare(){
         try {
-            prop.loadFromXML(new FileInputStream("setting/database.xml"));            
+            prop.loadFromXML(new FileInputStream("setting/config.xml"));            
             Key = prop.getProperty("SECRETKEYAPIAPLICARE");
             Consid = prop.getProperty("CONSIDAPIAPLICARE");
         } catch (Exception ex) {
