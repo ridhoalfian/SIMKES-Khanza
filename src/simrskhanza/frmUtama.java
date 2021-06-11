@@ -3626,13 +3626,13 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel11.setName("jLabel11"); // NOI18N
         jLabel11.setPreferredSize(new java.awt.Dimension(430, 30));
         panelJudul.add(jLabel11);
-        jLabel11.setBounds(145, 90, 680, 30);
+        jLabel11.setBounds(165, 90, 680, 30);
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/yaski_icon.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/ausy.png"))); // NOI18N
         jLabel8.setText("RS Masa Kini");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel8.setName("jLabel8"); // NOI18N

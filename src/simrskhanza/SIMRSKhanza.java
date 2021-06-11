@@ -34,19 +34,43 @@ public class SIMRSKhanza {
                 if (!Update.getLatestVersion().equals(version) ) {
                     new UpdateInfo(Update.getWhatsNew());
                 } else {
-                    WidgetUtilities.invokeLater(() -> {
-                       splash utama=new splash();
-                       utama.setVisible(true);
-                    });                                 
+                    if(koneksiDB.condb() == null){
+                        //new DlgSetKoneksi();     
+                        String[] run = {"java","-jar","SetKoneksiServer.jar"};
+                        try {
+                            Runtime.getRuntime().exec(run);
+                        } catch (Exception ex) {
+                            ex.printStackTrace();
+                        }                        
+                    } else {
+                        WidgetUtilities.invokeLater(() -> {
+                           splash utama=new splash();
+                           utama.setVisible(true);
+                        });                                                         
+                    }
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         } else {
-            WidgetUtilities.invokeLater(() -> {
-               splash utama=new splash();
-               utama.setVisible(true);
-            });             
+            if(koneksiDB.condb() == null){
+                //new DlgSetKoneksi();
+                WidgetUtilities.invokeLater(() -> {
+                   DlgSetKoneksi utama=new DlgSetKoneksi();
+                   utama.setVisible(true);
+                });                             
+                //String[] run = {"java","-jar","SetKoneksiServer.jar"};
+                //try {
+                //    Runtime.getRuntime().exec(run);
+                //} catch (Exception ex) {
+                //    ex.printStackTrace();
+                //}                        
+            } else {
+                WidgetUtilities.invokeLater(() -> {
+                   splash utama=new splash();
+                   utama.setVisible(true);
+                });                             
+            }
         }
     }
     
