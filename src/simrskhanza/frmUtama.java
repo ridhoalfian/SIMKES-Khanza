@@ -2,6 +2,7 @@ package simrskhanza;
 
 import bridging.AplicareCekReferensiKamar;
 import bridging.AplicareKetersediaanKamar;
+import bridging.SiranapKetersediaanKamarC19;
 import bridging.BPJSCekKartu;
 import bridging.BPJSCekNIK2;
 import bridging.BPJSCekReferensiFaskes;
@@ -31,14 +32,6 @@ import fungsi.koneksiDB;
 import fungsi.sekuel;
 import fungsi.validasi;
 import fungsi.var;
-import informasi.InformasiJadwal;
-import informasi.InformasiKamar;
-import informasi.InformasiKamarInap;
-import informasi.InformasiTarifLab;
-import informasi.InformasiTarifOperasi;
-import informasi.InformasiTarifRadiologi;
-import informasi.InformasiTarifRalan;
-import informasi.InformasiTarifRanap;
 import inventory.DlgCariPenjualan;
 import inventory.DlgDaruratStok;
 import inventory.DlgIndustriFarmasi;
@@ -186,7 +179,6 @@ public class frmUtama extends javax.swing.JFrame {
     private final DlgPenggajian penggajian=new DlgPenggajian(this,false);
     private final DlgRetensi retensi=new DlgRetensi(this,false);
     private final DlgHybrid Hybrid=new DlgHybrid(this,false);
-    private final InformasiKamarInap informasikamar=new InformasiKamarInap(this,false);
     private final InformasiAnalisaKamin analisakamin=new InformasiAnalisaKamin(this,false);
     private static frmUtama myInstance;
     private PreparedStatement ps;
@@ -612,6 +604,7 @@ public class frmUtama extends javax.swing.JFrame {
         MnMonitoringKlaim = new javax.swing.JMenuItem();
         MnRefKmrAplicare = new javax.swing.JMenuItem();
         MnKmrAplicare = new javax.swing.JMenuItem();
+        MnKmrSiranapCovid = new javax.swing.JMenuItem();
         MnRefMblJkn = new javax.swing.JMenuItem();
         MnBtlMblJkn = new javax.swing.JMenuItem();
         jMenuLaporan = new javax.swing.JMenu();
@@ -3231,7 +3224,7 @@ public class frmUtama extends javax.swing.JFrame {
 
         tanggal.setEditable(false);
         tanggal.setForeground(new java.awt.Color(50, 70, 50));
-        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "03/06/2021" }));
+        tanggal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "08/07/2021" }));
         tanggal.setDisplayFormat("dd/MM/yyyy");
         tanggal.setName("tanggal"); // NOI18N
         tanggal.setOpaque(false);
@@ -3632,7 +3625,7 @@ public class frmUtama extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 2, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/ausy.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/yaski_icon.png"))); // NOI18N
         jLabel8.setText("RS Masa Kini");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jLabel8.setName("jLabel8"); // NOI18N
@@ -3674,6 +3667,11 @@ public class frmUtama extends javax.swing.JFrame {
         jMenuItem2.setText("Tentang SIMRS Khanza");
         jMenuItem2.setName("jMenuItem2"); // NOI18N
         jMenuItem2.setPreferredSize(new java.awt.Dimension(200, 22));
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenuSIMRSKhanza.add(jMenuItem2);
 
         MenuPengaturan.setBorder(null);
@@ -5203,6 +5201,18 @@ public class frmUtama extends javax.swing.JFrame {
         });
         jMenuBridging.add(MnKmrAplicare);
 
+        MnKmrSiranapCovid.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MnKmrSiranapCovid.setForeground(new java.awt.Color(51, 51, 51));
+        MnKmrSiranapCovid.setText("Ketersediaan Kamar Covid-19");
+        MnKmrSiranapCovid.setName("MnKmrSiranapCovid"); // NOI18N
+        MnKmrSiranapCovid.setPreferredSize(new java.awt.Dimension(200, 22));
+        MnKmrSiranapCovid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnKmrSiranapCovidActionPerformed(evt);
+            }
+        });
+        jMenuBridging.add(MnKmrSiranapCovid);
+
         MnRefMblJkn.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         MnRefMblJkn.setForeground(new java.awt.Color(51, 51, 51));
         MnRefMblJkn.setText("Referensi Pendaftaran Mobile JKN");
@@ -6277,7 +6287,7 @@ public class frmUtama extends javax.swing.JFrame {
                 BtnToolJualObat.setEnabled(false);
                 btnToolIGD.setEnabled(false);
                 MnGantiPassword.setEnabled(false);
-                
+
                 //Jong Source First
                 MnPasien.setEnabled(false);
                 MnKelahiranBayi.setEnabled(false);
@@ -6450,7 +6460,7 @@ public class frmUtama extends javax.swing.JFrame {
                 MnClosingKsr.setEnabled(false);
                 MnSetLambtPres.setEnabled(false);
                 //Jong Source end
-                                  
+
                 edAdmin.setText("");
                 edPwd.setText("");
                 BtnLog.setText("Log In");
@@ -6501,7 +6511,7 @@ public class frmUtama extends javax.swing.JFrame {
                     btnToolRad.setEnabled(true);
                     BtnToolJualObat.setEnabled(true);
                     MnGantiPassword.setEnabled(false);
-                    
+
 
                     //Jong Source first
                     MnPasien.setEnabled(true);
@@ -6675,21 +6685,21 @@ public class frmUtama extends javax.swing.JFrame {
                     MnClosingKsr.setEnabled(true);
                     MnSetLambtPres.setEnabled(true);
                     //Jong Source end
-                    
+
                     DlgLogin.dispose();
                     BtnLog.setText("Log Out");
                     MnLogin.setText("Log Out");
                     lblStts.setText("Admin : ");
                     lblUser.setText("Admin Utama");
                 }else if(var.getjml2()>=1){
-                    
-                   
+
+
                     jMenuLayanan.setEnabled(true);
                     jMenuManajemen.setEnabled(true);
                     jMenuFarmasi.setEnabled(true);
                     jMenuInventory.setEnabled(true);
                     jMenuLaporan.setEnabled(true);
-                    
+
                     DlgLogin.dispose();
                     BtnLog.setText("Log Out");
                     MnLogin.setText("Log Out");
@@ -6702,7 +6712,7 @@ public class frmUtama extends javax.swing.JFrame {
                     btnToolLab.setEnabled(var.getperiksa_lab());
                     btnToolRad.setEnabled(var.getperiksa_radiologi());
                     BtnToolJualObat.setEnabled(true);
-                    
+
                     //Jong Source first
                     MnPasien.setEnabled(var.getpasien());
                     MnKelahiranBayi.setEnabled(var.getkelahiran_bayi());
@@ -6783,7 +6793,7 @@ public class frmUtama extends javax.swing.JFrame {
                     MnBridging.setEnabled(var.getbpjs_sep());
                     MnMonitoringKlaim.setEnabled(var.getbpjs_monitoring_klaim());
                     MnRefKmrAplicare.setEnabled(var.getaplicare_referensi_kamar()); // Belum
-                    MnKmrAplicare.setEnabled(var.getaplicare_ketersediaan_kamar()); 
+                    MnKmrAplicare.setEnabled(var.getaplicare_ketersediaan_kamar());
                     MnRefMblJkn.setEnabled(var.getreferensi_mobilejkn_bpjs());
                     MnBtlMblJkn.setEnabled(var.getbatal_pendaftaran_mobilejkn_bpjs());
                     MnLapObtPoli.setEnabled(var.getobat_per_poli());
@@ -6874,7 +6884,7 @@ public class frmUtama extends javax.swing.JFrame {
                     MnClosingKsr.setEnabled(var.getbilling_ranap());
                     MnSetLambtPres.setEnabled(var.getketerlambatan_presensi());
                     //Jong Source end
-                    
+
                     btnToolIGD.setEnabled(var.getigd());
                     Sequel.menyimpan("tracker","'"+edAdmin.getText()+"',current_date(),current_time()","Login");
                 }else if((var.getjml1()==0)&&(var.getjml2()==0)){
@@ -6999,7 +7009,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnToolLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolLabActionPerformed
         isTutup();
-        FlayMenu.removeAll();        
+        FlayMenu.removeAll();
         FlayMenu.add(btnPermintaanLab);
         FlayMenu.add(btnLaboratorium);
         //if((var.getpermintaan_lab()==true)||(var.getperiksa_lab()==true)){
@@ -7008,7 +7018,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         //    btnPermintaanLab.setEnabled(var.getpermintaan_lab());
         //}
         btnLaboratorium.setEnabled(var.getperiksa_lab());
-        FlayMenu.setVisible(true); 
+        FlayMenu.setVisible(true);
     }//GEN-LAST:event_btnToolLabActionPerformed
 
     private void btnToolIGDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolIGDActionPerformed
@@ -7018,7 +7028,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private void btnToolRadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToolRadActionPerformed
         //btnPeriksaRadiologiActionPerformed(evt);
         isTutup();
-        FlayMenu.removeAll();        
+        FlayMenu.removeAll();
         FlayMenu.add(btnPermintaanRadiologi);
         FlayMenu.add(btnPeriksaRadiologi);
         //if((var.getpermintaan_radiologi()==true)||(var.getperiksa_radiologi()==true)){
@@ -7027,12 +7037,17 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         //    btnPermintaanRadiologi.setEnabled(var.getpermintaan_radiologi());
         //}
         btnPeriksaRadiologi.setEnabled(var.getperiksa_radiologi());
-        FlayMenu.setVisible(true); 
-        
+        FlayMenu.setVisible(true);
+
     }//GEN-LAST:event_btnToolRadActionPerformed
 
     private void MnInfoKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnInfoKamarActionPerformed
+        isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        InformasiAnalisaKamin analisakamin=new InformasiAnalisaKamin(this,false);
+        analisakamin.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        analisakamin.setLocationRelativeTo(PanelUtama);
+        analisakamin.setVisible(true);
         DlgHome.dispose();
         analisakamin.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
         analisakamin.setLocationRelativeTo(PanelUtama);
@@ -7069,7 +7084,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         FlayMenu.add(btnInputPenjualan);
         FlayMenu.add(btnDataPenjualan);
         FlayMenu.add(btnDaftarPermintaanResep);
-        FlayMenu.add(btnResepObatDepan);        
+        FlayMenu.add(btnResepObatDepan);
         btnInputPenjualan.setEnabled(var.getpenjualan_obat());
         btnDataPenjualan.setEnabled(var.getpenjualan_obat());
         FlayMenu.setVisible(true);
@@ -7136,23 +7151,69 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_MnGantiPasswordBtnLogActionPerformed
 
     private void MnRegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRegistrasiActionPerformed
-        // TODO add your handling code here:
+         isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        //kasirralan.kamarinap.reg.tampil();
+        kasirralan.kamarinap.reg.emptTeks();
+        kasirralan.kamarinap.reg.isCek();
+        kasirralan.kamarinap.reg.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.kamarinap.reg.setLocationRelativeTo(PanelUtama);
+        kasirralan.kamarinap.reg.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRegistrasiActionPerformed
 
     private void MnIgdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnIgdActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgIGD igd=new DlgIGD(this,false);
+        //igd.tampil();
+        igd.emptTeks();
+        igd.isCek();
+        igd.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        igd.setLocationRelativeTo(PanelUtama);
+        igd.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnIgdActionPerformed
 
     private void MnJadwalDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJadwalDokterActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgJadwal jadwal=new DlgJadwal(this,false);
+        jadwal.emptTeks();
+        jadwal.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        jadwal.setLocationRelativeTo(PanelUtama);
+        jadwal.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnJadwalDokterActionPerformed
 
     private void MnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRujukMasukActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRujukMasuk rujukmasuk=new DlgRujukMasuk(null,false);
+        rujukmasuk.tampil();
+        rujukmasuk.emptTeks();
+        rujukmasuk.isCek();
+        rujukmasuk.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        rujukmasuk.setLocationRelativeTo(PanelUtama);
+        rujukmasuk.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRujukMasukActionPerformed
 
     private void MnRujukKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRujukKeluarActionPerformed
-        // TODO add your handling code here:
+         isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRujuk rujuk=new DlgRujuk(this,false);
+        rujuk.tampil();
+        rujuk.emptTeks();
+        rujuk.isCek();
+        rujuk.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        rujuk.setLocationRelativeTo(PanelUtama);
+        rujuk.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRujukKeluarActionPerformed
 
     private void MnTindakanRalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnTindakanRalanActionPerformed
@@ -7160,99 +7221,319 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_MnTindakanRalanActionPerformed
 
     private void MnKamarInapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKamarInapActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.kamarinap.isCek();
+        kasirralan.kamarinap.emptTeks();
+        //kasirralan.kamarinap.tampil();
+        kasirralan.kamarinap.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.kamarinap.setLocationRelativeTo(PanelUtama);
+        kasirralan.kamarinap.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKamarInapActionPerformed
 
     private void MnDpjpRanapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDpjpRanapActionPerformed
-        // TODO add your handling code here:
+       isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDpjp aplikasi=new DlgDpjp(this,false);
+        aplikasi.isCek();
+        aplikasi.tampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDpjpRanapActionPerformed
 
     private void MnTindakanRanapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnTindakanRanapActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.kamarinap.billing.rawatinap.tampilDr();
+        kasirralan.kamarinap.billing.rawatinap.isCek();
+        kasirralan.kamarinap.billing.rawatinap.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.kamarinap.billing.rawatinap.setLocationRelativeTo(PanelUtama);
+        kasirralan.kamarinap.billing.rawatinap.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnTindakanRanapActionPerformed
 
     private void MnOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnOperasiActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgCariTagihanOperasi produsen=new DlgCariTagihanOperasi(this,false);
+        //produsen.emptTeks();
+        produsen.isCek();
+        produsen.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        produsen.setLocationRelativeTo(PanelUtama);
+        produsen.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnOperasiActionPerformed
 
     private void MnPemberianObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPemberianObatActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.kamarinap.billing.beriobat.tampilPO();
+        kasirralan.kamarinap.billing.beriobat.isCek();
+        kasirralan.kamarinap.billing.beriobat.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.kamarinap.billing.beriobat.setLocationRelativeTo(PanelUtama);
+        kasirralan.kamarinap.billing.beriobat.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPemberianObatActionPerformed
 
     private void MnResepPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnResepPulangActionPerformed
-        // TODO add your handling code here:
+       isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgResepPulang reseppulang=new DlgResepPulang(this,false);
+        reseppulang.tampil();
+        reseppulang.isCek();
+        reseppulang.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        reseppulang.setLocationRelativeTo(PanelUtama);
+        reseppulang.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnResepPulangActionPerformed
 
     private void MnResepObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnResepObatActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgResepObat resep=new DlgResepObat(this,false);
+        resep.tampil();
+        resep.emptTeks();
+        resep.isCek();
+        resep.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        resep.setLocationRelativeTo(PanelUtama);
+        resep.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnResepObatActionPerformed
 
     private void MnDietPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDietPasienActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPemberianDiet diet=new DlgPemberianDiet(this,false);
+        diet.tampil();
+        diet.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        diet.setLocationRelativeTo(PanelUtama);
+        diet.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDietPasienActionPerformed
 
     private void MnPeriksaLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPeriksaLabActionPerformed
-        // TODO add your handling code here:
+       isTutup();
+        DlgCariPeriksaLab produsen=new DlgCariPeriksaLab(this,false);
+        //produsen.emptTeks();
+        produsen.isCek();
+        produsen.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        produsen.setLocationRelativeTo(PanelUtama);
+        produsen.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPeriksaLabActionPerformed
 
     private void MnPeriksaRadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPeriksaRadActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgCariPeriksaRadiologi produsen=new DlgCariPeriksaRadiologi(this,false);
+        //produsen.emptTeks();
+        produsen.isCek();
+        produsen.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        produsen.setLocationRelativeTo(PanelUtama);
+        produsen.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPeriksaRadActionPerformed
 
     private void MnKasirRalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKasirRalanActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.isCek();
+        //kasirralan.tampilkasir();
+        kasirralan.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.setLocationRelativeTo(PanelUtama);
+        kasirralan.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKasirRalanActionPerformed
 
     private void MnDepositPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDepositPasienActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDeposit deposit=new DlgDeposit(this,false);
+        deposit.tampil();
+        deposit.isCek();
+        deposit.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        deposit.setLocationRelativeTo(PanelUtama);
+        deposit.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDepositPasienActionPerformed
 
     private void MnPiutangPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPiutangPasienActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgLhtPiutang billing=new DlgLhtPiutang(this,false);
+        billing.tampil();
+        billing.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        billing.setLocationRelativeTo(PanelUtama);
+        billing.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPiutangPasienActionPerformed
 
     private void MnDataDokterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDataDokterActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.kamarinap.reg.dokter.dokter.emptTeks();
+        kasirralan.kamarinap.reg.dokter.dokter.isCek();
+        kasirralan.kamarinap.reg.dokter.dokter.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.kamarinap.reg.dokter.dokter.setLocationRelativeTo(PanelUtama);
+        kasirralan.kamarinap.reg.dokter.dokter.setAlwaysOnTop(false);
+        kasirralan.kamarinap.reg.dokter.dokter.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDataDokterActionPerformed
 
     private void MnDataPetugasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDataPetugasActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.billing.dlgrwjl.petugas.petugas.emptTeks();
+        kasirralan.billing.dlgrwjl.petugas.petugas.isCek();
+        kasirralan.billing.dlgrwjl.petugas.petugas.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.billing.dlgrwjl.petugas.petugas.setLocationRelativeTo(PanelUtama);
+        kasirralan.billing.dlgrwjl.petugas.petugas.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDataPetugasActionPerformed
 
     private void MnDataPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDataPegawaiActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        try {
+            if(var.getpegawai_admin()==true){
+                penggajian.loadURL("http://" +prop.getProperty("HOST")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere=admin&passwordte=akusayangsamakamu");
+            }else if(var.getpegawai_user()==true){
+                penggajian.loadURL("http://" +prop.getProperty("HOST")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere=paijo&passwordte=mumet");
+            }
+        } catch (Exception ex) {
+            System.out.println("Notifikasi : "+ex);
+        }
+
+        penggajian.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        penggajian.setLocationRelativeTo(PanelUtama);
+        penggajian.setVisible(true);
+
+        /*try {
+            if(var.getpegawai_admin()==true){
+                Valid.panggilUrl("penggajian/login.php?act=login&usere=admin&passwordte=akusayangsamakamu");
+            }else if(var.getpegawai_user()==true){
+                Valid.panggilUrl("penggajian/login.php?act=login&usere=paijo&passwordte=mumet");
+            }
+        } catch (Exception ex) {
+            System.out.println("Notifikasi : "+ex);
+        }  */
+
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDataPegawaiActionPerformed
 
     private void MnBarcodePresensiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBarcodePresensiActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgBarcode barcode=new DlgBarcode(this,false);
+        barcode.tampil();
+        barcode.isCek();
+        barcode.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        barcode.setLocationRelativeTo(PanelUtama);
+        barcode.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnBarcodePresensiActionPerformed
 
     private void MnJamPresensiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJamPresensiActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgJamMasuk jammasuk=new DlgJamMasuk(this,false);
+        jammasuk.isCek();
+        jammasuk.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        jammasuk.setLocationRelativeTo(PanelUtama);
+        jammasuk.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnJamPresensiActionPerformed
 
     private void MnPresensiHarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPresensiHarianActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgHarian harian=new DlgHarian(this,false);
+        harian.tampil();
+        harian.isCek();
+        harian.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        harian.setLocationRelativeTo(PanelUtama);
+        harian.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPresensiHarianActionPerformed
 
     private void MnSidikJariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSidikJariActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgSidikJari sidikjari=new DlgSidikJari(this,false);
+        sidikjari.tampil();
+        sidikjari.isCek();
+        sidikjari.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        sidikjari.setLocationRelativeTo(PanelUtama);
+        sidikjari.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSidikJariActionPerformed
 
     private void MnJadwalPegawaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJadwalPegawaiActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgJadwalTambahan jadwal=new DlgJadwalTambahan(this,false);
+        jadwal.isCek();
+        jadwal.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        jadwal.setLocationRelativeTo(PanelUtama);
+        jadwal.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnJadwalPegawaiActionPerformed
 
     private void MnJdwlTambahanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJdwlTambahanActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgJadwalTambahan jadwal=new DlgJadwalTambahan(this,false);
+        jadwal.isCek();
+        jadwal.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        jadwal.setLocationRelativeTo(PanelUtama);
+        jadwal.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnJdwlTambahanActionPerformed
 
     private void MnPresensiBulananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPresensiBulananActionPerformed
-        // TODO add your handling code here:
+       this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        DlgBulanan bulanan=new DlgBulanan(this,false);
+        bulanan.isCek();
+        bulanan.tampil();
+        bulanan.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        bulanan.setLocationRelativeTo(PanelUtama);
+        bulanan.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPresensiBulananActionPerformed
 
     private void MnTempPresensiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnTempPresensiActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgTemporaryPresensi temporary=new DlgTemporaryPresensi(this,false);
+        temporary.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        temporary.setLocationRelativeTo(PanelUtama);
+        temporary.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnTempPresensiActionPerformed
 
     private void MnRekapKehadiranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapKehadiranActionPerformed
@@ -7260,131 +7541,414 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_MnRekapKehadiranActionPerformed
 
     private void MnPresensiHarian1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPresensiHarian1ActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        try {
+            if(var.getpegawai_admin()==true){
+                penggajian.loadURL("http://" +prop.getProperty("HOST")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere=admin&passwordte=akusayangsamakamu");
+            }else if(var.getpegawai_user()==true){
+                penggajian.loadURL("http://" +prop.getProperty("HOST")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"penggajian/login.php?act=login&usere=paijo&passwordte=mumet");
+            }
+        } catch (Exception ex) {
+            System.out.println("Notifikasi : "+ex);
+        }
+
+        penggajian.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        penggajian.setLocationRelativeTo(PanelUtama);
+        penggajian.setVisible(true);
+
+        /*try {
+            if(var.getpegawai_admin()==true){
+                Valid.panggilUrl("penggajian/login.php?act=login&usere=admin&passwordte=akusayangsamakamu");
+            }else if(var.getpegawai_user()==true){
+                Valid.panggilUrl("penggajian/login.php?act=login&usere=paijo&passwordte=mumet");
+            }
+        } catch (Exception ex) {
+            System.out.println("Notifikasi : "+ex);
+        }  */
+
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPresensiHarian1ActionPerformed
 
     private void MnIndustriFarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnIndustriFarActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgIndustriFarmasi suplier=new DlgIndustriFarmasi(this,false);
+        suplier.isCek();
+        suplier.emptTeks();
+        suplier.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        suplier.setLocationRelativeTo(PanelUtama);
+        suplier.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnIndustriFarActionPerformed
 
     private void MnSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSuplierActionPerformed
-        // TODO add your handling code here:
+       isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgSuplier suplier=new DlgSuplier(this,false);
+        suplier.isCek();
+        suplier.emptTeks();
+        suplier.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        suplier.setLocationRelativeTo(PanelUtama);
+        suplier.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSuplierActionPerformed
 
     private void MnSatuanBrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSatuanBrgActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.billing.dlgobt.barang.satuan.satuan.isCek();
+        kasirralan.billing.dlgobt.barang.satuan.satuan.emptTeks();
+        kasirralan.billing.dlgobt.barang.satuan.satuan.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.billing.dlgobt.barang.satuan.satuan.setLocationRelativeTo(PanelUtama);
+        kasirralan.billing.dlgobt.barang.satuan.satuan.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSatuanBrgActionPerformed
 
     private void MnKonvSatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKonvSatActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgKonversi konversi=new DlgKonversi(this,false);
+        konversi.isCek();
+        konversi.emptTeks();
+        konversi.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        konversi.setLocationRelativeTo(PanelUtama);
+        konversi.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKonvSatActionPerformed
 
     private void MnJnsObtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJnsObtActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.billing.dlgobt.barang.jenis.jenis.isCek();
+        kasirralan.billing.dlgobt.barang.jenis.jenis.emptTeks();
+        kasirralan.billing.dlgobt.barang.jenis.jenis.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.billing.dlgobt.barang.jenis.jenis.setLocationRelativeTo(PanelUtama);
+        kasirralan.billing.dlgobt.barang.jenis.jenis.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnJnsObtActionPerformed
 
     private void MnDataObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDataObatActionPerformed
-        // TODO add your handling code here:
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        isTutup();
+        kasirralan.billing.dlgobt.barang.emptTeks();
+        kasirralan.billing.dlgobt.barang.isCek();
+        kasirralan.billing.dlgobt.barang.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.billing.dlgobt.barang.setLocationRelativeTo(PanelUtama);
+        kasirralan.billing.dlgobt.barang.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDataObatActionPerformed
 
     private void MnStokOpnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnStokOpnameActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgInputStok opname=new DlgInputStok(this,false);
+        opname.tampil();
+        opname.isCek();
+        opname.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        opname.setLocationRelativeTo(PanelUtama);
+        opname.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnStokOpnameActionPerformed
 
     private void MnMutasiObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnMutasiObatActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgMutasiBarang aplikasi=new DlgMutasiBarang(this,false);
+        aplikasi.isCek();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnMutasiObatActionPerformed
 
     private void MnStokObtPxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnStokObtPxActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgStokPasien opname=new DlgStokPasien(this,false);
+        opname.isCek();
+        opname.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        opname.setLocationRelativeTo(PanelUtama);
+        opname.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnStokObtPxActionPerformed
 
     private void MnPengadaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPengadaanActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPembelian pembelian=new DlgPembelian(this,false);
+        pembelian.isCek();
+        pembelian.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        pembelian.setLocationRelativeTo(PanelUtama);
+        pembelian.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPengadaanActionPerformed
 
     private void MnPemesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPemesananActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPemesanan pembelian=new DlgPemesanan(this,false);
+        pembelian.isCek();
+        pembelian.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        pembelian.setLocationRelativeTo(PanelUtama);
+        pembelian.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPemesananActionPerformed
 
     private void MnPenjualanObtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPenjualanObtActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPenjualan penjualan=new DlgPenjualan(this,false);
+        penjualan.isCek();
+        penjualan.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        penjualan.setLocationRelativeTo(PanelUtama);
+        penjualan.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPenjualanObtActionPerformed
 
     private void MnStokOpname1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnStokOpname1ActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPiutang piutang=new DlgPiutang(this,false);
+        piutang.emptTeks();
+        piutang.isCek();
+        piutang.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        piutang.setLocationRelativeTo(PanelUtama);
+        piutang.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnStokOpname1ActionPerformed
 
     private void MnReturKeSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReturKeSupActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgReturBeli returbeli=new DlgReturBeli(this,false);
+        returbeli.isCek();
+        returbeli.emptTeks();
+        returbeli.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        returbeli.setLocationRelativeTo(PanelUtama);
+        returbeli.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnReturKeSupActionPerformed
 
     private void MnReturPembActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReturPembActionPerformed
-        // TODO add your handling code here:
+        var.setform("DlgReturJual");
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgReturJual returjual=new DlgReturJual(this,false);
+        returjual.emptTeks();
+        returjual.isCek();
+        returjual.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        returjual.setLocationRelativeTo(PanelUtama);
+        returjual.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnReturPembActionPerformed
 
     private void MnReturObtRanapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReturObtRanapActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgReturObatPasien returpasien=new DlgReturObatPasien(this,false);
+        returpasien.isCek();
+        returpasien.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        returpasien.setLocationRelativeTo(PanelUtama);
+        returpasien.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnReturObtRanapActionPerformed
 
     private void MnReturPiutangPembActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnReturPiutangPembActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgReturPiutang returpiutang=new DlgReturPiutang(this,false);
+        returpiutang.isCek();
+        returpiutang.emptTeks();
+        returpiutang.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        returpiutang.setLocationRelativeTo(PanelUtama);
+        returpiutang.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnReturPiutangPembActionPerformed
 
     private void MnKeuntunganPenjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKeuntunganPenjActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgProyeksiJual projul=new DlgProyeksiJual(this,false);
+        projul.isCek();
+        projul.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        projul.setLocationRelativeTo(PanelUtama);
+        projul.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKeuntunganPenjActionPerformed
 
     private void MnKeuntBeriObtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKeuntBeriObtActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgProyeksiBeriObat projul=new DlgProyeksiBeriObat(this,false);
+        projul.isCek();
+        projul.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        projul.setLocationRelativeTo(PanelUtama);
+        projul.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKeuntBeriObtActionPerformed
 
     private void MnSirkulasiObtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSirkulasiObtActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgSirkulasiBarang sirkulasi=new DlgSirkulasiBarang(this,false);
+        sirkulasi.isCek();
+        sirkulasi.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        sirkulasi.setLocationRelativeTo(PanelUtama);
+        sirkulasi.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSirkulasiObtActionPerformed
 
     private void MnRiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRiwayatActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRiwayatBarangMedis sirkulasi=new DlgRiwayatBarangMedis(this,false);
+        sirkulasi.isCek();
+        sirkulasi.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        sirkulasi.setLocationRelativeTo(PanelUtama);
+        sirkulasi.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRiwayatActionPerformed
 
     private void MnDaruratStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDaruratStokActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgDaruratStok aplikasi=new DlgDaruratStok(this,false);
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDaruratStokActionPerformed
 
     private void MnSatuanBrgNonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSatuanBrgNonActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        kasirralan.billing.dlgobt.barang.satuan.satuan.isCek();
+        kasirralan.billing.dlgobt.barang.satuan.satuan.emptTeks();
+        kasirralan.billing.dlgobt.barang.satuan.satuan.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        kasirralan.billing.dlgobt.barang.satuan.satuan.setLocationRelativeTo(PanelUtama);
+        kasirralan.billing.dlgobt.barang.satuan.satuan.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSatuanBrgNonActionPerformed
 
     private void MnJnsBrgNonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnJnsBrgNonActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgJenisIPSRS aplikasi=new DlgJenisIPSRS(this,false);
+        aplikasi.isCek();
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnJnsBrgNonActionPerformed
 
     private void MnDataBrgNonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDataBrgNonActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgBarangIPSRS ipsrs=new DlgBarangIPSRS(this,false);
+        ipsrs.emptTeks();
+        ipsrs.onCari();
+        ipsrs.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        ipsrs.setLocationRelativeTo(PanelUtama);
+        ipsrs.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDataBrgNonActionPerformed
 
     private void MnSupNonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSupNonActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgSuplierIPSRS suplier=new DlgSuplierIPSRS(this,false);
+        suplier.isCek();
+        suplier.emptTeks();
+        suplier.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        suplier.setLocationRelativeTo(PanelUtama);
+        suplier.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSupNonActionPerformed
 
     private void MnPengadaanbrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPengadaanbrgActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPembelianIPSRS pembelian=new DlgPembelianIPSRS(this,false);
+        pembelian.isCek();
+        pembelian.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        pembelian.setLocationRelativeTo(PanelUtama);
+        pembelian.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPengadaanbrgActionPerformed
 
     private void MnStokKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnStokKeluarActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPengeluaranIPSRS pengeluaran=new DlgPengeluaranIPSRS(this,false);
+        pengeluaran.isCek();
+        pengeluaran.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        pengeluaran.setLocationRelativeTo(PanelUtama);
+        pengeluaran.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnStokKeluarActionPerformed
 
     private void MnBiayaPengadaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBiayaPengadaanActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRBiayaHarianIPSRS rhkeluaripsrs=new DlgRBiayaHarianIPSRS(this,false);
+        rhkeluaripsrs.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        rhkeluaripsrs.setLocationRelativeTo(PanelUtama);
+        rhkeluaripsrs.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnBiayaPengadaanActionPerformed
 
     private void MnRekapPengadaanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapPengadaanActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRHPembelianIPSRS rhipsrs=new DlgRHPembelianIPSRS(this,false);
+        rhipsrs.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        rhipsrs.setLocationRelativeTo(PanelUtama);
+        rhipsrs.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRekapPengadaanActionPerformed
 
     private void MnRekapStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRekapStokActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgRHPengeluaranIPSRS rhkeluaripsrs=new DlgRHPengeluaranIPSRS(this,false);
+        rhkeluaripsrs.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        rhkeluaripsrs.setLocationRelativeTo(PanelUtama);
+        rhkeluaripsrs.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRekapStokActionPerformed
 
     private void MnHrDokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnHrDokActionPerformed
@@ -7668,55 +8232,146 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_MnKeuActionPerformed
 
     private void MnCekNoBpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCekNoBpjsActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekKartu form=new BPJSCekKartu(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnCekNoBpjsActionPerformed
 
     private void MnCekNikBpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCekNikBpjsActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekNIK2 form=new BPJSCekNIK2(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnCekNikBpjsActionPerformed
 
     private void MnRiwPesBpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRiwPesBpjsActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekRiwayatRujukanPCare form=new BPJSCekRiwayatRujukanPCare(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRiwPesBpjsActionPerformed
 
     private void MnCekNoRujPCareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCekNoRujPCareActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekNoRujukanPCare form=new BPJSCekNoRujukanPCare(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnCekNoRujPCareActionPerformed
 
     private void MnRefDiagBpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRefDiagBpjsActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekReferensiPenyakit form=new BPJSCekReferensiPenyakit(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRefDiagBpjsActionPerformed
 
     private void MnRefPlBpjsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRefPlBpjsActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekReferensiPoli form=new BPJSCekReferensiPoli(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRefPlBpjsActionPerformed
 
     private void MnRefFaskesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRefFaskesActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekReferensiFaskes form=new BPJSCekReferensiFaskes(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRefFaskesActionPerformed
 
     private void MnBridgingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBridgingActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSDataSEP form=new BPJSDataSEP(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnBridgingActionPerformed
 
     private void MnMonitoringKlaimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnMonitoringKlaimActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSMonitoringKlaim form=new BPJSMonitoringKlaim(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnMonitoringKlaimActionPerformed
 
     private void MnRefKmrAplicareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRefKmrAplicareActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        AplicareCekReferensiKamar form=new AplicareCekReferensiKamar(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRefKmrAplicareActionPerformed
 
     private void MnKmrAplicareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKmrAplicareActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        AplicareKetersediaanKamar form=new AplicareKetersediaanKamar(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKmrAplicareActionPerformed
 
     private void MnRefMblJknActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRefMblJknActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        MobileJKNReferensiPendaftaran form=new MobileJKNReferensiPendaftaran(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRefMblJknActionPerformed
 
     private void MnBtlMblJknActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnBtlMblJknActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        MobileJKNPembatalanPendaftaran form=new MobileJKNPembatalanPendaftaran(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnBtlMblJknActionPerformed
 
     private void MnPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPasienActionPerformed
@@ -7732,23 +8387,82 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_MnPasienActionPerformed
 
     private void MnKelahiranBayiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKelahiranBayiActionPerformed
-        // TODO add your handling code here:
+       isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgIKBBayi lahir=new DlgIKBBayi(this,false);
+        lahir.tampil();
+        lahir.isCek();
+        lahir.emptTeks();
+        lahir.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        lahir.setLocationRelativeTo(PanelUtama);
+        lahir.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        AplicareCekReferensiKamar form=new AplicareCekReferensiKamar(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnKelahiranBayiActionPerformed
 
     private void MnPasienMeninggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnPasienMeninggalActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgPasienMati pasienmati=new DlgPasienMati(this,false);
+        pasienmati.emptTeks();
+        pasienmati.isCek();
+        pasienmati.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        pasienmati.setLocationRelativeTo(PanelUtama);
+        pasienmati.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnPasienMeninggalActionPerformed
 
     private void MnDiagnosaPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnDiagnosaPasienActionPerformed
-        // TODO add your handling code here:
+       isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgHutangObatBelumLunas form=new DlgHutangObatBelumLunas(this,false);
+        form.tampil();
+        form.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnDiagnosaPasienActionPerformed
 
     private void MnRiwayatPerawatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRiwayatPerawatanActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgResumePerawatan resume=new DlgResumePerawatan(this,false);
+        resume.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        resume.setLocationRelativeTo(PanelUtama);
+        resume.setVisible(true);
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRiwayatPerawatanActionPerformed
 
     private void MnRetBrksRmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRetBrksRmActionPerformed
-        // TODO add your handling code here:
+        isTutup();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        try {
+            retensi.loadURL("http://" +prop.getProperty("HOST")+"/"+prop.getProperty("HYBRIDWEB")+"/"+"medrec/login.php?act=login&usere=admin&passwordte=akusayangsamakamu");
+        } catch (Exception ex) {
+            System.out.println("Notifikasi : "+ex);
+        }
+
+        retensi.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        retensi.setLocationRelativeTo(PanelUtama);
+        retensi.setVisible(true);
+
+        /*try {
+            Valid.panggilUrl("medrec/login.php?act=login&usere=admin&passwordte=akusayangsamakamu");
+        } catch (Exception ex) {
+            System.out.println("Notifikasi : "+ex);
+        }  */
+
+        DlgHome.dispose();
+        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnRetBrksRmActionPerformed
 
     private void MnSetLambtPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSetLambtPresActionPerformed
@@ -7833,6 +8547,11 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         admin.setLocationRelativeTo(PanelUtama);
         admin.setVisible(true);
         DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSDataSEP form=new BPJSDataSEP(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_MnSetAdminActionPerformed
 
@@ -7850,7 +8569,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnBatalPendaftaranMobileJKNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalPendaftaranMobileJKNActionPerformed
         isTutup();
-        DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         MobileJKNPembatalanPendaftaran form=new MobileJKNPembatalanPendaftaran(this,false);
         form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
@@ -7859,16 +8577,17 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnBatalPendaftaranMobileJKNActionPerformed
 
-    private void btnReferensiPendaftaranMobileJKNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReferensiPendaftaranMobileJKNActionPerformed
+    private void btnReferensiPendaftaranMobileJKNActionPerformed(java.awt.event.ActionEvent evt) {
         isTutup();
-        DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        MobileJKNReferensiPendaftaran form=new MobileJKNReferensiPendaftaran(this,false);
-        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-        form.setLocationRelativeTo(PanelUtama);
-        form.setVisible(true);
+        DlgRBPaketBHP rbpaketbhp=new DlgRBPaketBHP(this,false);
+        rbpaketbhp.isCek();
+        rbpaketbhp.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
+        rbpaketbhp.setLocationRelativeTo(PanelUtama);
+        rbpaketbhp.setVisible(true);
+        DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
-    }//GEN-LAST:event_btnReferensiPendaftaranMobileJKNActionPerformed
+    }
 
     private void btnBerkasDigitalPerawatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBerkasDigitalPerawatanActionPerformed
         isTutup();
@@ -7921,6 +8640,11 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         daftar.setLocationRelativeTo(PanelUtama);
         daftar.setVisible(true);
         DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        BPJSCekReferensiPenyakit form=new BPJSCekReferensiPenyakit(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnDaftarPermintaanResepActionPerformed
 
@@ -8038,6 +8762,12 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         sirkulasi.setLocationRelativeTo(PanelUtama);
         sirkulasi.setVisible(true);
         DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgKunjunganRanap aplikasi=new DlgKunjunganRanap(this,false);
+        aplikasi.tampil();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRiwayatBarangMedisActionPerformed
 
@@ -8198,7 +8928,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_btnRHJasaSaranaActionPerformed
 
     private void btnIndustriFarmasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIndustriFarmasiActionPerformed
-
         isTutup();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgIndustriFarmasi suplier=new DlgIndustriFarmasi(this,false);
@@ -8290,7 +9019,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         DlgHome.dispose();
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRetensiRMActionPerformed
-
+    
     private void btnDaruratStokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDaruratStokActionPerformed
         isTutup();
         DlgHome.dispose();
@@ -8304,7 +9033,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnICD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnICD9ActionPerformed
         isTutup();
-        DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgICD9 aplikasi=new DlgICD9(this,false);
         aplikasi.emptTeks();
@@ -8316,7 +9044,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnCekBPJSNomorRujukanPCareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCekBPJSNomorRujukanPCareActionPerformed
         isTutup();
-        DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         BPJSCekNoRujukanPCare form=new BPJSCekNoRujukanPCare(this,false);
         form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
@@ -8357,6 +9084,12 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         rbpoli.setLocationRelativeTo(PanelUtama);
         rbpoli.setVisible(true);
         DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        DlgSetNota aplikasi=new DlgSetNota(this,false);
+        aplikasi.emptTeks();
+        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        aplikasi.setLocationRelativeTo(PanelUtama);
+        aplikasi.setVisible(true);
         this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnObatPerCaraBayarActionPerformed
 
@@ -8474,7 +9207,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnPemasukanLainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPemasukanLainActionPerformed
         isTutup();
-        DlgHome.dispose();
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         DlgPemasukanLain aplikasi=new DlgPemasukanLain(this,false);
         aplikasi.isCek();
@@ -8593,16 +9325,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_btnMutasiBarangActionPerformed
 
     private void BtnDpjpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDpjpActionPerformed
-        isTutup();
-        DlgHome.dispose();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgDpjp aplikasi=new DlgDpjp(this,false);
-        aplikasi.isCek();
-        aplikasi.tampil();
-        aplikasi.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-        aplikasi.setLocationRelativeTo(PanelUtama);
-        aplikasi.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_BtnDpjpActionPerformed
 
     private void btnSetupNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetupNotaActionPerformed
@@ -8678,14 +9401,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     }//GEN-LAST:event_btnKunjunganRalanActionPerformed
 
     private void btnDiagnosaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiagnosaActionPerformed
-        isTutup();
-        DlgHome.dispose();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        //kasirralan.kamarinap.diagnosa.tampil();
-        kasirralan.kamarinap.diagnosa.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
-        kasirralan.kamarinap.diagnosa.setLocationRelativeTo(PanelUtama);
-        kasirralan.kamarinap.diagnosa.setVisible(true);
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnDiagnosaActionPerformed
 
     private void btnSetObatRanapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetObatRanapActionPerformed
@@ -8958,16 +9674,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnResepPulangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResepPulangActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgResepPulang reseppulang=new DlgResepPulang(this,false);
-        reseppulang.tampil();
-        reseppulang.isCek();
-        reseppulang.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        reseppulang.setLocationRelativeTo(PanelUtama);
-        reseppulang.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnResepPulangActionPerformed
 
     private void btnSetupRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetupRMActionPerformed
@@ -9189,17 +9896,6 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnRujukMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRujukMasukActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgRujukMasuk rujukmasuk=new DlgRujukMasuk(null,false);
-        rujukmasuk.tampil();
-        rujukmasuk.emptTeks();
-        rujukmasuk.isCek();
-        rujukmasuk.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        rujukmasuk.setLocationRelativeTo(PanelUtama);
-        rujukmasuk.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnRujukMasukActionPerformed
 
     private void btnTagihanPoliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTagihanPoliActionPerformed
@@ -9228,27 +9924,12 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void BtnJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnJadwalActionPerformed
 
-        isTutup();
-        DlgJadwal jadwal=new DlgJadwal(this,false);
-        jadwal.emptTeks();
-        jadwal.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        jadwal.setLocationRelativeTo(PanelUtama);
-        jadwal.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_BtnJadwalActionPerformed
 
     private void btnTagihanOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTagihanOperasiActionPerformed
 
-        isTutup();
-        DlgCariTagihanOperasi produsen=new DlgCariTagihanOperasi(this,false);
-        //produsen.emptTeks();
-        produsen.isCek();
-        produsen.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        produsen.setLocationRelativeTo(PanelUtama);
-        produsen.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnTagihanOperasiActionPerformed
 
     private void btnPaketOperasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaketOperasiActionPerformed
@@ -9372,17 +10053,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnLahirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLahirActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgIKBBayi lahir=new DlgIKBBayi(this,false);
-        lahir.tampil();
-        lahir.isCek();
-        lahir.emptTeks();
-        lahir.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        lahir.setLocationRelativeTo(PanelUtama);
-        lahir.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnLahirActionPerformed
 
     private void btnKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKasirActionPerformed
@@ -9426,27 +10097,11 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnDietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDietActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgPemberianDiet diet=new DlgPemberianDiet(this,false);
-        diet.tampil();
-        diet.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        diet.setLocationRelativeTo(PanelUtama);
-        diet.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnDietActionPerformed
 
     private void btnResumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResumeActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgResumePerawatan resume=new DlgResumePerawatan(this,false);
-        resume.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        resume.setLocationRelativeTo(PanelUtama);
-        resume.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnResumeActionPerformed
 
     private void btnTagihanMasukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTagihanMasukActionPerformed
@@ -9489,14 +10144,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnAnalisaKamarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnalisaKamarActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        InformasiAnalisaKamin analisakamin=new InformasiAnalisaKamin(this,false);
-        analisakamin.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        analisakamin.setLocationRelativeTo(PanelUtama);
-        analisakamin.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnAnalisaKamarActionPerformed
 
     private void btnReturPiutangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturPiutangActionPerformed
@@ -9828,81 +10476,26 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
 
     private void btnPasienMatiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPasienMatiActionPerformed
 
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgPasienMati pasienmati=new DlgPasienMati(this,false);
-        pasienmati.emptTeks();
-        pasienmati.isCek();
-        pasienmati.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        pasienmati.setLocationRelativeTo(PanelUtama);
-        pasienmati.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_btnPasienMatiActionPerformed
 
     private void btnBeriObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeriObatActionPerformed
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        kasirralan.kamarinap.billing.beriobat.tampilPO();
-        kasirralan.kamarinap.billing.beriobat.isCek();
-        kasirralan.kamarinap.billing.beriobat.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        kasirralan.kamarinap.billing.beriobat.setLocationRelativeTo(PanelUtama);
-        kasirralan.kamarinap.billing.beriobat.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnBeriObatActionPerformed
 
     private void btnRujukPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRujukPasienActionPerformed
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgRujuk rujuk=new DlgRujuk(this,false);
-        rujuk.tampil();
-        rujuk.emptTeks();
-        rujuk.isCek();
-        rujuk.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        rujuk.setLocationRelativeTo(PanelUtama);
-        rujuk.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnRujukPasienActionPerformed
 
     private void btnResepObatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResepObatActionPerformed
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        DlgResepObat resep=new DlgResepObat(this,false);
-        resep.tampil();
-        resep.emptTeks();
-        resep.isCek();
-        resep.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        resep.setLocationRelativeTo(PanelUtama);
-        resep.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnResepObatActionPerformed
 
     private void btnRanapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRanapActionPerformed
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        kasirralan.kamarinap.billing.rawatinap.tampilDr();
-        kasirralan.kamarinap.billing.rawatinap.isCek();
-        kasirralan.kamarinap.billing.rawatinap.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        kasirralan.kamarinap.billing.rawatinap.setLocationRelativeTo(PanelUtama);
-        kasirralan.kamarinap.billing.rawatinap.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnRanapActionPerformed
 
     private void btnKamarInapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKamarInapActionPerformed
-        isTutup();
-        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        kasirralan.kamarinap.isCek();
-        kasirralan.kamarinap.emptTeks();
-        //kasirralan.kamarinap.tampil();
-        kasirralan.kamarinap.setSize(PanelUtama.getWidth(),PanelUtama.getHeight());
-        kasirralan.kamarinap.setLocationRelativeTo(PanelUtama);
-        kasirralan.kamarinap.setVisible(true);
-        DlgHome.dispose();
-        this.setCursor(Cursor.getDefaultCursor());
+
     }//GEN-LAST:event_btnKamarInapActionPerformed
 
     private void btnRalanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRalanActionPerformed
@@ -10055,6 +10648,26 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
         DlgHome.dispose();
     }//GEN-LAST:event_button1ActionPerformed
 
+    private void MnKmrSiranapCovidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnKmrSiranapCovidActionPerformed
+        isTutup();
+        DlgHome.dispose();
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        SiranapKetersediaanKamarC19 form=new SiranapKetersediaanKamarC19(this,false);
+        form.setSize(PanelUtama.getWidth(), PanelUtama.getHeight());
+        form.setLocationRelativeTo(PanelUtama);
+        form.setVisible(true);
+        this.setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_MnKmrSiranapCovidActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        isTutup();
+        DlgHome.dispose();
+        DlgAbout About=new DlgAbout(this,true);
+        About.setSize(PanelWall.getWidth(), PanelWall.getHeight());
+        About.setLocationRelativeTo(PanelWall);  
+        About.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -10174,6 +10787,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
     private javax.swing.JMenuItem MnKeuntBeriObt;
     private javax.swing.JMenuItem MnKeuntunganPenj;
     private javax.swing.JMenuItem MnKmrAplicare;
+    private javax.swing.JMenuItem MnKmrSiranapCovid;
     private javax.swing.JMenuItem MnKonvSat;
     private javax.swing.JMenuItem MnLapDepositPx;
     private javax.swing.JMenuItem MnLapIcd10;
@@ -10635,7 +11249,7 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
                 Panelmenu.add(btnPegawai);
                 jmlmenu++;
             }
-            
+
             if(var.getbarcode()==true){
                 Panelmenu.add(btnBarcode);
                 jmlmenu++;
@@ -11257,12 +11871,12 @@ private void BtnSimpanPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:e
                 Panelmenu.add(btnReferensiPendaftaranMobileJKN);
                 jmlmenu++;
             }
-            
+
             if(var.getaplicare_ketersediaan_kamar()==true){
                 Panelmenu.add(btnBatalPendaftaranMobileJKN);
                 jmlmenu++;
             }
-            
+
         }else if(cmbMenu.getSelectedIndex()==8){
             jmlmenu=0;
             if(var.getpasien()==true){

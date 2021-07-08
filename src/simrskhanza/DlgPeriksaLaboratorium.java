@@ -11,6 +11,7 @@
 
 package simrskhanza;
 
+import com.google.zxing.WriterException;
 import keuangan.DlgJnsPerawatanLab;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
@@ -26,13 +27,18 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -1041,7 +1047,12 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
 }//GEN-LAST:event_BtnBatalKeyPressed
 
     private void BtnPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPrintActionPerformed
-       this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        Properties systemProp = System.getProperties();
+        String currentDir = systemProp.getProperty("user.dir");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+        Date date = new Date();
+        
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         jml=0;
         for(i=0;i<tbTarif.getRowCount();i++){
             if(tbTarif.getValueAt(i,0).toString().equals("true")){
@@ -1073,6 +1084,14 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
         }else if(jml==0){
             Valid.textKosong(Pemeriksaan,"Data Pemeriksaan");
         }else{
+
+            try {            
+                Valid.generateQRCodeImage("Tanggal: " + dateFormat.format(date) + "; Nama Petugas: " + NmPtg.getText(), 350, 350, "qrimage.png");
+            } catch (WriterException ex) {
+                Logger.getLogger(DlgCariPeriksaLab.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(DlgCariPeriksaLab.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             Sequel.queryu("delete from temporary_lab");
             for(i=0;i<tbPemeriksaan.getRowCount();i++){ 
@@ -1112,6 +1131,7 @@ public final class DlgPeriksaLaboratorium extends javax.swing.JDialog {
             param.put("kontakrs",var.getkontakrs());
             param.put("emailrs",var.getemailrs());   
             param.put("logo",Sequel.cariGambar("select logo from setting")); 
+            param.put("qrcode",currentDir + "/qrimage.png"); 
             
             pilihan = (String)JOptionPane.showInputDialog(null,"Silahkan pilih hasil pemeriksaan..!","Hasil Pemeriksaan",JOptionPane.QUESTION_MESSAGE,null,new Object[]{"Model 1","Model 2", "Model 3", "Model 4", "Model 5", "Model 6", "Model 7", "Model 8", "Model 9", "Model 10", "Model 11"},"Model 1");
             switch (pilihan) {

@@ -36,12 +36,10 @@ public class SIMRSKhanza {
                 } else {
                     if(koneksiDB.condb() == null){
                         //new DlgSetKoneksi();     
-                        String[] run = {"java","-jar","SetKoneksiServer.jar"};
-                        try {
-                            Runtime.getRuntime().exec(run);
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }                        
+                        WidgetUtilities.invokeLater(() -> {
+                           DlgSetKoneksi utama=new DlgSetKoneksi();
+                           utama.setVisible(true);
+                        });                             
                     } else {
                         WidgetUtilities.invokeLater(() -> {
                            splash utama=new splash();

@@ -1,4 +1,5 @@
 package simrskhanza;
+import com.google.zxing.WriterException;
 import keuangan.Jurnal;
 import fungsi.WarnaTable;
 import fungsi.batasInput;
@@ -17,12 +18,19 @@ import java.awt.event.WindowListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
@@ -1316,6 +1324,11 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
 }//GEN-LAST:event_tbDokterKeyPressed
 
     private void MnCetakHasilLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCetakHasilLabActionPerformed
+        Properties systemProp = System.getProperties();
+        String currentDir = systemProp.getProperty("user.dir");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+        Date date = new Date();
+
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         if(tabMode.getRowCount()==0){
             JOptionPane.showMessageDialog(null,"Maaf, data sudah habis...!!!!");
@@ -1337,7 +1350,15 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     ps4.setString(3,tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString());
                     rs=ps4.executeQuery();
                     while(rs.next()){
-                        
+
+                        try {            
+                            Valid.generateQRCodeImage("Tanggal: " + dateFormat.format(date) + "; Nama Petugas: " + rs.getString("nama"), 350, 350, "qrimage.png");
+                        } catch (WriterException ex) {
+                            Logger.getLogger(DlgCariPeriksaLab.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (IOException ex) {
+                            Logger.getLogger(DlgCariPeriksaLab.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    
                         kamar=Sequel.cariIsi("select ifnull(kd_kamar,'') from kamar_inap where no_rawat='"+rs.getString("no_rawat")+"' order by tgl_masuk desc limit 1");
                         if(!kamar.equals("")){
                             namakamar=kamar+", "+Sequel.cariIsi("select nm_bangsal from bangsal inner join kamar on bangsal.kd_bangsal=kamar.kd_bangsal "+
@@ -1362,7 +1383,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("alamat",rs.getString("alamat"));
                         param.put("kamar",kamar);
                         param.put("namakamar",namakamar);
-
+                        
                         Sequel.queryu("delete from temporary_lab");
 
                         ps2=koneksi.prepareStatement(
@@ -1420,6 +1441,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                         param.put("kontakrs",var.getkontakrs());
                         param.put("emailrs",var.getemailrs());   
                         param.put("logo",Sequel.cariGambar("select logo from setting")); 
+                        param.put("qrcode",currentDir + "/qrimage.png"); 
                         Valid.MyReport("rptPeriksaLab.jrxml","report","::[ Pemeriksaan Laboratorium ]::",
                                        "select no, temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10, temp11, temp12, temp13, temp14, temp14, temp15, temp16 from temporary_lab order by no asc",param);            
                     }
