@@ -35,7 +35,6 @@ public class SIMRSKhanza {
                     new UpdateInfo(Update.getWhatsNew());
                 } else {
                     if(koneksiDB.condb() == null){
-                        //new DlgSetKoneksi();     
                         WidgetUtilities.invokeLater(() -> {
                            DlgSetKoneksi utama=new DlgSetKoneksi();
                            utama.setVisible(true);
@@ -52,17 +51,10 @@ public class SIMRSKhanza {
             }
         } else {
             if(koneksiDB.condb() == null){
-                //new DlgSetKoneksi();
                 WidgetUtilities.invokeLater(() -> {
                    DlgSetKoneksi utama=new DlgSetKoneksi();
                    utama.setVisible(true);
                 });                             
-                //String[] run = {"java","-jar","SetKoneksiServer.jar"};
-                //try {
-                //    Runtime.getRuntime().exec(run);
-                //} catch (Exception ex) {
-                //    ex.printStackTrace();
-                //}                        
             } else {
                 WidgetUtilities.invokeLater(() -> {
                    splash utama=new splash();
